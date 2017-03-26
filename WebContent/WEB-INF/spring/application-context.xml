@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:tx="http://www.springframework.org/schema/tx"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:mvc="http://www.springframework.org/schema/mvc"
+  xsi:schemaLocation="http://www.springframework.org/schema/mvc 
+    http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+    http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-3.2.xsd">
+                          
+    
+    <!-- Aviso ao Spring que há exceções -->
+	<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+	    <property name="defaultErrorView" value="error/unknown"/>
+	</bean>
+
+
+	<!-- Define pagina inicial (ingnora a configuração do web.xml)-->
+	<mvc:resources mapping="/resources/**" location="/WEB-INF/resources/" />
+
+	<!-- Mensagens de erro -->
+	<bean id="messageSource" class=
+	  "org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	  <property name="basename" value="/WEB-INF/mensagens" />
+	</bean>
+	
+	<!-- AJAX -->
+	<mvc:default-servlet-handler/>
+	
+	<!-- Diz ao Spring que ele deve usar a configuração das annotations -->
+	<mvc:annotation-driven />
+	
+	<!-- Define onde está localizada as views da aplicação, e qual a extenção das mesmas -->
+	<!--
+	 Estão configuradas dentro da WEB-INF para que o usuário não possa acessalas, se 
+	 não por meio do mapeamento
+	 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+
+
+
+
+
+
+
+<!--=================================
+|									|
+|		DataBase Information		|
+|									|
+==================================-->
+
+<!-- - - - - - - - -
+********************
+		JPA			
+********************
+ - - - - - - - - -->
+ 
+<bean id="entityManagerFactory" 
+    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+  <property name="jpaVendorAdapter">
+    <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+  </property>
+</bean>
+
+<!-- gerenciamento da transação pelo spring -->
+<bean id="transactionManager" 
+        class="org.springframework.orm.jpa.JpaTransactionManager">
+  <property name="entityManagerFactory" ref="entityManagerFactory"/>
+</bean>  
+
+
+<!-- - - - - - - - -
+********************
+	DATA SOURCE		
+********************
+ - - - - - - - - -->
+
+<bean id="AcessoDao"		class="br.com.monster.portal.jpaModelDao.JpaAcessoDao"></bean>
+<bean id="AvaliacaoDao"		class="br.com.monster.portal.jpaModelDao.JpaAvaliacaoDao"></bean>
+<bean id="BannerDao"		class="br.com.monster.portal.jpaModelDao.JpaBannerDao"></bean>
+<bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
+<bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
+<bean id="ClienteDao"		class="br.com.monster.portal.jpaModelDao.JpaClienteDao"></bean>
+<bean id="FornecedorDao"	class="br.com.monster.portal.jpaModelDao.JpaFornecedorDao"></bean>
+<bean id="FuncionarioDao"	class="br.com.monster.portal.jpaModelDao.JpaFuncionarioDao"></bean>
+<bean id="ImagemDao"		class="br.com.monster.portal.jpaModelDao.JpaImagemDao"></bean>
+<bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
+<bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>
+<bean id="RelatoriosDao"	class="br.com.monster.portal.jpaModelDao.JpaRelatoriosDao"></bean>
+
+<bean id="Acao"			class="br.com.monster.portal.model.Acao"></bean>
+<bean id="Acesso"		class="br.com.monster.portal.model.Acesso"></bean>
+<bean id="Avaliacao"	class="br.com.monster.portal.model.Avaliacao"></bean>
+<bean id="Banner"		class="br.com.monster.portal.model.Banner"></bean>
+<bean id="Campanha"		class="br.com.monster.portal.model.Campanha"></bean>
+<bean id="Cargo"		class="br.com.monster.portal.model.Cargo"></bean>
+<bean id="Categoria"	class="br.com.monster.portal.model.Categoria"></bean>
+<bean id="Cliente"		class="br.com.monster.portal.model.Cliente"></bean>
+<bean id="Forma_pagamento"			class="br.com.monster.portal.model.Forma_pagamento"></bean>
+<bean id="Fornecedor"	class="br.com.monster.portal.model.Fornecedor"></bean>
+<bean id="Funcionario"	class="br.com.monster.portal.model.Funcionario"></bean>
+<bean id="Imagem"		class="br.com.monster.portal.model.Imagem"></bean>
+<bean id="Mailing"		class="br.com.monster.portal.model.Mailing"></bean>
+<bean id="Mensagem"		class="br.com.monster.portal.model.Mensagem"></bean>
+<bean id="Parcela"		class="br.com.monster.portal.model.Parcela"></bean>
+<bean id="Pedido_has_produto"		class="br.com.monster.portal.model.Pedido_has_produto"></bean>
+<bean id="Pedido"		class="br.com.monster.portal.model.Pedido"></bean>
+<bean id="Permissoes"	class="br.com.monster.portal.model.Permissoes"></bean>
+<bean id="Processos"	class="br.com.monster.portal.model.Processos"></bean>
+<bean id="Produto_has_fornecedor"	class="br.com.monster.portal.model.Produto_has_fornecedor"></bean>
+<bean id="Produto"		class="br.com.monster.portal.model.Produto"></bean>
+<bean id="Relatorios"	class="br.com.monster.portal.model.Relatorios"></bean>
+<bean id="Status_parcela"	class="br.com.monster.portal.model.Status_parcela"></bean>
+
+
+
+<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="org.postgresql.Driver"/>
+    <property name="url" value="jdbc:postgresql://localhost:5432/projeto"/>
+    <property name="username" value="postgres"/>
+    <property name="password" value="root"/>
+</bean>
+
+
+
+	<!-- Informa o pacote onde o Spring ira buscar as classes anotadas (@Controller, @Service...)  -->
+	<context:component-scan base-package="br.com.monster.portal.adm.controller" />
+	<context:component-scan base-package="br.com.monster.portal.loja.controller" />
+
+
+
+
+
+
+<!-- Login -->
+<mvc:interceptors>
+    <bean class="br.com.monster.portal.auth.AutorizadorInterceptor" />
+</mvc:interceptors>
+
+
+
+
+
+<!-- - - - - - - - -
+********************
+		OUTROS	
+********************
+ - - - - - - - - -->
+
+
+
+	<!-- Ativa o Transactional do Hibernate -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+   <bean id="persistenceExceptionTranslationPostProcessor"
+      class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
+
+</beans>
