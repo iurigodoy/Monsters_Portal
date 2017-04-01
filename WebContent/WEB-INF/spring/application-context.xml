@@ -87,12 +87,16 @@
 <bean id="AcessoDao"		class="br.com.monster.portal.jpaModelDao.JpaAcessoDao"></bean>
 <bean id="AvaliacaoDao"		class="br.com.monster.portal.jpaModelDao.JpaAvaliacaoDao"></bean>
 <bean id="BannerDao"		class="br.com.monster.portal.jpaModelDao.JpaBannerDao"></bean>
+<bean id="CampanhaDao"			class="br.com.monster.portal.jpaModelDao.JpaCampanhaDao"></bean>
 <bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
 <bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
 <bean id="ClienteDao"		class="br.com.monster.portal.jpaModelDao.JpaClienteDao"></bean>
 <bean id="FornecedorDao"	class="br.com.monster.portal.jpaModelDao.JpaFornecedorDao"></bean>
 <bean id="FuncionarioDao"	class="br.com.monster.portal.jpaModelDao.JpaFuncionarioDao"></bean>
 <bean id="ImagemDao"		class="br.com.monster.portal.jpaModelDao.JpaImagemDao"></bean>
+<bean id="MailingDao"		class="br.com.monster.portal.jpaModelDao.JpaMailingDao"></bean>
+<bean id="MensagemDao"		class="br.com.monster.portal.jpaModelDao.JpaMensagemDao"></bean>
+<bean id="ParcelaDao"		class="br.com.monster.portal.jpaModelDao.JpaParcelaDao"></bean>
 <bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
 <bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>
 <bean id="RelatoriosDao"	class="br.com.monster.portal.jpaModelDao.JpaRelatoriosDao"></bean>

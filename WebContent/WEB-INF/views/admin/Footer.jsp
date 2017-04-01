@@ -77,6 +77,8 @@
 
     <!-- Custom Theme Scripts -->
     <script src="../resources/build/js/custom.min.js"></script>
+    
+    <script src="../resources/js/table.conf.js"></script>
 
     <!-- Autosize 
     <script>

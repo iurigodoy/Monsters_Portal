@@ -65,7 +65,7 @@
               </div>
               <div class="profile_info">
                 <span>Bem Vindo(a),</span>
-                <h2>${ administradorLogado.usuario_funcionario }</h2>
+                <h2>${ administradorLogado.email_fun }</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -184,7 +184,7 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../resources/imagens/funcionarios/foto6.jpg" alt="">${ administradorLogado.usuario_funcionario }
+                    <img src="../resources/imagens/funcionarios/foto6.jpg" alt="">${ administradorLogado.email_fun }
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -210,7 +210,7 @@
                       <a>
                         <span class="image"><img src="../resources/imagens/funcionarios/foto6.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>${ administradorLogado.usuario_funcionario }</span>
+                          <span>${ administradorLogado.email_fun }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -222,7 +222,7 @@
                       <a>
                         <span class="image"><img src="../resources/imagens/funcionarios/foto6.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>${ administradorLogado.usuario_funcionario }</span>
+                          <span>${ administradorLogado.email_fun }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -234,7 +234,7 @@
                       <a>
                         <span class="image"><img src="../resources/imagens/funcionarios/foto6.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>${ administradorLogado.usuario_funcionario }</span>
+                          <span>${ administradorLogado.email_fun }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">
@@ -246,7 +246,7 @@
                       <a>
                         <span class="image"><img src="../resources/imagens/funcionarios/foto6.jpg" alt="Profile Image" /></span>
                         <span>
-                          <span>${ administradorLogado.usuario_funcionario }</span>
+                          <span>${ administradorLogado.email_fun }</span>
                           <span class="time">3 mins ago</span>
                         </span>
                         <span class="message">

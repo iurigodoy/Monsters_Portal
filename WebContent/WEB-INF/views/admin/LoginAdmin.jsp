@@ -39,13 +39,13 @@
 			<form method="POST" action="<c:url value="/Admin/efetuaLoginAdmin"/>">
               <h1>Login</h1>
               <div>
-                <input type="text" name="usuario_funcionario" class="form-control" placeholder="Usuario" required="" />
+                <input type="text" name="email_fun" class="form-control" placeholder="Usuario" required="" />
               </div>
               <div>
-                <input type="password" name="senha_funcionario" class="form-control" placeholder="Senha" required="" />
+                <input type="password" name="senha_fun" class="form-control" placeholder="Senha" required="" />
               </div>
               <div>
-	              <c:if test="${not empty administradorLogado.usuario_funcionario}">
+	              <c:if test="${not empty administradorLogado.email_fun}">
 	              	<div class="alert alert-danger" role="alert"> Você já está logado! </div>
 				  </c:if>
 				  <c:if test="${not empty param.login_error}">

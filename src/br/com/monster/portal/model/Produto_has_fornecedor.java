@@ -2,6 +2,8 @@ package br.com.monster.portal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
@@ -10,6 +12,10 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "produto_has_fornecedor")
 public class Produto_has_fornecedor {
+
+	@Id
+	@GeneratedValue
+	private long id_produto_has_fornecedor;
 	
 	@NotNull(message="{prod.quantidade.NotEmpty}")
 	@Column(name = "prod_quantidade")			//Nome real dentro do banco

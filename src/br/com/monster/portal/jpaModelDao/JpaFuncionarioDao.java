@@ -38,9 +38,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 			
 	    	Query query = manager
 			        .createQuery("SELECT fun "//16
-			        		+ "FROM Funcionario fun INNER JOIN fun.cargo car "//33
-			        		+ "WHERE fun.deleted = false "
-			        		+ "ORDER BY fun.id_funcionario ASC");
+			        		+ "FROM Funcionario fun");
 
 			@SuppressWarnings("unchecked")
 			List<Funcionario> funcionarios = query.getResultList();
@@ -114,8 +112,8 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT fun FROM Funcionario as fun "
-							+ "WHERE fun.usuario_funcionario = :usuario "
-							+ "AND fun.senha_funcionario = :senha");
+							+ "WHERE fun.email_fun = :usuario "
+							+ "AND fun.senha_fun = :senha");
 
 						query.setParameter("usuario", (String) usuario);
 						query.setParameter("senha", (String) senha);

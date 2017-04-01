@@ -62,7 +62,7 @@ public class FuncionarioController {
 	@RequestMapping("Admin/Funcionario")
 	public String Read(Model model, Funcionario funcionario) {
 		model.addAttribute("funcionarios", dao.Read());
-		return "admin/Funcionario/visualizar";
+		return "admin/Funcionario/read";
 	}
 
 	/*
