@@ -31,10 +31,10 @@ public class JpaProdutoDao implements ProdutoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Produto> Read() {
@@ -59,7 +59,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "FROM Produto pro "
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_produto = true");
+			        		+ "AND pro.publicado_pro = true");
 		    	
 
 				@SuppressWarnings("unchecked")
@@ -75,8 +75,8 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "FROM Produto pro "
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_produto = true "
-			        		+ "AND pro.destaque_produto = true");
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.destaque_pro = true");
 		    	
 
 				@SuppressWarnings("unchecked")
@@ -86,7 +86,7 @@ public class JpaProdutoDao implements ProdutoDao {
 		}
 		   
 		/*
-		*	Método Read	History			
+		*	Mï¿½todo Read	History			
 		*/
 		public List<Produto> Read_History() {
 			
@@ -124,7 +124,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -134,7 +134,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.nome_produto LIKE :Nome "
+			        		+ "WHERE pro.nome_pro LIKE :Nome "
 			        		+ "AND pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) ");
 			
@@ -155,8 +155,8 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "FROM Produto pro "
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_produto = true "
-			        		+ "AND pro.nome_produto = :Nome");
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.nome_pro = :Nome");
 			
 			query.setParameter("Nome", (String) nome_produto);
 	
@@ -176,7 +176,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
 			        		+ "AND pro.publicado_produto = true "
-			        		+ "AND pro.nome_produto LIKE :Nome");
+			        		+ "AND pro.nome_pro LIKE :Nome");
 			
 			query.setParameter("Nome", (String) "%"+nome_produto+"%");
 	
@@ -192,10 +192,10 @@ public class JpaProdutoDao implements ProdutoDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Produto produto, ImagemMultiple imagens) {
@@ -204,15 +204,15 @@ public class JpaProdutoDao implements ProdutoDao {
 			produto.setDeleted(false);
 			
 			manager.persist(produto);
-			manager.flush();	// Manter a sessão aberta
-			// Pega o Id do último dado inserido
+			manager.flush();	// Manter a sessï¿½o aberta
+			// Pega o Id do ï¿½ltimo dado inserido
 				produto.getId_produto();
 				
-				// Checa se o array está correto e faz o laço de repetição
+				// Checa se o array estï¿½ correto e faz o laï¿½o de repetiï¿½ï¿½o
 				if(null != imagens.getImagens() && imagens.getImagens().size() > 0) {
 					for (Imagem imagem : imagens.getImagens()) {
 						
-						// Segundo o Hibernate é necessário atualizar o objeto e pegar seu id novamente
+						// Segundo o Hibernate ï¿½ necessï¿½rio atualizar o objeto e pegar seu id novamente
 						manager.merge(produto);
 						manager.flush();
 						
@@ -226,7 +226,7 @@ public class JpaProdutoDao implements ProdutoDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -237,7 +237,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -258,7 +258,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

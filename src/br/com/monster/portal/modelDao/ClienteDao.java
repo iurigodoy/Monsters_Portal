@@ -19,7 +19,7 @@ public interface ClienteDao {
 	
 	List<Cliente> Find_By_Name(String nome_cliente);
 	boolean UsuarioExiste(Cliente cliente);
-	List<Cliente> SeUsuarioExiste(Cliente cliente);
+	Cliente SeUsuarioExiste(Cliente cliente);
 	
 
 	List<Cliente> Qtd_clientes();

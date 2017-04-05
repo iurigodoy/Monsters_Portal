@@ -23,42 +23,6 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="funcionario.fun_nome"/></strong>
-					<strong><form:errors path="funcionario.fun_foto"/></strong>
-					<strong><form:errors path="funcionario.fun_cpf"/></strong>
-					<strong><form:errors path="funcionario.fun_email"/></strong>
-					<strong><form:errors path="funcionario.fun_senha"/></strong>
-					<strong><form:errors path="banner.ban_arquivo"/></strong>
-					<strong><form:errors path="banner.ban_ativo"/></strong>
-					<strong><form:errors path="fornecedor.for_nome"/></strong>
-					<strong><form:errors path="fornecedor.for_cnpj"/></strong>
-					<strong><form:errors path="fornecedor.for_logo"/></strong>
-					<strong><form:errors path="fornecedor.for_cep"/></strong>
-					<strong><form:errors path="fornecedor.for_estado"/></strong>
-					<strong><form:errors path="fornecedor.for_cidade"/></strong>
-					<strong><form:errors path="fornecedor.for_endereco"/></strong>
-					<strong><form:errors path="fornecedor.for_numero"/></strong>
-					<strong><form:errors path="fornecedor.for_complemento"/></strong>
-					<strong><form:errors path="fornecedor.for_email"/></strong>
-					<strong><form:errors path="fornecedor.for_comercial"/></strong>
-					<strong><form:errors path="pedido.ped_preco"/></strong>
-					<strong><form:errors path="pedido.ped_parcelas"/></strong>
-					<strong><form:errors path="pedido.ped_status"/></strong>
-					<strong><form:errors path="pedido.ped_peso"/></strong>
-					<strong><form:errors path="pedido.ped_altura"/></strong>
-					<strong><form:errors path="pedido.ped_largura"/></strong>
-					<strong><form:errors path="pedido.ped_comprimento"/></strong>
-					<strong><form:errors path="pedido.ped_entrega_data"/></strong>
-					<strong><form:errors path="pedido.ped_entrega_hora"/></strong>
-					<strong><form:errors path="produto.pro_nome"/></strong>
-					<strong><form:errors path="produto.pro_descricao"/></strong>
-					<strong><form:errors path="produto.pro_publicado"/></strong>
-					<strong><form:errors path="produto.pro_destaque"/></strong>
-					<strong><form:errors path="produto.pro_promocao"/></strong>
-					<strong><form:errors path="produto.pro_peso"/></strong>
-					<strong><form:errors path="produto.pro_altura"/></strong>
-					<strong><form:errors path="produto.pro_largura"/></strong>
-					<strong><form:errors path="produto.pro_comprimento"/></strong>
 					<strong><form:errors path="cliente.cli_nome"/></strong>
 					<strong><form:errors path="cliente.cli_cpf"/></strong>
 					<strong><form:errors path="cliente.cli_cnpj"/></strong>
@@ -74,8 +38,6 @@
 					<strong><form:errors path="cliente.cli_celular"/></strong>
 					<strong><form:errors path="cliente.cli_email"/></strong>
 					<strong><form:errors path="cliente.ativo_cli"/></strong>
-					<strong><form:errors path="cargo.car_nome "/></strong>
-					<strong><form:errors path="cargo.car_padrao "/></strong>
 
 				<!--	-->
                   </span>
@@ -134,22 +96,22 @@
 					  		
 					  		<c:if test="${ not cli.deleted }">
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="1">	
-	                      	  	<td>${ cli.cli_nome }</td>
-	                      	  	<td>${ cli.cli_cpf }</td>
-	                      	  	<td>${ cli.cli_cnpj }</td>
-	                      	  	<td>${ cli.cli_sexo }</td>
-	                      	  	<td>${ cli.cli_ativo }</td>
-	                      	  	<td>${ cli.cli_senha }</td>
-	                      	  	<td>${ cli.cli_news_letter }</td>
-	                      	  	<td>${ cli.cli_cep }</td>
-	                      	  	<td>${ cli.cli_estado }</td>
-	                      	  	<td>${ cli.cli_cidade }</td>
-	                      	  	<td>${ cli.cli_endereco }</td>
-	                      	  	<td>${ cli.cli_numero }</td>
-	                      	  	<td>${ cli.cli_complemento }</td>
-	                      	  	<td>${ cli.cli_residencial }</td>
-	                      	  	<td>${ cli.cli_celular }</td>
-	                      	  	<td>${ cli.cli_email }</td>
+	                      	  	<td>${ cli.nome_cli }</td>
+	                      	  	<td>${ cli.cpf_cli }</td>
+	                      	  	<td>${ cli.cnpj_cli }</td>
+	                      	  	<td>${ cli.sexo_cli }</td>
+	                      	  	<td>${ cli.ativo_cli }</td>
+	                      	  	<td>${ cli.senha_cli }</td>
+	                      	  	<td>${ cli.news_letter_cli }</td>
+	                      	  	<td>${ cli.cep_cli }</td>
+	                      	  	<td>${ cli.estado_cli }</td>
+	                      	  	<td>${ cli.cidade_cli }</td>
+	                      	  	<td>${ cli.endereco_cli }</td>
+	                      	  	<td>${ cli.numero_cli }</td>
+	                      	  	<td>${ cli.complemento_cli }</td>
+	                      	  	<td>${ cli.residencial_cli }</td>
+	                      	  	<td>${ cli.celular_cli }</td>
+	                      	  	<td>${ cli.email_cli }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cli.id_cliente }">
 					                  <button type="button" data-id="${ cli.id_cliente }" class="btn btn-primary btn-xs Modal"

@@ -139,6 +139,7 @@
 	<!-- Informa o pacote onde o Spring ira buscar as classes anotadas (@Controller, @Service...)  -->
 	<context:component-scan base-package="br.com.monster.portal.adm.controller" />
 	<context:component-scan base-package="br.com.monster.portal.loja.controller" />
+	<context:component-scan base-package="br.com.monster.portal.carrinho" />
 
 
 

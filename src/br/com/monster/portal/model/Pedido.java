@@ -28,7 +28,7 @@ public class Pedido {
 	
 	@NotNull(message="{ped.numero.NotEmpty}")
 	@Column(name = "ped_numero")			//Nome real dentro do banco
-	private Integer numero_ped;			//Nome do campo no sistema
+	private String numero_ped;			//Nome do campo no sistema
 	
 	@NotNull(message="{ped.preco.NotEmpty}")
 	@Column(name = "ped_preco")			//Nome real dentro do banco
@@ -101,7 +101,7 @@ public class Pedido {
 	 */
 	
 	
-	// MUITOS Ramais estão em UM Setor	(N-1)
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
 	@JoinColumn(name = "cliente_id_cliente", insertable=true, updatable=true)
 	private Cliente cliente;
@@ -110,7 +110,7 @@ public class Pedido {
 	@JoinColumn(name = "forma_pagamento_id_forma_pagamento", insertable=true, updatable=true)
 	private Forma_pagamento forma_pagamento;
 	
-	// UM Ramal tem MUITOS Funcionários	(1-N)
+	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
 	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
 		
@@ -131,11 +131,11 @@ public class Pedido {
 		this.id_pedido = id_pedido;
 	}
 
-	public Integer getNumero_ped() {
+	public String getNumero_ped() {
 		return numero_ped;
 	}
 
-	public void setNumero_ped(Integer numero_ped) {
+	public void setNumero_ped(String numero_ped) {
 		this.numero_ped = numero_ped;
 	}
 

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -17,11 +17,13 @@
     <link href="<c:url value="/resources/vendors/nprogress/nprogress.css"/>" rel="stylesheet">
     <!-- iCheck -->
     <link href="<c:url value="/resources/vendors/iCheck/skins/flat/green.css"/>" rel="stylesheet">
+    <!-- Switchery -->
+    <link href="<c:url value="/resources/vendors/switchery/dist/switchery.min.css"/>" rel="stylesheet">
 
 	<link href="<c:url value="/resources/css/custom.css"/>" rel="stylesheet">
     
     <!-- *************************** - - 
-   			Configuração Pessoal		
+   			Configuraï¿½ï¿½o Pessoal		
     - -  *************************** -->
     
   </head>
@@ -52,20 +54,20 @@
 			  </ul>
 			<form method="POST" action="<c:url value="/Procurar"/>" class="navbar-form navbar-left">
 			  <div class="input-group">
-				<input type="text" name="nome_prod" maxlength="30" required pattern="^[A-Za-záàâãéèêíïóôõöúçñÁÀÂÃÉÈÍÏÓÔÕÖÚÇÑ0-9 ]+$" class="form-control" title="escreva o que você deseja pesquisar" value="">
+				<input type="text" name="nome_prod" maxlength="30" required pattern="^[A-Za-zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0-9 ]+$" class="form-control" title="escreva o que vocï¿½ deseja pesquisar" value="">
 			  	<div class="input-group-btn">
 					<button class="btn btn-new btn-primary" title="Pesquisar"><span class="glyphicon glyphicon-search"></span> Procurar</button>
 				</div>
 			  </div>
 			</form>
 			  <ul class="nav navbar-nav navbar-right">
-				  <c:if test="${empty clienteLogado.usuario_cliente}">
+				  <c:if test="${empty clienteLogado.email_cli}">
 					<li class="${ cadastro_page }"><a href="<c:url value="/Cadastro"/>">Cadastre-se</a></li>
 					<li class="${ login_page }"><a href="<c:url value="/Login"/>"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
 				  </c:if>
-				  <c:if test="${not empty clienteLogado.usuario_cliente}">
-					<li class="${ usuario_page }"><a href="<c:url value="/MinhaConta"/>"><i class="glyphicon glyphicon-user"></i> ${clienteLogado.usuario_cliente}</a></li>
-					<li class="${ carrinho_page }"><a href="<c:url value="/Carrinho"/>"><i class="glyphicon glyphicon-shopping-cart"></i> Carrinho</a></li>
+				  <c:if test="${not empty clienteLogado.email_cli}">
+					<li class="${ usuario_page }"><a href="<c:url value="/MinhaConta"/>"><i class="glyphicon glyphicon-user"></i> ${clienteLogadoInfo.nome_cli}</a></li>
+					<li class="${ carrinho_page }"><a href="<c:url value="/carrinho"/>"><i class="glyphicon glyphicon-shopping-cart"></i> Carrinho</a></li>
 					<li><a href="<c:url value="/Logout"/>"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
 				  </c:if>
 			  </ul>

@@ -23,11 +23,8 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="funcionario.fun_nome"/></strong>
-					<strong><form:errors path="funcionario.fun_foto"/></strong>
-					<strong><form:errors path="funcionario.fun_cpf"/></strong>
-					<strong><form:errors path="funcionario.fun_email"/></strong>
-					<strong><form:errors path="funcionario.fun_senha"/></strong>
+					<strong><form:errors path="cargo.car_nome "/></strong>
+					<strong><form:errors path="cargo.car_padrao "/></strong>
 
 				<!--	-->
                   </span>
@@ -40,7 +37,7 @@
               <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-user"></i> Funcionários <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
+                    <h2><i class="fa fa-user"></i> Cargos <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -61,38 +58,24 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">Cargo</th> <!-- ver se vai ficar aq mesmo -->
-	                          <th style="width: 10%">Nome</th>
-	                          <th style="width: 45%">CPF</th>
-	                          <th style="width: 25%">Bloqueado</th>
-	                          <th style="width: 25%">Foto</th>
-	                          <th style="width: 25%">Residencial</th>
-	                          <th style="width: 25%">Celular</th>
-	                          <th style="width: 25%">E-mail</th>
-	                          <th style="width: 25%">Senha</th>
+	                          <th style="width: 45%">Nome</th>
+	                          <th style="width: 25%">Padrão</th>
 	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="fun" items="${funs}">
+					  		<c:forEach var="car" items="${cars}">
 							<!--			^^^^			^^^^	-->
 					  		
-					  		<c:if test="${ not fun.deleted }">
-	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="1">
-	                      	  	<td>${ fun.cargo.nome_car }</td>
-	                      	  	<td>${ fun.nome_fun }</td>
-	                      	  	<td>${ fun.cpf_fun }</td>
-	                      	  	<td>${ fun.bloqueado_fun }</td>
-								<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ fun.residencial_fun }</td>
-	                      	  	<td>${ fun.celular_fun }</td>
-	                      	  	<td>${ fun.email_fun }</td>
-	                      	  	<td>${ fun.senha_fun }</td>
+					  		<c:if test="${ not car.deleted }">
+	                      	  <tr id="tr_${ car.id_cargo }" data-history="1">
+	                      	  	<td>${ car.nome_car }</td>
+	                      	  	<td><strong>${ car.padrao_car }</strong></td>
 	                      	  	<td>
-	                      	  	  <div class="edition-buttons" id="edition-buttons_${ fun.id_funcionario }">
-					                  <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-primary btn-xs Modal"
+	                      	  	  <div class="edition-buttons" id="edition-buttons_${ car.id_cargo }">
+					                  <button type="button" data-id="${ car.id_cargo }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
-						              <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
+						              <button type="button" data-id="${ car.id_cargo }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
 						          </div>
 	                      	  	</td>
@@ -101,22 +84,22 @@
 	                      	  
 	                      	  
 	                      	  
-					  		<c:if test="${ fun.deleted }">
-	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="0">
+					  		<c:if test="${ car.deleted }">
+	                      	  <tr id="tr_${ car.id_cargo }" data-history="0">
 	                      	  	
-	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ fun.nome_fun }<br><small>${ fun.email_fun }<br></small>${ fun.cargo.nome_cargo } - Atendente</td>
+	                      	  	<td>${ car.nome_car }</td>
+	                      	  	<td><strong>${ car.padrao_car }</strong></td>
 	                      	  	
 	                      	  	<td>
-									<small>Criado em:	<fmt:formatDate value="${ fun.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ fun.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ fun.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
+									<small>Criado em:	<fmt:formatDate value="${ car.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
+								    Atualizado em:		<fmt:formatDate value="${ car.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
+								    Apagado em:			<fmt:formatDate value="${ car.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
 									<!--									  (3) ^^^^^^^^^^^^^^^	-->
 	                      	  	</td>
 	                      	  	
 	                      	  	<td>
-					              	<button type="button"							 data-id="${ fun.id_funcionario }"
-					              	class="btn btn-success btn-xs restore-button" id="restore_${ fun.id_funcionario }">
+					              	<button type="button"							 data-id="${ car.id_cargo }"
+					              	class="btn btn-success btn-xs restore-button" id="restore_${ car.id_cargo }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
 	                      	  	</td>
@@ -134,7 +117,7 @@
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-plus"></i> Funcionário</h2>
+                    <h2><i class="fa fa-plus"></i> Cargo</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -148,47 +131,18 @@
 					
 							Formulário Create Aqui !!! -->
 					<!--		Formulário		-->
-					<form action="<c:url value="CreateFuncionario"/>" method="POST" class="form-horizontal form-label-left input_mask">
+					<form action="<c:url value="CreateCargo"/>" method="POST" class="form-horizontal form-label-left input_mask">
 
 					<!--	Input sem ícone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_nome" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.fun_nome }">
+					  <input type="text" name="car_nome" class="form-control" placeholder="Nome" title="Nome" value="${ cargo.car_nome }">
 					</div>
 
+					<!--	Booleano	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_cpf" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.fun_cpf }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_celular" class="form-control" placeholder="Celular" title="Celular" value="${ funcionario.fun_celular }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_senha" class="form-control" placeholder="Senha" title="Senha" value="${ funcionario.fun_senha }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_foto" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.fun_foto}">
-					</div>
-					<!--	Input com ícone
-							(Preferencial)  	-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.fun_email }">
-					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
-					</div>
-
-
-					<!--	Select com
-							Relacionamento		-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <select name="cargo.id_cargo" class="form-control">
-						<option value="0">Cargo</option>
-						<c:forEach var="cargo" items="${cargos}">
-						  <option value="${ cargo.id_cargo }">${ cargo.nome_cargo }</option>
-						</c:forEach>
-					  </select>
-					  <!-- exemplo para facilitar pro usuário -->
-					  <p>Não encontrou o cargo certo? <a href="<c:url value="/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
+					  <label>
+						<input type="checkbox" name="car_padrao" class="js-switch" title="Cargo Padrao" value="${ cargo.car_padrao }"> <i class="fa fa-plus"></i> Cargo Padrao
+					  </label>
 					</div>
 
 					<!--	Botão de envio	-->
@@ -198,6 +152,7 @@
 					  </button>
 					</div>
 					</form>
+					
 				<!--	-->
                   </div>
                 </div>
@@ -206,10 +161,10 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Funcionario";						// Find Controller Function
-	delete_message	= 'quer mesmo deletar este funcionário?';	// Delete Message
-	delete_param	= "DeleteFuncionario";						// Delete Controller Function
-	restore_param	= "RestoreFuncionario";						// Restore Controller Function
+	edition_param	= "Find_Cargo";						// Find Controller Function
+	delete_message	= 'quer mesmo deletar este cargo?';	// Delete Message
+	delete_param	= "DeleteCargo";						// Delete Controller Function
+	restore_param	= "RestoreCargo";						// Restore Controller Function
 
 </script>
 
@@ -219,13 +174,13 @@
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">
 	<div class="modal-content">
-	  <form action="<c:url value="UpdateFuncionario"/>" method="POST" class="form-horizontal form-label-left input_mask">
+	  <form action="<c:url value="UpdateCargo"/>" method="POST" class="form-horizontal form-label-left input_mask">
 	  <!--								^^^^^^^^^^^	-->
 
 		<div class="modal-header">
 		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
 	      </button>
-	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Funcionário</h4>
+	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Cargo</h4>
 		  <!--																						^^^^^^^^^^^	-->
 	    </div>
 	    <div class="modal-body">

@@ -24,12 +24,12 @@
 		
 		                            <div class="col-md-12 col-sm-12 col-xs-12">
 				                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-				                        <input type="text" name="usuario_cliente" class="form-control has-feedback-left" placeholder="Usuário" title="Usuário" value="${ cliente.usuario_cliente }">
-				                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
+				                        <input type="text" name="email_cli" class="form-control has-feedback-left" placeholder="E-Mail" title="E-Mail" value="${ cliente.email_cli }">
+				                        <span class="fa fa-envelope form-control-feedback left" aria-hidden="true"></span>
 				                      </div>
 			                      
 				                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-				                        <input type="password" name="senha_cliente" class="form-control has-feedback-left" placeholder="Senha" title="Senha">
+				                        <input type="password" name="senha_cli" class="form-control has-feedback-left" placeholder="Senha" title="Senha">
 				                        <span class="fa fa-lock form-control-feedback left" aria-hidden="true"></span>
 				                      </div>
 				                    </div>
@@ -68,13 +68,8 @@
 		
 		                   		<div class="col-md-12 col-sm-12 col-xs-12">
 		                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-		                                <input id="usuario_cliente" type="text" class="form-control has-feedback-left" name="usuario_cliente" title="Usuário" placeholder="Usuário">
+		                                <input id="email_cli" type="text" class="form-control has-feedback-left" name="email_cli" title="E-Mail" placeholder="E-Mail">
 										<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
-		                            </div>
-
-		                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-		                                <input id="email_cliente" type="text" class="form-control has-feedback-left" name="email_cliente" title="E-mail" placeholder="E-mail">
-										<span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
 		                            </div>
 		                        </div>
 		

@@ -33,7 +33,7 @@
 				</a>
 				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
 				  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-				  <span class="sr-only">Próximo</span>
+				  <span class="sr-only">PrÃ³ximo</span>
 				</a>
 			  </div>
 			</div>

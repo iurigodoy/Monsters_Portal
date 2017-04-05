@@ -23,24 +23,6 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="funcionario.fun_nome"/></strong>
-					<strong><form:errors path="funcionario.fun_foto"/></strong>
-					<strong><form:errors path="funcionario.fun_cpf"/></strong>
-					<strong><form:errors path="funcionario.fun_email"/></strong>
-					<strong><form:errors path="funcionario.fun_senha"/></strong>
-					<strong><form:errors path="banner.ban_arquivo"/></strong>
-					<strong><form:errors path="banner.ban_ativo"/></strong>
-					<strong><form:errors path="fornecedor.for_nome"/></strong>
-					<strong><form:errors path="fornecedor.for_cnpj"/></strong>
-					<strong><form:errors path="fornecedor.for_logo"/></strong>
-					<strong><form:errors path="fornecedor.for_cep"/></strong>
-					<strong><form:errors path="fornecedor.for_estado"/></strong>
-					<strong><form:errors path="fornecedor.for_cidade"/></strong>
-					<strong><form:errors path="fornecedor.for_endereco"/></strong>
-					<strong><form:errors path="fornecedor.for_numero"/></strong>
-					<strong><form:errors path="fornecedor.for_complemento"/></strong>
-					<strong><form:errors path="fornecedor.for_email"/></strong>
-					<strong><form:errors path="fornecedor.for_comercial"/></strong>
 					<strong><form:errors path="pedido.ped_preco"/></strong>
 					<strong><form:errors path="pedido.ped_parcelas"/></strong>
 					<strong><form:errors path="pedido.ped_status"/></strong>
@@ -50,32 +32,6 @@
 					<strong><form:errors path="pedido.ped_comprimento"/></strong>
 					<strong><form:errors path="pedido.ped_entrega_data"/></strong>
 					<strong><form:errors path="pedido.ped_entrega_hora"/></strong>
-					<strong><form:errors path="produto.pro_nome"/></strong>
-					<strong><form:errors path="produto.pro_descricao"/></strong>
-					<strong><form:errors path="produto.pro_publicado"/></strong>
-					<strong><form:errors path="produto.pro_destaque"/></strong>
-					<strong><form:errors path="produto.pro_promocao"/></strong>
-					<strong><form:errors path="produto.pro_peso"/></strong>
-					<strong><form:errors path="produto.pro_altura"/></strong>
-					<strong><form:errors path="produto.pro_largura"/></strong>
-					<strong><form:errors path="produto.pro_comprimento"/></strong>
-					<strong><form:errors path="cliente.cli_nome"/></strong>
-					<strong><form:errors path="cliente.cli_cpf"/></strong>
-					<strong><form:errors path="cliente.cli_cnpj"/></strong>
-					<strong><form:errors path="cliente.cli_sexo"/></strong>
-					<strong><form:errors path="cliente.cli_senha"/></strong>
-					<strong><form:errors path="cliente.cli_cep"/></strong>
-					<strong><form:errors path="cliente.cli_estado"/></strong>
-					<strong><form:errors path="cliente.cli_cidade"/></strong>
-					<strong><form:errors path="cliente.cli_endereco"/></strong>
-					<strong><form:errors path="cliente.cli_numero"/></strong>
-					<strong><form:errors path="cliente.cli_complemento"/></strong>
-					<strong><form:errors path="cliente.cli_residencial"/></strong>
-					<strong><form:errors path="cliente.cli_celular"/></strong>
-					<strong><form:errors path="cliente.cli_email"/></strong>
-					<strong><form:errors path="cliente.ativo_cli"/></strong>
-					<strong><form:errors path="cargo.car_nome "/></strong>
-					<strong><form:errors path="cargo.car_padrao "/></strong>
 					
 				<!--	-->
                   </span>
@@ -132,20 +88,20 @@
 					  		
 					  		<c:if test="${ not ped.deleted }">
 	                      	  <tr id="tr_${ ped.id_pedido }" data-history="1">
-	                      	  	<td>${ ped.cliente.cli_nome }</td>
-	                      	  	<td>${ ped.forma_pagamento.nome_forma_pagamento }</td>
-	                      	  	<td>${ ped.ped_numero }</td>
-	                      	  	<td>${ ped.ped_preco }</td>
-	                      	  	<td>${ ped.ped_custo_forma_de_pagamento }</td>
-	                      	  	<td>${ ped.ped_custo_frete }</td>
-								<td>${ ped.ped_parcelas }</td>
-								<td>${ ped.ped_status }</td>
-	                      	  	<td>${ ped.ped_peso }</td>
-	                      	  	<td>${ ped.ped_altura }</td>
-	                      	  	<td>${ ped.ped_largura }</td>
-	                      	  	<td>${ ped.ped_comprimento }</td>
-	                      	  	<td>${ ped.ped_entrega_data }</td>
-	                      	  	<td>${ ped.ped_entrega_hora }</td>
+	                      	  	<td>${ ped.cliente.nome_cli }</td>
+	                      	  	<td>${ ped.forma_pagamento.forma_pagamento_nome }</td>
+	                      	  	<td>${ ped.numero_ped }</td>
+	                      	  	<td>${ ped.preco_ped }</td>
+	                      	  	<td>${ ped.custo_forma_de_pagamento_ped }</td>
+	                      	  	<td>${ ped.custo_frete_ped }</td>
+								<td>${ ped.parcelas_ped }</td>
+								<td>${ ped.status_ped }</td>
+	                      	  	<td>${ ped.peso_ped }</td>
+	                      	  	<td>${ ped.altura_ped }</td>
+	                      	  	<td>${ ped.largura_ped }</td>
+	                      	  	<td>${ ped.comprimento_ped }</td>
+	                      	  	<td>${ ped.entrega_data_ped }</td>
+	                      	  	<td>${ ped.entrega_hora_ped }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ ped.id_pedido }">
 					                  <button type="button" data-id="${ ped.id_pedido }" class="btn btn-primary btn-xs Modal"
@@ -162,20 +118,20 @@
 					  		<c:if test="${ ped.deleted }">
 	                      	  <tr id="tr_${ ped.id_pedido }" data-history="0">
 	                      	  	
-	                      	  	<td>${ ped.cliente.cli_nome }</td>
-	                      	  	<td>${ ped.forma_pagamento.nome_forma_pagamento }</td>
-	                      	  	<td>${ ped.ped_numero }</td>
-	                      	  	<td>${ ped.ped_preco }</td>
-	                      	  	<td>${ ped.ped_custo_forma_de_pagamento }</td>
-	                      	  	<td>${ ped.ped_custo_frete }</td>
-								<td>${ ped.ped_parcelas }</td>
-								<td>${ ped.ped_status }</td>
-	                      	  	<td>${ ped.ped_peso }</td>
-	                      	  	<td>${ ped.ped_altura }</td>
-	                      	  	<td>${ ped.ped_largura }</td>
-	                      	  	<td>${ ped.ped_comprimento }</td>
-	                      	  	<td>${ ped.ped_entrega_data }</td>
-	                      	  	<td>${ ped.ped_entrega_hora }</td>
+	                      	  	<td>${ ped.cliente.nome_cli }</td>
+	                      	  	<td>${ ped.forma_pagamento.forma_pagamento_nome }</td>
+	                      	  	<td>${ ped.numero_ped }</td>
+	                      	  	<td>${ ped.preco_ped }</td>
+	                      	  	<td>${ ped.custo_forma_de_pagamento_ped }</td>
+	                      	  	<td>${ ped.custo_frete_ped }</td>
+								<td>${ ped.parcelas_ped }</td>
+								<td>${ ped.status_ped }</td>
+	                      	  	<td>${ ped.peso_ped }</td>
+	                      	  	<td>${ ped.altura_ped }</td>
+	                      	  	<td>${ ped.largura_ped }</td>
+	                      	  	<td>${ ped.comprimento_ped }</td>
+	                      	  	<td>${ ped.entrega_data_ped }</td>
+	                      	  	<td>${ ped.entrega_hora_ped }</td>
 	                      	  	
 	                      	  	<td>
 									<small>Criado em:	<fmt:formatDate value="${ ped.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>

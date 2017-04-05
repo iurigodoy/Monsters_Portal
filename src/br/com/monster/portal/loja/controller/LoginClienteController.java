@@ -52,7 +52,7 @@ public class LoginClienteController {
 	    return "redirect:index";
 	  }
 	  
-	  model.addAttribute("login_error", "Usu·rio ou senha incorretos");
+	  model.addAttribute("login_error", "Usu√°rio ou senha incorretos");
 	  return "redirect:Login";
 	}
 }

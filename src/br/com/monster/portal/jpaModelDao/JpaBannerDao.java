@@ -27,10 +27,10 @@ public class JpaBannerDao implements BannerDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Banner> Read() {
@@ -54,7 +54,7 @@ public class JpaBannerDao implements BannerDao {
 			        .createQuery("SELECT ban "//16
 			        		+ "FROM Banner ban INNER JOIN ban.produto pro "//33
 			        		+ "WHERE ban.deleted = false "
-			        		+ "AND ban.ativo = true "
+			        		//+ "AND ban.ativo = true "
 			        		+ "ORDER BY ban.id_banner");
 
 			@SuppressWarnings("unchecked")
@@ -64,7 +64,7 @@ public class JpaBannerDao implements BannerDao {
 		}
 		   
 		/*
-		*	Método Read	History			
+		*	Mï¿½todo Read	History			
 		*/
 		public List<Banner> Read_History() {
 			
@@ -101,7 +101,7 @@ public class JpaBannerDao implements BannerDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -126,10 +126,10 @@ public class JpaBannerDao implements BannerDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Banner banner) {
@@ -141,7 +141,7 @@ public class JpaBannerDao implements BannerDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -152,7 +152,7 @@ public class JpaBannerDao implements BannerDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -173,7 +173,7 @@ public class JpaBannerDao implements BannerDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

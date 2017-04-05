@@ -23,13 +23,6 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="funcionario.fun_nome"/></strong>
-					<strong><form:errors path="funcionario.fun_foto"/></strong>
-					<strong><form:errors path="funcionario.fun_cpf"/></strong>
-					<strong><form:errors path="funcionario.fun_email"/></strong>
-					<strong><form:errors path="funcionario.fun_senha"/></strong>
-					<strong><form:errors path="banner.ban_arquivo"/></strong>
-					<strong><form:errors path="banner.ban_ativo"/></strong>
 					<strong><form:errors path="fornecedor.for_nome"/></strong>
 					<strong><form:errors path="fornecedor.for_cnpj"/></strong>
 					<strong><form:errors path="fornecedor.for_logo"/></strong>
@@ -41,42 +34,6 @@
 					<strong><form:errors path="fornecedor.for_complemento"/></strong>
 					<strong><form:errors path="fornecedor.for_email"/></strong>
 					<strong><form:errors path="fornecedor.for_comercial"/></strong>
-					<strong><form:errors path="pedido.ped_preco"/></strong>
-					<strong><form:errors path="pedido.ped_parcelas"/></strong>
-					<strong><form:errors path="pedido.ped_status"/></strong>
-					<strong><form:errors path="pedido.ped_peso"/></strong>
-					<strong><form:errors path="pedido.ped_altura"/></strong>
-					<strong><form:errors path="pedido.ped_largura"/></strong>
-					<strong><form:errors path="pedido.ped_comprimento"/></strong>
-					<strong><form:errors path="pedido.ped_entrega_data"/></strong>
-					<strong><form:errors path="pedido.ped_entrega_hora"/></strong>
-					<strong><form:errors path="produto.pro_nome"/></strong>
-					<strong><form:errors path="produto.pro_descricao"/></strong>
-					<strong><form:errors path="produto.pro_publicado"/></strong>
-					<strong><form:errors path="produto.pro_destaque"/></strong>
-					<strong><form:errors path="produto.pro_promocao"/></strong>
-					<strong><form:errors path="produto.pro_peso"/></strong>
-					<strong><form:errors path="produto.pro_altura"/></strong>
-					<strong><form:errors path="produto.pro_largura"/></strong>
-					<strong><form:errors path="produto.pro_comprimento"/></strong>
-					<strong><form:errors path="cliente.cli_nome"/></strong>
-					<strong><form:errors path="cliente.cli_cpf"/></strong>
-					<strong><form:errors path="cliente.cli_cnpj"/></strong>
-					<strong><form:errors path="cliente.cli_sexo"/></strong>
-					<strong><form:errors path="cliente.cli_senha"/></strong>
-					<strong><form:errors path="cliente.cli_cep"/></strong>
-					<strong><form:errors path="cliente.cli_estado"/></strong>
-					<strong><form:errors path="cliente.cli_cidade"/></strong>
-					<strong><form:errors path="cliente.cli_endereco"/></strong>
-					<strong><form:errors path="cliente.cli_numero"/></strong>
-					<strong><form:errors path="cliente.cli_complemento"/></strong>
-					<strong><form:errors path="cliente.cli_residencial"/></strong>
-					<strong><form:errors path="cliente.cli_celular"/></strong>
-					<strong><form:errors path="cliente.cli_email"/></strong>
-					<strong><form:errors path="cliente.ativo_cli"/></strong>
-					<strong><form:errors path="cargo.car_nome "/></strong>
-					<strong><form:errors path="cargo.car_padrao "/></strong>
-
 
 				<!--	-->
                   </span>
@@ -130,17 +87,17 @@
 					  		
 					  		<c:if test="${ not for.deleted }">
 	                      	  <tr id="tr_${ for.id_fornecedor }" data-history="1">
-	                      	  	<td>${ for.for_nome }</td>
-	                      	  	<td>${ for.for_cnpj }</td>
-	                      	  	<td>${ for.for_logo }</td>
-	                      	  	<td>${ for.for_cep }</td>
-	                      	  	<td>${ for.for_estado }</td>
-	                      	  	<td>${ for.for_cidade }</td>
-								<td>${ for.for_endereco }</td>
-								<td>${ for.for_numero }</td>
-	                      	  	<td>${ for.for_complemento }</td>
-	                      	  	<td>${ for.for_email }</td>
-	                      	  	<td>${ for.for_comercial }</td>
+	                      	  	<td>${ for.nome_for }</td>
+	                      	  	<td>${ for.cnpj_for }</td>
+	                      	  	<td>${ for.logo_for }</td>
+	                      	  	<td>${ for.cep_for }</td>
+	                      	  	<td>${ for.estado_for }</td>
+	                      	  	<td>${ for.cidade_for }</td>
+								<td>${ for.endereco_for }</td>
+								<td>${ for.numero_for }</td>
+	                      	  	<td>${ for.complemento_for }</td>
+	                      	  	<td>${ for.email_for }</td>
+	                      	  	<td>${ for.comercial_for }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ for.id_fornecedor }">
 					                  <button type="button" data-id="${ for.id_fornecedor }" class="btn btn-primary btn-xs Modal"
@@ -157,17 +114,17 @@
 					  		<c:if test="${ for.deleted }">
 	                      	  <tr id="tr_${ for.id_fornecedor }" data-history="0">
 	                      	  	
-	                      	  	<td>${ for.for_nome }</td>
-	                      	  	<td>${ for.for_cnpj }</td>
-	                      	  	<td>${ for.for_logo }</td>
-	                      	  	<td>${ for.for_cep }</td>
-	                      	  	<td>${ for.for_estado }</td>
-	                      	  	<td>${ for.for_cidade }</td>
-								<td>${ for.for_endereco }</td>
-								<td>${ for.for_numero }</td>
-	                      	  	<td>${ for.for_complemento }</td>
-	                      	  	<td>${ for.for_email }</td>
-	                      	  	<td>${ for.for_comercial }</td>
+	                      	  	<td>${ for.nome_for }</td>
+	                      	  	<td>${ for.cnpj_for }</td>
+	                      	  	<td>${ for.logo_for }</td>
+	                      	  	<td>${ for.cep_for }</td>
+	                      	  	<td>${ for.estado_for }</td>
+	                      	  	<td>${ for.cidade_for }</td>
+								<td>${ for.endereco_for }</td>
+								<td>${ for.numero_for }</td>
+	                      	  	<td>${ for.complemento_for }</td>
+	                      	  	<td>${ for.email_for }</td>
+	                      	  	<td>${ for.comercial_for }</td>
 	                      	  	
 	                      	  	<td>
 									<small>Criado em:	<fmt:formatDate value="${ for.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>

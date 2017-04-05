@@ -10,6 +10,96 @@
 
 <div class="panel panel-default">
 	<div class="panel-body">
+
+				<form action="<c:url value="CreateCliente"/>" method="POST" class="form-horizontal form-label-left input_mask">
+
+
+					<!--	Input sem Ã­cone 	-->
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="nome_cli" class="form-control" placeholder="Nome" title="Nome" value="${ cliente.nome_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="cpf_cli" class="form-control" placeholder="CPF" title="CPF" value="${ cliente.cpf_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="cnpj_cli" class="form-control" placeholder="CNPJ" title="CNPJ" value="${ cliente.cnpj_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="sexo_cli" class="form-control" placeholder="Sexo" title="Sexo" value="${ cliente.sexo_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="senha_cli" class="form-control" placeholder="Senha" title="Senha" value="${ cliente.senha_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="cep_cli" class="form-control" placeholder="CEP" title="CEP" value="${ cliente.cep_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="estado_cli" class="form-control" placeholder="Estado" title="Estado" value="${ cliente.estado_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="cidade_cli" class="form-control" placeholder="Cidade" title="Cidade" value="${ cliente.cidade_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="endereco_cli" class="form-control" placeholder="Endereco" title="Endereco" value="${ cliente.endereco_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="numero_cli" class="form-control" placeholder="Numero" title="Numero" value="${ cliente.numero_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="complemento_cli" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.complemento }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="residencial_cli" class="form-control" placeholder="Residencial" title="Residencial" value="${ cliente.residencial_cli }">
+					</div>
+
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="celular_cli" class="form-control" placeholder="Celular" title="Celular" value="${ cliente.celular_cli }">
+					</div>
+
+					<!--	Input com Ã­cone
+							(Preferencial)  	-->
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <input type="text" name="email_cli" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ cliente.email_cli }">
+					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
+					</div>
+
+
+					<!--	Booleano	-->
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <label>
+						<input type="checkbox" name="ativo_cli" class="js-switch" title="Cliente Ativo" value="${ cliente.ativo_cli }"> <i class="fa fa-plus"></i> Cliente Ativo 
+					  </label>
+					</div>
+<input type="hidden" value="1" name="news_letter_cli">
+<input type="hidden" value="1" name="ativo_cli">
+					<!--	Booleano	-->
+					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+					  <label>
+						<input type="checkbox" name="news_letter_cli" class="js-switch" title="Cliente Ativo" value="${ cliente.ativo_cli }"> <i class="fa fa-plus"></i> Cliente Ativo 
+					  </label>
+					</div>
+
+
+					<!--	BotÃ£o de envio	-->
+					<div class="btn-group pull-right">
+					  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
+						<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
+					  </button>
+					</div>
+
+					</form>					
+
 	  <h1></h1>
 	  <div class="row">
 			<h1>Cadastro</h1>
@@ -26,7 +116,7 @@
                           <a href="#step-1">
                             <span class="step_no">1</span>
                             <span class="step_descr">
-                                              1º Passo<br />
+                                              1ï¿½ Passo<br />
                                               <small>Dados Pessoais</small>
                                           </span>
                           </a>
@@ -35,7 +125,7 @@
                           <a href="#step-2">
                             <span class="step_no">2</span>
                             <span class="step_descr">
-                                              2º Passo<br />
+                                              2ï¿½ Passo<br />
                                               <small>Meu Contato</small>
                                           </span>
                           </a>
@@ -44,8 +134,8 @@
                           <a href="#step-3">
                             <span class="step_no">3</span>
                             <span class="step_descr">
-                                              3º Passo<br />
-                                              <small>Minha Localização</small>
+                                              3ï¿½ Passo<br />
+                                              <small>Minha Localizaï¿½ï¿½o</small>
                                           </span>
                           </a>
                         </li>
@@ -53,7 +143,7 @@
                           <a href="#step-4">
                             <span class="step_no">4</span>
                             <span class="step_descr">
-                                              4º Passo<br />
+                                              4ï¿½ Passo<br />
                                               <small>Minha Conta</small>
                                           </span>
                           </a>
@@ -67,7 +157,7 @@
                       
                       <div id="step-1" align="center">
                       
-                      	<p class="blue"><small>Faça o cadastro para comprar !</small></p>
+                      	<p class="blue"><small>Faï¿½a o cadastro para comprar !</small></p>
                       	
 						<h2>Dados pessoais</h2>
 						
@@ -155,7 +245,7 @@
                       
                         <h2>Contato</h2>
                         
-                        <p>Precisamos falar com você se tivermos problemas na entrega de seu produto.</p>
+                        <p>Precisamos falar com vocï¿½ se tivermos problemas na entrega de seu produto.</p>
                         
                         <span class="help-block">
                        		<strong><form:errors path="cliente.cnpj_cliente"/></strong>
@@ -183,9 +273,9 @@
                     </div>
                     <div id="step-3" align="center">
                       
-                      	<p class="blue"><small>Vamos lá falta pouco !</small></p>
+                      	<p class="blue"><small>Vamos lï¿½ falta pouco !</small></p>
                       
-                        <h2>Localização</h2>
+                        <h2>Localizaï¿½ï¿½o</h2>
                         
                         <p>Onde devemos entregar?</p>
 
@@ -227,13 +317,13 @@
 							</select>
 	                      </div>
 	                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-							<input name="cidade_cliente" type="text" class="form-control" placeholder="Município" title="Município" value="${ cliente.cidade_cliente }">
+							<input name="cidade_cliente" type="text" class="form-control" placeholder="Municï¿½pio" title="Municï¿½pio" value="${ cliente.cidade_cliente }">
 	                      </div>
 	                      <div class="col-md-9 col-sm-12 col-xs-12 form-group">
-							<input name="endereco_cliente" type="text" class="form-control" placeholder="Endereço" title="Endereço" value="${ cliente.endereco_cliente }">
+							<input name="endereco_cliente" type="text" class="form-control" placeholder="Endereï¿½o" title="Endereï¿½o" value="${ cliente.endereco_cliente }">
 	                      </div>
 	                      <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-							<input name="numero_cliente" type="text" class="form-control" placeholder="Nº" title="Nº" value="${ cliente.numero_cliente }">
+							<input name="numero_cliente" type="text" class="form-control" placeholder="Nï¿½" title="Nï¿½" value="${ cliente.numero_cliente }">
 	                      </div>
 	                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
 							<input name="complemento_cliente" type="text" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.complemento_cliente }">
@@ -246,16 +336,16 @@
                       </div>
                       <div id="step-4" align="center">
                       
-                      	<p class="blue"><small>Esta é a ultima etapa !</small></p>
+                      	<p class="blue"><small>Esta ï¿½ a ultima etapa !</small></p>
                       	
                       	<h2>Minha Conta</h2>
                       	
-                      	<p>Tenha sua própria conta e garantiremos <br> a <strong class="green">segurança</strong> e privacidade de suas informações.</p>
+                      	<p>Tenha sua prï¿½pria conta e garantiremos <br> a <strong class="green">seguranï¿½a</strong> e privacidade de suas informaï¿½ï¿½es.</p>
 						
 						<div class="col-md-4 col-sm-2 col-xs-0"></div>
 						<div class="col-md-4 col-sm-8 col-xs-12">
 		                      <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-		                        <input type="text" name="usuario_cliente" class="form-control has-feedback-left" placeholder="Usuário" title="Usuário" value="${ cliente.usuario_cliente }">
+		                        <input type="text" name="usuario_cliente" class="form-control has-feedback-left" placeholder="Usuï¿½rio" title="Usuï¿½rio" value="${ cliente.usuario_cliente }">
 		                        <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 		                      </div>
 	                      

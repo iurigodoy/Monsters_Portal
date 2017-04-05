@@ -28,10 +28,10 @@ public class JpaClienteDao implements ClienteDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Cliente> Read() {
@@ -49,7 +49,7 @@ public class JpaClienteDao implements ClienteDao {
 		}
 		   
 		/*
-		*	Método Read	History			
+		*	Mï¿½todo Read	History			
 		*/
 		public List<Cliente> Read_History() {
 			
@@ -86,7 +86,7 @@ public class JpaClienteDao implements ClienteDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -126,7 +126,7 @@ public class JpaClienteDao implements ClienteDao {
 
 		
 		public boolean UsuarioExiste(Cliente cliente) {
-			// Pega o dado digitado pelo usuário
+			// Pega o dado digitado pelo usuï¿½rio
 			String usuario = cliente.getEmail_cli();
 			String senha = cliente.getSenha_cli();
 						
@@ -149,8 +149,8 @@ public class JpaClienteDao implements ClienteDao {
 			}
 		}
 		
-		public List<Cliente> SeUsuarioExiste(Cliente cliente) {
-			// Pega o dado digitado pelo usuário
+		public Cliente SeUsuarioExiste(Cliente cliente) {
+			// Pega o dado digitado pelo usuï¿½rio
 			String usuario = cliente.getEmail_cli();
 			String senha = cliente.getSenha_cli();
 									
@@ -163,10 +163,9 @@ public class JpaClienteDao implements ClienteDao {
 				query.setParameter("usuario", (String) usuario);
 				query.setParameter("senha", (String) senha);
 
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
+			Cliente cliente_result = (Cliente) query.getSingleResult();
 	
-			return clientes;
+			return cliente_result;
 			
 		}
 
@@ -226,10 +225,10 @@ public class JpaClienteDao implements ClienteDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Cliente cliente) {
@@ -241,7 +240,7 @@ public class JpaClienteDao implements ClienteDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -252,7 +251,7 @@ public class JpaClienteDao implements ClienteDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -273,7 +272,7 @@ public class JpaClienteDao implements ClienteDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */
