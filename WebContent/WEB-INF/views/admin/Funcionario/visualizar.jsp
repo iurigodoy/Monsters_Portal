@@ -20,12 +20,12 @@
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
                   <span class="help-block">
-                    <strong><form:errors path="funcionario.nome_func"/></strong>
-                    <strong><form:errors path="funcionario.foto_func"/></strong>
-                    <strong><form:errors path="funcionario.cpf_func"/></strong>
-                    <strong><form:errors path="funcionario.email_func"/></strong>
-                    <strong><form:errors path="funcionario.login_func"/></strong>
-                    <strong><form:errors path="funcionario.senha_func"/></strong>
+                    <strong><form:errors path="fun.nome_fun"/></strong>
+                    <strong><form:errors path="fun.foto_fun"/></strong>
+                    <strong><form:errors path="fun.cpf_fun"/></strong>
+                    <strong><form:errors path="fun.email_fun"/></strong>
+                    <strong><form:errors path="fun.login_fun"/></strong>
+                    <strong><form:errors path="fun.senha_fun"/></strong>
                   </span>
                 </div>
               </div>
@@ -64,15 +64,15 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="func" items="${funcs}">
-	                      	  <tr id="delete_row_${ func.id_funcionario }">
-	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ func.foto_func }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ func.nome_func }<br><small>${ func.email_func }</small></td>
-	                      	  	<td><strong>${ func.cargo.nome_cargo }</strong></td>
+					  		<c:forEach var="fun" items="${funcs}">
+	                      	  <tr id="delete_row_${ fun.id_funcionario }">
+	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
+	                      	  	<td>${ fun.nome_fun }<br><small>${ fun.email_fun }</small></td>
+	                      	  	<td><strong>${ fun.cargo.nome_cargo }</strong></td>
 	                      	  	<td>
-				                  <button type="button" data-id="${ func.id_funcionario }" class="btn btn-primary btn-xs ModalFuncionario"
+				                  <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-primary btn-xs ModalFuncionario"
 				                  		data-toggle="modal" data-target=".bs-funcionario-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
-					              <button type="button" data-id="${ func.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
+					              <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 	                      	  	</td>
 	                      	  </tr>
                       		</c:forEach>
@@ -98,25 +98,25 @@
                   <div class="x_content">
 		          	<form action="<c:url value="CreateFuncionario"/>" method="POST" class="form-horizontal form-label-left input_mask">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="text" name="nome_func" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_func }">
+                        <input type="text" name="nome_fun" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_fun }">
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="text" name="foto_func" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.foto_func }">
+                        <input type="text" name="foto_fun" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.foto_fun }">
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="text" name="cpf_func" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.cpf_func }">
+                        <input type="text" name="cpf_fun" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.cpf_fun }">
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="text" name="email_func" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_func }">
+                        <input type="text" name="email_fun" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_func }">
 				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
                       </div>
                       
                       
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-	                        <select name="cargo.id_cargo" class="form-control">
+	                        <select name="car.id_cargo" class="form-control">
 	                          <option value="0">Cargo</option>
 						  	  <c:forEach var="cargo" items="${cargos}">
-	                          	<option value="${ cargo.id_cargo }">${ cargo.nome_cargo }</option>
+	                          	<option value="${ car.id_cargo }">${ car.nome_car }</option>
 	                          </c:forEach>
 	                        </select>
 						  <p>Não encontrou o cargo certo? <a href="<c:url value="/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
@@ -135,11 +135,11 @@
                       
                       
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="text" name="login_func" class="form-control has-feedback-left" placeholder="Usuário" title="Login" value="${ funcionario.login_func }">
+                        <input type="text" name="login_fun" class="form-control has-feedback-left" placeholder="Usuário" title="Login" value="${ fun.login_fun }">
 				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-user"></i></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-                        <input type="password" name="senha_func" class="form-control has-feedback-left" placeholder="Senha" title="Senha" value="${ funcionario.senha_func }">
+                        <input type="password" name="senha_fun" class="form-control has-feedback-left" placeholder="Senha" title="Senha" value="${ fun.senha_fun }">
 				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-lock"></i></span>
                       </div>
 					  <div class="btn-group pull-right">

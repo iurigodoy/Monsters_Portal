@@ -9,7 +9,7 @@
 
 <!--	Input sem ícone 	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="ban_arquivo" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ banner.ban_arquivo }">
+  <input type="text" name="arquivo_ban" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ banner.arquivo_ban }">
 </div>
 
 

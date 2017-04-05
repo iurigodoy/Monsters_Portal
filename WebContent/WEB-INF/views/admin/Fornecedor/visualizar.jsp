@@ -60,10 +60,10 @@
                       <tbody>
 						<c:forEach var="fornecedor" items="${fornecedores}">
 	                        <tr>
-	                          <td>${fornecedor.logo_fornecedor}</td>
-	                          <td>${fornecedor.razao_fornecedor}</td>
-	                          <td>${fornecedor.objetivo_fornecedor}</td>
-	                          <td>${fornecedor.cnpj_fornecedor}</td>
+	                          <td>${for.logo_for}</td>
+	                          <td>${for.razao_for}</td>
+	                          <td>${for.objetivo_for}</td>
+	                          <td>${for.cnpj_for}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -116,11 +116,11 @@
                       <tbody>
 						<c:forEach var="fornecedor" items="${fornecedores}">
 	                        <tr>
-	                          <td>${fornecedor.razao_fornecedor}</td>
-	                          <td>${fornecedor.email_fornecedor}</td>
-	                          <td>${fornecedor.residencial_fornecedor}</td>
-	                          <td>${fornecedor.celular_fornecedor}</td>
-	                          <td>${fornecedor.comercial_fornecedor}</td>
+	                          <td>${for.razao_for}</td>
+	                          <td>${for.email_for}</td>
+	                          <td>${for.residencial_for}</td>
+	                          <td>${for.celular_for}</td>
+	                          <td>${for.comercial_for}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -175,13 +175,13 @@
                       <tbody>
 						<c:forEach var="fornecedor" items="${fornecedores}">
 	                        <tr>
-	                          <td>${fornecedor.razao_fornecedor}</td>
-	                          <td>${fornecedor.cep_fornecedor}</td>
-	                          <td>${fornecedor.estado_fornecedor}</td>
-	                          <td>${fornecedor.cidade_fornecedor}</td>
-	                          <td>${fornecedor.endereco_fornecedor}</td>
-	                          <td>${fornecedor.numero_fornecedor}</td>
-	                          <td>${fornecedor.complemento_fornecedor}</td>
+	                          <td>${for.razao_forn}</td>
+	                          <td>${for.cep_forn}</td>
+	                          <td>${for.estado_for}</td>
+	                          <td>${for.cidade_for}</td>
+	                          <td>${for.endereco_for}</td>
+	                          <td>${for.numero_for}</td>
+	                          <td>${for.complemento_for}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>

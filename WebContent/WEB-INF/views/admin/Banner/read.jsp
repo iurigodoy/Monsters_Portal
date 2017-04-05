@@ -23,8 +23,8 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="banner.ban_arquivo"/></strong>
-					<strong><form:errors path="banner.ban_ativo"/></strong>
+					<strong><form:errors path="ban.arquvo_ban"/></strong>
+					<strong><form:errors path="ban.ativo_ban"/></strong>
 
 				<!--	-->
                   </span>
@@ -70,7 +70,7 @@
 					  		
 					  		<c:if test="${ not ban.deleted }">
 	                      	  <tr id="tr_${ ban.id_banner }" data-history="1">
-	                      	    <td>${ ban.produto.nome_pro }</td>
+	                      	    <td>${ ban.pro.nome_pro }</td>
 	                      	  	<td>${ ban.arquivo_ban }</td>
 	                      	  	<td><strong>${ ban.ativo_ban }</strong></td>
 	                      	  	<td>
@@ -137,7 +137,7 @@
 
 				<!--	Input sem ícone 	-->
 				<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-				  <input type="text" name="ban_arquivo" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ banner.ban_arquivo }">
+				  <input type="text" name="arquivo_ban" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ ban.arquivo_ban }">
 				</div>
 
 
@@ -145,7 +145,7 @@
 
 				<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 				  <label>
-					<input type="checkbox" name="ativo_ban" class="js-switch"  title="Banner Ativo" value="${ banner.ativo_ban }"><i class="fa fa-plus"></i> Banner Ativo ?
+					<input type="checkbox" name="ativo_ban" class="js-switch"  title="Banner Ativo" value="${ ban.ativo_ban }"><i class="fa fa-plus"></i> Banner Ativo ?
 				  </label>
 				</div>
 

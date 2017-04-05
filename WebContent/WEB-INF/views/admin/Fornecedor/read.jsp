@@ -23,17 +23,17 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="fornecedor.for_nome"/></strong>
-					<strong><form:errors path="fornecedor.for_cnpj"/></strong>
-					<strong><form:errors path="fornecedor.for_logo"/></strong>
-					<strong><form:errors path="fornecedor.for_cep"/></strong>
-					<strong><form:errors path="fornecedor.for_estado"/></strong>
-					<strong><form:errors path="fornecedor.for_cidade"/></strong>
-					<strong><form:errors path="fornecedor.for_endereco"/></strong>
-					<strong><form:errors path="fornecedor.for_numero"/></strong>
-					<strong><form:errors path="fornecedor.for_complemento"/></strong>
-					<strong><form:errors path="fornecedor.for_email"/></strong>
-					<strong><form:errors path="fornecedor.for_comercial"/></strong>
+					<strong><form:errors path="fornecedor.nome_for"/></strong>
+					<strong><form:errors path="fornecedor.cnpj_for"/></strong>
+					<strong><form:errors path="fornecedor.logo_for"/></strong>
+					<strong><form:errors path="fornecedor.cep_for"/></strong>
+					<strong><form:errors path="fornecedor.estado_for"/></strong>
+					<strong><form:errors path="fornecedor.cidade_for"/></strong>
+					<strong><form:errors path="fornecedor.endereco_for"/></strong>
+					<strong><form:errors path="fornecedor.numero_for"/></strong>
+					<strong><form:errors path="fornecedor.complemento_for"/></strong>
+					<strong><form:errors path="fornecedor.email_for"/></strong>
+					<strong><form:errors path="fornecedor.comercial_for"/></strong>
 
 				<!--	-->
                   </span>
@@ -171,45 +171,45 @@
 
 					<!--	Input sem ícone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_nome" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.for_nome }">
+					  <input type="text" name="nome_for" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.nome_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_cnpj" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.for_cnpj }">
+					  <input type="text" name="cnpj_for" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.cnpj_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_cep" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.for_cep }">
+					  <input type="text" name="cep_for" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.cep_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_estado" class="form-control" placeholder="Estado" title="Estado" value="${ fornecedor.for_estado }">
+					  <input type="text" name="estado_for" class="form-control" placeholder="Estado" title="Estado" value="${ fornecedor.estado_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_cidade" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.for_cidade }">
+					  <input type="text" name="cidade_for" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.cidade_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_endereco" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.for_endereco }">
+					  <input type="text" name="endereco_for" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.endereco_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_numero" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.for_numero }">
+					  <input type="text" name="numero_for" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.numero_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_complemento" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.for_complemento }">
+					  <input type="text" name="complemento_for" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.complemento_for }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_comercial" class="form-control" placeholder="Comercial" title="Comercial" value="${ fornecedor.for_comercial }">
+					  <input type="text" name="comercial_for" class="form-control" placeholder="Comercial" title="Comercial" value="${ fornecedor.comercial_for }">
 					</div>
 
 					<!--	Input com ícone
 							(Preferencial)  	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="for_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.for_email }">
+					  <input type="text" name="email_for" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.email_for }">
 					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
 					</div>
 

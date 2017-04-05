@@ -69,19 +69,19 @@
                       <tbody>
 						<c:forEach var="cliente" items="${clientes}">
 	                        <tr>
-	                          <td>${cliente.nome_cliente}</td>
-	                          <td>${cliente.email_cliente}</td>
-	                          <td>${cliente.residencial_cliente}</td>
-	                          <td>${cliente.celular_cliente}</td>
-	                          <td>${cliente.sexo_cliente}</td>
-	                          <td>${cliente.cpf_cliente}</td>
-	                          <td>${cliente.ativo_cliente}</td>
-	                          <td>${cliente.cep_cliente}</td>
-	                          <td>${cliente.estado_cliente}</td>
-	                          <td>${cliente.cidade_cliente}</td>
-	                          <td>${cliente.endereco_cliente}</td>
-	                          <td>${cliente.numero_cliente}</td>
-	                          <td>${cliente.complemento_cliente}</td>
+	                          <td>${cli.nome_cli}</td>
+	                          <td>${cli.email_cli}</td>
+	                          <td>${cli.residencial_cli}</td>
+	                          <td>${cli.celular_cli}</td>
+	                          <td>${cli.sexo_cli}</td>
+	                          <td>${cli.cpf_cli}</td>
+	                          <td>${cli.ativo_cli}</td>
+	                          <td>${cli.cep_cli}</td>
+	                          <td>${cli.estado_cli}</td>
+	                          <td>${cli.cidade_cli}</td>
+	                          <td>${cli.endereco_cli}</td>
+	                          <td>${cli.numero_cli}</td>
+	                          <td>${cli.complemento_cli}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -144,19 +144,19 @@
                       <tbody>
 						<c:forEach var="cliente" items="${clientes}">
 	                        <tr>
-	                          <td>${cliente.razao_cliente}</td>
-	                          <td>${cliente.objetivo_cliente}</td>
-	                          <td>${cliente.email_cliente}</td>
-	                          <td>${cliente.residencial_cliente}</td>
-	                          <td>${cliente.celular_cliente}</td>
-	                          <td>${cliente.cnpj_cliente}</td>
-	                          <td>${cliente.ativo_cliente}</td>
-	                          <td>${cliente.cep_cliente}</td>
-	                          <td>${cliente.estado_cliente}</td>
-	                          <td>${cliente.cidade_cliente}</td>
-	                          <td>${cliente.endereco_cliente}</td>
-	                          <td>${cliente.numero_cliente}</td>
-	                          <td>${cliente.complemento_cliente}</td>
+	                          <td>${cli.razao_cli}</td>
+	                          <td>${cli.objetivo_cli}</td>
+	                          <td>${cli.email_cli}</td>
+	                          <td>${cli.residencial_cli}</td>
+	                          <td>${cli.celular_cli}</td>
+	                          <td>${cli.cnpj_cli}</td>
+	                          <td>${cli.ativo_cli}</td>
+	                          <td>${cli.cep_cli}</td>
+	                          <td>${cli.estado_cli}</td>
+	                          <td>${cli.cidade_cli}</td>
+	                          <td>${cli.endereco_cli}</td>
+	                          <td>${cli.numero_cli}</td>
+	                          <td>${cli.complemento_cli}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>

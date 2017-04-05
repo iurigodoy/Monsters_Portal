@@ -39,7 +39,7 @@
                   <div class="x_content">
 					<c:forEach var="cargo" items="${cargos}">
 						<div class="row">
-							<div class="col-md-8 col-sm-6 col xs-6"><h4>${ cargo.nome_cargo }</h4></div>
+							<div class="col-md-8 col-sm-6 col xs-6"><h4>${ car.nome_car }</h4></div>
 		                    <div class="col-md-4 col-sm-6 col xs-6">
 			                    <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 			                    <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -82,7 +82,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<input type="text" name="nome_cargo" class="form-control" placeholder="Nome do Cargo">
+                  	<input type="text" name="nome_car" class="form-control" placeholder="Nome do Cargo">
                   	<h4 align="center">Permissões</h4>
                   	<div class="col-md-3 col-sm-4 col-xs-6">
 	                  	<h4><i class="fa fa-cube"></i> Produto</h4>

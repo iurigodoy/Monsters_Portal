@@ -60,10 +60,10 @@
                       <tbody>
 						<c:forEach var="pedido" items="${pedidos}">
 	                        <tr>
-	                          <td>${pedido.id_pedido}</td>
-	                          <td>${pedido.cliente.nome_cliente}</td>
-	                          <td>${pedido.produto.nome_produto}</td>
-	                          <td>${pedido.preco_pedido}</td>
+	                          <td>${ped.id_pedido}</td>
+	                          <td>${ped}.cli.nome_cli}</td>
+	                          <td>${ped.pro.nome_pro}</td>
+	                          <td>${ped.preco_ped}</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>

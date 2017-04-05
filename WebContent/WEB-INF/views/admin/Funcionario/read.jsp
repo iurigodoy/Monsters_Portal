@@ -23,11 +23,11 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="funcionario.fun_nome"/></strong>
-					<strong><form:errors path="funcionario.fun_foto"/></strong>
-					<strong><form:errors path="funcionario.fun_cpf"/></strong>
-					<strong><form:errors path="funcionario.fun_email"/></strong>
-					<strong><form:errors path="funcionario.fun_senha"/></strong>
+					<strong><form:errors path="funcionario.nome_fun"/></strong>
+					<strong><form:errors path="funcionario.foto_fun"/></strong>
+					<strong><form:errors path="funcionario.cpf_fun"/></strong>
+					<strong><form:errors path="funcionario.email_fun"/></strong>
+					<strong><form:errors path="funcionario.senha_fun"/></strong>
 
 				<!--	-->
                   </span>
@@ -152,28 +152,28 @@
 
 					<!--	Input sem ícone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_nome" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.fun_nome }">
+					  <input type="text" name="nome_fun" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_fun }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_cpf" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.fun_cpf }">
+					  <input type="text" name="cpf_fun" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.cpf_fun }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_celular" class="form-control" placeholder="Celular" title="Celular" value="${ funcionario.fun_celular }">
+					  <input type="text" name="celular_fun" class="form-control" placeholder="Celular" title="Celular" value="${ funcionario.celular_fun }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_senha" class="form-control" placeholder="Senha" title="Senha" value="${ funcionario.fun_senha }">
+					  <input type="text" name="senha_fun" class="form-control" placeholder="Senha" title="Senha" value="${ funcionario.senha_fun }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_foto" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.fun_foto}">
+					  <input type="text" name="foto_fun" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.foto_fun}">
 					</div>
 					<!--	Input com ícone
 							(Preferencial)  	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="fun_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.fun_email }">
+					  <input type="text" name="email_fun" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_fun }">
 					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
 					</div>
 
@@ -184,7 +184,7 @@
 					  <select name="cargo.id_cargo" class="form-control">
 						<option value="0">Cargo</option>
 						<c:forEach var="cargo" items="${cargos}">
-						  <option value="${ cargo.id_cargo }">${ cargo.nome_cargo }</option>
+						  <option value="${ cargo.id_cargo }">${ cargo.car_nome }</option>
 						</c:forEach>
 					  </select>
 					  <!-- exemplo para facilitar pro usuário -->

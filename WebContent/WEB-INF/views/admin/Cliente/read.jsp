@@ -23,20 +23,20 @@
 					<!--	
 
 						Mensagens de Erro Aqui !!! -->
-					<strong><form:errors path="cliente.cli_nome"/></strong>
-					<strong><form:errors path="cliente.cli_cpf"/></strong>
-					<strong><form:errors path="cliente.cli_cnpj"/></strong>
-					<strong><form:errors path="cliente.cli_sexo"/></strong>
-					<strong><form:errors path="cliente.cli_senha"/></strong>
-					<strong><form:errors path="cliente.cli_cep"/></strong>
-					<strong><form:errors path="cliente.cli_estado"/></strong>
-					<strong><form:errors path="cliente.cli_cidade"/></strong>
-					<strong><form:errors path="cliente.cli_endereco"/></strong>
-					<strong><form:errors path="cliente.cli_numero"/></strong>
-					<strong><form:errors path="cliente.cli_complemento"/></strong>
-					<strong><form:errors path="cliente.cli_residencial"/></strong>
-					<strong><form:errors path="cliente.cli_celular"/></strong>
-					<strong><form:errors path="cliente.cli_email"/></strong>
+					<strong><form:errors path="cliente.nome_cli"/></strong>
+					<strong><form:errors path="cliente.cpf_cli"/></strong>
+					<strong><form:errors path="cliente.cnpj_cli"/></strong>
+					<strong><form:errors path="cliente.sexo_cli"/></strong>
+					<strong><form:errors path="cliente.senha_cli"/></strong>
+					<strong><form:errors path="cliente.cep_cli"/></strong>
+					<strong><form:errors path="cliente.estado_cli"/></strong>
+					<strong><form:errors path="cliente.cidade_cli"/></strong>
+					<strong><form:errors path="cliente.endereco_cli"/></strong>
+					<strong><form:errors path="cliente.numero_cli"/></strong>
+					<strong><form:errors path="cliente.complemento_cli"/></strong>
+					<strong><form:errors path="cliente.residencial_cli"/></strong>
+					<strong><form:errors path="cliente.celular_cli"/></strong>
+					<strong><form:errors path="cliente.email_cli"/></strong>
 					<strong><form:errors path="cliente.ativo_cli"/></strong>
 
 				<!--	-->
@@ -128,22 +128,22 @@
 					  		<c:if test="${ cli.deleted }">
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="0">
              	  	
-	                      	  	<td>${ cli.cli_nome }</td>
-	                      	  	<td>${ cli.cli_cpf }</td>
-	                      	  	<td>${ cli.cli_cnpj }</td>
-	                      	  	<td>${ cli.cli_sexo }</td>
-	                      	  	<td>${ cli.cli_ativo }</td>
-	                      	  	<td>${ cli.cli_senha }</td>
-	                      	  	<td>${ cli.cli_news_letter }</td>
-	                      	  	<td>${ cli.cli_cep }</td>
-	                      	  	<td>${ cli.cli_estado }</td>
-	                      	  	<td>${ cli.cli_cidade }</td>
-	                      	  	<td>${ cli.cli_endereco }</td>
-	                      	  	<td>${ cli.cli_numero }</td>
-	                      	  	<td>${ cli.cli_complemento }</td>
-	                      	  	<td>${ cli.cli_residencial }</td>
-	                      	  	<td>${ cli.cli_celular }</td>
-	                      	  	<td>${ cli.cli_email }</td>
+	                      	  	<td>${ cli.nome_cli }</td>
+	                      	  	<td>${ cli.cpf_cli }</td>
+	                      	  	<td>${ cli.cnpj_cli }</td>
+	                      	  	<td>${ cli.sexo_cli }</td>
+	                      	  	<td>${ cli.ativo_cli }</td>
+	                      	  	<td>${ cli.senha_cli }</td>
+	                      	  	<td>${ cli.news_letter_cli }</td>
+	                      	  	<td>${ cli.cep_cli }</td>
+	                      	  	<td>${ cli.estado_cli }</td>
+	                      	  	<td>${ cli.cidade_cli }</td>
+	                      	  	<td>${ cli.endereco_cli }</td>
+	                      	  	<td>${ cli.numero_cli }</td>
+	                      	  	<td>${ cli.complemento_cli }</td>
+	                      	  	<td>${ cli.residencial_cli }</td>
+	                      	  	<td>${ cli.celular_cli }</td>
+	                      	  	<td>${ cli.email_cli }</td>
 	                      	  	
 	                      	  	<td>
 									<small>Criado em:	<fmt:formatDate value="${ cli.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
@@ -191,61 +191,61 @@
 
 					<!--	Input sem ícone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_nome" class="form-control" placeholder="Nome" title="Nome" value="${ cliente.cli_nome }">
+					  <input type="text" name="nome_cli" class="form-control" placeholder="Nome" title="Nome" value="${ cliente.nome_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_cpf" class="form-control" placeholder="CPF" title="CPF" value="${ cliente.cli_cpf }">
+					  <input type="text" name="cpf_cli" class="form-control" placeholder="CPF" title="CPF" value="${ cliente.cpf_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_cnpj" class="form-control" placeholder="CNPJ" title="CNPJ" value="${ cliente.cli_cnpj }">
+					  <input type="text" name="cnpj_cli" class="form-control" placeholder="CNPJ" title="CNPJ" value="${ cliente.cnpj_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_sexo" class="form-control" placeholder="Sexo" title="Sexo" value="${ cliente.cli_sexo }">
+					  <input type="text" name="sexo_cli" class="form-control" placeholder="Sexo" title="Sexo" value="${ cliente.sexo_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_senha" class="form-control" placeholder="Senha" title="Senha" value="${ cliente.cli_senha }">
+					  <input type="text" name="senha_cli" class="form-control" placeholder="Senha" title="Senha" value="${ cliente.senha_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_cep" class="form-control" placeholder="CEP" title="CEP" value="${ cliente.cli_cep }">
+					  <input type="text" name="cep_cli" class="form-control" placeholder="CEP" title="CEP" value="${ cliente.cep_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_estado" class="form-control" placeholder="Estado" title="Estado" value="${ cliente.cli_estado }">
+					  <input type="text" name="estado_cli" class="form-control" placeholder="Estado" title="Estado" value="${ cliente.estado_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_cidade" class="form-control" placeholder="Cidade" title="Cidade" value="${ cliente.cli_cidade }">
+					  <input type="text" name="cidade_cli" class="form-control" placeholder="Cidade" title="Cidade" value="${ cliente.cidade_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_endereco" class="form-control" placeholder="Endereco" title="Endereco" value="${ cliente.cli_endereco }">
+					  <input type="text" name="endereco_cli" class="form-control" placeholder="Endereco" title="Endereco" value="${ cliente.endereco_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_numero" class="form-control" placeholder="Numero" title="Numero" value="${ cliente.cli_numero }">
+					  <input type="text" name="numero_cli" class="form-control" placeholder="Numero" title="Numero" value="${ cliente.numero_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_complemento" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.cli_complemento }">
+					  <input type="text" name="complemento_cli" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.complemento_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_residencial" class="form-control" placeholder="Residencial" title="Residencial" value="${ cliente.cli_residencial }">
+					  <input type="text" name="residencial_cli" class="form-control" placeholder="Residencial" title="Residencial" value="${ cliente.residencial_cli }">
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_celular" class="form-control" placeholder="Celular" title="Celular" value="${ cliente.cli_celular }">
+					  <input type="text" name="celular_cli" class="form-control" placeholder="Celular" title="Celular" value="${ cliente.celular_cli }">
 					</div>
 
 					<!--	Input com ícone
 							(Preferencial)  	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cli_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ cliente.cli_email }">
+					  <input type="text" name="email_cli" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ cliente.email_cli }">
 					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
 					</div>
 
