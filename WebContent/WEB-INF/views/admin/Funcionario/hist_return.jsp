@@ -13,15 +13,15 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="func" items="${funcs}">
-	                      	  <tr id="delete_row_${ func.id_funcionario }">
-	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ func.foto_func }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ func.nome_func }<br><small>${ func.email_func }</small></td>
+					  		<c:forEach var="fun" items="${funs}">
+	                      	  <tr id="delete_row_${ fun.id_funcionario }">
+	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
+	                      	  	<td>${ fun.nome_fun }<br><small>${ fun.email_fun }</small></td>
 	                      	  	<td><strong>Cargo</strong><br><small>Atendente</small></td>
 	                      	  	<td>
-				                  <button type="button" data-id="${ func.id_funcionario }" class="btn btn-primary btn-xs ModalFuncionario"
+				                  <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-primary btn-xs ModalFuncionario"
 				                  		data-toggle="modal" data-target=".bs-funcionario-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
-					              <button type="button" data-id="${ func.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
+					              <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 	                      	  	</td>
 	                      	  </tr>
                       		</c:forEach>

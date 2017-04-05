@@ -41,9 +41,9 @@
                       <div class="col-md-6">
                         <div class="thumbnail">
                           <div class="image view view-first">
-                            <img style="width: 100%; display: block;" src="<c:url value="/resources/imagens/banners/${ banner.arquivo_banner }"/>" alt="image" />
+                            <img style="width: 100%; display: block;" src="<c:url value="/resources/imagens/banners/${ ban.arquivo_ban }"/>" alt="image" />
                             <div class="mask">
-                              <p>${ banner.produto.nome_produto }</p>
+                              <p>${ ban.pro.nome_pro }</p>
                               <div class="tools tools-bottom">
                                 <a href="#"><i class="fa fa-link"></i></a>
                                 <a href="#"><i class="fa fa-pencil"></i></a>
@@ -52,9 +52,9 @@
                             </div>
                           </div>
                           <div class="caption">
-                            <p> <c:if test="${ banner.ativo_banner }"> Ativo </c:if>
-                            	<c:if test="${ not banner.ativo_banner }"> Bloqueado </c:if>
-                            - ${ banner.nome_banner }</p>
+                            <p> <c:if test="${ ban.ativo_ban }"> Ativo </c:if>
+                            	<c:if test="${ not ban.ativo_ban }"> Bloqueado </c:if>
+                            - ${ ban.nome_ban }</p>
                           </div>
                         </div>
                       </div>
@@ -78,13 +78,13 @@
                   </div>
                   <div class="x_content">
 				    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-					  <input type="text" name="nome_banner" class="form-control has-feedback-left" placeholder="Nome do Banner" title="Nome do Banner">
+					  <input type="text" name="nome_ban" class="form-control has-feedback-left" placeholder="Nome do Banner" title="Nome do Banner">
 				      <span class="fa fa-clone form-control-feedback left" aria-hidden="true"></span>
 				    </div>
 				    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                          <select class="form-control" id="produto" multiple="multiple" name="produto.nome_produto">
+                          <select class="form-control" id="produto" multiple="multiple" name="pro.nome_pro">
 			        		<c:forEach var="produto" items="${produtos}">
-                            	<option value="${ produto.id_produto }">${ produto.nome_produto }</option>
+                            	<option value="${ pro.id_pro }">${ pro.nome_pro }</option>
 							</c:forEach>
                           </select>
 				    </div>

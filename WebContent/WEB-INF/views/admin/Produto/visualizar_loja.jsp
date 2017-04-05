@@ -61,13 +61,13 @@
 						<c:forEach var="produto" items="${produtos}">
 	                        <tr>
 	                          <td>
-								<c:forEach var="imagem" items="${ produto.imagem }">
+								<c:forEach var="imagem" items="${ pro.ima }">
 							  		<img src="<c:url value="/resources/imagens/produtos/${ imagem.arquivo_imagem }"/>" class="avatar" alt="Avatar" >
 								</c:forEach>
                               </td>
 	                          <td>${ produto.nome_produto }</td>
-	                          <td><textarea rows="1" disabled>${ produto.descricao_produto }</textarea></td>
-	                          <td>${ produto.preco_produto }</td>
+	                          <td><textarea rows="1" disabled>${ pro.descricao_pro }</textarea></td>
+	                          <td>${ pro.preco_pro }</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -121,12 +121,12 @@
                       <tbody>
 						<c:forEach var="produto" items="${produtos}">
 	                        <tr>
-	                          <td>${ produto.nome_produto }</td>
-	                          <td>${ produto.preco_produto }</td>
-	                          <td>${ produto.desconto_produto }%</td>
-	                          <td>${ produto.publicado_produto }</td>
-	                          <td>${ produto.destaque_produto }</td>
-	                          <td>${ produto.promocao_produto }</td>
+	                          <td>${ pro.nome_pro }</td>
+	                          <td>${ pro.preco_pro }</td>
+	                          <td>${ pro.desconto_pro }%</td>
+	                          <td>${ pro.publicado_pro }</td>
+	                          <td>${ pro.destaque_pro }</td>
+	                          <td>${ pro.promocao_pro }</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -180,12 +180,12 @@
                       <tbody>
 						<c:forEach var="produto" items="${produtos}">
 	                        <tr>
-	                          <td>${ produto.nome_produto }</td>
-	                          <td>${ produto.peso_produto }</td>
-	                          <td>${ produto.altura_produto }</td>
-	                          <td>${ produto.largura_produto }</td>
-	                          <td>${ produto.comprimento_produto }</td>
-	                          <td>${ produto.garantia_produto }</td>
+	                          <td>${ pro.nome_pro }</td>
+	                          <td>${ pro.peso_pro }</td>
+	                          <td>${ pro.altura_pro }</td>
+	                          <td>${ pro.largura_pro }</td>
+	                          <td>${ pro.comprimento_pro }</td>
+	                          <td>${ pro.garantia_pro }</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>
@@ -236,9 +236,9 @@
                       <tbody>
 						<c:forEach var="produto" items="${produtos}">
 	                        <tr>
-	                          <td>${ produto.nome_produto }</td>
-	                          <td>${ produto.fornecedor.nome_fornecedor }</td>
-	                          <td>${ produto.categoria.nome_categoria }</td>
+	                          <td>${ pro.nome_pro }</td>
+	                          <td>${ pro.for.nome_for }</td>
+	                          <td>${ pro.cat.nome_cat }</td>
 	                          <td>
 	                            <a href="#" class="btn btn-primary btn-xs"><i class="fa fa-pencil"></i> Editar </a>
 	                            <a href="#" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i> Deletar </a>

@@ -39,7 +39,7 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="nome_produto" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome do produto" title="Nome do produto">
+                        <input type="text" name="nome_pro" class="form-control has-feedback-left" id="inputSuccess2" placeholder="Nome do produto" title="Nome do produto">
                         <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
                       </div>
                   </div>
@@ -128,7 +128,7 @@
 	
 	                  <div id="editor" class="editor-wrapper"></div>
 	
-	                  <textarea name="descricao_produto" id="descr" style="display:none;"></textarea>
+	                  <textarea name="descricao_pro" id="descr" style="display:none;"></textarea>
                   </div>
                 </div>
                 
@@ -156,13 +156,13 @@
 								<div class="form-group">
 									<!-- Garantia -->
 				                    <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="garantia_produto" class="form-control has-feedback-left" placeholder="Garantia (em dias, meses ou anos)" title="Garantia">
+				                      <input type="text" name="garantia_pro" class="form-control has-feedback-left" placeholder="Garantia (em dias, meses ou anos)" title="Garantia">
 				                      <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
 				                    </div>
 				                    
 									<!-- Peso -->
 				                    <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="peso_produto" class="form-control has-feedback-left" placeholder="Peso" title="Peso (kg)">
+				                      <input type="text" name="peso_pro" class="form-control has-feedback-left" placeholder="Peso" title="Peso (kg)">
 				                      <span class="fa fa-cube form-control-feedback left" aria-hidden="true"></span>
 				                      <span class="form-control-feedback right" aria-hidden="true">(kg)</span>
 				                    </div>
@@ -175,19 +175,19 @@
 									</div>
 									
 				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="altura_produto" class="form-control has-feedback-left" placeholder="Altura" title="Altura (Cm)">
+				                      <input type="text" name="altura_pro" class="form-control has-feedback-left" placeholder="Altura" title="Altura (Cm)">
 				                      <span class="fa fa-arrows-v form-control-feedback left" aria-hidden="true"></span>
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 									
 				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="largura_produto" class="form-control has-feedback-left" placeholder="Largura" title="Largura (Cm)">
+				                      <input type="text" name="largura_pro" class="form-control has-feedback-left" placeholder="Largura" title="Largura (Cm)">
 				                      <span class="fa fa-arrows-h form-control-feedback left" aria-hidden="true"></span>
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 				                    
 				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="comprimento_produto" class="form-control has-feedback-left" placeholder="Comprimento" title="Comprimento (Cm)">
+				                      <input type="text" name="comprimento_pro" class="form-control has-feedback-left" placeholder="Comprimento" title="Comprimento (Cm)">
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 								</div>
@@ -210,10 +210,10 @@
                   	<p>Deseja exibir o produto para os clientes da loja?</p>
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
-							<input type="radio"	name="publicado_produto" value="1">SIM
+							<input type="radio"	name="publicado_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="publicado_produto" value="0" checked>NÃO
+							<input type="radio"	name="publicado_pro" value="0" checked>NÃO
 						</label>
 					</div>
                   </div>
@@ -229,7 +229,7 @@
                   </div>
                   <div class="x_content">
                     <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                  		<input type="text" name="preco_produto" value="${ produto.preco_produto }" class="form-control has-feedback-left preco_toolspin" placeholder="Preço" title="Preço">
+                  		<input type="text" name="preco_pro" value="${ pro.preco_pro }" class="form-control has-feedback-left preco_toolspin" placeholder="Preço" title="Preço">
 				        <span class="form-control-feedback left" aria-hidden="true">R$</span>
                     </div>
                   </div>
@@ -247,10 +247,10 @@
                   	<p>Deseja destacar o produto, colocando-o na página inicial do site?</p>
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
-							<input type="radio"	name="destaque_produto" value="1">SIM
+							<input type="radio"	name="destaque_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="destaque_produto" value="0" checked>NÃO
+							<input type="radio"	name="destaque_pro" value="0" checked>NÃO
 						</label>
 					</div>
                   </div>
@@ -269,17 +269,17 @@
 					<!-- Desconto -->
 					<div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                            <input type="text" name="desconto_produto" value="${ produto.desconto_produto }" class="form-control has-feedback" placeholder="Desconto" title="Desconto">
+                            <input type="text" name="desconto_pro" value="${ pro.desconto_pro }" class="form-control has-feedback" placeholder="Desconto" title="Desconto">
 				            <span class="form-control-feedback right" aria-hidden="true">(%)</span>
                         </div>
 					</div>
                   	<p>Deseja aplicar o desconto?</p>
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
-							<input type="radio"	name="promocao_produto" value="1">SIM
+							<input type="radio"	name="promocao_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="promocao_produto" value="0" checked>NÃO
+							<input type="radio"	name="promocao_pro" value="0" checked>NÃO
 						</label>
 					</div>
                   </div>
@@ -296,16 +296,16 @@
                   <div class="x_content">
                   	<p>A qual categoria esse produto pertence?</p>
 										  <!-- Marca -->
-										  <select class="form-control" name="categoria.id_categoria">
+										  <select class="form-control" name="cat.id_categoria">
 											<!-- mostra categorias, se a categoria for diferente da categoria já existente no produto ele exibirá -->
 												<c:forEach var="categoria" items="${categorias}">
 												
-												  <c:if test="${ categoria.id_categoria == produto.categoria.id_categoria}">
-													<option value="${ categoria.id_categoria }" selected>${categoria.nome_categoria }
+												  <c:if test="${ cat.id_categoria == pro.cat.id_categoria}">
+													<option value="${ cat.id_categoria }" selected>${cat.nome_cat }
 												  </c:if>
 												  
-												  <c:if test="${ categoria.id_categoria ne produto.categoria.id_categoria}">
-													<option value="${ categoria.id_categoria }">${categoria.nome_categoria }
+												  <c:if test="${ cat.id_categoria ne produto.cat.id_categoria}">
+													<option value="${ cat.id_categoria }">${cat.nome_cat }
 												  </c:if>
 												  
 												</c:forEach>
@@ -324,16 +324,16 @@
                   <div class="x_content">
                   	<p>A quem o produto pertence?</p>
 										  <!-- Marca -->
-										  <select class="form-control" name="fornecedor.id_fornecedor">
+										  <select class="form-control" name="for.id_fornecedor">
 											<!-- mostra categorias, se a categoria for diferente da categoria já existente no produto ele exibirá -->
 												<c:forEach var="fornecedor" items="${fornecedores}">
 												
-												  <c:if test="${ fornecedor.id_fornecedor == produto.fornecedor.id_fornecedor}">
-													<option value="${ fornecedor.id_fornecedor }" selected>${fornecedor.nome_fornecedor }
+												  <c:if test="${ for.id_fornecedor == pro.for.id_fornecedor}">
+													<option value="${ for.id_fornecedor }" selected>${for.nome_for }
 												  </c:if>
 												  
-												  <c:if test="${ fornecedor.id_fornecedor ne produto.fornecedor.id_fornecedor}">
-													<option value="${ fornecedor.id_fornecedor }">${fornecedor.nome_fornecedor }
+												  <c:if test="${ for.id_fornecedor ne produto.for.id_fornecedor}">
+													<option value="${ for.id_fornecedor }">${for.nome_for }
 												  </c:if>
 												  
 												</c:forEach>

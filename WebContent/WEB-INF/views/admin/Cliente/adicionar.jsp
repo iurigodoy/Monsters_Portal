@@ -39,21 +39,21 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="nome_cliente" class="form-control has-feedback-left" placeholder="Nome" title="Nome">
+                        <input type="text" name="nome_cli" class="form-control has-feedback-left" placeholder="Nome" title="Nome">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="cpf_cliente" class="form-control has-feedback-left" placeholder="CPF" title="CPF">
+                        <input type="text" name="cpf_cli" class="form-control has-feedback-left" placeholder="CPF" title="CPF">
                         <span class="fa fa-align-center form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
                           <div class="radio">
                             <label>Sexo:</label>
                             <label>
-                              <input type="radio" name="sexo_cliente" class="flat" value="1"> Masculino
+                              <input type="radio" name="sexo_cli" class="flat" value="1"> Masculino
                             </label>
                             <label>
-                              <input type="radio" name="sexo_cliente" class="flat" value="0"> Feminino
+                              <input type="radio" name="sexo_cli" class="flat" value="0"> Feminino
                             </label>
                           </div>
                       </div>
@@ -72,15 +72,15 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="razao_cliente" class="form-control has-feedback-left" placeholder="Razão" title="Razão">
+                        <input type="text" name="razao_cli" class="form-control has-feedback-left" placeholder="Razão" title="Razão">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="objetivo_cliente" class="form-control has-feedback-left" placeholder="Objetivo" title="Objetivo">
+                        <input type="text" name="objetivo_cli" class="form-control has-feedback-left" placeholder="Objetivo" title="Objetivo">
                         <span class="fa fa-align-center form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="cnpj_cliente" class="form-control has-feedback-left" placeholder="CNPJ" title="CNPJ">
+                        <input type="text" name="cnpj_cli" class="form-control has-feedback-left" placeholder="CNPJ" title="CNPJ">
                         <span class="fa fa-align-center form-control-feedback left" aria-hidden="true"></span>
                       </div>
                   </div>
@@ -101,15 +101,15 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="email_cliente" class="form-control has-feedback-left" placeholder="Email" title="Email">
+                        <input type="text" name="email_cli" class="form-control has-feedback-left" placeholder="Email" title="Email">
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="residencial_cliente" class="form-control has-feedback-left" placeholder="Telefone" title="Telefone">
+                        <input type="text" name="residencial_cli" class="form-control has-feedback-left" placeholder="Telefone" title="Telefone">
                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="celular_cliente" class="form-control has-feedback-left" placeholder="Celular" title="Celular">
+                        <input type="text" name="celular_cli" class="form-control has-feedback-left" placeholder="Celular" title="Celular">
                         <span class="fa fa-mobile form-control-feedback left" aria-hidden="true"></span>
                       </div>
                   </div>
@@ -126,10 +126,10 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-						<input id="cep" type="text" class="form-control cep" name="cep_cliente" placeholder="CEP" title="CEP">
+						<input id="cep" type="text" class="form-control cep" name="cep_cli" placeholder="CEP" title="CEP">
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-						<select id="uf" class="form-control" name="estado_cliente">
+						<select id="uf" class="form-control" name="estado_cli">
 							<option value="">Estado
 							<option value="AC">AC
 							<option value="AL">AL
@@ -161,16 +161,16 @@
 						</select>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-						<input name="cidade_cliente" type="text" class="form-control" placeholder="Município" title="Município">
+						<input name="cidade_cli" type="text" class="form-control" placeholder="Município" title="Município">
                       </div>
                       <div class="col-md-9 col-sm-12 col-xs-12 form-group">
-						<input name="endereco_cliente" type="text" class="form-control" placeholder="Endereço" title="Endereço">
+						<input name="endereco_cli" type="text" class="form-control" placeholder="Endereço" title="Endereço">
                       </div>
                       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-						<input name="numero_cliente" type="text" class="form-control" placeholder="Nº" title="Nº">
+						<input name="numero_cli" type="text" class="form-control" placeholder="Nº" title="Nº">
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-						<input name="complemento_cliente" type="text" class="form-control" placeholder="Complemento" title="Complemento">
+						<input name="complemento_cli" type="text" class="form-control" placeholder="Complemento" title="Complemento">
                       </div>
                   </div>
                 </div>

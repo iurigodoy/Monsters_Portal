@@ -37,7 +37,7 @@
                         <div class="col-md-12 col-sm-12 col-xs-12">
                           <select class="select2_multiple form-control" multiple="multiple">
 			        		<c:forEach var="produto" items="${produtos}">
-                            	<option value="${ produto.id_produto }">${ produto.nome_produto }</option>
+                            	<option value="${ pro.id_produto }">${ pro.nome_pro }</option>
 							</c:forEach>
                           </select>
                         </div>
@@ -52,7 +52,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                     <input type="text" id="cliente" name="nome_cliente" class="form-control has-feedback-left" placeholder="Nome Completo" title="Nome Completo">
+                     <input type="text" id="cliente" name="nome_cli" class="form-control has-feedback-left" placeholder="Nome Completo" title="Nome Completo">
                      <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                   </div>
                 </div>
@@ -95,7 +95,7 @@
       $(document).ready(function() {
         var countries = {
         		<c:forEach var="cliente" items="${clientes}" varStatus="ContadorAutoComplete">
-			 			nome_${ContadorAutoComplete.index}:"${cliente.nome_cliente}",
+			 			nome_${ContadorAutoComplete.index}:"${cli.nome_cli}",
 				</c:forEach>
 		};
         var countriesArray = $.map(countries, function(value, key) {

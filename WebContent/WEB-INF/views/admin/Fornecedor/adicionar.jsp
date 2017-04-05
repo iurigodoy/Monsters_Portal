@@ -38,19 +38,19 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="nome_fornecedor" class="form-control has-feedback-left" placeholder="Nome" title="Nome">
+                        <input type="text" name="nome_for" class="form-control has-feedback-left" placeholder="Nome" title="Nome">
                         <span class="fa fa-truck form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="razao_fornecedor" class="form-control has-feedback-left" placeholder="Razão" title="Razão">
+                        <input type="text" name="razao_for" class="form-control has-feedback-left" placeholder="Razão" title="Razão">
                         <span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="objetivo_fornecedor" class="form-control has-feedback-left" placeholder="Objetivo" title="Objetivo">
+                        <input type="text" name="objetivo_for" class="form-control has-feedback-left" placeholder="Objetivo" title="Objetivo">
                         <span class="fa fa-align-center form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="cnpj_fornecedor" class="form-control has-feedback-left" placeholder="CNPJ" title="CNPJ">
+                        <input type="text" name="cnpj_for" class="form-control has-feedback-left" placeholder="CNPJ" title="CNPJ">
                         <span class="fa fa-align-center form-control-feedback left" aria-hidden="true"></span>
                       </div>
                   </div>
@@ -67,7 +67,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<input type="file" name="logo_fornecedor">
+                  	<input type="file" name="logo_for">
                   	<!-- <form action="form_upload.html" class="dropzone"></form> -->
                   </div>
                 </div>
@@ -87,19 +87,19 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="email_fornecedor" class="form-control has-feedback-left" placeholder="Email" title="Email">
+                        <input type="text" name="email_for" class="form-control has-feedback-left" placeholder="Email" title="Email">
                         <span class="fa fa-envelope-o form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="residencial_fornecedor" class="form-control has-feedback-left" placeholder="Telefone" title="Telefone">
+                        <input type="text" name="residencial_for" class="form-control has-feedback-left" placeholder="Telefone" title="Telefone">
                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="celular_fornecedor" class="form-control has-feedback-left" placeholder="Celular" title="Celular">
+                        <input type="text" name="celular_for" class="form-control has-feedback-left" placeholder="Celular" title="Celular">
                         <span class="fa fa-mobile form-control-feedback left" aria-hidden="true"></span>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                        <input type="text" name="comercial_fornecedor" class="form-control has-feedback-left" placeholder="Comercial" title="Comercial">
+                        <input type="text" name="comercial_for" class="form-control has-feedback-left" placeholder="Comercial" title="Comercial">
                         <span class="fa fa-phone form-control-feedback left" aria-hidden="true"></span>
                       </div>
                   </div>
@@ -116,10 +116,10 @@
                   </div>
                   <div class="x_content">
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-						<input id="cep" type="text" class="form-control cep" name="cep_fornecedor" placeholder="CEP" title="CEP">
+						<input id="cep" type="text" class="form-control cep" name="cep_for" placeholder="CEP" title="CEP">
                       </div>
                       <div class="col-md-6 col-sm-12 col-xs-12 form-group">
-						<select id="uf" class="form-control" name="estado_fornecedor">
+						<select id="uf" class="form-control" name="estado_for">
 							<option value="">Estado
 							<option value="AC">AC
 							<option value="AL">AL
@@ -151,16 +151,16 @@
 						</select>
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-						<input name="cidade_fornecedor" type="text" class="form-control" placeholder="Município" title="Município">
+						<input name="cidade_for" type="text" class="form-control" placeholder="Município" title="Município">
                       </div>
                       <div class="col-md-9 col-sm-12 col-xs-12 form-group">
-						<input name="endereco_fornecedor" type="text" class="form-control" placeholder="Endereço" title="Endereço">
+						<input name="endereco_for" type="text" class="form-control" placeholder="Endereço" title="Endereço">
                       </div>
                       <div class="col-md-3 col-sm-12 col-xs-12 form-group">
-						<input name="numero_fornecedor" type="text" class="form-control" placeholder="Nº" title="Nº">
+						<input name="numero_for" type="text" class="form-control" placeholder="Nº" title="Nº">
                       </div>
                       <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-						<input name="complemento_fornecedor" type="text" class="form-control" placeholder="Complemento" title="Complemento">
+						<input name="complemento_for" type="text" class="form-control" placeholder="Complemento" title="Complemento">
                       </div>
                   </div>
                 </div>

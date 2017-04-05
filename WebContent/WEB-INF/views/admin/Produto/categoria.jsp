@@ -38,10 +38,10 @@
                   </div>
                   <div class="x_content">
 					<c:forEach var="categoria" items="${categorias}">
-						<div class="col-md-8 col-sm-8 col-xs-8"><h2>${categoria.nome_categoria}</h2></div>
+						<div class="col-md-8 col-sm-8 col-xs-8"><h2>${cat.nome_cat}</h2></div>
 						<div class="col-md-4 col-sm-4 col-xs-4">
 						  <form>
-							<input type="hidden" name="id_categoria" value="${ categoria.id_categoria }">
+							<input type="hidden" name="id_categoria" value="${ cat.id_categoria }">
 							<button type="submit" class="btn btn-sm btn-danger pull-right" title="Salvar">
 								<i class="glyphicon glyphicon-remove" style="font-size:12px;"></i> Excluir
 							</button>
@@ -68,12 +68,12 @@
 					
 					  <form action="CreateCategoria" method="POST">
 					  	<input type="hidden" name="cat_conf_pro" value="1">
-					  	<input type="hidden" name="conf_quantidade_categoria" value="1">
+					  	<input type="hidden" name="conf_quantidade_cat" value="1">
 						<div class="modal-body">
 						
 						  <div class="row">
 							  <div class="form-group">
-								<input type="text" name="nome_categoria" class="form-control" placeholder="Coloque uma categoria  Ex. Samsung">
+								<input type="text" name="nome_cat" class="form-control" placeholder="Coloque uma categoria  Ex. Samsung">
 							  </div>
 						  </div><!-- Fim Row -->
 						  
@@ -83,8 +83,8 @@
 									<select name="hierarquia_categoria" class="form-control col-xs-8">
 									<option value="">Nenhuma dependência
 									<c:forEach var="categoria" items="${categorias}">
-										<c:if test="${empty categoria.hierarquia_categoria}">
-											<option value="${categoria.id_categoria}"> ${categoria.nome_categoria}
+										<c:if test="${empty cat.hierarquia_cat}">
+											<option value="${cat.id_categoria}"> ${cat.nome_cat}
 										</c:if>
 									</c:forEach>
 									</select>

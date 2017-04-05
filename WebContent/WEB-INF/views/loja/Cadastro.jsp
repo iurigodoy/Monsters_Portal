@@ -29,16 +29,16 @@
 			<div id="tabs-1">
 				<form class="form-horizontal" role="form" method="POST" action="CreateCliente">
 				
-					<input type="hidden" name="ativo_cliente" value="true">
+					<input type="hidden" name="ativo_cli" value="true">
 						
 						<div class="form-group ${status.error ? 'has-error' : ''}">
                             <label for="nome" class="col-md-4 control-label">Nome: </label>
 
                             <div class="col-md-6">
-                                <input id="nome" type="text" class="form-control" name="nome_cliente">
+                                <input id="nome" type="text" class="form-control" name="nome_cli">
 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.nome_cliente"/></strong>
+                                        <strong><form:errors path="cli.nome_cli"/></strong>
                                     </span>
                             </div>
                         </div>
@@ -47,10 +47,10 @@
                             <label for="email" class="col-md-4 control-label">E-mail</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email_cliente">
+                                <input id="email" type="email" class="form-control" name="email_cli">
 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.email_cliente"/></strong>
+                                        <strong><form:errors path="cli.email_cli"/></strong>
                                     </span>
                             </div>
                         </div>
@@ -60,11 +60,11 @@
                             <label for="telefone" class="col-md-4 control-label">Telefone: </label>
 
                             <div class="col-md-2">
-                                <input id="telefone" type="text" class="form-control" name="residencial_cliente">
+                                <input id="telefone" type="text" class="form-control" name="residencial_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.residencial_cliente"/></strong>
+                                        <strong><form:errors path="cli.residencial_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -74,11 +74,11 @@
                             <label for="celular" class="col-md-2 control-label">Celular: </label>
 
                             <div class="col-md-2">
-                                <input id="celular" type="text" class="form-control" name="celular_cliente">
+                                <input id="celular" type="text" class="form-control" name="celular_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.celular_cliente"/></strong>
+                                        <strong><form:errors path="cli.celular_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -89,11 +89,11 @@
                             <label for="cpf" class="col-md-4 control-label">CPF: </label>
 
                             <div class="col-md-6">
-                                <input id="cpf" type="text" class="form-control cpf" name="cpf_cliente">
+                                <input id="cpf" type="text" class="form-control cpf" name="cpf_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.cpf_cliente"/></strong>
+                                        <strong><form:errors path="cli.cpf_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -105,12 +105,12 @@
                             <div class="col-md-2"></div>
 
                             <div class="col-md-4">
-								<label class="radio-inline"><input type="radio" id="sexo_cliente" name="sexo_cliente" value="1">Masculino</label>
-                                <label class="radio-inline"><input type="radio" id="sexo_cliente" name="sexo_cliente" value="0">Feminino</label>
+								<label class="radio-inline"><input type="radio" id="sexo_cli" name="sexo_cli" value="1">Masculino</label>
+                                <label class="radio-inline"><input type="radio" id="sexo_cli" name="sexo_cli" value="0">Feminino</label>
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.sexo_cliente"/></strong>
+                                        <strong><form:errors path="cli.sexo_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -123,11 +123,11 @@
                             <label for="cep" class="col-md-4 control-label">CEP: </label>
 
                             <div class="col-md-3">
-                                <input id="cep" type="text" class="form-control cep" name="cep_cliente">
+                                <input id="cep" type="text" class="form-control cep" name="cep_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.cep_cliente"/></strong>
+                                        <strong><form:errors path="cli.cep_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -138,7 +138,7 @@
                             <label for="uf" class="col-md-1 control-label">Estado: </label>
 
                             <div class="col-md-2">
-								<select id="uf" class="form-control" name="estado_cliente">
+								<select id="uf" class="form-control" name="estado_cli">
 									<option value="">Selecione
 									<option value="AC">AC
 									<option value="AL">AL
@@ -171,7 +171,7 @@
 								
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.estado_cliente"/></strong>
+                                        <strong><form:errors path="cli.estado_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -182,11 +182,11 @@
                             <label for="cidade" class="col-md-4 control-label">Município: </label>
 
                             <div class="col-md-6">
-                                <input id="cidade" type="text" class="form-control" name="cidade_cliente">
+                                <input id="cidade" type="text" class="form-control" name="cidade_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.cidade_cliente"/></strong>
+                                        <strong><form:errors path="cli.cidade_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -194,14 +194,14 @@
 						
 						<div class="form-group ${status.error ? ' has-error' : ''}">
 						
-						  <div class="{{ $errors->has('endereco_cliente') ? ' has-error' : '' }}">
-                            <label for="endereco_cliente" class="col-md-4 control-label">Endereço: </label>
+						  <div class="{{ $errors->has('endereco_cli') ? ' has-error' : '' }}">
+                            <label for="endereco_cli" class="col-md-4 control-label">Endereço: </label>
 
                             <div class="col-md-3">
-                                <input id="endereco_cliente" type="text" class="form-control" name="endereco_cliente">
+                                <input id="endereco_cli" type="text" class="form-control" name="endereco_cli">
 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.endereco_cliente"/></strong>
+                                        <strong><form:errors path="cli.endereco_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -211,11 +211,11 @@
                             <label for="numero" class="col-md-1 control-label">Nº: </label>
 
                             <div class="col-md-2">
-                                <input id="numero" type="text" class="form-control" name="numero_cliente">
+                                <input id="numero" type="text" class="form-control" name="numero_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.numero_cliente"/></strong>
+                                        <strong><form:errors path="cli.numero_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -227,11 +227,11 @@
                             <label for="complemento" class="col-md-4 control-label">Complemento: </label>
 
                             <div class="col-md-6">
-                                <input id="complemento" type="text" class="form-control" name="complemento_cliente">
+                                <input id="complemento" type="text" class="form-control" name="complemento_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.complemento_cliente"/></strong>
+                                        <strong><form:errors path="cli.complemento_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -243,11 +243,11 @@
                             <label for="usuario" class="col-md-4 control-label">Usuário: </label>
 
                             <div class="col-md-6">
-                                <input id="usuario" type="text" class="form-control" name="usuario_cliente">
+                                <input id="usuario" type="text" class="form-control" name="usuario_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="usuario_cliente"/></strong>
+                                        <strong><form:errors path="usuario_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -257,11 +257,11 @@
                             <label for="password" class="col-md-4 control-label">Senha: </label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="senha_cliente">
+                                <input id="password" type="password" class="form-control" name="senha_cli">
 
                                 
                                     <span class="help-block">
-                                        <strong><form:errors path="cliente.senha_cliente"/></strong>
+                                        <strong><form:errors path="cli.senha_cli"/></strong>
                                     </span>
                                 
                             </div>
@@ -270,7 +270,7 @@
 						<div class="form-group">
 							<div class="col-md-4"></div>
                             <div class="col-md-4">
-                                <input id="newsletter" type="checkbox" name="news_letter_cliente" checked>
+                                <input id="newsletter" type="checkbox" name="news_letter_cli" checked>
                                 <label for="newsletter" class="control-label">Receber nosso Newsletter</label>
                             </div>
                             <div class="col-md-2">
@@ -291,10 +291,10 @@
 			<div id="tabs-2">
 				<form action="cadastra_form.php" method="post" onsubmit="return valida_form(this)">
 				
-					<input type="hidden" name="ativo_cliente" value="1">
+					<input type="hidden" name="ativo_cli" value="1">
 					
 						<div class="form-group ${status.error ? 'has-error' : ''}">
-                            <label for="nome_cliente" class="col-md-4 control-label">Nome fantasia: </label>
+                            <label for="nome_cli" class="col-md-4 control-label">Nome fantasia: </label>
 
                             <div class="col-md-6">
                                 <input id="nome" type="text" class="form-control" name="nome_fantasia">

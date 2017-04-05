@@ -14,27 +14,27 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="func" items="${funcs}">
-	                      	  <tr id="funcionario_${ func.id_funcionario }">
+					  		<c:forEach var="fun" items="${funcs}">
+	                      	  <tr id="funcionario_${ fun.id_funcionario }">
 	                      	  	<td>
-	                      	  	  <c:if test="${ func.deleted }">
+	                      	  	  <c:if test="${ fun.deleted }">
 	                      	  		<i class="fa fa-trash"></i>
 	                      	  	  </c:if>
 	                      	  	</td>
 	                      	  	
-	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ func.foto_func }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ func.nome_func }<br><small>${ func.email_func }<br></small>${ func.cargo.nome_cargo } - Atendente</td>
+	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun}"/>" class="avatar" alt="Foto"></td>
+	                      	  	<td>${ fun.nome_fun}<br><small>${ fun.email_fun}<br></small>${ fun.car.nome_car } - Atendente</td>
 	                      	  	
 	                      	  	<td>
-									<small>Criado em:		<fmt:formatDate value="${ func.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:	<fmt:formatDate value="${ func.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:		<fmt:formatDate value="${ func.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
+									<small>Criado em:		<fmt:formatDate value="${ fun.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
+								    Atualizado em:	<fmt:formatDate value="${ fun.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
+								    Apagado em:		<fmt:formatDate value="${ fun.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
 	                      	  	</td>
 	                      	  	
 	                      	  	<td>
-	                      	  	  <c:if test="${ func.deleted }">
-					              	<button type="button"							 data-id="${ func.id_funcionario }"
-					              	class="btn btn-success btn-xs restore-button" id="restore_${ func.id_funcionario }">
+	                      	  	  <c:if test="${ fun.deleted }">
+					              	<button type="button"							 data-id="${ fun.id_funcionario }"
+					              	class="btn btn-success btn-xs restore-button" id="restore_${ fun.id_funcionario }">
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
 	                      	  	  </c:if>
 	                      	  	</td>
