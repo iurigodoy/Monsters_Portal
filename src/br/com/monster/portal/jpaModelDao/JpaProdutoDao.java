@@ -43,9 +43,9 @@ public class JpaProdutoDao implements ProdutoDao {
 	    	Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.deleted = false "
-			        		+ "ORDER BY pro.id_produto "
-							+ "(SELECT produto FROM Imagem ima)");
+			        		+ "WHERE pro.id_produto IN "
+			        		+ "(SELECT pro FROM Imagem ima WHERE ordem_ima = 1) "
+			        		+ "ORDER BY pro.nome_pro ");
 
 			@SuppressWarnings("unchecked")
 			List<Produto> produtos = query.getResultList();
@@ -58,8 +58,11 @@ public class JpaProdutoDao implements ProdutoDao {
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
 			        		+ "WHERE pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_pro = true");
+			        		+ "(SELECT pro FROM Imagem ima WHERE ordem_ima = 1) "
+			        		+ "AND pro.id_produto IN "
+			        		+ "(SELECT pro FROM Produto_has_fornecedor pro_for) "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false");
 		    	
 
 				@SuppressWarnings("unchecked")
@@ -74,9 +77,12 @@ public class JpaProdutoDao implements ProdutoDao {
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
 			        		+ "WHERE pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) "
+			        		+ "(SELECT pro FROM Imagem ima WHERE ordem_ima = 1) "
+			        		+ "AND pro.id_produto IN "
+			        		+ "(SELECT pro FROM Produto_has_fornecedor pro_for) "
 			        		+ "AND pro.publicado_pro = true "
-			        		+ "AND pro.destaque_pro = true");
+			        		+ "AND pro.destaque_pro = true "
+			        		+ "AND pro.deleted = false");
 		    	
 
 				@SuppressWarnings("unchecked")

@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<c:import url="../../Header.jsp" />
+<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
@@ -74,7 +74,7 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="fun" items="${funs}">
+					  		<c:forEach var="fun" items="${funcionarios}">
 							<!--			^^^^			^^^^	-->
 					  		
 					  		<c:if test="${ not fun.deleted }">
@@ -213,7 +213,7 @@
 
 </script>
 
-<c:import url="../../Footer.jsp" />
+<c:import url="../Footer.jsp" />
 <script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">

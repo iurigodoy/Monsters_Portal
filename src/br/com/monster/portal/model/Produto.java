@@ -90,13 +90,13 @@ public class Produto {
 	 |--------------------------------------
 	 */
 
-	// MUITOS Ramais estão em UM Setor	(N-1)
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
 	@JoinColumn(name = "categoria_id_categoria", insertable=true, updatable=true)
 	private Categoria categoria;
 
 
-	// UM Ramal tem MUITOS Funcionários	(1-N)
+	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Avaliacao> avaliacao;
 

@@ -29,10 +29,10 @@
                         </tr>
                       </thead>
                       <tbody>
-						<c:forEach var="produto" items="${produtos}">
+						<c:forEach var="pro" items="${produtos}">
 	                        <tr>
 	                          <td>
-								<c:forEach var="ima" items="${ pro.ima }">
+								<c:forEach var="ima" items="${ pro.imagem }">
 							  		<img src="<c:url value="/resources/imagens/produtos/${ ima.arquivo_ima }"/>" class="avatar" alt="Avatar" >
 								</c:forEach>
                               </td>
@@ -44,26 +44,26 @@
 	                          	<a href="#" class="link-blue"><span class="fa fa-eye"></span> Visualizar</a>
 	                          	</h5>
 	                          </td>
-	                          <td>R$ ${ pro.preco_pro }</td>
+	                          <td>R$ </td>
 	                          <td>
 	                          	<h3>
 	                          	  <c:if test="${pro.publicado_pro}">
 	                         		<i class="fa fa-eye green"		title="Publicado"				data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
 	                         	  </c:if>
 	                          	  <c:if test="${not pro.publicado_pro}">
-	                         		<i class="fa fa-eye"			title="Não publicado"		data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
+	                         		<i class="fa fa-eye"			title="Nï¿½o publicado"		data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
 	                         	  </c:if>
 	                          	  <c:if test="${pro.destaque_pro}">
 	                          		<i class="fa fa-desktop	green"	title="Em Destaque"				data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
 	                         	  </c:if>
 	                          	  <c:if test="${not pro.destaque_pro}">
-	                          		<i class="fa fa-desktop"		title="Não destacado"	data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
+	                          		<i class="fa fa-desktop"		title="Nï¿½o destacado"	data-toggle="tooltip" data-placement="bottom"></i>	|	<!-- Green OR red -->
 	                         	  </c:if>
 	                          	  <c:if test="${pro.promocao_pro}">
 	                          		<i class="fa fa-tag green"		title="Desconto de ${pro.desconto_pro}" data-toggle="tooltip" data-placement="bottom"></i>		<!-- Green OR red -->
 	                         	  </c:if>
 	                          	  <c:if test="${not pro.promocao_pro}">
-	                          		<i class="fa fa-tag"			title="Não está em promoção"	data-toggle="tooltip" data-placement="bottom"></i>		<!-- Green OR red -->
+	                          		<i class="fa fa-tag"			title="Nï¿½o estï¿½ em promoï¿½ï¿½o"	data-toggle="tooltip" data-placement="bottom"></i>		<!-- Green OR red -->
 	                         	  </c:if>
 	                          	</h3>
 	                          </td>

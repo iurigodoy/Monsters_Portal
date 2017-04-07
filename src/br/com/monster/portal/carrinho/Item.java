@@ -4,18 +4,18 @@ import br.com.monster.portal.model.Produto_has_fornecedor;
 
 public class Item {
 
-	  private Produto_has_fornecedor produto_do_fornecedor;
+	  private Produto_has_fornecedor produto_has_fornecedor;
 	  
 	  private Integer quantidade;
 	  
 	// getters e setters
 	
-	public Produto_has_fornecedor getProduto_do_fornecedor() {
-		return produto_do_fornecedor;
+	public Produto_has_fornecedor getProduto_has_fornecedor() {
+		return produto_has_fornecedor;
 	}
 
-	public void setProduto_do_fornecedor(Produto_has_fornecedor produto_do_fornecedor) {
-		this.produto_do_fornecedor = produto_do_fornecedor;
+	public void setProduto_has_fornecedor(Produto_has_fornecedor produto_has_fornecedor) {
+		this.produto_has_fornecedor = produto_has_fornecedor;
 	}
 	
 	public Integer getQuantidade() {

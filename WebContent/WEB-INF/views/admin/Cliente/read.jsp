@@ -91,7 +91,7 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="cli" items="${clis}">
+					  		<c:forEach var="cli" items="${clientes}">
 							<!--			^^^^			^^^^	-->
 					  		
 					  		<c:if test="${ not cli.deleted }">

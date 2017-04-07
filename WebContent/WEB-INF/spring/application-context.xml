@@ -87,7 +87,7 @@
 <bean id="AcessoDao"		class="br.com.monster.portal.jpaModelDao.JpaAcessoDao"></bean>
 <bean id="AvaliacaoDao"		class="br.com.monster.portal.jpaModelDao.JpaAvaliacaoDao"></bean>
 <bean id="BannerDao"		class="br.com.monster.portal.jpaModelDao.JpaBannerDao"></bean>
-<bean id="CampanhaDao"			class="br.com.monster.portal.jpaModelDao.JpaCampanhaDao"></bean>
+<bean id="CampanhaDao"		class="br.com.monster.portal.jpaModelDao.JpaCampanhaDao"></bean>
 <bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
 <bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
 <bean id="ClienteDao"		class="br.com.monster.portal.jpaModelDao.JpaClienteDao"></bean>
@@ -98,6 +98,7 @@
 <bean id="MensagemDao"		class="br.com.monster.portal.jpaModelDao.JpaMensagemDao"></bean>
 <bean id="ParcelaDao"		class="br.com.monster.portal.jpaModelDao.JpaParcelaDao"></bean>
 <bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
+<bean id="Produto_has_fornecedorDao"		class="br.com.monster.portal.jpaModelDao.JpaProduto_has_fornecedorDao"></bean>
 <bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>
 <bean id="RelatoriosDao"	class="br.com.monster.portal.jpaModelDao.JpaRelatoriosDao"></bean>
 
@@ -124,6 +125,8 @@
 <bean id="Produto"		class="br.com.monster.portal.model.Produto"></bean>
 <bean id="Relatorios"	class="br.com.monster.portal.model.Relatorios"></bean>
 <bean id="Status_parcela"	class="br.com.monster.portal.model.Status_parcela"></bean>
+
+<bean id="Carrinho"			class="br.com.monster.portal.carrinho.Carrinho"></bean>
 
 
 
