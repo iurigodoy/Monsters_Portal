@@ -27,13 +27,12 @@ public class UsuarioController {
 
 	/*
 	 *==============================
-	 * 			Usuário				
+	 * 			Usuï¿½rio				
 	 *==============================
 	 */
 	
 	@RequestMapping("Cadastro")
 	public String Cadastro(Model model) {
-		model.addAttribute("cadastro_page", "active");
 		model.addAttribute("categorias", dao_cat.Read());
 		return "Cadastro";
 	}

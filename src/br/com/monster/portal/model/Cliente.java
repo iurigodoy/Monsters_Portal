@@ -111,7 +111,7 @@ public class Cliente {
 	 |--------------------------------------
 	 */
 	
-	// UM Ramal tem MUITOS Funcionários	(1-N)
+	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Parcela> parcela;
 	
@@ -126,6 +126,8 @@ public class Cliente {
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Pedido> pedido;
+	
+	public String form;
 
 	
 	/*
@@ -340,6 +342,14 @@ public class Cliente {
 
 	public void setPedido(Set<Pedido> pedido) {
 		this.pedido = pedido;
+	}
+
+	public String getForm() {
+		return form;
+	}
+
+	public void setForm(String form) {
+		this.form = form;
 	}
 	
 	

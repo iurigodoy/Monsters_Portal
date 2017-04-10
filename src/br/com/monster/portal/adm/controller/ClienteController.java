@@ -24,7 +24,7 @@ public class ClienteController {
 	/*
 
 	 |==================================|
-	 |				Métodos				|
+	 |				Mï¿½todos				|
 	 |==================================|
 
 
@@ -42,7 +42,7 @@ public class ClienteController {
 	}
 	
 	@RequestMapping("CreateCliente")
-	public String create(@Valid Cliente cliente, BindingResult result) {
+	public String create(@Valid Cliente cliente, BindingResult result, Model model) {
 		
 		if(result.hasErrors()) {
 		    return "forward:Cadastro";
