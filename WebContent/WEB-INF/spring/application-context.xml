@@ -91,12 +91,12 @@
 <bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
 <bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
 <bean id="ClienteDao"		class="br.com.monster.portal.jpaModelDao.JpaClienteDao"></bean>
+<bean id="DashboardDao"		class="br.com.monster.portal.jpaModelDao.JpaDashboardDao"></bean>
 <bean id="FornecedorDao"	class="br.com.monster.portal.jpaModelDao.JpaFornecedorDao"></bean>
 <bean id="FuncionarioDao"	class="br.com.monster.portal.jpaModelDao.JpaFuncionarioDao"></bean>
 <bean id="ImagemDao"		class="br.com.monster.portal.jpaModelDao.JpaImagemDao"></bean>
 <bean id="MailingDao"		class="br.com.monster.portal.jpaModelDao.JpaMailingDao"></bean>
 <bean id="MensagemDao"		class="br.com.monster.portal.jpaModelDao.JpaMensagemDao"></bean>
-<bean id="ParcelaDao"		class="br.com.monster.portal.jpaModelDao.JpaParcelaDao"></bean>
 <bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
 <bean id="Produto_has_fornecedorDao"		class="br.com.monster.portal.jpaModelDao.JpaProduto_has_fornecedorDao"></bean>
 <bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>

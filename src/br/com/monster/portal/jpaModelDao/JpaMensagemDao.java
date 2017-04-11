@@ -28,10 +28,10 @@ public class JpaMensagemDao implements MensagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Mensagem> Read() {
@@ -40,22 +40,6 @@ public class JpaMensagemDao implements MensagemDao {
 			        .createQuery("SELECT msg "//16
 			        		+ "FROM Mensagem msg "
 			        		+ "WHERE msg.deleted = false "
-			        		+ "ORDER BY msg.id_mensagem");
-
-			@SuppressWarnings("unchecked")
-			List<Mensagem> mensagens = query.getResultList();
-
-			return mensagens;
-		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Mensagem> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT msg "//16
-			        		+ "FROM Mensagem msg "
 			        		+ "ORDER BY msg.id_mensagem");
 
 			@SuppressWarnings("unchecked")
@@ -86,7 +70,7 @@ public class JpaMensagemDao implements MensagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -111,10 +95,10 @@ public class JpaMensagemDao implements MensagemDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Mensagem mensagem) {
@@ -123,7 +107,7 @@ public class JpaMensagemDao implements MensagemDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -133,7 +117,7 @@ public class JpaMensagemDao implements MensagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -154,7 +138,7 @@ public class JpaMensagemDao implements MensagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

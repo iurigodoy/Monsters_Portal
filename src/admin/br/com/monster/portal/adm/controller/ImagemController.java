@@ -23,7 +23,7 @@ public class ImagemController {
 		/*
 
 		 |==================================|
-		 |				Métodos				|
+		 |				Mï¿½todos				|
 		 |==================================|
 
 		 * -------------------------
@@ -41,19 +41,6 @@ public class ImagemController {
 				return "redirect:Produto";
 			}
 			
-		}
-		
-		
-		/*
-		 * -------------------------
-		 * 			Read			
-		 * -------------------------
-		 */
-		
-		@RequestMapping("Admin/Imagem")
-		public String Read(Model model, Imagem imagem) {
-			model.addAttribute("imagems", dao.Read());
-			return "admin/Imagem";
 		}
 
 
@@ -84,18 +71,6 @@ public class ImagemController {
 		public String delete(Long id) {
 		  dao.delete(id);
 		  return "redirect:Produto";
-		}
-		
-		/*
-		 * -------------------------
-		 * 			Restore			
-		 * -------------------------
-		 */
-		
-		@RequestMapping("Admin/RestoreImagem")
-		public String restore(Long id) {
-			  dao.restore(id);
-			  return "delete";
 		}
 
 		/*

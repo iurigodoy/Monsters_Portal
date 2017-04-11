@@ -46,6 +46,7 @@ public class LoginClienteController {
 	@RequestMapping("efetuaLogin")
 	public String efetuaLogin(Cliente cliente, HttpSession session, Model model) {
 
+	  cliente.setSenha_cli(cliente.getSenha_cli());
 	  if(dao.UsuarioExiste(cliente) == true) {
 	    session.setAttribute("clienteLogado", cliente);
 		session.setAttribute("clienteLogadoInfo", dao.SeUsuarioExiste(cliente));

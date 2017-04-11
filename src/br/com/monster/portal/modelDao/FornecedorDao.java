@@ -7,8 +7,6 @@ import br.com.monster.portal.model.Fornecedor;
 public interface FornecedorDao {
 	
 	List<Fornecedor> Read();
-	List<Fornecedor> Read_History();
-	List<Fornecedor> Select_Name_Id();
 	Fornecedor Find_One(Long id);
 	
 	void create(Fornecedor fornecedor);

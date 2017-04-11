@@ -28,10 +28,10 @@ public class JpaMailingDao implements MailingDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Mailing> Read() {
@@ -40,22 +40,6 @@ public class JpaMailingDao implements MailingDao {
 			        .createQuery("SELECT mai "//16
 			        		+ "FROM Mailing mai "
 			        		+ "WHERE mai.deleted = false "
-			        		+ "ORDER BY mai.id_mailing");
-
-			@SuppressWarnings("unchecked")
-			List<Mailing> mailings = query.getResultList();
-
-			return mailings;
-		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Mailing> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT mai "//16
-			        		+ "FROM Mailing mai "
 			        		+ "ORDER BY mai.id_mailing");
 
 			@SuppressWarnings("unchecked")
@@ -86,7 +70,7 @@ public class JpaMailingDao implements MailingDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -111,10 +95,10 @@ public class JpaMailingDao implements MailingDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Mailing mailing) {
@@ -123,7 +107,7 @@ public class JpaMailingDao implements MailingDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -133,7 +117,7 @@ public class JpaMailingDao implements MailingDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -154,7 +138,7 @@ public class JpaMailingDao implements MailingDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

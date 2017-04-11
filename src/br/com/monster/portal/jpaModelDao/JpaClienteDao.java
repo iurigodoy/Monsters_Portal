@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 
 import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.modelDao.ClienteDao;
+import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -47,42 +48,6 @@ public class JpaClienteDao implements ClienteDao {
 
 			return clientes;
 		}
-		   
-		/*
-		*	M�todo Read	History			
-		*/
-		public List<Cliente> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT cli "//16
-			        		+ "FROM Cliente cli "
-			        		+ "ORDER BY cli.id_cliente");
-
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
-
-			return clientes;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Cliente> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT cli.id_cliente, cli.cli_nome "//16
-				        		+ "FROM Cliente cli "
-				        		+ "WHERE cli.deleted = false "
-				        		+ "ORDER BY cli.id_cliente");
-
-				@SuppressWarnings("unchecked")
-				List<Cliente> clientes = query.getResultList();
-
-				return clientes;
-			}
 	   
 	   /*
 	    * ----------------------------------
@@ -106,23 +71,6 @@ public class JpaClienteDao implements ClienteDao {
 					return clientes;
 					
 				}
-	   
-	   public List<Cliente> Find_By_Name(String nome_cliente) {
-			
-			// Escreve a SQL
-			Query query = manager
-			        .createQuery("SELECT cli FROM Cliente cli "
-			        		+ "WHERE cli.nome_cliente LIKE :Nome "
-			                + "ORDER BY nome_cliente DESC");
-			
-			query.setParameter("Nome", (String) "%"+nome_cliente+"%");
-	
-				@SuppressWarnings("unchecked")
-				List<Cliente> clientes = query.getResultList();
-	
-			return clientes;
-			
-		}
 
 		
 		public boolean UsuarioExiste(Cliente cliente) {
@@ -133,16 +81,17 @@ public class JpaClienteDao implements ClienteDao {
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :usuario "
-							+ "AND cli.senha_cli = :senha");
+							+ "WHERE cli.email_cli = :usuario ");
 		
 							query.setParameter("usuario", (String) usuario);
-							query.setParameter("senha", (String) senha);
+			// Pega os resultados + senha já criptografada
+			Cliente clientes = (Cliente) query.getSingleResult();
+			
+			// Criptografa a senha que o usuário digitou
+			cliente.criptografar_senha(senha);
 
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
-							
-			if (!clientes.isEmpty()) {
+			// Compara as senhas
+			if (clientes.getSenha_cli().equals(cliente.getSenha_cli())) {
 				return true;
 			} else {
 				return false;
@@ -152,74 +101,19 @@ public class JpaClienteDao implements ClienteDao {
 		public Cliente SeUsuarioExiste(Cliente cliente) {
 			// Pega o dado digitado pelo usu�rio
 			String usuario = cliente.getEmail_cli();
-			String senha = cliente.getSenha_cli();
 									
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :usuario "
-							+ "AND cli.senha_cli = :senha");
+							+ "WHERE cli.email_cli = :usuario ");
 					
 				query.setParameter("usuario", (String) usuario);
-				query.setParameter("senha", (String) senha);
 
 			Cliente cliente_result = (Cliente) query.getSingleResult();
 	
 			return cliente_result;
 			
 		}
-
-		/*
-		 * ---------------------
-		 * 		Dashboard		
-		 * ---------------------
-		 */
-
-		
-		public List<Cliente> Qtd_clientes() {
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT COUNT(cli.id_cliente) as count "
-						+ "FROM Cliente as cli ");
-						
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
-
-			return clientes;
-		}
-
-		
-		public List<Cliente> Qtd_Clientes_Homens() {
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT COUNT(cli.id_cliente) as count "
-						+ "FROM Cliente as cli "
-						+ "WHERE cli.sexo_cliente = :param");
-
-			query.setParameter("param", (String) "true");
-						
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
-
-			return clientes;
-		}
-
-		
-		public List<Cliente> Qtd_Clientes_Mulheres() {
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT COUNT(cli.id_cliente) as count "
-						+ "FROM Cliente as cli "
-						+ "WHERE cli.sexo_cliente = :param");
-
-			query.setParameter("param", (String) "false");
-						
-			@SuppressWarnings("unchecked")
-			List<Cliente> clientes = query.getResultList();
-
-			return clientes;
-		}
-	   
 	   
 	   
 	
@@ -232,6 +126,7 @@ public class JpaClienteDao implements ClienteDao {
 	    * 
 	    */
 		public void create(Cliente cliente) {
+			cliente.criptografar_senha(cliente.getSenha_cli());
 			cliente.setCreated_at(cal.getTime());
 			cliente.setUpdated_at(cal.getTime());
 			cliente.setDeleted(false);

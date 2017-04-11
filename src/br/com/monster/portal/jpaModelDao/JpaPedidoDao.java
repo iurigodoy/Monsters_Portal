@@ -30,19 +30,13 @@ public class JpaPedidoDao implements PedidoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Pedido> Read() {
-			
-		    	/*Query query = manager
-				        .createQuery("SELECT ped "
-			        			+ "FROM Pedido ped, Produto prod, pedido_has_produto pedprod "
-			        			+ "WHERE pedprod.pedido_id_pedido = ped.id_pedido "
-			        			+ "AND pedprod.produto = prod.produto");*/
 			
 	    	Query query = manager
 			        .createQuery("SELECT ped "
@@ -55,46 +49,10 @@ public class JpaPedidoDao implements PedidoDao {
 
 			return pedidos;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Pedido> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT ped "
-				        		+ "FROM Pedido ped "
-				        		+ "ORDER BY ped.data_pedido ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Pedido> pedidos = query.getResultList();
-
-			return pedidos;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Pedido> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT ped.id_pedido, pro.pro_nome "//16
-				        		+ "FROM Pedido ped "
-				        		+ "WHERE ped.deleted = false "
-				        		+ "ORDER BY data_pedido");
-
-				@SuppressWarnings("unchecked")
-				List<Pedido> pedidos = query.getResultList();
-
-				return pedidos;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -164,21 +122,6 @@ public class JpaPedidoDao implements PedidoDao {
 
 			return pedidos;
 		}
-
-		public List<Pedido> Pedidos_por_semana() {
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT COUNT(ped.id_pedido) as count, ped.data_pedido "
-						+ "FROM Pedido as ped "
-						+ "WHERE ped.data_pedido BETWEEN CURRENT_DATE -7 AND CURRENT_DATE "
-						+ "GROUP BY ped.data_pedido "
-						+ "ORDER BY ped.data_pedido");
-						
-			@SuppressWarnings("unchecked")
-			List<Pedido> pedidos = query.getResultList();
-
-			return pedidos;
-		}
 	   
 	   
 	   
@@ -186,10 +129,10 @@ public class JpaPedidoDao implements PedidoDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Pedido pedido) {
@@ -201,7 +144,7 @@ public class JpaPedidoDao implements PedidoDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -212,7 +155,7 @@ public class JpaPedidoDao implements PedidoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -233,7 +176,7 @@ public class JpaPedidoDao implements PedidoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

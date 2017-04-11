@@ -146,5 +146,10 @@
   		<artifactId>validation-api</artifactId>
   		<version>1.0.0.GA</version>
   	</dependency>
+  	<dependency>
+  		<groupId>org.owasp</groupId>
+  		<artifactId>antisamy</artifactId>
+  		<version>1.4</version>
+  	</dependency>
   </dependencies>
 </project>

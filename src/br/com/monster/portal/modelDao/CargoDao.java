@@ -7,8 +7,6 @@ import br.com.monster.portal.model.Cargo;
 public interface CargoDao {
 	
 	List<Cargo> Read();
-	List<Cargo> Read_History();
-	List<Cargo> Select_Name_Id();
 	Cargo Find_One(Long id);
 	
 	void create(Cargo cargo);

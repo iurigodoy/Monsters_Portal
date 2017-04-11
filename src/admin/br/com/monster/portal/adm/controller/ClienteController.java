@@ -1,7 +1,5 @@
 package br.com.monster.portal.adm.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,23 +39,11 @@ public class ClienteController {
 		return "admin/Cliente/adicionar";
 	}
 	
-	@RequestMapping("CreateCliente")
-	public String create(@Valid Cliente cliente, BindingResult result, Model model) {
-		
-		if(result.hasErrors()) {
-		    return "forward:Cadastro";
-		} else {
-			dao.create(cliente);
-			return "redirect:index";
-		}
-		
-	}
-	
 	@RequestMapping("Admin/CreateCliente")
 	public String createAdmin(@Valid Cliente cliente, BindingResult result) {
 		
 		if(result.hasErrors()) {
-		    return "forward:Cliente";
+		    return "forward:Add_Cliente";
 		} else {
 			dao.create(cliente);
 			return "redirect:Cliente";
@@ -129,23 +115,6 @@ public class ClienteController {
 	public String restore(Long id) {
 		dao.restore(id);
 		  return "delete";
-	}
-	
-	
-	/*
-	 * -------------------------
-	 * 			Find			
-	 * -------------------------
-	 */
-	
-	@RequestMapping("Admin/ProcurarCliente")
-	public String Find(Model model, Cliente cliente,
-			 HttpServletRequest request, HttpServletResponse response) {
-
-		String nome_cliente = request.getParameter("nome_cliente");
-		model.addAttribute("clie_page", "active");
-		model.addAttribute("clientes", dao.Find_By_Name(nome_cliente));
-		return "admin/Cliente";
 	}
 	
 }

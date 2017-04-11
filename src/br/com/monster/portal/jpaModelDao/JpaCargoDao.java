@@ -27,10 +27,10 @@ public class JpaCargoDao implements CargoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Cargo> Read() {
@@ -46,46 +46,10 @@ public class JpaCargoDao implements CargoDao {
 
 			return cargos;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Cargo> Read_History() {
-
-	    	Query query = manager
-	    	.createQuery("SELECT pro "
-				        		+ "FROM Cargo pro "
-				        		+ "ORDER BY pro.id_cargo ASC");
-
-				@SuppressWarnings("unchecked")
-				List<Cargo> cargos = query.getResultList();
-
-			return cargos;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Cargo> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT pro.id_cargo, pro.car_nome "//16
-				        		+ "FROM Cargo pro "
-				        		+ "WHERE pro.deleted = false "
-				        		+ "ORDER BY pro.id_cargo");
-
-				@SuppressWarnings("unchecked")
-				List<Cargo> cargos = query.getResultList();
-
-				return cargos;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -110,10 +74,10 @@ public class JpaCargoDao implements CargoDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Cargo cargo) {
@@ -125,7 +89,7 @@ public class JpaCargoDao implements CargoDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -136,7 +100,7 @@ public class JpaCargoDao implements CargoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -157,7 +121,7 @@ public class JpaCargoDao implements CargoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

@@ -7,8 +7,6 @@ import br.com.monster.portal.model.Mailing;
 public interface MailingDao {
 	
 	List< Mailing> Read();
-	List< Mailing> Read_History();
-	List< Mailing> Select_Name_Id();
 	 Mailing Find_One(Long id);
 	
 	void create( Mailing mailing);

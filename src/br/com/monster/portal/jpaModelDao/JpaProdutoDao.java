@@ -90,43 +90,6 @@ public class JpaProdutoDao implements ProdutoDao {
 
 			return produtos;
 		}
-		   
-		/*
-		*	M�todo Read	History			
-		*/
-		public List<Produto> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-				        		+ "FROM Produto pro "
-				        		+ "ORDER BY pro.id_produto "
-								+ "(SELECT produto FROM Imagem ima) ");
-
-			@SuppressWarnings("unchecked")
-			List<Produto> produtos = query.getResultList();
-
-			return produtos;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Produto> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT pro.id_produto, pro.pro_nome "//16
-				        		+ "FROM Produto pro "
-				        		+ "WHERE pro.deleted = false "
-				        		+ "ORDER BY pro.id_produto");
-
-				@SuppressWarnings("unchecked")
-				List<Produto> produtos = query.getResultList();
-
-				return produtos;
-			}
 	   
 	   /*
 	    * ----------------------------------
@@ -134,6 +97,24 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * ----------------------------------
 	    * 
 	    */
+
+		   
+		public Produto Find_One(Long id) {
+
+			Query query = manager
+				        .createQuery("SELECT pro "
+				        		+ "FROM Produto pro "
+				        		+ "WHERE pro.nome_pro = :Id "
+				        		+ "AND pro.id_produto IN "
+				        		+ "(SELECT produto FROM Imagem ima) ");
+				
+				query.setParameter("Id", id);
+		
+				Produto produtos = (Produto) query.getResultList();
+		
+				return produtos;
+				
+			}
 	   
 	   public List<Produto> Find_By_Name(String nome_prod) {
 
@@ -278,10 +259,5 @@ public class JpaProdutoDao implements ProdutoDao {
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	@Override
-	public Produto Find_One(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	   
 }

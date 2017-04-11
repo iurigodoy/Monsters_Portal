@@ -18,7 +18,7 @@ import org.xml.sax.InputSource;
 
 
 public class Frete {
-	public static void main(String[] args) {
+	public static void main() {
 		// Dados pesquisa		
 		String nCdEmpresa = "";
 		String sDsSenha = ""; 
@@ -65,7 +65,7 @@ public class Frete {
 			// pega o valor
 			String value = parameters.getProperty(name);
 			// adiciona com um conector (? ou &)
-			// o primeiro é ?, depois são &
+			// o primeiro ï¿½ ?, depois sï¿½o &
 			urlString += (++counter == 1 ? "?" : "&") + name + "=" + value;
 		}
 		try {
@@ -80,7 +80,7 @@ public class Frete {
 			connection.setDoOutput(false);
 			// conecta com a url destino
 			connection.connect();
-			// abre a conexão pra input
+			// abre a conexï¿½o pra input
 			BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 			// le ate o final
 			StringBuffer newData = new StringBuffer();
@@ -89,7 +89,7 @@ public class Frete {
 				newData.append(s);
 			}
 			br.close();
-			//Prepara o XML que está em string para executar leitura por nodes
+			//Prepara o XML que estï¿½ em string para executar leitura por nodes
 			DocumentBuilder db = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		    InputSource is = new InputSource();
 		    is.setCharacterStream(new StringReader(newData.toString()));

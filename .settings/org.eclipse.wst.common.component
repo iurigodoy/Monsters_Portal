@@ -5,6 +5,8 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/test"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/admin"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/loja"/>
         <property name="context-root" value="Monsters_Portal"/>
         <property name="java-output-path" value="/Monsters_Portal/build/classes"/>
     </wb-module>

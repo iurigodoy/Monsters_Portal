@@ -27,10 +27,10 @@ public class JpaCampanhaDao implements CampanhaDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Campanha> Read() {
@@ -46,46 +46,10 @@ public class JpaCampanhaDao implements CampanhaDao {
 
 			return campanhas;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Campanha> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT cam "//16
-			        		+ "FROM Campanha cam "
-			        		+ "ORDER BY cam.id_campanha");
-
-			@SuppressWarnings("unchecked")
-			List<Campanha> campanhas = query.getResultList();
-
-			return campanhas;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Campanha> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT cam.id_campanha, mai.mai_nome "//16
-				        		+ "FROM Campanha cam "
-				        		+ "WHERE cam.deleted = false "
-				        		+ "ORDER BY cam.id_campanha");
-
-				@SuppressWarnings("unchecked")
-				List<Campanha> campanhas = query.getResultList();
-
-				return campanhas;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -110,10 +74,10 @@ public class JpaCampanhaDao implements CampanhaDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Campanha cam) {
@@ -122,7 +86,7 @@ public class JpaCampanhaDao implements CampanhaDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -132,7 +96,7 @@ public class JpaCampanhaDao implements CampanhaDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -153,7 +117,7 @@ public class JpaCampanhaDao implements CampanhaDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

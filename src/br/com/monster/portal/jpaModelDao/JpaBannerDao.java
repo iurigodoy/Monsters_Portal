@@ -62,42 +62,6 @@ public class JpaBannerDao implements BannerDao {
 
 			return banners;
 		}
-		   
-		/*
-		*	M�todo Read	History			
-		*/
-		public List<Banner> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT ban "//16
-			        		+ "FROM Banner ban INNER JOIN ban.produto pro "//33
-			        		+ "ORDER BY ban.id_banner  ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Banner> banners = query.getResultList();
-
-			return banners;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Banner> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT ban.id_banner, pro.pro_nome "//16
-				        		+ "FROM Banner ban "
-				        		+ "WHERE ban.deleted = false "
-				        		+ "ORDER BY ban.id_banner  ASC");
-
-				@SuppressWarnings("unchecked")
-				List<Banner> banners = query.getResultList();
-
-				return banners;
-			}
 	   
 	   /*
 	    * ----------------------------------

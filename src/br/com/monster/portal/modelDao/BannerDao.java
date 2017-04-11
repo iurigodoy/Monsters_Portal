@@ -8,8 +8,6 @@ public interface BannerDao {
 	
 	List<Banner> Read();
 	List<Banner> Read_publico();
-	List<Banner> Read_History();
-	List<Banner> Select_Name_Id();
 	Banner Find_One(Long id);
 	
 	void create(Banner banner);
