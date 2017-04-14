@@ -5,6 +5,7 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 import javax.xml.parsers.DocumentBuilder;
@@ -15,24 +16,44 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
+
+import antlr.collections.List;
 public class calculoFreteCorreio {
 	public static void main(String[] args) {
-		// Dados pesquisa		
-		String nCdEmpresa = "";
-		String sDsSenha = ""; 
+	    List teste = (List) new ArrayList<ListaFrete>();
+		// Dados pesquisa
+		// Informações da empresa e cliente
+		String nCdEmpresa = "";				//
+		String sDsSenha = ""; 				//
+		String sCepOrigem = "09920175";		// CEP Fornecedor
+		String sCepDestino = "72151613";	// CEP Cliente
+		
+		/*
+		 *	Serviços do Correio
+		 *	-------------------
+		 *	40010 SEDEX Varejo
+		 *	40045 SEDEX a Cobrar Varejo
+		 *	40215 SEDEX 10 Varejo
+		 *	40290 SEDEX Hoje Varejo
+		 *	41106 PAC Varejo
+		 */
 		String nCdServico = "41106";
-		String sCepOrigem = "09920175";
-		String sCepDestino = "72151613";
-		String nVlPeso = "0.300";
-		String nCdFormato = "1";
-		String nVlComprimento = "20";
-		String nVlAltura = "5";
-		String nVlLargura = "15";
-		String nVlDiametro = "0";
-		String sCdMaoPropria = "s";
-		String nVlValorDeclarado = "200";
-		String sCdAvisoRecebimento = "s";
-		String StrRetorno = "xml";  
+		
+		//				Informações do produto
+		String nVlPeso = "0.300";			// Peso do produto
+		String nCdFormato = "1";			// 1 – Formato caixa/pacote, 2 – Formato rolo/prisma, 3 - Envelope
+		String nVlComprimento = "20";		// 
+		String nVlAltura = "5";				// 
+		String nVlLargura = "15";			// 
+		String nVlDiametro = "0";			// 
+		//				Informações do fornecedor
+		String sCdMaoPropria = "s";			// Indica se a encomenda será entregue com o serviço adicional mão própria, S ou N
+		String nVlValorDeclarado = "200";	//
+		String sCdAvisoRecebimento = "s";	// Indica se a encomenda será entregue com o serviço adicional aviso de recebimento. S ou N
+		String StrRetorno = "xml";  		// formato
+		
+		
+		
 		//URL do webservice correio para calculo de frete
 		String urlString = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx";
 		// os parametros a serem enviados
