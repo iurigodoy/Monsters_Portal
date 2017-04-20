@@ -4,15 +4,11 @@ import java.util.List;
 
 import br.com.monster.portal.model.Banner;
 
-public interface BannerDao {
+public interface BannerDao extends MetodosBasicos {
 	
 	List<Banner> Read();
 	List<Banner> Read_publico();
-	Banner Find_One(Long id);
-	
 	void create(Banner banner);
 	void update(Banner banner);
-	void delete(Long id);
-	void restore(Long id);
 
 }

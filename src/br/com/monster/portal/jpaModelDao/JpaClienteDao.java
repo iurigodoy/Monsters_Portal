@@ -13,7 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.modelDao.ClienteDao;
-import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -56,7 +55,7 @@ public class JpaClienteDao implements ClienteDao {
 	    * 
 	    */
 			   
-			   public Cliente Find_One(long id) {
+			   public Cliente findOne(Long id) {
 					
 					// Escreve a SQL
 					Query query = manager

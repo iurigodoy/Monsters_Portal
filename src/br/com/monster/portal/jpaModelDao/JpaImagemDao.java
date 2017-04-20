@@ -32,7 +32,7 @@ public class JpaImagemDao implements ImagemDao {
 	    * 
 	    */
 	   
-	   public Imagem Find_One(Long id){
+	   public Imagem findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT imagem "//16

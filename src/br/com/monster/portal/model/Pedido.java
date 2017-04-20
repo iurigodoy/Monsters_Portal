@@ -113,9 +113,6 @@ public class Pedido {
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
 	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
-		
-	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
-	private Set<Parcela> parcela;
 	
 	/*
 	|---------------------------------------
@@ -282,15 +279,5 @@ public class Pedido {
 	public void setPedido_has_produto(Set<Pedido_has_produto> pedido_has_produto) {
 		this.pedido_has_produto = pedido_has_produto;
 	}
-
-	public Set<Parcela> getParcela() {
-		return parcela;
-	}
-
-	public void setParcela(Set<Parcela> parcela) {
-		this.parcela = parcela;
-	}
-	
-	
 	
 }

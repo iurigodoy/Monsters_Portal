@@ -22,7 +22,7 @@ public class FornecedorController {
 	/*
 
 	 |==================================|
-	 |				Métodos				|
+	 |				Mï¿½todos				|
 	 |==================================|
 
 	 * -------------------------
@@ -109,7 +109,7 @@ public class FornecedorController {
 	
 	@RequestMapping("Admin/ProcurarFornecedor")
 	public String Find(Model model, Long id) {
-		model.addAttribute("fornecedores", dao.Find_One(id));
+		model.addAttribute("fornecedores", dao.findOne(id));
 		return "admin/Fornecedor";
 	}
 

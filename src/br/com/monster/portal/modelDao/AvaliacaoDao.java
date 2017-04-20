@@ -5,14 +5,9 @@ import java.util.List;
 import br.com.monster.portal.model.Avaliacao;
 import br.com.monster.portal.model.Produto;
 
-public interface AvaliacaoDao {
-	
-	List<Avaliacao> Read(Produto produto);
-	Avaliacao Find_One(Long id);
-	
+public interface AvaliacaoDao extends MetodosBasicos {
+	List<Avaliacao> read(Produto produto);
 	void create(Avaliacao avaliacao);
 	void update(Avaliacao avaliacao);
-	void delete(Long id);
-	void restore(Long id);
 	
 }

@@ -53,7 +53,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	    * 
 	    */
 	   
-	   public Funcionario Find_One(Long id){
+	   public Funcionario findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT funcionario "//16

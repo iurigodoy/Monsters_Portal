@@ -7,10 +7,9 @@ import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.model.Pedido;
 
 
-public interface PedidoDao {
+public interface PedidoDao extends MetodosBasicos {
 	
 	List<Pedido> Read();
-	Pedido Find_One(long id);
 	
 	List<Pedido> Find_By_Date(Date data_pedido);
 	Object Find_pedido_boleto(String numb_ped);
@@ -18,7 +17,5 @@ public interface PedidoDao {
 	
 	void create(Pedido pedido);
 	void update(Pedido pedido);
-	void delete(long id);
-	void restore(long id);
 	
 }

@@ -71,7 +71,7 @@ public class PagesController {
 		
 		produto = (Produto) dao_prod.Find_publico(nome_produto);
 		model.addAttribute("produtos", produto);
-		model.addAttribute("avaliacoes", dao_ava.Read(produto));
+		model.addAttribute("avaliacoes", dao_ava.read(produto));
 	    return "Escolha";
 	}
 

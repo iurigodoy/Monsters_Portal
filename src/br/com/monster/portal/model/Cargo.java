@@ -53,12 +53,12 @@ public class Cargo {
 	 |--------------------------------------
 	 */
 	
-	// UM Ramal tem MUITOS Funcionários	(1-N)
+	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
 	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
 	private Set<Funcionario> funcionario;
 	
 	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
-	private Set<Permissoes> permissoes;
+	private Set<Permissao> permissoes;
 	
 	/*
 	|---------------------------------------
@@ -131,11 +131,11 @@ public class Cargo {
 		this.funcionario = funcionario;
 	}
 
-	public Set<Permissoes> getPermissoes() {
+	public Set<Permissao> getPermissoes() {
 		return permissoes;
 	}
 
-	public void setPermissoes(Set<Permissoes> permissoes) {
+	public void setPermissoes(Set<Permissao> permissoes) {
 		this.permissoes = permissoes;
 	}
 	

@@ -23,7 +23,7 @@ public class CargoController {
 		/*
 
 		 |==================================|
-		 |				Métodos				|
+		 |				Mï¿½todos				|
 		 |==================================|
 
 		 * -------------------------
@@ -104,7 +104,7 @@ public class CargoController {
 		
 		@RequestMapping("Admin/Find_Cargo")
 		public String find_one(Long id, Model model) {
-		  model.addAttribute("cargos", dao.Find_One(id));
+		  model.addAttribute("cargos", dao.findOne(id));
 		  return "admin/cargo";
 		}
 }

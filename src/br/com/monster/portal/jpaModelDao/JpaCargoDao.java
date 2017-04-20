@@ -54,7 +54,7 @@ public class JpaCargoDao implements CargoDao {
 	    * 
 	    */
 	   
-	   public Cargo Find_One(Long id){
+	   public Cargo findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT cargo "//16

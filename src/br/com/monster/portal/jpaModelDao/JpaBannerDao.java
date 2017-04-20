@@ -70,7 +70,7 @@ public class JpaBannerDao implements BannerDao {
 	    * 
 	    */
 	   
-	   public Banner Find_One(Long id){
+	   public Banner findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT banner "//16

@@ -24,7 +24,7 @@ public class AvaliacaoController {
 		/*
 
 		 |==================================|
-		 |				Métodos				|
+		 |				Mï¿½todos				|
 		 |==================================|
 
 		 * -------------------------
@@ -52,7 +52,7 @@ public class AvaliacaoController {
 		
 		@RequestMapping("Admin/Avaliacao")
 		public String Read(Model model, Produto produto) {
-			model.addAttribute("avaliacaos", dao.Read(produto));
+			model.addAttribute("avaliacaos", dao.read(produto));
 			return "admin/Avaliacao";
 		}
 		
@@ -94,7 +94,7 @@ public class AvaliacaoController {
 	
 	@RequestMapping("Admin/Find_Avaliacao")
 	public String find_one(Long id, Model model) {
-	  model.addAttribute("avaliacaos", dao.Find_One(id));
+	  model.addAttribute("avaliacaos", dao.findOne(id));
 	  return "admin//Avaliacao";
 	}
 		

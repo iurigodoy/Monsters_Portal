@@ -26,7 +26,7 @@ public class FuncionarioController {
 	/*
 
 	 |==================================|
-	 |				Métodos				|
+	 |				Mï¿½todos				|
 	 |==================================|
 
 	 * -------------------------
@@ -124,7 +124,7 @@ public class FuncionarioController {
 	
 	@RequestMapping("Admin/ProcurarFuncionario")
 	public String Find(Model model, Long id) {
-		model.addAttribute("funcionarios", dao.Find_One(id));
+		model.addAttribute("funcionarios", dao.findOne(id));
 		return "admin/Funcionario";
 	}
 

@@ -87,7 +87,6 @@
 <bean id="AcessoDao"		class="br.com.monster.portal.jpaModelDao.JpaAcessoDao"></bean>
 <bean id="AvaliacaoDao"		class="br.com.monster.portal.jpaModelDao.JpaAvaliacaoDao"></bean>
 <bean id="BannerDao"		class="br.com.monster.portal.jpaModelDao.JpaBannerDao"></bean>
-<bean id="CampanhaDao"		class="br.com.monster.portal.jpaModelDao.JpaCampanhaDao"></bean>
 <bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
 <bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
 <bean id="ClienteDao"		class="br.com.monster.portal.jpaModelDao.JpaClienteDao"></bean>
@@ -95,8 +94,6 @@
 <bean id="FornecedorDao"	class="br.com.monster.portal.jpaModelDao.JpaFornecedorDao"></bean>
 <bean id="FuncionarioDao"	class="br.com.monster.portal.jpaModelDao.JpaFuncionarioDao"></bean>
 <bean id="ImagemDao"		class="br.com.monster.portal.jpaModelDao.JpaImagemDao"></bean>
-<bean id="MailingDao"		class="br.com.monster.portal.jpaModelDao.JpaMailingDao"></bean>
-<bean id="MensagemDao"		class="br.com.monster.portal.jpaModelDao.JpaMensagemDao"></bean>
 <bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
 <bean id="Produto_has_fornecedorDao"		class="br.com.monster.portal.jpaModelDao.JpaProduto_has_fornecedorDao"></bean>
 <bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>
@@ -106,7 +103,6 @@
 <bean id="Acesso"		class="br.com.monster.portal.model.Acesso"></bean>
 <bean id="Avaliacao"	class="br.com.monster.portal.model.Avaliacao"></bean>
 <bean id="Banner"		class="br.com.monster.portal.model.Banner"></bean>
-<bean id="Campanha"		class="br.com.monster.portal.model.Campanha"></bean>
 <bean id="Cargo"		class="br.com.monster.portal.model.Cargo"></bean>
 <bean id="Categoria"	class="br.com.monster.portal.model.Categoria"></bean>
 <bean id="Cliente"		class="br.com.monster.portal.model.Cliente"></bean>
@@ -114,17 +110,13 @@
 <bean id="Fornecedor"	class="br.com.monster.portal.model.Fornecedor"></bean>
 <bean id="Funcionario"	class="br.com.monster.portal.model.Funcionario"></bean>
 <bean id="Imagem"		class="br.com.monster.portal.model.Imagem"></bean>
-<bean id="Mailing"		class="br.com.monster.portal.model.Mailing"></bean>
-<bean id="Mensagem"		class="br.com.monster.portal.model.Mensagem"></bean>
-<bean id="Parcela"		class="br.com.monster.portal.model.Parcela"></bean>
 <bean id="Pedido_has_produto"		class="br.com.monster.portal.model.Pedido_has_produto"></bean>
 <bean id="Pedido"		class="br.com.monster.portal.model.Pedido"></bean>
-<bean id="Permissoes"	class="br.com.monster.portal.model.Permissoes"></bean>
+<bean id="Permissao"	class="br.com.monster.portal.model.Permissao"></bean>
 <bean id="Processos"	class="br.com.monster.portal.model.Processos"></bean>
 <bean id="Produto_has_fornecedor"	class="br.com.monster.portal.model.Produto_has_fornecedor"></bean>
 <bean id="Produto"		class="br.com.monster.portal.model.Produto"></bean>
 <bean id="Relatorios"	class="br.com.monster.portal.model.Relatorios"></bean>
-<bean id="Status_parcela"	class="br.com.monster.portal.model.Status_parcela"></bean>
 
 <bean id="Carrinho"			class="br.com.monster.portal.carrinho.Carrinho"></bean>
 

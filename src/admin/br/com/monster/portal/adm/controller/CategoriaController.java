@@ -22,7 +22,7 @@ public class CategoriaController {
 		/*
 
 		 |==================================|
-		 |				Métodos				|
+		 |				Mï¿½todos				|
 		 |==================================|
 
 		 * -------------------------
@@ -104,7 +104,7 @@ public class CategoriaController {
 		
 		@RequestMapping("Admin/Find_Categoria")
 		public String find_one(Long id, Model model) {
-		  model.addAttribute("categorias", dao.Find_One(id));
+		  model.addAttribute("categorias", dao.findOne(id));
 		  return "admin/categoria";
 		}
 		

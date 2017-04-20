@@ -81,7 +81,7 @@ public class ImagemController {
 		
 		@RequestMapping("Admin/ProcurarImagem")
 		public String Find(Model model, Long id) {
-		model.addAttribute("imagems", dao.Find_One(id));
+		model.addAttribute("imagems", dao.findOne(id));
 		return "admin/Imagem";
 	}
 

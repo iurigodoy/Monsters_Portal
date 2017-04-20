@@ -54,7 +54,7 @@ public class JpaFornecedorDao implements FornecedorDao {
 	    * 
 	    */
 	   
-	   public Fornecedor Find_One(Long id){
+	   public Fornecedor findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT fornecedor "//16

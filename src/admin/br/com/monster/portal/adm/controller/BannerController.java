@@ -27,7 +27,7 @@ public class BannerController {
 	/*
 
 	 |==================================|
-	 |				Métodos				|
+	 |				Mï¿½todos				|
 	 |==================================|
 
 	 * -------------------------
@@ -109,7 +109,7 @@ public class BannerController {
 	
 	@RequestMapping("Admin/ProcurarBanner")
 	public String Find(Model model, Long id) {
-		model.addAttribute("banners", dao.Find_One(id));
+		model.addAttribute("banners", dao.findOne(id));
 		return "admin/Banner/visualizar";
 	}
 	

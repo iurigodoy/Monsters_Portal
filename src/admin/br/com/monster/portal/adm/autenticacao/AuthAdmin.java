@@ -1,4 +1,4 @@
-package br.com.monster.portal.adm.controller;
+package br.com.monster.portal.adm.autenticacao;
 
 import javax.servlet.http.HttpSession;
 
@@ -38,7 +38,7 @@ public class AuthAdmin {
 	    return "redirect:Produto";
 	  }
 
-	  model.addAttribute("login_error", "Usu·rio ou senha incorretos");
+	  model.addAttribute("login_error", "Usu√°rio ou senha incorretos");
 	  return "redirect:LoginAdmin";
 	}
 }

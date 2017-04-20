@@ -99,7 +99,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	    */
 
 		   
-		public Produto Find_One(Long id) {
+		public Produto findOne(Long id) {
 
 			Query query = manager
 				        .createQuery("SELECT pro "
@@ -253,7 +253,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	   public void restore(Long id) {
 		   
 		   Query query = manager
-				   .createQuery("UPDATE Produto produto "
+				   .createQuery("UPDATE Produto pro "
 				   				+ "SET pro.deleted = false "
    								+ "WHERE pro.id_produto = :id");
 			query.setParameter("id", id);

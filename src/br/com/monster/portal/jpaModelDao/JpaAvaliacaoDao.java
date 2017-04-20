@@ -34,7 +34,7 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Avaliacao> Read(Produto produto) {
+		public List<Avaliacao> read(Produto produto) {
 			
 			long id = produto.getId_produto();
 			
@@ -60,7 +60,7 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	    * 
 	    */
 	   
-	   public Avaliacao Find_One(Long id){
+	   public Avaliacao findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT ava "//16

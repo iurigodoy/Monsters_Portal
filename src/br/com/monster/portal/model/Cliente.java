@@ -113,13 +113,6 @@ public class Cliente {
 	 |--------------------------------------
 	 */
 	
-	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Parcela> parcela;
-	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Mailing> mailing;
-	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Acesso> acesso;
 	
@@ -304,22 +297,6 @@ public class Cliente {
 
 	public void setDeleted(Boolean deleted) {
 		this.deleted = deleted;
-	}
-
-	public Set<Parcela> getParcela() {
-		return parcela;
-	}
-
-	public void setParcela(Set<Parcela> parcela) {
-		this.parcela = parcela;
-	}
-
-	public Set<Mailing> getMailing() {
-		return mailing;
-	}
-
-	public void setMailing(Set<Mailing> mailing) {
-		this.mailing = mailing;
 	}
 
 	public Set<Acesso> getAcesso() {

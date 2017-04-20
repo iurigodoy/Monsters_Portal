@@ -1,4 +1,4 @@
-package br.com.monster.portal.loja.controller;
+package br.com.monster.portal.loja.autenticacao;
 
 import javax.servlet.http.HttpSession;
 

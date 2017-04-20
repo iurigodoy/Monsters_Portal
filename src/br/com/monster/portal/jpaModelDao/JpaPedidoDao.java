@@ -57,7 +57,7 @@ public class JpaPedidoDao implements PedidoDao {
 	    * 
 	    */
 	   
-	   public Pedido Find_One(long id) {
+	   public Pedido findOne(Long id) {
 			
 			// Escreve a SQL
 			Query query = manager
@@ -160,7 +160,7 @@ public class JpaPedidoDao implements PedidoDao {
 	    * 
 	    */
 
-	   public void delete(long id) {
+	   public void delete(Long id) {
 		   
 		   Date datetime = cal.getTime();
 		   
@@ -181,7 +181,7 @@ public class JpaPedidoDao implements PedidoDao {
 	    * 
 	    */
 
-	   public void restore(long id) {
+	   public void restore(Long id) {
 		   
 		   Query query = manager
 				   .createQuery("UPDATE Pedido pedido "

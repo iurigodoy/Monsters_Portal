@@ -54,7 +54,7 @@ public class JpaCategoriaDao implements CategoriaDao {
 	    * 
 	    */
 	   
-	   public Categoria Find_One(Long id){
+	   public Categoria findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT categoria "//16
