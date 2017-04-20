@@ -28,13 +28,13 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
-		public List<Avaliacao> Read(Produto produto) {
+		public List<Avaliacao> read(Produto produto) {
 			
 			long id = produto.getId_produto();
 			
@@ -52,51 +52,15 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 
 			return avaliacaos;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Avaliacao> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT ava "//16
-			        		+ "FROM Avaliacao ava "
-			        		+ "ORDER BY ava.id_avaliacao ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Avaliacao> avaliacaos = query.getResultList();
-
-			return avaliacaos;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Avaliacao> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT ava.id_avaliacao, pro.nome_produto "//16
-				        		+ "FROM Avaliacao ava "
-				        		+ "WHERE ava.produto = pro.id_produto "
-				        		+ "ORDER BY ava.id_avaliacao ASC");
-
-				@SuppressWarnings("unchecked")
-				List<Avaliacao> avaliacaos = query.getResultList();
-
-				return avaliacaos;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Avaliacao Find_One(Long id){
+	   public Avaliacao findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT ava "//16
@@ -116,10 +80,10 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Avaliacao avaliacao) {
@@ -131,7 +95,7 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -142,7 +106,7 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -163,7 +127,7 @@ public class JpaAvaliacaoDao implements AvaliacaoDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

@@ -3,7 +3,6 @@ package br.com.monster.portal.jpaModelDao;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -28,76 +27,12 @@ public class JpaImagemDao implements ImagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir métodos de pesquisa
-	    * 
-	    */
-		public List<Imagem> Read() {
-			
-			/*Query query = manager
-				        .createQuery("SELECT pro "//16
-				        		+ "FROM Produto pro INNER JOIN pro.produto pro "//33
-				        		+ "WHERE pro.produto = pro.id_produto "
-								+ "ORDER BY pro.id_Produto ASC");*/
-			
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Imagem pro "
-			        		+ "WHERE pro.deleted = false "
-			        		+ "ORDER BY pro.id_imagem ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Imagem> imagems = query.getResultList();
-
-			return imagems;
-		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Imagem> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-				        		+ "FROM Imagem pro "
-				        		+ "ORDER BY pro.id_imagem ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Imagem> imagems = query.getResultList();
-
-			return imagems;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Imagem> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT pro.id_imagem, pro.pro_nome "//16
-				        		+ "FROM Imagem pro "
-				        		+ "WHERE pro.deleted = false "
-				        		+ "ORDER BY pro.id_imagem");
-
-				@SuppressWarnings("unchecked")
-				List<Imagem> imagems = query.getResultList();
-
-				return imagems;
-			}
-	   
-	   /*
-	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Imagem Find_One(Long id){
+	   public Imagem findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT imagem "//16
@@ -117,10 +52,10 @@ public class JpaImagemDao implements ImagemDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Imagem imagem) {
@@ -129,7 +64,7 @@ public class JpaImagemDao implements ImagemDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -139,7 +74,7 @@ public class JpaImagemDao implements ImagemDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -154,23 +89,6 @@ public class JpaImagemDao implements ImagemDao {
 				   				+ "pro.deleted_at = :Deleted_at "
    								+ "WHERE pro.id_imagem = :id");
 			query.setParameter("Deleted_at", datetime);
-			query.setParameter("id", id);
-			query.executeUpdate();
-	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			Método Restore			
-	    * ----------------------------------
-	    * 
-	    */
-
-	   public void restore(Long id) {
-		   
-		   Query query = manager
-				   .createQuery("UPDATE Imagem imagem "
-				   				+ "SET pro.deleted = false "
-   								+ "WHERE pro.imagem = :id");
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }

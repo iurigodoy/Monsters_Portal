@@ -28,10 +28,10 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Funcionario> Read() {
@@ -45,51 +45,15 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 
 			return funcionarios;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Funcionario> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT fun "//16
-			        		+ "FROM Funcionario fun "
-			        		+ "ORDER BY fun.id_funcionario");
-
-			@SuppressWarnings("unchecked")
-			List<Funcionario> funcionarios = query.getResultList();
-
-			return funcionarios;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Funcionario> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT fun.id_funcionario, fun.fun_nome "//16
-				        		+ "FROM Funcionario fun "
-				        		+ "WHERE fun.deleted = false "
-				        		+ "ORDER BY fun.id_funcionario");
-
-				@SuppressWarnings("unchecked")
-				List<Funcionario> funcionarios = query.getResultList();
-
-				return funcionarios;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Funcionario Find_One(Long id){
+	   public Funcionario findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT funcionario "//16
@@ -105,7 +69,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   
 
 		public boolean FuncionarioExiste(Funcionario funcionario) {
-			// Pega o dado digitado pelo usuário
+			// Pega o dado digitado pelo usuï¿½rio
 			String usuario = funcionario.getEmail_fun();
 			String senha = funcionario.getSenha_fun();
 						
@@ -134,10 +98,10 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Funcionario funcionario) {
@@ -149,7 +113,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -160,7 +124,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -181,7 +145,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

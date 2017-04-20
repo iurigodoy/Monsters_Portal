@@ -14,7 +14,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Procure por...">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá!</button>
+                      <button class="btn btn-default" type="button">Vï¿½!</button>
                     </span>
                   </div>
                 </div>
@@ -27,7 +27,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-user"></i> Pessoa Física <small>Clientes Comuns</small></h2>
+                    <h2><i class="fa fa-user"></i> Pessoa Fï¿½sica <small>Clientes Comuns</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -60,14 +60,14 @@
 						  <td>CEP</td>
 						  <td>Estado</td>
 						  <td>Cidade</td>
-	                      <td>Endereço</td>
-						  <td>Número</td>
+	                      <td>Endereï¿½o</td>
+						  <td>Nï¿½mero</td>
 						  <td>Complemento</td>
 	                      <td>#</td>
                         </tr>
                       </thead>
                       <tbody>
-						<c:forEach var="cliente" items="${clientes}">
+						<c:forEach var="cli" items="${clientes}">
 	                        <tr>
 	                          <td>${cli.nome_cli}</td>
 	                          <td>${cli.email_cli}</td>
@@ -102,7 +102,7 @@
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-university"></i> Pessoa Jurídica <small>Empresa</small></h2>
+                    <h2><i class="fa fa-university"></i> Pessoa Jurï¿½dica <small>Empresa</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -125,7 +125,7 @@
                     <table id="datatable-juridica" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                       <thead>
                         <tr>
-	                      <td>Razão</td>
+	                      <td>Razï¿½o</td>
 	                      <td>Objetivo</td>
 	                      <td>e-mail</td>
 	                      <td>Telefone</td>
@@ -135,8 +135,8 @@
 						  <td>CEP</td>
 						  <td>Estado</td>
 						  <td>Cidade</td>
-	                      <td>Endereço</td>
-						  <td>Número</td>
+	                      <td>Endereï¿½o</td>
+						  <td>Nï¿½mero</td>
 						  <td>Complemento</td>
 	                      <td>#</td>
                         </tr>

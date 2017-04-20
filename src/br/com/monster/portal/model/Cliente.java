@@ -15,6 +15,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.monster.portal.security.Crypt;
+
 @Entity
 @Table(name = "cliente")
 public class Cliente {
@@ -110,13 +112,6 @@ public class Cliente {
 	 |			Relacionamentos				
 	 |--------------------------------------
 	 */
-	
-	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Parcela> parcela;
-	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Mailing> mailing;
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Acesso> acesso;
@@ -304,22 +299,6 @@ public class Cliente {
 		this.deleted = deleted;
 	}
 
-	public Set<Parcela> getParcela() {
-		return parcela;
-	}
-
-	public void setParcela(Set<Parcela> parcela) {
-		this.parcela = parcela;
-	}
-
-	public Set<Mailing> getMailing() {
-		return mailing;
-	}
-
-	public void setMailing(Set<Mailing> mailing) {
-		this.mailing = mailing;
-	}
-
 	public Set<Acesso> getAcesso() {
 		return acesso;
 	}
@@ -351,6 +330,11 @@ public class Cliente {
 	public void setForm(String form) {
 		this.form = form;
 	}
-	
+
+
+	public void criptografar_senha(String senha_cli) {
+		String senha_cli_criptografada = new Crypt().criptografar(senha_cli);
+		this.senha_cli = senha_cli_criptografada;
+	}
 	
 }

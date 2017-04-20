@@ -4,16 +4,11 @@ import java.util.List;
 
 import br.com.monster.portal.model.Funcionario;
 
-public interface FuncionarioDao {
+public interface FuncionarioDao extends MetodosBasicos {
 	
 	List<Funcionario> Read();
-	List<Funcionario> Read_History();
-	List<Funcionario> Select_Name_Id();
-	Funcionario Find_One(Long id);
+	boolean FuncionarioExiste(Funcionario funcionario);
 	
 	void create(Funcionario funcionario);
 	void update(Funcionario funcionario);
-	void delete(Long id);
-	void restore(Long id);
-	boolean FuncionarioExiste(Funcionario funcionario);
 }

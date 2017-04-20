@@ -28,10 +28,10 @@ public class JpaRelatoriosDao implements RelatoriosDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Relatorios> Read() {
@@ -52,46 +52,10 @@ public class JpaRelatoriosDao implements RelatoriosDao {
 
 			return relatorios;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Relatorios> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-				        		+ "FROM Relatorios pro "
-				        		+ "ORDER BY pro.id_relatorios ");
-
-			@SuppressWarnings("unchecked")
-			List<Relatorios> relatorios = query.getResultList();
-
-			return relatorios;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Relatorios> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT pro.id_relatorios, pro.pro_nome "//16
-				        		+ "FROM Relatorios pro "
-				        		+ "WHERE pro.deleted = false "
-				        		+ "ORDER BY pro.id_relatorios");
-
-				@SuppressWarnings("unchecked")
-				List<Relatorios> relatorios = query.getResultList();
-
-				return relatorios;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
@@ -116,10 +80,10 @@ public class JpaRelatoriosDao implements RelatoriosDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Relatorios relatorios) {

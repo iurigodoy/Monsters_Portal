@@ -27,10 +27,10 @@ public class JpaCategoriaDao implements CategoriaDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Categoria> Read() {
@@ -46,51 +46,15 @@ public class JpaCategoriaDao implements CategoriaDao {
 
 			return categorias;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Categoria> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-				        		+ "FROM Categoria pro "
-				        		+ "ORDER BY pro.id_categoria ASC");
-
-				@SuppressWarnings("unchecked")
-				List<Categoria> categorias = query.getResultList();
-
-			return categorias;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Categoria> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT pro.id_categoria, pro.nome_categoria "//16
-				        		+ "FROM Categoria pro "
-				        		+ "WHERE pro.deleted = false "
-				        		+ "ORDER BY pro.id_categoria");
-
-				@SuppressWarnings("unchecked")
-				List<Categoria> categorias = query.getResultList();
-
-				return categorias;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Categoria Find_One(Long id){
+	   public Categoria findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT categoria "//16
@@ -103,49 +67,24 @@ public class JpaCategoriaDao implements CategoriaDao {
 			
 		   return categoria;
 	   }
-	   
-	   
-	   
-	   
 	
-	   /*
-	    * ----------------------------------
-	    *			Método Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir métodos de alteração
-	    * 
-	    */
-		public void create(Categoria categoria) {
-			categoria.setCreated_at(cal.getTime());
-			categoria.setUpdated_at(cal.getTime());
-			categoria.setDeleted(false);
-			 manager.persist(categoria);
-	    }
+	@Override
+	public List<Categoria> Find_produto_cat(String nome_categoria, Categoria categoria) {
 
-	   /*
-	    * ----------------------------------
-	    *			Método Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Categoria categoria) {
-			categoria.setUpdated_at(cal.getTime());
-			manager.merge(categoria);
-		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			Método Delete			
-	    * ----------------------------------
-	    * 
-	    */
-		public void delete(Categoria categoria) {
-		   // Procura o ID
-			Categoria categorias = manager.find(Categoria.class, categoria.getId_categoria());
-			// Deleta
-			manager.remove(categorias);
-	   }
+		Query query = manager
+		        .createQuery("SELECT cat "
+		        		+ "FROM Categoria cat "
+		        		+ "WHERE cat.id_categoria IN "
+		        		+ "(SELECT categoria FROM Produto pro) "
+		        		+ "AND cat.nome_categoria LIKE :Nome ");
+
+		query.setParameter("Nome", (String) "%"+nome_categoria+"%");
+
+			@SuppressWarnings("unchecked")
+			List<Categoria> categorias = query.getResultList();
+
+		return categorias;
+	}
 
 	@Override
 	public Object Find_publico(String nome_categoria, Categoria categoria) {
@@ -163,44 +102,64 @@ public class JpaCategoriaDao implements CategoriaDao {
 
 		return categorias;
 	}
-		@Override
-	public List<Categoria> Find_produto_cat(String nome_categoria, Categoria categoria) {
+	   
+	   
+	   
+	   
+	
+	   /*
+	    * ----------------------------------
+	    *			Mï¿½todo Create			
+	    * ----------------------------------
+	    * 
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
+	    * 
+	    */
+		public void create(Categoria categoria) {
+			categoria.setCreated_at(cal.getTime());
+			categoria.setUpdated_at(cal.getTime());
+			categoria.setDeleted(false);
+			 manager.persist(categoria);
+	    }
 
-		Query query = manager
-		        .createQuery("SELECT cat "
-		        		+ "FROM Categoria cat "
-		        		+ "WHERE cat.id_categoria IN "
-		        		+ "(SELECT categoria FROM Produto pro) "
-		        		+ "AND cat.nome_categoria LIKE :Nome ");
-
-		query.setParameter("Nome", (String) "%"+nome_categoria+"%");
-
-			@SuppressWarnings("unchecked")
-			List<Categoria> categorias = query.getResultList();
-
-		return categorias;
-	}
+	   /*
+	    * ----------------------------------
+	    *			Mï¿½todo Update			
+	    * ----------------------------------
+	    * 
+	    */
+		public void update(Categoria categoria) {
+			categoria.setUpdated_at(cal.getTime());
+			manager.merge(categoria);
+		}
+	   
+	   /*
+	    * ----------------------------------
+	    *			Mï¿½todo Delete			
+	    * ----------------------------------
+	    * 
+	    */
 		
-	   @Override
-	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
-		   Query query = manager
-				   .createQuery("UPDATE Categoria pro "
-				   				+ "SET pro.deleted = true, "
-				   				+ "pro.deleted_at = :Deleted_at "
-   								+ "WHERE pro.id_categoria = :id");
+		@Override
+		public void delete(Long id) {
+			   
+			Date datetime = cal.getTime();
+			
+			Query query = manager
+					   .createQuery("UPDATE Categoria pro "
+					   				+ "SET pro.deleted = true, "
+					   				+ "pro.deleted_at = :Deleted_at "
+	  								+ "WHERE pro.id_categoria = :id");
 			query.setParameter("Deleted_at", datetime);
 			query.setParameter("id", id);
 			query.executeUpdate();
-	   }
+		}
 	   
 
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */

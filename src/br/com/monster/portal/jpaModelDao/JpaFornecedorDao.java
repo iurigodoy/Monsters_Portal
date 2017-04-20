@@ -28,10 +28,10 @@ public class JpaFornecedorDao implements FornecedorDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Read				
+	    *			Mï¿½todo Read				
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de pesquisa
+	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
 		public List<Fornecedor> Read() {
@@ -39,59 +39,22 @@ public class JpaFornecedorDao implements FornecedorDao {
 	    	Query query = manager
 			        .createQuery("SELECT forn "//16
 			        		+ "FROM Fornecedor forn "
-			        		+ "WHERE forn.deleted = false "
-			        		+ "ORDER BY forn.id_fornecedor");
+			        		+ "ORDER BY forn.nome_for");
 
 			@SuppressWarnings("unchecked")
 			List<Fornecedor> fornecedores = query.getResultList();
 
 			return fornecedores;
 		}
-		   
-		/*
-		*	Método Read	History			
-		*/
-		public List<Fornecedor> Read_History() {
-			
-	    	Query query = manager
-			        .createQuery("SELECT forn "//16
-			        		+ "FROM Fornecedor forn "
-			        		+ "ORDER BY forn.id_fornecedor");
-
-			@SuppressWarnings("unchecked")
-			List<Fornecedor> fornecedores = query.getResultList();
-
-			return fornecedores;
-		}
-		   
-		/*
-		 * ----------------------------------
-		 *			Select Name And ID	
-		 * ----------------------------------
-		 * 
-		 */
-			public List<Fornecedor> Select_Name_Id() {
-				
-		    	Query query = manager
-				        .createQuery("SELECT forn.id_fornecedor, forn.for_nome "//16
-				        		+ "FROM Fornecedor forn "
-				        		+ "WHERE forn.deleted = false "
-				        		+ "ORDER BY forn.id_fornecedor");
-
-				@SuppressWarnings("unchecked")
-				List<Fornecedor> fornecedores = query.getResultList();
-
-				return fornecedores;
-			}
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Find_One			
+	    *			Mï¿½todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Fornecedor Find_One(Long id){
+	   public Fornecedor findOne(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT fornecedor "//16
@@ -111,10 +74,10 @@ public class JpaFornecedorDao implements FornecedorDao {
 	
 	   /*
 	    * ----------------------------------
-	    *			Método Create			
+	    *			Mï¿½todo Create			
 	    * ----------------------------------
 	    * 
-	    * A seguir métodos de alteração
+	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
 		public void create(Fornecedor fornecedor) {
@@ -126,7 +89,7 @@ public class JpaFornecedorDao implements FornecedorDao {
 
 	   /*
 	    * ----------------------------------
-	    *			Método Update			
+	    *			Mï¿½todo Update			
 	    * ----------------------------------
 	    * 
 	    */
@@ -137,7 +100,7 @@ public class JpaFornecedorDao implements FornecedorDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Delete			
+	    *			Mï¿½todo Delete			
 	    * ----------------------------------
 	    * 
 	    */
@@ -158,7 +121,7 @@ public class JpaFornecedorDao implements FornecedorDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			Método Restore			
+	    *			Mï¿½todo Restore			
 	    * ----------------------------------
 	    * 
 	    */
