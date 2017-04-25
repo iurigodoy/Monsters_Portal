@@ -9,52 +9,52 @@ public class ListaFrete {
 	 */
 	
 	private String codigo;				// Código do Serviço de Entrega
-	private String valor;				// Preço total da encomenda, em Reais, incluindo os preços dos serviços opcionais
-	private String prazoEntrega;			// Prazo estimado em dias para entrega do produto. Se o valor retornado for 0 (zero), indica que o prazo não foi retornado corretamente.
-	private String maoPropria;			// Preço do serviço adicional Mão Própria
-	private String recebimento;			// Preço do serviço adicional Aviso de Recebimento
-	private String valorDeclarado;		// Preço do serviço adicional Valor Declarado
+	private float valor;				// Preço total da encomenda, em Reais, incluindo os preços dos serviços opcionais
+	private int prazoEntrega;			// Prazo estimado em dias para entrega do produto. Se o valor retornado for 0 (zero), indica que o prazo não foi retornado corretamente.
+	private float maoPropria;			// Preço do serviço adicional Mão Própria
+	private float recebimento;			// Preço do serviço adicional Aviso de Recebimento
+	private float valorDeclarado;		// Preço do serviço adicional Valor Declarado
 	private String entregaDomiciliar;	// Informa se a localidade informada possui entrega domiciliária. Se o prazo não for retornado corretamente, o retorno deste parâmetro será vazio.
 	private String entregaSabado;		// Informa se a localidade informada possui entrega domiciliária aos sábados. Se o prazo não for retornado corretamente, o retorno deste parâmetro será vazio
 	private String erro;				// <Códigos de Erros retornados pelo calculador> + o código 7 (Serviço indisponível, tente mais tarde)
 	private String msgErro;				// Retorna a descrição do erro gerado.
 	
 	// Getters And Setters ...
-	
+
 	public String getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
-	public String getValor() {
+	public float getValor() {
 		return valor;
 	}
-	public void setValor(String valor) {
+	public void setValor(float valor) {
 		this.valor = valor;
 	}
-	public String getPrazoEntrega() {
+	public int getPrazoEntrega() {
 		return prazoEntrega;
 	}
-	public void setPrazoEntrega(String prazoEntrega) {
+	public void setPrazoEntrega(int prazoEntrega) {
 		this.prazoEntrega = prazoEntrega;
 	}
-	public String getMaoPropria() {
+	public float getMaoPropria() {
 		return maoPropria;
 	}
-	public void setMaoPropria(String maoPropria) {
+	public void setMaoPropria(float maoPropria) {
 		this.maoPropria = maoPropria;
 	}
-	public String getRecebimento() {
+	public float getRecebimento() {
 		return recebimento;
 	}
-	public void setRecebimento(String recebimento) {
+	public void setRecebimento(float recebimento) {
 		this.recebimento = recebimento;
 	}
-	public String getValorDeclarado() {
+	public float getValorDeclarado() {
 		return valorDeclarado;
 	}
-	public void setValorDeclarado(String valorDeclarado) {
+	public void setValorDeclarado(float valorDeclarado) {
 		this.valorDeclarado = valorDeclarado;
 	}
 	public String getEntregaDomiciliar() {
@@ -81,5 +81,5 @@ public class ListaFrete {
 	public void setMsgErro(String msgErro) {
 		this.msgErro = msgErro;
 	}
-
+	
 }

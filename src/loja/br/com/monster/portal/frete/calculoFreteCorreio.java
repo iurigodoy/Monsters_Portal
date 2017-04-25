@@ -5,12 +5,11 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-
 import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -18,10 +17,10 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-
+import antlr.collections.List;
 public class calculoFreteCorreio {
 	public static void main(String[] args) {
-	    ListaFrete listaFrete = new ListaFrete();
+	    List teste = (List) new ArrayList<ListaFrete>();
 		// Dados pesquisa
 		// Informações da empresa e cliente
 		String nCdEmpresa = "";				//
@@ -57,7 +56,6 @@ public class calculoFreteCorreio {
 		
 		//URL do webservice correio para calculo de frete
 		String urlString = "http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx";
-		
 		// os parametros a serem enviados
 		Properties parameters = new Properties();
 		parameters.setProperty("nCdEmpresa", nCdEmpresa);
@@ -75,13 +73,10 @@ public class calculoFreteCorreio {
 		parameters.setProperty("nVlValorDeclarado", nVlValorDeclarado);
 		parameters.setProperty("sCdAvisoRecebimento", sCdAvisoRecebimento);
 		parameters.setProperty("StrRetorno", StrRetorno);
-		
 		// o iterador, para criar a URL
 		Iterator i = parameters.keySet().iterator();
-		
 		// o contador
 		int counter = 0;
-		
 		// enquanto ainda existir parametros
 		while (i.hasNext()) {
 			// pega o nome
@@ -95,17 +90,13 @@ public class calculoFreteCorreio {
 		try {
 			// cria o objeto url
 			URL url = new URL(urlString);
-			
 			// cria o objeto httpurlconnection
 			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-			
 			// seta o metodo
 			connection.setRequestProperty("Request-Method", "GET");
-			
 			// seta a variavel para ler o resultado
 			connection.setDoInput(true);
 			connection.setDoOutput(false);
-			
 			// conecta com a url destino
 			connection.connect();
 			// abre a conexão pra input
@@ -126,57 +117,12 @@ public class calculoFreteCorreio {
 		    //Faz a leitura dos nodes
 		    for (int j = 0; j < nodes.getLength(); j++) {
 		      Element element = (Element) nodes.item(j);
-		      
-		      NodeList codigo = element.getElementsByTagName("Codigo");
-		      Element line = (Element) codigo.item(0);
-		      listaFrete.setCodigo(getCharacterDataFromElement(line)); // Código
-		      System.out.println("Código: " + getCharacterDataFromElement(line));
-		      
 		      NodeList valor = element.getElementsByTagName("Valor");
-		      line = (Element) valor.item(0);
-		      listaFrete.setValor(getCharacterDataFromElement(line)); // Valor
+		      Element line = (Element) valor.item(0);
 		      System.out.println("Valor: " + getCharacterDataFromElement(line));
-		      
-		      NodeList prazoEntrega = element.getElementsByTagName("PrazoEntrega");
-		      line = (Element) prazoEntrega.item(0);
-		      listaFrete.setPrazoEntrega(getCharacterDataFromElement(line)); // Prazo de entrega
-		      System.out.println("Prazo de entrega: " + listaFrete.getPrazoEntrega());
-		      
-		      NodeList maoPropria = element.getElementsByTagName("ValorMaoPropria");
-		      line = (Element) maoPropria.item(0);
-		      listaFrete.setMaoPropria(getCharacterDataFromElement(line)); // ValorMaoPropria
-		      System.out.println("ValorMaoPropria: " + listaFrete.getMaoPropria());
-		      
-		      NodeList recebimento = element.getElementsByTagName("ValorAvisoRecebimento");
-		      line = (Element) recebimento.item(0);
-		      listaFrete.setRecebimento(getCharacterDataFromElement(line)); // ValorAvisoRecebimento
-		      System.out.println("ValorAvisoRecebimento: " + listaFrete.getRecebimento());
-		      
-		      NodeList valorDeclarado = element.getElementsByTagName("ValorValorDeclarado");
-		      line = (Element) valorDeclarado.item(0);
-		      listaFrete.setValorDeclarado(getCharacterDataFromElement(line)); // ValorValorDeclarado
-		      System.out.println("ValorValorDeclarado: " + listaFrete.getValorDeclarado());
-		      
-		      NodeList entregaDomiciliar = element.getElementsByTagName("EntregaDomiciliar");
-		      line = (Element) entregaDomiciliar.item(0);
-		      listaFrete.setEntregaDomiciliar(getCharacterDataFromElement(line)); // EntregaDomiciliar
-		      System.out.println("EntregaDomiciliar: " + listaFrete.getEntregaDomiciliar());
-		      
-		      NodeList entregaSabado = element.getElementsByTagName("EntregaSabado");
-		      line = (Element) entregaSabado.item(0);
-		      listaFrete.setEntregaSabado(getCharacterDataFromElement(line)); // EntregaSabado
-		      System.out.println("EntregaSabado: " + listaFrete.getEntregaSabado());
-		      
 		      NodeList erro = element.getElementsByTagName("Erro");
 		      line = (Element) erro.item(0);
-		      listaFrete.setErro(getCharacterDataFromElement(line)); // Erro
-		      System.out.println("Erro: " + listaFrete.getErro());
-		      
-		      NodeList msgErro = element.getElementsByTagName("MsgErro");
-		      line = (Element) msgErro.item(0);
-		      listaFrete.setMsgErro(getCharacterDataFromElement(line)); // MsgErro
-		      System.out.println("MsgErro: " + listaFrete.getMsgErro());
-		      
+		      System.out.println("Erro: " + getCharacterDataFromElement(line));
 		    }			
 		} catch (Exception e) {
 			e.printStackTrace();
