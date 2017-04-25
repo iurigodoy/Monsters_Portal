@@ -20,7 +20,7 @@ import org.xml.sax.InputSource;
 import antlr.collections.List;
 public class calculoFreteCorreio {
 	public static void main(String[] args) {
-	    List teste = (List) new ArrayList<ListaFrete>();
+		ListaFrete listaFrete = new ListaFrete();
 		// Dados pesquisa
 		// Informações da empresa e cliente
 		String nCdEmpresa = "";				//
@@ -116,13 +116,18 @@ public class calculoFreteCorreio {
 		    NodeList nodes = doc.getElementsByTagName("cServico");
 		    //Faz a leitura dos nodes
 		    for (int j = 0; j < nodes.getLength(); j++) {
+		      // Codigo, Valor, PrazoEntrega, MaoPropria, Recebimento, ValorDeclarado, EntregaDomiciliar, EntregaSabado, Erro, MsgErro
 		      Element element = (Element) nodes.item(j);
+		      
 		      NodeList valor = element.getElementsByTagName("Valor");
 		      Element line = (Element) valor.item(0);
 		      System.out.println("Valor: " + getCharacterDataFromElement(line));
+		      listaFrete.setValor(getCharacterDataFromElement(line));		// Valor
+		      
 		      NodeList erro = element.getElementsByTagName("Erro");
 		      line = (Element) erro.item(0);
-		      System.out.println("Erro: " + getCharacterDataFromElement(line));
+		      listaFrete.setErro(getCharacterDataFromElement(line));		// Erro
+		      System.out.println("Erro: " + listaFrete.getErro());
 		    }			
 		} catch (Exception e) {
 			e.printStackTrace();

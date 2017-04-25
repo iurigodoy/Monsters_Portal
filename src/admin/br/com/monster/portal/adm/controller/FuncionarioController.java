@@ -36,8 +36,8 @@ public class FuncionarioController {
 	
 	@RequestMapping("Admin/Add_Funcionario")
 	public String create_page(Model model, Funcionario funcionario) {
-		model.addAttribute("funcionarios", dao.Read());
-		model.addAttribute("cargos", cargo_dao.Read());
+		model.addAttribute("funcionarios", dao.read());
+		model.addAttribute("cargos", cargo_dao.read());
 		return "admin/Funcionario/adicionar";
 	}
 	
@@ -61,7 +61,7 @@ public class FuncionarioController {
 	
 	@RequestMapping("Admin/Funcionario")
 	public String Read(Model model, Funcionario funcionario) {
-		model.addAttribute("funcionarios", dao.Read());
+		model.addAttribute("funcionarios", dao.read());
 		return "admin/Funcionario/read";
 	}
 

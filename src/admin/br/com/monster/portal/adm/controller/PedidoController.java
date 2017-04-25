@@ -15,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.monster.portal.model.ListaProduto;
 import br.com.monster.portal.model.Pedido;
-import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.modelDao.ClienteDao;
 import br.com.monster.portal.modelDao.PedidoDao;
 import br.com.monster.portal.modelDao.ProdutoDao;
@@ -47,19 +47,19 @@ public class PedidoController {
 	
 	@RequestMapping("Admin/Add_Pedido")
 	public String create_page(Model model, Pedido pedido) {
-		model.addAttribute("pedidos", dao.Read());
-		model.addAttribute("produtos", dao_prod.Read());
-		model.addAttribute("clientes", dao_cli.Read());
+		model.addAttribute("pedidos", dao.read());
+		model.addAttribute("produtos", dao_prod.read());
+		model.addAttribute("clientes", dao_cli.read());
 		return "admin/Pedido/adicionar";
 	}
 	
 	@RequestMapping("Admin/CreatePedido")
-	public String create(@Valid Pedido pedido, @Valid Produto produto, BindingResult result) {
+	public String create(@Valid Pedido pedido, ListaProduto produtos, BindingResult result) {
 
 		if(result.hasErrors()) {
 		    return "forward:Pedido";
 		} else {
-			dao.create(pedido);
+			dao.create(pedido, produtos);
 			return "redirect:Pedido";
 		}
 		
@@ -73,7 +73,7 @@ public class PedidoController {
 	
 	@RequestMapping("Admin/Pedido")
 	public String Read(Model model, Pedido pedido) {
-		model.addAttribute("pedidos", dao.Read());
+		model.addAttribute("pedidos", dao.read());
 		return "admin/Pedido/visualizar";
 	}
 

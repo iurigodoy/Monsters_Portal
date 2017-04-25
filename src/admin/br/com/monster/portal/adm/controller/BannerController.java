@@ -55,8 +55,8 @@ public class BannerController {
 	
 	@RequestMapping("Admin/Banner")
 	public String Read(Model model, Produto produto) {
-		model.addAttribute("banners", dao.Read());
-		model.addAttribute("produtos", dao_prod.Read());
+		model.addAttribute("banners", dao.read());
+		model.addAttribute("produtos", dao_prod.read());
 		return "admin/Banner/visualizar";
 	}
 

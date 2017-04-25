@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.monster.portal.security.Crypt;
+
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -90,7 +92,13 @@ public class Funcionario {
 	
 	// UM Ramal tem MUITOS Funcionários	(1-N)
 	@OneToMany(mappedBy="funcionario", fetch=FetchType.EAGER)
-	private Set<Relatorios> relatorios;
+	private Set<Relatorio> relatorios;
+	
+	// Outros Métodos
+	public void criptografar_senha(String senha_fun) {
+		String senha_fun_criptografada = new Crypt().criptografar(senha_fun);
+		this.senha_fun = senha_fun_criptografada;
+	}
 	
 	/*
 	|---------------------------------------
@@ -211,11 +219,11 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public Set<Relatorios> getRelatorios() {
+	public Set<Relatorio> getRelatorios() {
 		return relatorios;
 	}
 
-	public void setRelatorios(Set<Relatorios> relatorios) {
+	public void setRelatorios(Set<Relatorio> relatorios) {
 		this.relatorios = relatorios;
 	}
 	

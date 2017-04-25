@@ -51,7 +51,7 @@ public class CargoController {
 		
 		@RequestMapping("Admin/Cargo")
 		public String Read(Model model) {
-			model.addAttribute("cargos", dao.Read());
+			model.addAttribute("cargos", dao.read());
 			return "admin/Funcionario/cargo";
 		}
 

@@ -34,7 +34,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Funcionario> Read() {
+		public List<Funcionario> read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT fun "//16
@@ -68,27 +68,21 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   }
 	   
 
-		public boolean FuncionarioExiste(Funcionario funcionario) {
-			// Pega o dado digitado pelo usu�rio
-			String usuario = funcionario.getEmail_fun();
-			String senha = funcionario.getSenha_fun();
+		public Funcionario autenticaEmailSenha(String email, String senha) {
 						
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT fun FROM Funcionario as fun "
-							+ "WHERE fun.email_fun = :usuario "
-							+ "AND fun.senha_fun = :senha");
+							+ "WHERE fun.email_fun = :email ");
 
-						query.setParameter("usuario", (String) usuario);
-						query.setParameter("senha", (String) senha);
+						query.setParameter("email", email);
 			
-			@SuppressWarnings("unchecked")
-			List<Funcionario> funcionarios = query.getResultList();
+			Funcionario funcionarioDB = (Funcionario) query.getSingleResult();
 			
-			if (!funcionarios.isEmpty()) {
-				return true;
+			if (funcionarioDB.getSenha_fun().equals(senha)) {
+				return funcionarioDB;
 			} else {
-				return false;
+				return null;
 			}
 		}
 	   

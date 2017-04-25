@@ -112,9 +112,17 @@ public class Produto {
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
 	
+	// Outros Métodos
+	
+	public float calcularDesconto(float precoProduto){
+		float desconto = precoProduto * (desconto_pro / 100);
+		float precoDescontado = precoProduto - desconto;
+		return precoDescontado;
+	}
+	
 	/*
 	|---------------------------------------
-	|		Getters And Setters(GGAS)				
+	|		Getters And Setters(GGAS)		
 	|---------------------------------------
 	*/
 

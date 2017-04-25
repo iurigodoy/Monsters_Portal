@@ -8,9 +8,15 @@ import br.com.monster.portal.model.Produto;
 public class AvaliacaoController {
 
 	@RequestMapping("CreateAvaliacao")
-	public String CreateAvaliacao(Avaliacao avaliacao, Produto produto){
-		String nome_produto = produto.getNome_pro();
-	    return "/Produtos/" + nome_produto;
+	public void CreateAvaliacao(Avaliacao avaliacao, Produto produto){
+	}
+
+	@RequestMapping("UpdateAvaliacao")
+	public void UpdateAvaliacao(Avaliacao avaliacao, Produto produto){
+	}
+
+	@RequestMapping("DeleteAvaliacao")
+	public void DeleteAvaliacao(long id){
 	}
 
 }

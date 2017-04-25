@@ -114,9 +114,6 @@ public class Cliente {
 	 */
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Acesso> acesso;
-	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Avaliacao> avaliacao;
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
@@ -124,6 +121,13 @@ public class Cliente {
 	
 	public String form;
 
+
+	// Outros Métodos
+	public static String criptografar_senha(String senha) {
+		String senha_cli_criptografada = new Crypt().criptografar(senha);
+		senha = senha_cli_criptografada;
+		return senha;
+	}
 	
 	/*
 	|---------------------------------------
@@ -299,14 +303,6 @@ public class Cliente {
 		this.deleted = deleted;
 	}
 
-	public Set<Acesso> getAcesso() {
-		return acesso;
-	}
-
-	public void setAcesso(Set<Acesso> acesso) {
-		this.acesso = acesso;
-	}
-
 	public Set<Avaliacao> getAvaliacao() {
 		return avaliacao;
 	}
@@ -329,12 +325,6 @@ public class Cliente {
 
 	public void setForm(String form) {
 		this.form = form;
-	}
-
-
-	public void criptografar_senha(String senha_cli) {
-		String senha_cli_criptografada = new Crypt().criptografar(senha_cli);
-		this.senha_cli = senha_cli_criptografada;
 	}
 	
 }

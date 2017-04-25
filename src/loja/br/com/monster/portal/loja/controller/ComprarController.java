@@ -1,7 +1,5 @@
 package br.com.monster.portal.loja.controller;
 
-import java.util.concurrent.ThreadLocalRandom;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
@@ -14,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.monster.portal.model.ListaProduto;
 import br.com.monster.portal.model.Pedido;
 import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.modelDao.CategoriaDao;
@@ -39,10 +38,10 @@ public class ComprarController {
 	 *==============================
 	 */
 	
-	@RequestMapping(value = "/Pagamento/{nome_produto}")
-	public String Pagamento(Model model, @PathVariable("nome_produto") String nome_produto, Produto produto) {
-		model.addAttribute("produtos", dao_prod.Find_publico(nome_produto));
-		model.addAttribute("categorias", dao_cat.Read());
+	@RequestMapping(value = "/Pagamento/{id}")
+	public String Pagamento(Model model, @PathVariable("id") Long id, Produto produto) {
+		model.addAttribute("produtos", dao_prod.FindOnePublic(id));
+		model.addAttribute("categorias", dao_cat.read());
 		return "Pagamento";
 	}
 	
@@ -54,15 +53,15 @@ public class ComprarController {
 	// Produto produto, PARA TESTAR
 	// Set<Produto> produto,
 	
-	@RequestMapping(value = "/Comprar_um")
-	public String Comprar_um(Model model, @Valid Pedido pedido, Produto produto, BindingResult result) {
+	@RequestMapping(value = "/FinalizarCompraSegura")
+	public String comprar(Model model, @Valid Pedido pedido, ListaProduto produtos, BindingResult result) {
 		//	Cabeçalho
-		model.addAttribute("categorias", dao_cat.Read());
+		model.addAttribute("categorias", dao_cat.read());
 
 		// Gerar numero randomico
-		int min = 100000000;//na vdd são 14 campos
-		int max = 999999999;
-		String numb_ped = "00000.00000  00000.000000  00000.000000  0  "+ThreadLocalRandom.current().nextInt(min, max + 1);
+		//int min = 100000000;//na vdd são 14 campos
+		//int max = 999999999;
+		//String numb_ped = "00000.00000  00000.000000  00000.000000  0  "+ThreadLocalRandom.current().nextInt(min, max + 1);
 		
 		long teste;
 		
@@ -70,8 +69,8 @@ public class ComprarController {
 			// EM TESTE
 		    return "forward:Pagamento/1";
 		} else {
-			dao_ped.create(pedido);
-			model.addAttribute("numb_ped", numb_ped);
+			dao_ped.create(pedido, produtos);
+			//model.addAttribute("numb_ped", numb_ped);
 			return "redirect:Boleto";
 		}
 	}
@@ -86,7 +85,7 @@ public class ComprarController {
 	
 	@RequestMapping("Boleto")
 	public String Boleto(Model model) {
-		model.addAttribute("categorias", dao_cat.Read());
+		model.addAttribute("categorias", dao_cat.read());
 		return "Boleto";
 	}
 	
