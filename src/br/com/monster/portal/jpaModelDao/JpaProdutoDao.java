@@ -173,6 +173,26 @@ public class JpaProdutoDao implements ProdutoDao {
 			return produtos;
 			
 		}
+		
+		public List<Produto> Find_produto(String nome_prod) {
+			
+			Query query = manager
+			        .createQuery("SELECT pro "
+			        		+ "FROM Produto pro "
+			        		+ "WHERE pro.id_produto IN "
+			        		+ "(SELECT pro FROM Imagem ima WHERE ordem_ima = 1) "
+			        		+ "AND pro.id_produto IN "
+			        		+ "(SELECT pro FROM Produto_has_fornecedor pro_for) "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.quantidade > 0 "
+			        		+ "AND pro.deleted = false");
+		    	
+
+				@SuppressWarnings("unchecked")
+				List<Produto> produtos = query.getResultList();
+
+			return produtos;
+		}
 	   
 	   
 	   
