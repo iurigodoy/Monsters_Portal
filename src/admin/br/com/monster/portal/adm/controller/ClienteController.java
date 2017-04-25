@@ -35,7 +35,7 @@ public class ClienteController {
 	@RequestMapping("Admin/Add_Cliente")
 	public String create_page(Model model) {
 		model.addAttribute("clie_page", "active");
-		model.addAttribute("clientes", dao.Read());
+		model.addAttribute("clientes", dao.read());
 		return "admin/Cliente/adicionar";
 	}
 	
@@ -60,7 +60,7 @@ public class ClienteController {
 	@RequestMapping("Admin/Cliente")
 	public String Read(Model model) {
 		model.addAttribute("clie_page", "active");
-		model.addAttribute("clientes", dao.Read());
+		model.addAttribute("clientes", dao.read());
 		return "admin/Cliente/visualizar";
 	}
 

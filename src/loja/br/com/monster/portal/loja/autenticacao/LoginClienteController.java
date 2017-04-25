@@ -26,14 +26,14 @@ public class LoginClienteController {
 	@RequestMapping("Login")
 	public String Login(Model model) {
 		model.addAttribute("login_page", "active");
-		model.addAttribute("categorias", dao_cat.Read());
+		model.addAttribute("categorias", dao_cat.read());
 		return "Login";
 	}
 
 	@RequestMapping("LoginEsqueciSenha")
 	public String LoginEsqueciSenha(Model model) {
 		model.addAttribute("login_page", "active");
-		model.addAttribute("categorias", dao_cat.Read());
+		model.addAttribute("categorias", dao_cat.read());
 		return "LoginEsqueciSenha";
 	}
 	
@@ -44,16 +44,16 @@ public class LoginClienteController {
 	}
 	
 	@RequestMapping("efetuaLogin")
-	public String efetuaLogin(Cliente cliente, HttpSession session, Model model) {
-
-	  cliente.setSenha_cli(cliente.getSenha_cli());
-	  if(dao.UsuarioExiste(cliente) == true) {
-	    session.setAttribute("clienteLogado", cliente);
-		session.setAttribute("clienteLogadoInfo", dao.SeUsuarioExiste(cliente));
-	    return "redirect:index";
+	public String efetuaLogin(String email, String senha,
+			Cliente cliente, HttpSession session, Model model) {
+		
+	  Cliente autenticacao = (Cliente) dao.autenticaEmailSenha(email, senha);		// Faz autenticação do cliente pelo email e senha e retorna com todos os dados
+	  if(autenticacao != null) {													// Checa se não veio nula
+	    session.setAttribute("clienteLogado", autenticacao);						// Armazena os dados na sessão
+	    return "redirect:index";													// Redireciona para a página
 	  }
 	  
-	  model.addAttribute("login_error", "UsuÃ¡rio ou senha incorretos");
+	  model.addAttribute("login_error", "Usuário ou senha incorretos");
 	  return "redirect:Login";
 	}
 }

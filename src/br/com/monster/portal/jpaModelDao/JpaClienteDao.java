@@ -34,7 +34,7 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Cliente> Read() {
+		public List<Cliente> read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT cli "//16
@@ -72,46 +72,26 @@ public class JpaClienteDao implements ClienteDao {
 				}
 
 		
-		public boolean UsuarioExiste(Cliente cliente) {
-			// Pega o dado digitado pelo usu�rio
-			String usuario = cliente.getEmail_cli();
-			String senha = cliente.getSenha_cli();
+		public Cliente autenticaEmailSenha(String email, String senha) {
 						
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :usuario ");
+							+ "WHERE cli.email_cli = :email ");
 		
-							query.setParameter("usuario", (String) usuario);
+							query.setParameter("email", (String) email);
 			// Pega os resultados + senha já criptografada
 			Cliente clientes = (Cliente) query.getSingleResult();
 			
 			// Criptografa a senha que o usuário digitou
-			cliente.criptografar_senha(senha);
+			senha = Cliente.criptografar_senha(senha);
 
 			// Compara as senhas
-			if (clientes.getSenha_cli().equals(cliente.getSenha_cli())) {
-				return true;
+			if (clientes.getSenha_cli().equals(senha)) {
+				return clientes;
 			} else {
-				return false;
+				return null;
 			}
-		}
-		
-		public Cliente SeUsuarioExiste(Cliente cliente) {
-			// Pega o dado digitado pelo usu�rio
-			String usuario = cliente.getEmail_cli();
-									
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :usuario ");
-					
-				query.setParameter("usuario", (String) usuario);
-
-			Cliente cliente_result = (Cliente) query.getSingleResult();
-	
-			return cliente_result;
-			
 		}
 	   
 	   
@@ -124,8 +104,10 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Cliente cliente) {
-			cliente.criptografar_senha(cliente.getSenha_cli());
+		public void create(Object objCliente) {
+			Cliente cliente = (Cliente) objCliente;
+			
+			cliente.setSenha_cli(Cliente.criptografar_senha(cliente.getSenha_cli()));
 			cliente.setCreated_at(cal.getTime());
 			cliente.setUpdated_at(cal.getTime());
 			cliente.setDeleted(false);
@@ -138,7 +120,8 @@ public class JpaClienteDao implements ClienteDao {
 	    * ----------------------------------
 	    * 
 	    */
-		public void update(Cliente cliente) {
+		public void update(Object objCliente) {
+			Cliente cliente = (Cliente) objCliente;
 			cliente.setUpdated_at(cal.getTime());
 			manager.merge(cliente);
 		}

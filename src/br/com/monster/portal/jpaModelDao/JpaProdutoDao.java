@@ -37,7 +37,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Produto> Read() {
+		public List<Produto> read() {
 		
 			
 	    	Query query = manager
@@ -135,7 +135,7 @@ public class JpaProdutoDao implements ProdutoDao {
 		}
 		
 		@Override
-		public List<Produto> Find_publico(String nome_produto) {
+		public List<Produto> FindOnePublic(Long id) {
 
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -143,19 +143,20 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
 			        		+ "AND pro.publicado_pro = true "
-			        		+ "AND pro.nome_pro = :Nome");
+			        		+ "AND pro.deleted = false "
+			        		+ "AND pro.id_produto = :Id");
 			
-			query.setParameter("Nome", (String) nome_produto);
+			query.setParameter("Id", id);
 	
-				@SuppressWarnings("unchecked")
-				List<Produto> produtos = query.getResultList();
+			@SuppressWarnings("unchecked")
+			List<Produto> produtos = query.getResultList();
 	
 			return produtos;
 			
 		}
 		
 		@Override
-		public List<Produto> Find_Many_publico(String nome_produto) {
+		public List<Produto> FindManyPublic(String nome_produto) {
 
 			Query query = manager
 			        .createQuery("SELECT pro "

@@ -110,6 +110,10 @@ public class Pedido {
 	@JoinColumn(name = "forma_pagamento_id_forma_pagamento", insertable=true, updatable=true)
 	private Forma_pagamento forma_pagamento;
 	
+	@ManyToOne
+	@JoinColumn(name = "status_pedido_id_status_pedido", insertable=true, updatable=true)
+	private StatusPedido statusPedido;
+	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
 	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
@@ -278,6 +282,10 @@ public class Pedido {
 
 	public void setPedido_has_produto(Set<Pedido_has_produto> pedido_has_produto) {
 		this.pedido_has_produto = pedido_has_produto;
+	}
+
+	public StatusPedido getStatusPedido() {
+		return statusPedido;
 	}
 	
 }

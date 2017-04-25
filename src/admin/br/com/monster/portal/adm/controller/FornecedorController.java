@@ -32,7 +32,7 @@ public class FornecedorController {
 	
 	@RequestMapping("Admin/Add_Fornecedor")
 	public String create_page(Model model) {
-		model.addAttribute("fornecedores", dao.Read());
+		model.addAttribute("fornecedores", dao.read());
 		return "admin/Fornecedor/adicionar";
 	}
 	
@@ -56,7 +56,7 @@ public class FornecedorController {
 	
 	@RequestMapping("Admin/Fornecedor")
 	public String Read(Model model) {
-		model.addAttribute("fornecedores", dao.Read());
+		model.addAttribute("fornecedores", dao.read());
 		return "admin/Fornecedor/visualizar";
 	}
 

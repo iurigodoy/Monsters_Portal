@@ -37,7 +37,7 @@ public class PagesController {
 	
 	@RequestMapping("index")
 	public String Home(Model model) {
-		model.addAttribute("categorias", dao_cat.Read());	// Cabeçalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		model.addAttribute("banners", dao_ban.Read_publico());
 		model.addAttribute("produtos", dao_prod.Read_destacado());
 		return "index";
@@ -53,25 +53,24 @@ public class PagesController {
 	public String Find(Model model, Produto produto, HttpServletRequest request, HttpServletResponse response) {
 		String nome_prod = request.getParameter("nome_prod");
 
-		model.addAttribute("categorias", dao_cat.Read());	// Cabeçalho
-		model.addAttribute("produtos", dao_prod.Find_Many_publico(nome_prod));
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
+		model.addAttribute("produtos", dao_prod.FindManyPublic(nome_prod));
 		return "Procurar";
 	}
 	
 	@RequestMapping(value = "/Categoria/{nome_categoria}")
 	public String Find_Categoria(Model model, @PathVariable ("nome_categoria") String nome_categoria, Categoria categoria){
-		model.addAttribute("categorias", dao_cat.Read());	// Cabeçalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		model.addAttribute("categorias1", dao_cat.Find_produto_cat(nome_categoria, categoria));
 	    return "Categoria";
 	}
 
-	@RequestMapping(value = "/Produtos/{nome_produto}")
-	public String Find_Produto(Model model, @PathVariable("nome_produto") String nome_produto, Produto produto){
-		model.addAttribute("categorias", dao_cat.Read());	// Cabeçalho
+	@RequestMapping(value = "/Produtos/{id}")
+	public String Find_Produto(Model model, @PathVariable("id") Long id, Produto produto){
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		
-		produto = (Produto) dao_prod.Find_publico(nome_produto);
+		produto = (Produto) dao_prod.FindOnePublic(id);
 		model.addAttribute("produtos", produto);
-		model.addAttribute("avaliacoes", dao_ava.read(produto));
 	    return "Escolha";
 	}
 
@@ -83,7 +82,7 @@ public class PagesController {
 	
 	@RequestMapping("Contato")
 	public String Contato(Model model) {
-		model.addAttribute("categorias", dao_cat.Read());	// Cabeçalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		return "Contato";
 	}
 }

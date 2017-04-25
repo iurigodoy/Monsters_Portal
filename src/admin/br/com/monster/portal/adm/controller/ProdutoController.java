@@ -43,9 +43,9 @@ public class ProdutoController {
 	
 	@RequestMapping("Admin/Add_Produto")
 	public String create_page(Model model) {
-		model.addAttribute("produtos", dao.Read());
-		model.addAttribute("fornecedores", forc_dao.Read());
-		model.addAttribute("categorias", cat_dao.Read());
+		model.addAttribute("produtos", dao.read());
+		model.addAttribute("fornecedores", forc_dao.read());
+		model.addAttribute("categorias", cat_dao.read());
 		return "admin/Produto/adicionar";
 	}
 	
@@ -69,13 +69,13 @@ public class ProdutoController {
 	
 	@RequestMapping("Admin/Produto")
 	public String Read(Model model) {
-		model.addAttribute("produtos", dao.Read());
+		model.addAttribute("produtos", dao.read());
 		return "admin/Produto/visualizar";
 	}
 	
 	@RequestMapping("Admin/Produto_loja")
 	public String Read_page_store(Model model) {
-		model.addAttribute("produtos", dao.Read());
+		model.addAttribute("produtos", dao.read());
 		return "admin/Produto/visualizar";
 	}
 
@@ -134,8 +134,8 @@ public class ProdutoController {
 		String nome_prod = request.getParameter("nome_prod");
 		model.addAttribute("prod_page", "active");
 		model.addAttribute("produtos", dao.Find_By_Name(nome_prod));
-		model.addAttribute("fornecedores", forc_dao.Read());
-		model.addAttribute("categorias", cat_dao.Read());
+		model.addAttribute("fornecedores", forc_dao.read());
+		model.addAttribute("categorias", cat_dao.read());
 		return "admin/Produto";
 	}
 	

@@ -50,7 +50,7 @@ public class CategoriaController {
 		
 		@RequestMapping("Admin/Categoria")
 		public String Read(Model model) {
-			model.addAttribute("categorias", dao.Read());
+			model.addAttribute("categorias", dao.read());
 			return "admin/Produto/categoria";
 		}
 

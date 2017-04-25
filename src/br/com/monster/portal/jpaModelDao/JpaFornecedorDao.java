@@ -34,7 +34,7 @@ public class JpaFornecedorDao implements FornecedorDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Fornecedor> Read() {
+		public List<Fornecedor> read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT forn "//16

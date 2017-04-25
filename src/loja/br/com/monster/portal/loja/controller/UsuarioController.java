@@ -39,25 +39,40 @@ public class UsuarioController {
 	
 	@RequestMapping("Cadastro")
 	public String Cadastro(Model model) {
-		model.addAttribute("categorias", dao_cat.Read());	// Cabe√ßalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabe√ßalho
 		return "Cadastro";
 	}
 	
+	// Cria o Cliente e efetua o login
 	@RequestMapping("CreateCliente")
-	public String create(@Valid Cliente cliente, BindingResult result, Model model) {
+	public String create(@Valid Cliente cliente,BindingResult result,
+			Model model, HttpSession session) {
 		
 		if(result.hasErrors()) {
 		    return "forward:Cadastro";
 		} else {
 			dao_cli.create(cliente);
-			return "redirect:index";
+			
+			/*
+			 *	Efetua o login
+			 */
+			
+			String email = cliente.getEmail_cli();
+			String senha = cliente.getSenha_cli();
+			
+			Cliente autenticacao = (Cliente) dao_cli.autenticaEmailSenha(email, senha);	// Faz autenticaÁ„o do cliente pelo email e senha e retorna com todos os dados
+			if(autenticacao != null) {													// Checa se n„o veio nula
+			    session.setAttribute("clienteLogado", autenticacao);					// Armazena os dados na sess„o
+			    return "redirect:index";												// Redireciona para a p·gina
+			}
+			return "redirect:login";
 		}
 		
 	}
 	
 	@RequestMapping("MinhaConta")
 	public String MinhaConta(Model model, HttpSession session, Pedido pedido) {
-		model.addAttribute("categorias", dao_cat.Read());	// Cabe√ßalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabe√ßalho
 
 		@SuppressWarnings("unchecked")
 		ArrayList< Cliente > clienteInfo = (ArrayList<Cliente>) session.getAttribute("clienteLogadoInfo");
@@ -69,7 +84,7 @@ public class UsuarioController {
 	
 	@RequestMapping("Carrinho")
 	public String Carrinho(Model model) {
-		model.addAttribute("categorias", dao_cat.Read());	// Cabe√ßalho
+		model.addAttribute("categorias", dao_cat.read());	// Cabe√ßalho
 		return "Carrinho";
 	}
 }
