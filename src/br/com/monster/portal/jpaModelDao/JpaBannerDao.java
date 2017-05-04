@@ -33,7 +33,7 @@ public class JpaBannerDao implements BannerDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Banner> read() {
+		public List<Banner> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT ban "//16

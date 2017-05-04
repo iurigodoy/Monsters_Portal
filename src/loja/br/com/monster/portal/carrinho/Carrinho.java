@@ -7,7 +7,7 @@ public class Carrinho {
 
 	  private List<Item> itens = new ArrayList<Item>();
 	  
-	  private Double total = 0.0;
+	  private Double total = 0.00;
 	  
 	  public void adiciona(Item item) {
 		// Verificar também se ele já não está na lista

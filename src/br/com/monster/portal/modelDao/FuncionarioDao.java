@@ -1,8 +1,16 @@
 package br.com.monster.portal.modelDao;
 
-import br.com.monster.portal.model.Funcionario;
+import java.util.List;
 
-public interface FuncionarioDao extends MetodosBasicos, AutenticarDao {
+import br.com.monster.portal.model.Funcionario;
+import br.com.monster.portal.model.Permissao;
+
+public interface FuncionarioDao extends MetodosBasicos {
+	
+	List<Funcionario> Read();
+	boolean FuncionarioExiste(Funcionario funcionario);
+	
 	void create(Funcionario funcionario);
 	void update(Funcionario funcionario);
+	Permissao getPermissao(Long id);
 }

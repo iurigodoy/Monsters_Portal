@@ -12,10 +12,11 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.monster.portal.model.Cliente;
-import br.com.monster.portal.model.ListaProduto;
+<<<<<<< HEAD
+import br.com.monster.portal.model.ProdutoMultiple;
+=======
+>>>>>>> parent of f45fb1a... VersÃ£o do Semestre Passado
 import br.com.monster.portal.model.Pedido;
-import br.com.monster.portal.model.Pedido_has_produto;
-import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.modelDao.PedidoDao;
 
 
@@ -39,7 +40,7 @@ public class JpaPedidoDao implements PedidoDao {
 	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
-		public List<Pedido> read() {
+		public List<Pedido> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT ped "
@@ -138,34 +139,15 @@ public class JpaPedidoDao implements PedidoDao {
 	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
-		public void create(Pedido pedido, ListaProduto produtos) {
+<<<<<<< HEAD
+		public void create(Pedido pedido, ProdutoMultiple produtos) {
+=======
+		public void create(Pedido pedido) {
+>>>>>>> parent of f45fb1a... VersÃ£o do Semestre Passado
 			pedido.setCreated_at(cal.getTime());
 			pedido.setUpdated_at(cal.getTime());
 			pedido.setDeleted(false);
-			
-			manager.persist(pedido);
-			manager.flush();
-			// Pega o Id do último dado inserido
-			pedido.getId_pedido();
-
-			// Checa se o array está correto e faz o laço de repetição
-			if(null != produtos.getProdutos() && produtos.getProdutos().size() > 0) {
-				for (Produto produto : produtos.getProdutos()) {
-				  if(produto.getId_produto() != null && produto.getId_produto() != 0){
-
-						// Segundo o Hibernate é necessário atualizar o objeto e pegar seu id novamente
-						manager.merge(produto);
-						manager.flush();
-					
-						Pedido_has_produto ped_prod = new Pedido_has_produto();
-						ped_prod.setPedido(pedido);
-						ped_prod.setProduto(produto);
-						
-						manager.persist(ped_prod);
-						
-				  }
-				}
-			}
+			 manager.persist(pedido);
 	    }
 
 	   /*

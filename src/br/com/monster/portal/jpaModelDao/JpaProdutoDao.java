@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import br.com.monster.portal.model.Imagem;
 import br.com.monster.portal.model.ImagemMultiple;
 import br.com.monster.portal.model.Produto;
+import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.ProdutoDao;
 
 
@@ -37,7 +38,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * A seguir mÔøΩtodos de pesquisa
 	    * 
 	    */
-		public List<Produto> read() {
+		public List<Produto> Read() {
 		
 			
 	    	Query query = manager
@@ -134,29 +135,89 @@ public class JpaProdutoDao implements ProdutoDao {
 			
 		}
 		
+<<<<<<< HEAD
+		public Produto_has_fornecedor findOnePublic(Long id) {
+
+			boolean gambiarraAQUI;	// Usando o alert do eclipse para mostrar a gambiarra pro prox programador arrumar!
+			
+			/*
+			 * Chamando entidade intermedi·ria de
+			 *		Produto e Fornecedor
+			 *
+			 *	Gambiarra feita para n„o fazer o
+			 *		OpenSessionInView
+			 *
+			
+			/*Query query = manager
+			        .createQuery("SELECT pro "
+			        		+ "FROM Produto pro "
+			        		
+			        		//+ "WHERE pro.id_produto IN "
+			        		//+ "(SELECT pro FROM Produto_has_fornecedor prod_forn) "
+			        		
+			        		//+ "WHERE prod_forn.fornecedor.id_fornecedor IN "
+			        		//+ "(SELECT prod_forn FROM Fornecedor forn)) "
+			        		
+			        		+ "WHERE pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false "
+			        		
+			        		+ "AND pro.id_produto = :Id"); return Produto produto;*/
+			
+			Query query = manager
+			        .createQuery("SELECT prod_forn "
+			        		+ "FROM Produto_has_fornecedor prod_forn "
+			        		
+			        		+ "WHERE prod_forn.produto.id_produto IN "
+			        		+ "(SELECT prod_forn FROM Produto prod "
+			        		+ "WHERE prod.publicado_pro = true "
+			        		+ "AND prod.deleted = false) "
+			        		
+			        		+ "AND prod_forn.produto.id_produto = :Id");
+			
+			query.setParameter("Id", id);
+	
+			Produto_has_fornecedor produto = (Produto_has_fornecedor) query.getSingleResult();
+	
+			return produto;
+			
+		}
+
+		public List<Produto> FindProdutoPorCategoria(Long id) {
+=======
 		@Override
-		public List<Produto> FindOnePublic(Long id) {
+		public List<Produto> Find_publico(String nome_produto) {
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
 
 			Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
+<<<<<<< HEAD
+			        		
+			        		+ "WHERE pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false "
+			        		+ "AND pro.categoria.id_categoria = :Id");
+=======
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
 			        		+ "AND pro.publicado_pro = true "
-			        		+ "AND pro.deleted = false "
-			        		+ "AND pro.id_produto = :Id");
+			        		+ "AND pro.nome_pro = :Nome");
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
 			
-			query.setParameter("Id", id);
+			query.setParameter("Nome", (String) nome_produto);
 	
-			@SuppressWarnings("unchecked")
-			List<Produto> produtos = query.getResultList();
+				@SuppressWarnings("unchecked")
+				List<Produto> produtos = query.getResultList();
 	
 			return produtos;
 			
 		}
 		
-		@Override
+<<<<<<< HEAD
 		public List<Produto> FindManyPublic(String nome_produto) {
+=======
+		@Override
+		public List<Produto> Find_Many_publico(String nome_produto) {
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
 
 			Query query = manager
 			        .createQuery("SELECT pro "

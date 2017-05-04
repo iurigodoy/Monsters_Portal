@@ -11,8 +11,11 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import JpaResultHelper.JpaResultHelper;
 import br.com.monster.portal.model.Funcionario;
+import br.com.monster.portal.model.Permissao;
 import br.com.monster.portal.modelDao.FuncionarioDao;
+import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -34,7 +37,7 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Funcionario> read() {
+		public List<Funcionario> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT fun "//16
@@ -68,22 +71,70 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   }
 	   
 
+<<<<<<< HEAD
 		public Funcionario autenticaEmailSenha(String email, String senha) {
+			
+			Crypt crypt = new Crypt();
+			if(senha != null){
+				senha = crypt.criptografar(senha);
+			} else {
+				return null;
+			}
+=======
+		public boolean FuncionarioExiste(Funcionario funcionario) {
+			// Pega o dado digitado pelo usu�rio
+			String usuario = funcionario.getEmail_fun();
+			String senha = funcionario.getSenha_fun();
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 						
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT fun FROM Funcionario as fun "
-							+ "WHERE fun.email_fun = :email ");
+<<<<<<< HEAD
+							+ "WHERE fun.email_fun = :email "
+							+ "AND fun.senha_fun = :senha "
+						
+							+ "AND fun.id_funcionario IN "
+							+ "(SELECT fun FROM Cargo cargo "
+							
+							+ "WHERE cargo.id_cargo IN "
+							+ "(SELECT cargo FROM Permissao perm)) ");
 
 						query.setParameter("email", email);
+						query.setParameter("senha", senha);
+				
+				Funcionario funcionario = (Funcionario) JpaResultHelper.getSingleResultOrNull(query);		// armazena no Objeto
+				
+				return funcionario;
+
+		}
+		
+		public Permissao getPermissao(Long id){
+			// Escreve a SQL
+			Query query = manager
+				.createQuery("SELECT perm FROM Permissao perm "
+							+ "WHERE perm.cargo.id_cargo = :Id ");
+			query.setParameter("Id", id);
 			
-			Funcionario funcionarioDB = (Funcionario) query.getSingleResult();
+			Permissao permissao = (Permissao) query.getSingleResult();
 			
-			if (funcionarioDB.getSenha_fun().equals(senha)) {
-				return funcionarioDB;
+			return permissao;
+=======
+							+ "WHERE fun.email_fun = :usuario "
+							+ "AND fun.senha_fun = :senha");
+
+						query.setParameter("usuario", (String) usuario);
+						query.setParameter("senha", (String) senha);
+			
+			@SuppressWarnings("unchecked")
+			List<Funcionario> funcionarios = query.getResultList();
+			
+			if (!funcionarios.isEmpty()) {
+				return true;
 			} else {
-				return null;
+				return false;
 			}
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 		}
 	   
 	   

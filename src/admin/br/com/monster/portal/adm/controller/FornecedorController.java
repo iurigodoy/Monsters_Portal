@@ -32,7 +32,7 @@ public class FornecedorController {
 	
 	@RequestMapping("Admin/Add_Fornecedor")
 	public String create_page(Model model) {
-		model.addAttribute("fornecedores", dao.read());
+		model.addAttribute("fornecedores", dao.Read());
 		return "admin/Fornecedor/adicionar";
 	}
 	
@@ -56,8 +56,13 @@ public class FornecedorController {
 	
 	@RequestMapping("Admin/Fornecedor")
 	public String Read(Model model) {
+<<<<<<< HEAD
 		model.addAttribute("fornecedores", dao.read());
+		return "admin/Fornecedor/read";
+=======
+		model.addAttribute("fornecedores", dao.Read());
 		return "admin/Fornecedor/visualizar";
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 	}
 
 	/*
@@ -110,7 +115,7 @@ public class FornecedorController {
 	@RequestMapping("Admin/ProcurarFornecedor")
 	public String Find(Model model, Long id) {
 		model.addAttribute("fornecedores", dao.findOne(id));
-		return "admin/Fornecedor";
+		return "admin/Fornecedor/edt";
 	}
 
 }

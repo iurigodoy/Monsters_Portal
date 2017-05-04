@@ -18,30 +18,35 @@ public class AuthAdmin {
 	@Autowired
 	FuncionarioDao dao;
 	
-	// P·gina de Login
+
 	@RequestMapping("Admin/LoginAdmin")
 	public String LoginAdmin(Model model) {
 		return "admin/LoginAdmin";
 	}
 	
-	// MÈtodo de Login
-	@RequestMapping("Admin/efetuaLoginAdmin")
-	public String efetuaLoginAdmin(Model model,Funcionario funcionario, HttpSession session) {
-		
-	  Funcionario autentica = (Funcionario) dao.autenticaEmailSenha(funcionario.getEmail_fun(), funcionario.getSenha_fun());
-	  if(autentica != null) {
-	    session.setAttribute("administradorLogado", autentica);
-	    return "redirect:Produto";
-	  }
-
-	  model.addAttribute("login_error", "Usu·rio ou senha incorretos");
-	  return "redirect:LoginAdmin";
-	}
-	
-	// Logout
 	@RequestMapping("Admin/LogoutAdmin")
 	public String logoutAdmin(HttpSession session) {
 	  session.invalidate();
+	  return "redirect:LoginAdmin";
+	}
+	
+	@RequestMapping("Admin/efetuaLoginAdmin")
+	public String efetuaLoginAdmin(Model model,Funcionario funcionario, HttpSession session) {
+		
+<<<<<<< HEAD
+	  Funcionario autentica = (Funcionario) dao.autenticaEmailSenha(funcionario.getEmail_fun(), funcionario.getSenha_fun());
+	  if(autentica != null) {
+		session.setAttribute("permissao", dao.getPermissao(autentica.getCargo().getId_cargo()));
+	    session.setAttribute("administradorLogado", autentica);
+	    return "redirect:produto";
+=======
+	  if(dao.FuncionarioExiste(funcionario) == true) {
+	    session.setAttribute("administradorLogado", funcionario);
+	    return "redirect:Produto";
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
+	  }
+
+	  model.addAttribute("login_error", "Usu√°rio ou senha incorretos");
 	  return "redirect:LoginAdmin";
 	}
 }

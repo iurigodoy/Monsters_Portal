@@ -31,11 +31,11 @@ public class Cliente {
 	private String nome_cli;			//Nome do campo no sistema
 	
 	
-	@Column(name = "cli_cpf")			//Nome real dentro do banco
+	@Column(name = "cli_cpf", unique = true)			//Nome real dentro do banco
 	private String cpf_cli;			//Nome do campo no sistema
 
 	
-	@Column(name = "cli_cnpj")			//Nome real dentro do banco
+	@Column(name = "cli_cnpj", unique = true)			//Nome real dentro do banco
 	private String cnpj_cli;			//Nome do campo no sistema
 
 
@@ -89,7 +89,7 @@ public class Cliente {
 
 	@NotNull(message="{cli.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{cli.email.Size}")
-	@Column(name = "cli_email")			//Nome real dentro do banco
+	@Column(name = "cli_email", unique = true)			//Nome real dentro do banco
 	private String email_cli;			//Nome do campo no sistema
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -114,6 +114,20 @@ public class Cliente {
 	 */
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
+<<<<<<< HEAD
+	private Set<Pedido> pedido;
+	
+	public String form;
+	
+	// Outros MÈtodos
+	public void criptografar_senha(String senha) {
+		String senha_criptografada = new Crypt().criptografar(senha);
+		this.senha_cli = senha_criptografada;
+	}
+=======
+	private Set<Acesso> acesso;
+	
+	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
 	private Set<Avaliacao> avaliacao;
 	
 	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
@@ -121,13 +135,7 @@ public class Cliente {
 	
 	public String form;
 
-
-	// Outros MÈtodos
-	public static String criptografar_senha(String senha) {
-		String senha_cli_criptografada = new Crypt().criptografar(senha);
-		senha = senha_cli_criptografada;
-		return senha;
-	}
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
 	
 	/*
 	|---------------------------------------
@@ -303,6 +311,16 @@ public class Cliente {
 		this.deleted = deleted;
 	}
 
+<<<<<<< HEAD
+=======
+	public Set<Acesso> getAcesso() {
+		return acesso;
+	}
+
+	public void setAcesso(Set<Acesso> acesso) {
+		this.acesso = acesso;
+	}
+
 	public Set<Avaliacao> getAvaliacao() {
 		return avaliacao;
 	}
@@ -311,6 +329,7 @@ public class Cliente {
 		this.avaliacao = avaliacao;
 	}
 
+>>>>>>> parent of f45fb1a... Vers√£o do Semestre Passado
 	public Set<Pedido> getPedido() {
 		return pedido;
 	}
@@ -325,6 +344,12 @@ public class Cliente {
 
 	public void setForm(String form) {
 		this.form = form;
+	}
+
+
+	public void criptografar_senha(String senha_cli) {
+		String senha_cli_criptografada = new Crypt().criptografar(senha_cli);
+		this.senha_cli = senha_cli_criptografada;
 	}
 	
 }

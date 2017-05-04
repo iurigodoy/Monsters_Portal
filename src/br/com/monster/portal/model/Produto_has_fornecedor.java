@@ -2,6 +2,7 @@ package br.com.monster.portal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -35,12 +36,12 @@ public class Produto_has_fornecedor {
 	 */
 	
 	// MUITOS Ramais estão em UM Setor	(N-1)
-	@ManyToOne
-	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "produto_id_produto")
 	private Produto produto;
 		
-	@ManyToOne
-	@JoinColumn(name = "fornecedor_id_fornecedor", insertable=true, updatable=true)
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name = "fornecedor_id_fornecedor")
 	private Fornecedor fornecedor;
 	
 	/*
@@ -48,6 +49,14 @@ public class Produto_has_fornecedor {
 	|		Getters And Setters(GGAS)				
 	|---------------------------------------
 	*/
+
+	public long getId_produto_has_fornecedor() {
+		return id_produto_has_fornecedor;
+	}
+
+	public void setId_produto_has_fornecedor(long id_produto_has_fornecedor) {
+		this.id_produto_has_fornecedor = id_produto_has_fornecedor;
+	}
 
 	public Integer getQuantidade_prod() {
 		return quantidade_prod;

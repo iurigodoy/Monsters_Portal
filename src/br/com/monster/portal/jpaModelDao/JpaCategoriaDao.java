@@ -33,7 +33,7 @@ public class JpaCategoriaDao implements CategoriaDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Categoria> read() {
+		public List<Categoria> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT pro "//16
@@ -67,41 +67,6 @@ public class JpaCategoriaDao implements CategoriaDao {
 			
 		   return categoria;
 	   }
-	
-	@Override
-	public List<Categoria> Find_produto_cat(String nome_categoria, Categoria categoria) {
-
-		Query query = manager
-		        .createQuery("SELECT cat "
-		        		+ "FROM Categoria cat "
-		        		+ "WHERE cat.id_categoria IN "
-		        		+ "(SELECT categoria FROM Produto pro) "
-		        		+ "AND cat.nome_categoria LIKE :Nome ");
-
-		query.setParameter("Nome", (String) "%"+nome_categoria+"%");
-
-			@SuppressWarnings("unchecked")
-			List<Categoria> categorias = query.getResultList();
-
-		return categorias;
-	}
-
-	@Override
-	public Object Find_publico(String nome_categoria, Categoria categoria) {
-		
-    	Query query = manager
-		        .createQuery("SELECT pro "
-		        		+ "FROM Categoria pro "
-		        		+ "WHERE nome_categoria = :Nome "
-		        		+ "ORDER BY pro.id_categoria ASC");
-		
-		query.setParameter("Nome", (String) nome_categoria);
-
-			@SuppressWarnings("unchecked")
-			List<Categoria> categorias = query.getResultList();
-
-		return categorias;
-	}
 	   
 	   
 	   

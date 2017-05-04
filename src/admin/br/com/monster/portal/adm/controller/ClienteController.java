@@ -35,7 +35,7 @@ public class ClienteController {
 	@RequestMapping("Admin/Add_Cliente")
 	public String create_page(Model model) {
 		model.addAttribute("clie_page", "active");
-		model.addAttribute("clientes", dao.read());
+		model.addAttribute("clientes", dao.Read());
 		return "admin/Cliente/adicionar";
 	}
 	
@@ -60,8 +60,13 @@ public class ClienteController {
 	@RequestMapping("Admin/Cliente")
 	public String Read(Model model) {
 		model.addAttribute("clie_page", "active");
+<<<<<<< HEAD
 		model.addAttribute("clientes", dao.read());
+		return "admin/Cliente/read";
+=======
+		model.addAttribute("clientes", dao.Read());
 		return "admin/Cliente/visualizar";
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 	}
 
 	/*

@@ -36,8 +36,8 @@ public class FuncionarioController {
 	
 	@RequestMapping("Admin/Add_Funcionario")
 	public String create_page(Model model, Funcionario funcionario) {
-		model.addAttribute("funcionarios", dao.read());
-		model.addAttribute("cargos", cargo_dao.read());
+		model.addAttribute("funcionarios", dao.Read());
+		model.addAttribute("cargos", cargo_dao.Read());
 		return "admin/Funcionario/adicionar";
 	}
 	
@@ -61,7 +61,7 @@ public class FuncionarioController {
 	
 	@RequestMapping("Admin/Funcionario")
 	public String Read(Model model, Funcionario funcionario) {
-		model.addAttribute("funcionarios", dao.read());
+		model.addAttribute("funcionarios", dao.Read());
 		return "admin/Funcionario/read";
 	}
 
@@ -81,16 +81,6 @@ public class FuncionarioController {
 			return "redirect:Funcionario";
 		}
 	}
-	/*public String update(@Valid Funcionario funcionario, BindingResult result) {
-
-		if(result.hasErrors()) {
-		    return "forward:Funcionario";
-		} else {
-			dao.update(funcionario);
-			return "redirect:Funcionario";
-		}
-	}
-
 	/*
 	 * -------------------------
 	 * 			Delete			
@@ -125,7 +115,7 @@ public class FuncionarioController {
 	@RequestMapping("Admin/ProcurarFuncionario")
 	public String Find(Model model, Long id) {
 		model.addAttribute("funcionarios", dao.findOne(id));
-		return "admin/Funcionario";
+		return "admin/Funcionario/edt";
 	}
 
 }

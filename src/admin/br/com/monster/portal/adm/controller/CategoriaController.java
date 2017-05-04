@@ -50,7 +50,7 @@ public class CategoriaController {
 		
 		@RequestMapping("Admin/Categoria")
 		public String Read(Model model) {
-			model.addAttribute("categorias", dao.read());
+			model.addAttribute("categorias", dao.Read());
 			return "admin/Produto/categoria";
 		}
 
@@ -105,7 +105,7 @@ public class CategoriaController {
 		@RequestMapping("Admin/Find_Categoria")
 		public String find_one(Long id, Model model) {
 		  model.addAttribute("categorias", dao.findOne(id));
-		  return "admin/categoria";
+		  return "admin/edt_categoria";
 		}
 		
 }

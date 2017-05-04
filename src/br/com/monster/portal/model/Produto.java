@@ -92,13 +92,8 @@ public class Produto {
 
 	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
-	@JoinColumn(name = "categoria_id_categoria", insertable=true, updatable=true)
+	@JoinColumn(name = "categoria_id_categoria")
 	private Categoria categoria;
-
-
-	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
-	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
-	private Set<Avaliacao> avaliacao;
 
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Produto_has_fornecedor> produto_has_fornecedor;
@@ -106,23 +101,15 @@ public class Produto {
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Imagem> imagem;
 
-	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="produto")
 	private Set<Banner> banner;
 
-	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="produto")
 	private Set<Pedido_has_produto> pedido_has_produto;
-	
-	// Outros Métodos
-	
-	public float calcularDesconto(float precoProduto){
-		float desconto = precoProduto * (desconto_pro / 100);
-		float precoDescontado = precoProduto - desconto;
-		return precoDescontado;
-	}
 	
 	/*
 	|---------------------------------------
-	|		Getters And Setters(GGAS)		
+	|		Getters And Setters(GGAS)				
 	|---------------------------------------
 	*/
 
@@ -220,14 +207,6 @@ public class Produto {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
-	}
-
-	public Set<Avaliacao> getAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(Set<Avaliacao> avaliacao) {
-		this.avaliacao = avaliacao;
 	}
 
 	public Set<Produto_has_fornecedor> getProduto_has_fornecedor() {

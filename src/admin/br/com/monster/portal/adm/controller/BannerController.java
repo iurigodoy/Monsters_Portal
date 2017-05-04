@@ -55,9 +55,15 @@ public class BannerController {
 	
 	@RequestMapping("Admin/Banner")
 	public String Read(Model model, Produto produto) {
+<<<<<<< HEAD
 		model.addAttribute("banners", dao.read());
 		model.addAttribute("produtos", dao_prod.read());
+		return "admin/Banner/read";
+=======
+		model.addAttribute("banners", dao.Read());
+		model.addAttribute("produtos", dao_prod.Read());
 		return "admin/Banner/visualizar";
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 	}
 
 	/*
@@ -110,7 +116,7 @@ public class BannerController {
 	@RequestMapping("Admin/ProcurarBanner")
 	public String Find(Model model, Long id) {
 		model.addAttribute("banners", dao.findOne(id));
-		return "admin/Banner/visualizar";
+		return "admin/Banner/edt";
 	}
 	
 }

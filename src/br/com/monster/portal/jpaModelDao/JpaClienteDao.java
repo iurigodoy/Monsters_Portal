@@ -11,8 +11,10 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import JpaResultHelper.JpaResultHelper;
 import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.modelDao.ClienteDao;
+import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -34,7 +36,7 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Cliente> read() {
+		public List<Cliente> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT cli "//16
@@ -72,26 +74,70 @@ public class JpaClienteDao implements ClienteDao {
 				}
 
 		
+<<<<<<< HEAD
 		public Cliente autenticaEmailSenha(String email, String senha) {
+			
+			Crypt crypt = new Crypt();
+			if(senha != null){
+				senha = crypt.criptografar(senha);
+			} else {
+				return null;
+			}
+=======
+		public boolean UsuarioExiste(Cliente cliente) {
+			// Pega o dado digitado pelo usu�rio
+			String usuario = cliente.getEmail_cli();
+			String senha = cliente.getSenha_cli();
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 						
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :email ");
+<<<<<<< HEAD
+							+ "WHERE cli.email_cli = :email "
+							+ "AND cli.senha_cli = :senha");
 		
-							query.setParameter("email", (String) email);
+							query.setParameter("email", email);
+							query.setParameter("senha", senha);
+				
+				// Pega os resultados + senha já criptografada
+			Cliente cliente = (Cliente) JpaResultHelper.getSingleResultOrNull(query);
+			
+			return cliente;
+=======
+							+ "WHERE cli.email_cli = :usuario ");
+		
+							query.setParameter("usuario", (String) usuario);
 			// Pega os resultados + senha já criptografada
 			Cliente clientes = (Cliente) query.getSingleResult();
 			
 			// Criptografa a senha que o usuário digitou
-			senha = Cliente.criptografar_senha(senha);
+			cliente.criptografar_senha(senha);
 
 			// Compara as senhas
-			if (clientes.getSenha_cli().equals(senha)) {
-				return clientes;
+			if (clientes.getSenha_cli().equals(cliente.getSenha_cli())) {
+				return true;
 			} else {
-				return null;
+				return false;
 			}
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
+		}
+		
+		public Cliente SeUsuarioExiste(Cliente cliente) {
+			// Pega o dado digitado pelo usu�rio
+			String usuario = cliente.getEmail_cli();
+									
+			// Escreve a SQL
+			Query query = manager
+				.createQuery("SELECT cli FROM Cliente as cli "
+							+ "WHERE cli.email_cli = :usuario ");
+					
+				query.setParameter("usuario", (String) usuario);
+
+			Cliente cliente_result = (Cliente) query.getSingleResult();
+	
+			return cliente_result;
+			
 		}
 	   
 	   
@@ -104,10 +150,14 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
+<<<<<<< HEAD
 		public void create(Object objCliente) {
 			Cliente cliente = (Cliente) objCliente;
 			
-			cliente.setSenha_cli(Cliente.criptografar_senha(cliente.getSenha_cli()));
+=======
+		public void create(Cliente cliente) {
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
+			cliente.criptografar_senha(cliente.getSenha_cli());
 			cliente.setCreated_at(cal.getTime());
 			cliente.setUpdated_at(cal.getTime());
 			cliente.setDeleted(false);
@@ -120,8 +170,7 @@ public class JpaClienteDao implements ClienteDao {
 	    * ----------------------------------
 	    * 
 	    */
-		public void update(Object objCliente) {
-			Cliente cliente = (Cliente) objCliente;
+		public void update(Cliente cliente) {
 			cliente.setUpdated_at(cal.getTime());
 			manager.merge(cliente);
 		}

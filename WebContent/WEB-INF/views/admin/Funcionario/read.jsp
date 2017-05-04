@@ -28,7 +28,6 @@
 					<strong><form:errors path="funcionario.cpf_fun"/></strong>
 					<strong><form:errors path="funcionario.email_fun"/></strong>
 					<strong><form:errors path="funcionario.senha_fun"/></strong>
-
 				<!--	-->
                   </span>
                 </div>

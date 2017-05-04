@@ -5,7 +5,7 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<c:import url="../../Header.jsp" />
+<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
@@ -81,7 +81,7 @@
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="pro" items="${pros}">
+					  		<c:forEach var="pro" items="${produtos}">
 							<!--			^^^^			^^^^	-->
 					  		
 					  		<c:if test="${ not pro.deleted }">
@@ -203,19 +203,19 @@
 					<!--	Booleano	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="publicado_pro" class="js-switch"   title="Produto Publicado" value="${ produto.publicado_pro "> <i class="fa fa-plus"></i> Produto Publicado ?
+						<input type="checkbox" name="publicado_pro" class="js-switch"   title="Produto Publicado" value="${ produto.publicado_pro }"> <i class="fa fa-plus"></i> Produto Publicado ?
 					  </label>
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="destaque_pro" class="js-switch"   title="Produto Destaque" value="${ produto.destaque_pro "> <i class="fa fa-plus"></i> Produto Destaque ?
+						<input type="checkbox" name="destaque_pro" class="js-switch"   title="Produto Destaque" value="${ produto.destaque_pro }"> <i class="fa fa-plus"></i> Produto Destaque ?
 					  </label>
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="promocao_pro" class="js-switch"   title="Promocao" value="${ produto.promocao_pro "> <i class="fa fa-plus"></i> Produto em Promoção ?
+						<input type="checkbox" name="promocao_pro" class="js-switch"   title="Promocao" value="${ produto.promocao_pro }"> <i class="fa fa-plus"></i> Produto em Promoção ?
 					  </label>
 					</div>
 					<!--	Select com
@@ -223,9 +223,7 @@
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <select type="hidden"name="imagem.id_imagem" class="form-control">
 						<option value="0">Imagem</option>
-						<c:forEach var="imagem" items="${imagens}">
-						  <option value="${ imagem.id_imagem }">${ imagem.ima_arquivo }</option>
-						</c:forEach>
+						<!-- foreach de imagem -->
 					  </select>
 					  <!-- exemplo para facilitar pro usuário -->
 					  <p>Não encontrou a imagem certa? <a href="<c:url value="/imagem"/>" title="Editar Imagens">Clique aqui</a></p>
@@ -253,7 +251,7 @@
 
 </script>
 
-<c:import url="../../Footer.jsp" />
+<c:import url="../Footer.jsp" />
 <script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">

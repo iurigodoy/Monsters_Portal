@@ -84,7 +84,11 @@
 ********************
  - - - - - - - - -->
 
+<<<<<<< HEAD
+=======
+<bean id="AcessoDao"		class="br.com.monster.portal.jpaModelDao.JpaAcessoDao"></bean>
 <bean id="AvaliacaoDao"		class="br.com.monster.portal.jpaModelDao.JpaAvaliacaoDao"></bean>
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 <bean id="BannerDao"		class="br.com.monster.portal.jpaModelDao.JpaBannerDao"></bean>
 <bean id="CargoDao"			class="br.com.monster.portal.jpaModelDao.JpaCargoDao"></bean>
 <bean id="CategoriaDao"		class="br.com.monster.portal.jpaModelDao.JpaCategoriaDao"></bean>
@@ -94,28 +98,44 @@
 <bean id="FuncionarioDao"	class="br.com.monster.portal.jpaModelDao.JpaFuncionarioDao"></bean>
 <bean id="ImagemDao"		class="br.com.monster.portal.jpaModelDao.JpaImagemDao"></bean>
 <bean id="PedidoDao"		class="br.com.monster.portal.jpaModelDao.JpaPedidoDao"></bean>
-<bean id="Produto_has_fornecedorDao"	class="br.com.monster.portal.jpaModelDao.JpaProduto_has_fornecedorDao"></bean>
+<bean id="Produto_has_fornecedorDao"		class="br.com.monster.portal.jpaModelDao.JpaProduto_has_fornecedorDao"></bean>
 <bean id="ProdutoDao"		class="br.com.monster.portal.jpaModelDao.JpaProdutoDao"></bean>
+<<<<<<< HEAD
 <bean id="RelatorioDao"		class="br.com.monster.portal.jpaModelDao.JpaRelatorioDao"></bean>
 
-<bean id="Avaliacao"		class="br.com.monster.portal.model.Avaliacao"></bean>
 <bean id="Banner"			class="br.com.monster.portal.model.Banner"></bean>
 <bean id="Cargo"			class="br.com.monster.portal.model.Cargo"></bean>
 <bean id="Categoria"		class="br.com.monster.portal.model.Categoria"></bean>
 <bean id="Cliente"			class="br.com.monster.portal.model.Cliente"></bean>
-<bean id="Entidade"			class="br.com.monster.portal.model.Entidade"></bean>
 <bean id="Forma_pagamento"	class="br.com.monster.portal.model.Forma_pagamento"></bean>
 <bean id="Fornecedor"		class="br.com.monster.portal.model.Fornecedor"></bean>
 <bean id="Funcionario"		class="br.com.monster.portal.model.Funcionario"></bean>
 <bean id="Imagem"			class="br.com.monster.portal.model.Imagem"></bean>
-<bean id="Metodo"			class="br.com.monster.portal.model.Metodo"></bean>
 <bean id="Pedido_has_produto"	class="br.com.monster.portal.model.Pedido_has_produto"></bean>
 <bean id="Pedido"			class="br.com.monster.portal.model.Pedido"></bean>
 <bean id="Permissao"		class="br.com.monster.portal.model.Permissao"></bean>
+=======
+<bean id="RelatoriosDao"	class="br.com.monster.portal.jpaModelDao.JpaRelatoriosDao"></bean>
+
+<bean id="Acao"			class="br.com.monster.portal.model.Acao"></bean>
+<bean id="Acesso"		class="br.com.monster.portal.model.Acesso"></bean>
+<bean id="Avaliacao"	class="br.com.monster.portal.model.Avaliacao"></bean>
+<bean id="Banner"		class="br.com.monster.portal.model.Banner"></bean>
+<bean id="Cargo"		class="br.com.monster.portal.model.Cargo"></bean>
+<bean id="Categoria"	class="br.com.monster.portal.model.Categoria"></bean>
+<bean id="Cliente"		class="br.com.monster.portal.model.Cliente"></bean>
+<bean id="Forma_pagamento"			class="br.com.monster.portal.model.Forma_pagamento"></bean>
+<bean id="Fornecedor"	class="br.com.monster.portal.model.Fornecedor"></bean>
+<bean id="Funcionario"	class="br.com.monster.portal.model.Funcionario"></bean>
+<bean id="Imagem"		class="br.com.monster.portal.model.Imagem"></bean>
+<bean id="Pedido_has_produto"		class="br.com.monster.portal.model.Pedido_has_produto"></bean>
+<bean id="Pedido"		class="br.com.monster.portal.model.Pedido"></bean>
+<bean id="Permissao"	class="br.com.monster.portal.model.Permissao"></bean>
+<bean id="Processos"	class="br.com.monster.portal.model.Processos"></bean>
+>>>>>>> parent of f45fb1a... Versão do Semestre Passado
 <bean id="Produto_has_fornecedor"	class="br.com.monster.portal.model.Produto_has_fornecedor"></bean>
-<bean id="Produto"			class="br.com.monster.portal.model.Produto"></bean>
-<bean id="Relatorio"		class="br.com.monster.portal.model.Relatorio"></bean>
-<bean id="StatusPedido"		class="br.com.monster.portal.model.StatusPedido"></bean>
+<bean id="Produto"		class="br.com.monster.portal.model.Produto"></bean>
+<bean id="Relatorios"	class="br.com.monster.portal.model.Relatorios"></bean>
 
 <bean id="Carrinho"			class="br.com.monster.portal.carrinho.Carrinho"></bean>
 
@@ -131,12 +151,9 @@
 
 
 	<!-- Informa o pacote onde o Spring ira buscar as classes anotadas (@Controller, @Service...)  -->
+	<context:component-scan base-package="br.com.monster.portal.adm.autenticacao" />
 	<context:component-scan base-package="br.com.monster.portal.adm.controller" />
-	<context:component-scan base-package="br.com.monster.portal.carrinho" />
-	<context:component-scan base-package="br.com.monster.portal.frete" />
-	<context:component-scan base-package="br.com.monster.portal.loja.autenticacao" />
 	<context:component-scan base-package="br.com.monster.portal.loja.controller" />
-	<context:component-scan base-package="br.com.monster.portal.carrinho" />
 
 
 

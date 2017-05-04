@@ -9,7 +9,7 @@ public class Cabecalho {
 	CategoriaDao dao_cat;
 	
 	public Model categoria(Model model) {
-		model.addAttribute("categorias", dao_cat.read());
+		model.addAttribute("categorias", dao_cat.Read());
 		return model;
 	}
 }

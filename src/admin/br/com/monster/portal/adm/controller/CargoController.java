@@ -51,7 +51,7 @@ public class CargoController {
 		
 		@RequestMapping("Admin/Cargo")
 		public String Read(Model model) {
-			model.addAttribute("cargos", dao.read());
+			model.addAttribute("cargos", dao.Read());
 			return "admin/Funcionario/cargo";
 		}
 
@@ -105,6 +105,6 @@ public class CargoController {
 		@RequestMapping("Admin/Find_Cargo")
 		public String find_one(Long id, Model model) {
 		  model.addAttribute("cargos", dao.findOne(id));
-		  return "admin/cargo";
+		  return "admin/edt_cargo";
 		}
 }

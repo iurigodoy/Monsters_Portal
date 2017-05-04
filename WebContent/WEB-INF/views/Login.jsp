@@ -68,7 +68,7 @@
 		
 		                   		<div class="col-md-12 col-sm-12 col-xs-12">
 		                            <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-		                                <input id="email_cli" type="text" class="form-control has-feedback-left" name="email_cli" title="E-Mail" placeholder="E-Mail">
+		                                <input id="email_cli" type="text" class="form-control has-feedback-left" name="email" title="E-Mail" placeholder="E-Mail">
 										<span class="fa fa-user form-control-feedback left" aria-hidden="true"></span>
 		                            </div>
 		                        </div>

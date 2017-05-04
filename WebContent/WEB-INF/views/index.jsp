@@ -10,7 +10,7 @@
 		  
 		  <div class="col-xs-12">
 		  	<h2 class="red"><strong>Destaques</strong></h2>
-		  </div>${ teste }
+		  </div>
 
 		  <div class="col-xs-12">
 			<c:import url="Produto.jsp" />

@@ -46,7 +46,7 @@
               </div>
               <div>
 	              <c:if test="${not empty administradorLogado.email_fun}">
-	              	<div class="alert alert-danger" role="alert"> Você já está logado! </div>
+	              	<div class="alert alert-danger" role="alert"> Vocï¿½ jï¿½ estï¿½ logado! </div>
 				  </c:if>
 				  <c:if test="${not empty param.login_error}">
 				  	<div class="alert alert-danger" role="alert"> ${ param.login_error} </div>
@@ -66,7 +66,7 @@
 
                 <div>
                   <h1><i class="fa fa-paw"></i> Monsters Portal!</h1>
-                  <p>©2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
+                  <p>ï¿½2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
                 </div>
               </div>
             </form>
@@ -97,7 +97,7 @@
 
                 <div>
                   <h1><i class="fa fa-paw"></i> Monsters Portal!</h1>
-                  <p>©2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
+                  <p>ï¿½2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
                 </div>
               </div>
             </form>

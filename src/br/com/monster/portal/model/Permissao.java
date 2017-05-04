@@ -13,7 +13,7 @@ public class Permissao {
 	
 	@Id
 	@GeneratedValue
-	private Long id_permissao;
+	private Long id_permissoes;
 	
 	private boolean lerBanner;
 	private boolean criarBanner;
@@ -86,8 +86,8 @@ public class Permissao {
 	|---------------------------------------
 	*/
 
-	public Long getId_permissao() {
-		return id_permissao;
+	public Long getId_permissoes() {
+		return id_permissoes;
 	}
 
 	public boolean isLerBanner() {
@@ -287,7 +287,6 @@ public class Permissao {
 	}
 
 
-
 	public Cargo getCargo() {
 		return cargo;
 	}
@@ -295,6 +294,5 @@ public class Permissao {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	
 	
 }

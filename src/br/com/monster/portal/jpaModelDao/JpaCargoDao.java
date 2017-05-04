@@ -33,7 +33,7 @@ public class JpaCargoDao implements CargoDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Cargo> read() {
+		public List<Cargo> Read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT pro "//16

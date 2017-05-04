@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -56,7 +55,7 @@ public class Categoria {
 	 */
 	
 	// UM Ramal tem MUITOS Funcionários	(1-N)
-	@OneToMany(mappedBy="categoria", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="categoria")
 	private Set<Produto> produto;
 	
 	/*
