@@ -1,0 +1,112 @@
+package br.com.monster.portal.adm.controller;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import br.com.monster.portal.model.Banner;
+import br.com.monster.portal.model.Produto;
+import br.com.monster.portal.modelDao.BannerDao;
+import br.com.monster.portal.modelDao.ProdutoDao;
+
+@Transactional
+@Controller
+public class BannerController {
+
+	@Autowired
+	BannerDao dao;
+
+	@Autowired
+	ProdutoDao dao_prod;
+	
+	/*
+
+	 |==================================|
+	 |				M�todos				|
+	 |==================================|
+
+	 * -------------------------
+	 * 			Create			
+	 * -------------------------
+	 */
+	
+	@RequestMapping("Admin/CreateBanner")
+	public String create(@Valid Banner banner, BindingResult result) {
+		if(result.hasErrors()) {
+		    return "forward:banner";
+		} else {
+			dao.create(banner);
+			return "redirect:banner";
+		}
+		
+	}
+
+	/*
+	 * -------------------------
+	 * 			Read			
+	 * -------------------------
+	 */
+	
+	@RequestMapping("Admin/banner")
+	public String Read(Model model, Produto produto) {
+		model.addAttribute("banners", dao.read());
+		model.addAttribute("produtos", dao_prod.read());
+		return "admin/Banner/read";
+	}
+
+	/*
+	 * -------------------------
+	 * 			Update			
+	 * -------------------------
+	 */
+
+	@RequestMapping("Admin/UpdateBanner")
+	public String update(@Valid Banner banner, BindingResult result) {
+		if(result.hasErrors()) {
+		    return "forward:banner";
+		} else {
+			dao.update(banner);
+			return "redirect:banner";
+		}
+	}
+
+	/*
+	 * -------------------------
+	 * 			Delete			
+	 * -------------------------
+	 */
+	
+	@RequestMapping("Admin/DeleteBanner")
+	public void delete(Long id) {
+	  dao.delete(id);
+	}
+	
+	/*
+	 * -------------------------
+	 * 			Restore			
+	 * -------------------------
+	 */
+	
+	@RequestMapping("Admin/RestoreBanner")
+	public void restore(Long id) {
+		  dao.restore(id);
+	}
+
+	/*
+	 * -------------------------
+	 * 			Find			
+	 * -------------------------
+	 */
+	
+	@RequestMapping("Admin/FindBanner")
+	public String Find(Model model, Long id) {
+		model.addAttribute("banners", dao.findOne(id));
+		return "admin/Banner/edt";
+	}
+	
+}

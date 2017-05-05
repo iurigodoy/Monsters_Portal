@@ -184,6 +184,36 @@
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <input type="text" name="estado_for" class="form-control" placeholder="Estado" title="Estado" value="${ fornecedor.estado_for }">
+					  <select>
+							<option value="">Estado
+							<option value="AC">AC
+							<option value="AL">AL
+							<option value="AP">AP
+							<option value="AM">AM
+							<option value="BA">BA
+							<option value="CE">CE
+							<option value="DF">DF
+							<option value="ES">ES
+							<option value="GO">GO
+							<option value="MA">MA
+							<option value="MT">MT
+							<option value="MS">MS
+							<option value="MG">MG
+							<option value="PA">PA
+							<option value="PB">PB
+							<option value="PR">PR
+							<option value="PE">PE
+							<option value="PI">PI
+							<option value="RJ">RJ
+							<option value="RN">RN
+							<option value="RO">RO
+							<option value="RS">RS
+							<option value="RR">RR
+							<option value="SC">SC
+							<option value="SP">SP
+							<option value="SE">SE
+							<option value="TO">TO
+						</select>
 					</div>
 
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">

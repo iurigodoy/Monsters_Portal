@@ -62,17 +62,16 @@
                   </div>
                   <div class="x_content">
                   	<div id="ajax-content-table">
-                 		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
+                 		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">Categoria</th> <!-- ver se vai ficar aq mesmo a img -->
+	                          <!-- <th style="width: 10%">Categoria</th>
 	                          <th style="width: 45%">Nome</th>
-	                          <th style="width: 25%">Descrição</th>
-	                          <th style="width: 25%">Categoria</th>
+	                          <th style="width: 25%">Descri��o</th>
 	                          <th style="width: 25%">Publicado</th>
 	                          <th style="width: 25%">Destaque</th>
 	                          <th style="width: 25%">Desconto</th>
-	                          <th style="width: 25%">Promoção</th>
+	                          <th style="width: 25%">Promoção</th> -->
 	                          <th style="width: 25%">Peso</th>
 	                          <th style="width: 25%">Altura</th>
 	                          <th style="width: 25%">Largura</th>
@@ -86,13 +85,13 @@
 					  		
 					  		<c:if test="${ not pro.deleted }">
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="1">
-								<td>${ pro.categoria.nome_cat }</td>
+								<!-- <td>${ pro.categoria.nome_cat }</td>
 	                      	  	<td>${ pro.nome_pro }</td>
 	                      	  	<td>${ pro.descricao_pro }</td>
 	                      	  	<td>${ pro.publicado_pro }</td>
 	                      	  	<td>${ pro.destaque_pro }</td>
 								<td>${ pro.desconto_pro }</td>
-								<td>${ pro.promocao_pro }</td>
+								<td>${ pro.promocao_pro }</td> -->
 	                      	  	<td>${ pro.peso_pro }</td>
 	                      	  	<td>${ pro.altura_pro }</td>
 	                      	  	<td>${ pro.largura_pro }</td>
@@ -113,24 +112,23 @@
 					  		<c:if test="${ pro.deleted }">
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="0">
 	                      	  	
-	                      	  	<td>${ pro.categoria.nome_cat }</td>
+	                      	  	<!-- <td>${ pro.categoria.nome_cat }</td>
 	                      	  	<td>${ pro.nome_pro }</td>
 	                      	  	<td>${ pro.descricao_pro }</td>
 	                      	  	<td>${ pro.publicado_pro }</td>
 	                      	  	<td>${ pro.destaque_pro }</td>
 								<td>${ pro.desconto_pro }</td>
-								<td>${ pro.promocao_pro }</td>
+								<td>${ pro.promocao_pro }</td>-->
 	                      	  	<td>${ pro.peso_pro }</td>
 	                      	  	<td>${ pro.altura_pro }</td>
 	                      	  	<td>${ pro.largura_pro }</td>
 	                      	  	<td>${ pro.comprimento_pro }</td>
 	                      	  	
-	                      	  	<td>
+	                      	  	<!-- <td>
 									<small>Criado em:	<fmt:formatDate value="${ pro.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
 								    Atualizado em:		<fmt:formatDate value="${ pro.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
 								    Apagado em:			<fmt:formatDate value="${ pro.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-									<!--									  (3) ^^^^^^^^^^^^^^^	-->
-	                      	  	</td>
+	                      	  	</td> -->
 	                      	  	
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ pro.id_produto }"
@@ -223,7 +221,9 @@
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <select type="hidden"name="imagem.id_imagem" class="form-control">
 						<option value="0">Imagem</option>
-						<!-- foreach de imagem -->
+						<c:forEach var="imagem" items="${imagens}">
+						  <option value="${ imagem.id_imagem }">${ imagem.arquivo_ima }</option>
+						</c:forEach>
 					  </select>
 					  <!-- exemplo para facilitar pro usuário -->
 					  <p>Não encontrou a imagem certa? <a href="<c:url value="/imagem"/>" title="Editar Imagens">Clique aqui</a></p>
@@ -244,7 +244,7 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Produto";						// Find Controller Function
+	edition_param	= "FindProduto";						// Find Controller Function
 	delete_message	= 'quer mesmo deletar este produto?';	// Delete Message
 	delete_param	= "DeleteProduto";						// Delete Controller Function
 	restore_param	= "RestoreProduto";						// Restore Controller Function
@@ -252,7 +252,7 @@
 </script>
 
 <c:import url="../Footer.jsp" />
-<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
+<script type="text/javascript" charset="utf-8" src="<c:url value="../resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">
@@ -261,7 +261,7 @@
 	  <!--								^^^^^^^^^^^	-->
 
 		<div class="modal-header">
-		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
 	      </button>
 	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Produto</h4>
 		  <!--																						^^^^^^^^^^^	-->

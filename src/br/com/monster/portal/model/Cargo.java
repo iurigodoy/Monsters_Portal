@@ -58,7 +58,7 @@ public class Cargo {
 	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
 	private Set<Funcionario> funcionario;
 	
-	@OneToOne(mappedBy="cargo")
+	@OneToOne(mappedBy="cargo", fetch=FetchType.EAGER)
 	private Permissao permissao;
 	
 	/*
@@ -136,7 +136,7 @@ public class Cargo {
 		return permissao;
 	}
 
-	public void setPermissao(Permissao permissao) {
+	public void setPermisao(Permissao permissao) {
 		this.permissao = permissao;
 	}
 	

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -98,7 +99,7 @@ public class Fornecedor {
 	 */
 	
 	// UM Ramal tem MUITOS Funcionários	(1-N)
-	@OneToMany(mappedBy="fornecedor")
+	@OneToMany(mappedBy="fornecedor", fetch=FetchType.EAGER)
 	private Set<Produto_has_fornecedor> produto_has_fornecedor;
 
 	

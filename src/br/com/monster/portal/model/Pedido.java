@@ -35,7 +35,6 @@ public class Pedido {
 	private Float preco_ped;			//Nome do campo no sistema
 	
 
-	//@Digits(integer = 10 /*precision*/, fraction = 2 /*scale*/)
 	@Column(name = "ped_custo_forma_de_pagamento")			//Nome real dentro do banco
 	private Float custo_forma_de_pagamento_ped;			//Nome do campo no sistema
 	
@@ -107,23 +106,9 @@ public class Pedido {
 	@JoinColumn(name = "cliente_id_cliente", insertable=true, updatable=true)
 	private Cliente cliente;
 	
-	@ManyToOne
-	@JoinColumn(name = "forma_pagamento_id_forma_pagamento", insertable=true, updatable=true)
-	private Forma_pagamento forma_pagamento;
-	
 	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
 	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
-	
-	/*
-	 *----------------------
-	 *		Métodos			
-	 *----------------------
-	 */
-	
-	public float calcularPrecoTotal(float precoTotalProdutos, float valorFrete){
-		return precoTotalProdutos + valorFrete;
-	}
 	
 	/*
 	|---------------------------------------
@@ -269,18 +254,6 @@ public class Pedido {
 
 	public Cliente getCliente() {
 		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Forma_pagamento getForma_pagamento() {
-		return forma_pagamento;
-	}
-
-	public void setForma_pagamento(Forma_pagamento forma_pagamento) {
-		this.forma_pagamento = forma_pagamento;
 	}
 
 	public Set<Pedido_has_produto> getPedido_has_produto() {

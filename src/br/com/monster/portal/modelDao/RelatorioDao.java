@@ -13,6 +13,6 @@ public interface RelatorioDao {
 	List<Relatorio> Read();
 	Relatorio Find_One(Long id);
 	
-	void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidade);
+	void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidades);
 	
 }

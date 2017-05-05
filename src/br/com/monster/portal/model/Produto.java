@@ -92,8 +92,10 @@ public class Produto {
 
 	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
-	@JoinColumn(name = "categoria_id_categoria")
+	@JoinColumn(name = "categoria_id_categoria", insertable=true, updatable=true)
 	private Categoria categoria;
+	
+	
 
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Produto_has_fornecedor> produto_has_fornecedor;
@@ -101,15 +103,23 @@ public class Produto {
 	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Imagem> imagem;
 
-	@OneToMany(mappedBy="produto")
+	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Banner> banner;
 
-	@OneToMany(mappedBy="produto")
+	@OneToMany(mappedBy="produto", fetch=FetchType.EAGER)
 	private Set<Pedido_has_produto> pedido_has_produto;
+	
+	// Outros Métodos
+	
+	public float calcularDesconto(float precoProduto){
+		float desconto = precoProduto * (desconto_pro / 100);
+		float precoDescontado = precoProduto - desconto;
+		return precoDescontado;
+	}
 	
 	/*
 	|---------------------------------------
-	|		Getters And Setters(GGAS)				
+	|		Getters And Setters(GGAS)		
 	|---------------------------------------
 	*/
 

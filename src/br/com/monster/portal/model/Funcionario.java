@@ -17,6 +17,8 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import br.com.monster.portal.security.Crypt;
+
 @Entity
 @Table(name = "funcionario")
 public class Funcionario {
@@ -31,7 +33,7 @@ public class Funcionario {
 	private String nome_fun;			//Nome do campo no sistema
 	
 	@NotNull(message="{fun.cpf.NotEmpty}")
-	@Column(name = "fun_cpf", unique = true)			//Nome real dentro do banco
+	@Column(name = "fun_cpf")			//Nome real dentro do banco
 	private String cpf_fun;			//Nome do campo no sistema
 	
 	
@@ -40,7 +42,7 @@ public class Funcionario {
 	
 	@NotNull(message="{fun.foto.NotEmpty}")
 	@Size(min=1, max=100, message = "{fun.foto.Size}")
-	@Column(name = "fun_foto", unique = true)			//Nome real dentro do banco
+	@Column(name = "fun_foto")			//Nome real dentro do banco
 	private String foto_fun;			//Nome do campo no sistema
 	
 
@@ -54,7 +56,7 @@ public class Funcionario {
 	
 	@NotNull(message="{fun.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{fun.email.Size}")
-	@Column(name = "fun_email", unique = true)			//Nome real dentro do banco
+	@Column(name = "fun_email")			//Nome real dentro do banco
 	private String email_fun;			//Nome do campo no sistema
 	
 	@NotNull(message="{fun.senha.NotEmpty}")
@@ -90,7 +92,13 @@ public class Funcionario {
 	
 	// UM Ramal tem MUITOS Funcionários	(1-N)
 	@OneToMany(mappedBy="funcionario", fetch=FetchType.EAGER)
-	private Set<Relatorios> relatorios;
+	private Set<Relatorio> relatorios;
+	
+	// Outros Métodos
+	public void criptografar_senha(String senha_fun) {
+		String senha_fun_criptografada = new Crypt().criptografar(senha_fun);
+		this.senha_fun = senha_fun_criptografada;
+	}
 	
 	/*
 	|---------------------------------------
@@ -211,11 +219,11 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public Set<Relatorios> getRelatorios() {
+	public Set<Relatorio> getRelatorios() {
 		return relatorios;
 	}
 
-	public void setRelatorios(Set<Relatorios> relatorios) {
+	public void setRelatorios(Set<Relatorio> relatorios) {
 		this.relatorios = relatorios;
 	}
 	

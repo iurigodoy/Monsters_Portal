@@ -12,29 +12,22 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	      HttpServletResponse response,
 	      Object controller) throws Exception {
 
-		  // páginas liberadas
 	      String uri = request.getRequestURI();
-	      if(uri.endsWith("index")					||
-	    	 uri.endsWith("Contato")				||
-	    	 uri.endsWith("Cadastro")				||
-	    	 uri.endsWith("CreateCliente")			||
-	    	 uri.endsWith("Login")					||
-	         uri.endsWith("efetuaLogin")			||
-	    	 // Carrinho
-	    	 uri.endsWith("AdicionaItemCarrinho")	||
-	    	 uri.endsWith("carrinho")				||
-	    	 uri.endsWith("RemoveItemCarrinho")		||
-	    	 //Pesquisa e Escolha
-	    	 uri.contains("Categoria")				||
-	    	 uri.contains("Produto")				||
-	    	 // Administrativo
-	         uri.endsWith("Admin/LoginAdmin")		||
-	         uri.endsWith("efetuaLoginAdmin")		||
+	      if(uri.endsWith("index")			||
+	    	 uri.endsWith("Contato")		||
+	    	 uri.endsWith("Cadastro")		||
+	    	 uri.endsWith("CreateCliente")	||
+	    	 uri.contains("Categoria")		||
+	    	 uri.contains("Produtos")		||
+	    	 uri.endsWith("Login")			||
+	    	 uri.endsWith("LoginEsqueciSenha")	||
+	         uri.endsWith("efetuaLogin")		|| 
+	         uri.endsWith("Admin/LoginAdmin")	|| 
+	         uri.endsWith("efetuaLoginAdmin")	|| 
 	                   uri.contains("resources")){
 	        return true;
 	      }
 
-	      // Sessões liberadas
 	      if(request.getSession()
 	          .getAttribute("clienteLogado") != null) {
 	        return true;
@@ -49,13 +42,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	      if(request.getSession()
 	 	     .getAttribute("administradorLogado") == null 
 	 	     && (
-		 	     uri.endsWith("Admin/Produto")			||
-		 	     uri.endsWith("Admin/Cliente")			||
-		 	     uri.endsWith("Admin/Pedido")			||
-		 	     uri.endsWith("Admin/Fornecedor")		||
-		 	     uri.endsWith("Admin/Funcionario")		||
-		 	     uri.endsWith("Admin/Marketing")		||
-	 	                   uri.contains("resources")
+			 	 uri.contains("Admin")
 	 	     )
 	 	   ){
 

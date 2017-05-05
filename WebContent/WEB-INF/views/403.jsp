@@ -16,14 +16,14 @@
     <title>Acesso negado </title>
 
     <!-- Bootstrap -->
-    <link href="<c:url value="/resources/vendors/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/vendors/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<c:url value="/resources/vendors/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/vendors/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
     <!-- NProgress -->
-    <link href="<c:url value="/resources/vendors/nprogress/nprogress.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/vendors/nprogress/nprogress.css"/>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<c:url value="/resources/build/css/custom.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="resources/build/css/custom.min.css"/>" rel="stylesheet">
   </head>
 
   <body class="nav-md">
@@ -49,15 +49,15 @@
     </div>
 
     <!-- jQuery -->
-    <script src="<c:url value="/resources/vendors/jquery/dist/jquery.min.js"/>"></script>
+    <script src="<c:url value="resources/vendors/jquery/dist/jquery.min.js"/>"></script>
     <!-- Bootstrap -->
-    <script src="<c:url value="/resources/vendors/bootstrap/dist/js/bootstrap.min.js"/>"></script>
+    <script src="<c:url value="resources/vendors/bootstrap/dist/js/bootstrap.min.js"/>"></script>
     <!-- FastClick -->
-    <script src="<c:url value="/resources/vendors/fastclick/lib/fastclick.js"/>"></script>
+    <script src="<c:url value="resources/vendors/fastclick/lib/fastclick.js"/>"></script>
     <!-- NProgress -->
-    <script src="<c:url value="/resources/vendors/nprogress/nprogress.js"/>"></script>
+    <script src="<c:url value="resources/vendors/nprogress/nprogress.js"/>"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src="<c:url value="/resources/build/js/custom.min.js"/>"></script>
+    <script src="<c:url value="resources/build/js/custom.min.js"/>"></script>
   </body>
 </html>

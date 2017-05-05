@@ -65,8 +65,8 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">ID Cliente</th> <!-- ver se vai ficar aq mesmo -->
-	                          <th style="width: 45%">Forma de Pagamento</th> <!-- ver se vai ficar aq mesmo -->
+	                          <th style="width: 10%">ID Cliente</th> 
+	                          <th style="width: 45%">Forma de Pagamento</th> 
 							  <th style="width: 45%">Número</th>
 	                          <th style="width: 25%">Preço</th>
 	                          <th style="width: 25%">Custo Forma/Pagamento</th>

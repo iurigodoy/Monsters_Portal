@@ -7,11 +7,15 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.monster.portal.model.Funcionario;
 import br.com.monster.portal.model.Relatorio;
 import br.com.monster.portal.modelDao.RelatorioDao;
+import br.com.monster.portal.security.EnumEntidade;
+import br.com.monster.portal.security.EnumMetodo;
 
 
 
@@ -86,9 +90,15 @@ public class JpaRelatorioDao implements RelatorioDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Relatorio relatorios) {
-			relatorios.setCreated_at(cal.getTime());
-			 manager.persist(relatorios);
+		public void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidade) {
+			Relatorio relatorio = new Relatorio();
+			Funcionario funcionario = (Funcionario) session.getAttribute("administradorLogado");
+			
+			relatorio.setFuncionario(funcionario);
+			relatorio.setMetodo(metodo);
+			relatorio.setEntidade(entidade);
+			relatorio.setCreated_at(cal.getTime());
+			manager.persist(relatorio);
 	    }
 	   
 }

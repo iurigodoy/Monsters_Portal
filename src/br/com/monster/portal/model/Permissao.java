@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -76,7 +76,7 @@ public class Permissao {
 	 */
 
 	// MUITAS Permissões para UM Cargo	(N-1)
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name = "cargo_id_cargo", insertable=true, updatable=true)
 	private Cargo cargo;
 	
@@ -86,7 +86,7 @@ public class Permissao {
 	|---------------------------------------
 	*/
 
-	public Long getId_permissoes() {
+	public Long getId_permissao() {
 		return id_permissoes;
 	}
 
@@ -287,6 +287,7 @@ public class Permissao {
 	}
 
 
+
 	public Cargo getCargo() {
 		return cargo;
 	}
@@ -294,5 +295,6 @@ public class Permissao {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
+	
 	
 }

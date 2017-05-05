@@ -3,6 +3,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+<c:import url="../Header.jsp" />
+
+            <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-group"></i> Clientes </h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Procure por...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Vá!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
 <!--	Formulário de Edição Aqui !!!	-->
 <!--		Formulário		-->
 <form action="<c:url value="UpdateCliente"/>" method="POST" class="form-horizontal form-label-left input_mask">
@@ -34,6 +55,36 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <input type="text" name="estado_cli" class="form-control" placeholder="Estado" title="Estado" value="${ cliente.estado_cli }">
+					<select>
+							<option value="">Estado
+							<option value="AC">AC
+							<option value="AL">AL
+							<option value="AP">AP
+							<option value="AM">AM
+							<option value="BA">BA
+							<option value="CE">CE
+							<option value="DF">DF
+							<option value="ES">ES
+							<option value="GO">GO
+							<option value="MA">MA
+							<option value="MT">MT
+							<option value="MS">MS
+							<option value="MG">MG
+							<option value="PA">PA
+							<option value="PB">PB
+							<option value="PR">PR
+							<option value="PE">PE
+							<option value="PI">PI
+							<option value="RJ">RJ
+							<option value="RN">RN
+							<option value="RO">RO
+							<option value="RS">RS
+							<option value="RR">RR
+							<option value="SC">SC
+							<option value="SP">SP
+							<option value="SE">SE
+							<option value="TO">TO
+						</select>
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
@@ -104,3 +155,5 @@
     </p>
 
 </form>
+
+<c:import url="../Footer.jsp" />

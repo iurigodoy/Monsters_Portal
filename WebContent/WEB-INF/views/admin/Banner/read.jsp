@@ -58,7 +58,7 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">ID Produto</th> <!-- ver se vai ficar aq mesmo -->
+	                          <th style="width: 10%">ID Produto</th> 
 	                          <th style="width: 45%">Arquivo</th>
 	                          <th style="width: 25%">Ativo</th>
 	                          <th style="width: 20%">#Editar</th>
@@ -114,7 +114,7 @@
 	              	</div>
                   </div>
                 </div>
-              </div>
+					</div>
 
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
@@ -156,6 +156,7 @@
 					<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
 				  </button>
 				</div>
+				
 				</form>
 				
 				<!--	-->

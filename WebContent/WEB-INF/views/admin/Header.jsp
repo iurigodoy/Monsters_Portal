@@ -37,12 +37,15 @@
     
     <!-- bootstrap-daterangepicker -->
     <link href="../resources/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    
+    <!-- Jquery Confirm -->
+    <link href="<c:url value="../resources/vendors/jquery-confirm-master/dist/jquery-confirm.min.css"/>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../resources/build/css/custom.min.css" rel="stylesheet">
     
     <!-- *************************** - - 
-   			Configuração Pessoal		
+   			Configuraï¿½ï¿½o Pessoal		
     - -  *************************** -->
     
   </head>
@@ -124,7 +127,7 @@
                       <li><a href="<c:url value="/Admin/Cargo"/>"><i class="fa fa-sitemap"></i> Cargos</a></li>
                       <li><a href="<c:url value="/Admin/Add_Funcionario"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
                       <li><a href="<c:url value="/Admin/Funcionario"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
-                      <li><a href="<c:url value="/Admin/Funcionario"/>"><i class="fa fa-file-text"></i> Relatórios</a></li>
+                      <li><a href="<c:url value="/Admin/Funcionario"/>"><i class="fa fa-file-text"></i> Relatï¿½rios</a></li>
                     </ul>
                   </li>
                   
@@ -192,7 +195,7 @@
                     <li>
                       <a href="javascript:;">
                         <span class="badge bg-red pull-right">50%</span>
-                        <span>Configurações</span>
+                        <span>Configuraï¿½ï¿½es</span>
                       </a>
                     </li>
                     <li><a href="javascript:;"> Ajuda</a></li>

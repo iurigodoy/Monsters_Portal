@@ -11,10 +11,10 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.monster.portal.model.FornecedorMultiple;
 import br.com.monster.portal.model.Imagem;
 import br.com.monster.portal.model.ImagemMultiple;
 import br.com.monster.portal.model.Produto;
-import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.ProdutoDao;
 
 
@@ -38,7 +38,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * A seguir mï¿½todos de pesquisa
 	    * 
 	    */
-		public List<Produto> Read() {
+		public List<Produto> read() {
 		
 			
 	    	Query query = manager
@@ -53,7 +53,8 @@ public class JpaProdutoDao implements ProdutoDao {
 
 			return produtos;
 		}
-		public List<Produto> Read_publico() {
+		
+		public List<Produto> read_publico() {
 			
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -72,7 +73,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			return produtos;
 		}
 
-		public List<Produto> Read_destacado() {
+		public List<Produto> read_destacado() {
 			
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -91,140 +92,15 @@ public class JpaProdutoDao implements ProdutoDao {
 
 			return produtos;
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			Mï¿½todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-
-		   
-		public Produto findOne(Long id) {
-
-			Query query = manager
-				        .createQuery("SELECT pro "
-				        		+ "FROM Produto pro "
-				        		+ "WHERE pro.nome_pro = :Id "
-				        		+ "AND pro.id_produto IN "
-				        		+ "(SELECT produto FROM Imagem ima) ");
-				
-				query.setParameter("Id", id);
 		
-				Produto produtos = (Produto) query.getResultList();
-		
-				return produtos;
-				
-			}
-	   
-	   public List<Produto> Find_By_Name(String nome_prod) {
+		public List<Produto> findByName(String nome_produto) {
 
 			Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.nome_pro LIKE :Nome "
-			        		+ "AND pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) ");
-			
-			query.setParameter("Nome", (String) "%"+nome_prod+"%");
-	
-				@SuppressWarnings("unchecked")
-				List<Produto> produtos = query.getResultList();
-	
-			return produtos;
-			
-		}
-		
-<<<<<<< HEAD
-		public Produto_has_fornecedor findOnePublic(Long id) {
-
-			boolean gambiarraAQUI;	// Usando o alert do eclipse para mostrar a gambiarra pro prox programador arrumar!
-			
-			/*
-			 * Chamando entidade intermediária de
-			 *		Produto e Fornecedor
-			 *
-			 *	Gambiarra feita para não fazer o
-			 *		OpenSessionInView
-			 *
-			
-			/*Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Produto pro "
-			        		
-			        		//+ "WHERE pro.id_produto IN "
-			        		//+ "(SELECT pro FROM Produto_has_fornecedor prod_forn) "
-			        		
-			        		//+ "WHERE prod_forn.fornecedor.id_fornecedor IN "
-			        		//+ "(SELECT prod_forn FROM Fornecedor forn)) "
-			        		
-			        		+ "WHERE pro.publicado_pro = true "
-			        		+ "AND pro.deleted = false "
-			        		
-			        		+ "AND pro.id_produto = :Id"); return Produto produto;*/
-			
-			Query query = manager
-			        .createQuery("SELECT prod_forn "
-			        		+ "FROM Produto_has_fornecedor prod_forn "
-			        		
-			        		+ "WHERE prod_forn.produto.id_produto IN "
-			        		+ "(SELECT prod_forn FROM Produto prod "
-			        		+ "WHERE prod.publicado_pro = true "
-			        		+ "AND prod.deleted = false) "
-			        		
-			        		+ "AND prod_forn.produto.id_produto = :Id");
-			
-			query.setParameter("Id", id);
-	
-			Produto_has_fornecedor produto = (Produto_has_fornecedor) query.getSingleResult();
-	
-			return produto;
-			
-		}
-
-		public List<Produto> FindProdutoPorCategoria(Long id) {
-=======
-		@Override
-		public List<Produto> Find_publico(String nome_produto) {
->>>>>>> parent of f45fb1a... VersÃ£o do Semestre Passado
-
-			Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Produto pro "
-<<<<<<< HEAD
-			        		
-			        		+ "WHERE pro.publicado_pro = true "
-			        		+ "AND pro.deleted = false "
-			        		+ "AND pro.categoria.id_categoria = :Id");
-=======
 			        		+ "WHERE pro.id_produto IN "
 			        		+ "(SELECT produto FROM Imagem ima) "
 			        		+ "AND pro.publicado_pro = true "
-			        		+ "AND pro.nome_pro = :Nome");
->>>>>>> parent of f45fb1a... VersÃ£o do Semestre Passado
-			
-			query.setParameter("Nome", (String) nome_produto);
-	
-				@SuppressWarnings("unchecked")
-				List<Produto> produtos = query.getResultList();
-	
-			return produtos;
-			
-		}
-		
-<<<<<<< HEAD
-		public List<Produto> FindManyPublic(String nome_produto) {
-=======
-		@Override
-		public List<Produto> Find_Many_publico(String nome_produto) {
->>>>>>> parent of f45fb1a... VersÃ£o do Semestre Passado
-
-			Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_produto = true "
 			        		+ "AND pro.nome_pro LIKE :Nome");
 			
 			query.setParameter("Nome", (String) "%"+nome_produto+"%");
@@ -233,6 +109,65 @@ public class JpaProdutoDao implements ProdutoDao {
 				List<Produto> produtos = query.getResultList();
 	
 			return produtos;
+			
+		}
+		
+		public List<Produto> find_produto_cat(Long id) {
+
+			Query query = manager
+			        .createQuery("SELECT prod "
+			        		+ "FROM Produto prod "
+			        		+ "WHERE prod.categoria.id_categoria = :Id "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false ");
+
+			query.setParameter(":Id", id);
+
+			@SuppressWarnings("unchecked")
+			List<Produto> produtos = query.getResultList();
+
+			return produtos;
+		}
+		   
+		   /*
+		    * ----------------------------------
+		    *			Mï¿½todo Find_One			
+		    * ----------------------------------
+		    * 
+		    */
+
+			   
+			public Produto findOne(Long id) {
+
+				Query query = manager
+					        .createQuery("SELECT pro "
+					        		+ "FROM Produto pro "
+					        		+ "WHERE pro.id_produto = :Id ");
+					
+					query.setParameter("Id", id);
+			
+					Produto produto = (Produto) query.getSingleResult();
+			
+					return produto;
+					
+				}
+		
+		public Produto findOnePublic(Long id) {
+
+			Query query = manager
+			        .createQuery("SELECT pro "
+			        		+ "FROM Produto pro "
+			        		+ "WHERE pro.id_produto IN "
+			        		+ "(SELECT produto FROM Imagem ima) "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false "
+			        		+ "AND pro.id_produto = :Id");
+			
+			query.setParameter("Id", id);
+	
+			Produto produto = (Produto) query.getSingleResult();
+	
+			return produto;
 			
 		}
 	   
@@ -247,7 +182,10 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
-		public void create(Produto produto, ImagemMultiple imagens) {
+		public void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedores) {
+			
+			boolean error; // não esqueça de colocar os fornecedores
+			
 			produto.setCreated_at(cal.getTime());
 			produto.setUpdated_at(cal.getTime());
 			produto.setDeleted(false);

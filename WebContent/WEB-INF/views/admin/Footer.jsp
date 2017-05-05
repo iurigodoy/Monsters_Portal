@@ -46,7 +46,7 @@
     <script src="../resources/vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
     <script src="../resources/vendors/flot.curvedlines/curvedLines.js"></script>
     <!-- bootstrap-daterangepicker -->
-    <script src="../resources/vendors/moment/min/moment.min.js"></script>
+    <!-- <script src="../resources/vendors/moment/min/moment.min.js"></script> -->
     <script src="../resources/vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
     <!-- bootstrap-wysiwyg -->
     <script src="../resources/vendors/bootstrap-wysiwyg/js/bootstrap-wysiwyg.min.js"></script>
@@ -58,6 +58,8 @@
     <script src="../resources/vendors/select2/dist/js/select2.full.min.js"></script>
     <!-- jQuery autocomplete -->
     <script src="../resources/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"></script>
+    <!-- Jquery Confirm -->
+    <script src="<c:url value="/resources/vendors/jquery-confirm-master/dist/jquery-confirm.min.js"/>"></script>
     <!-- Datatables -->
     <script src="../resources/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="../resources/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -71,67 +73,15 @@
     <script src="../resources/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
     <script src="../resources/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
     <!-- <script src="../resources/vendors/datatables.net-scroller/js/datatables.scroller.min.js"></script> -->
-    <script src="../resources/vendors/jszip/dist/jszip.min.js"></script>
+    <!-- <script src="../resources/vendors/jszip/dist/jszip.min.js"></script> -->
     <script src="../resources/vendors/pdfmake/build/pdfmake.min.js"></script>
     <script src="../resources/vendors/pdfmake/build/vfs_fonts.js"></script>
 
     <!-- Custom Theme Scripts -->
     <script src="../resources/build/js/custom.min.js"></script>
     
-    <script src="../resources/js/table.conf.js"></script>
-
-    <!-- Autosize 
-    <script>
-      $(document).ready(function() {
-        autosize($('.resizable_textarea'));
-      });
-    </script>
     <!-- /Autosize -->
-    
-    <!-- Datatables -->
-    
-    <!-- Produto -->
-    <script>
-      $(document).ready(function() {
-        $('#datatable-descricao').DataTable();
-        $('#datatable-promocional').DataTable();
-        $('#datatable-descTec').DataTable();
-        $('#datatable-otherInfo').DataTable();
-      });
-    </script>
-    
-    <!-- Clientes -->
-    <script>
-      $(document).ready(function() {
-        $('#datatable-fisica').DataTable();
-        $('#datatable-juridica').DataTable();
-      });
-    </script>
-    
-    <!-- Pedidos -->
-    <script>
-      $(document).ready(function() {
-        $('#datatable-todos').DataTable();
-      });
-    </script>
-    
-    <!-- Funcionarios -->
-    <script>
-      $(document).ready(function() {
-        $('#datatable-info').DataTable();
-        $('#datatable-local').DataTable();
-      });
-    </script>
-    
-    <!-- Fornecedor -->
-    <script>
-      $(document).ready(function() {
-        //$('#datatable-descricao').DataTable();
-        $('#datatable-contato').DataTable();
-        $('#datatable-local').DataTable();
-      });
-    </script>
-    
+    <script src="../resources/js/table.conf.js"></script>
     
   </body>
 </html>

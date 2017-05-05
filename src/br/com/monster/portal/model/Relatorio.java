@@ -12,6 +12,9 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import br.com.monster.portal.security.EnumEntidade;
+import br.com.monster.portal.security.EnumMetodo;
+
 @Entity
 @Table(name = "relatorio")
 public class Relatorio {
@@ -29,15 +32,10 @@ public class Relatorio {
 	 |			Relacionamentos				
 	 |--------------------------------------
 	 */
-	
-	// MUITOS Ramais estão em UM Setor	(N-1)
-	@ManyToOne
-	@JoinColumn(name = "entidade_id_entidade", insertable=true, updatable=true)
-	private Entidade entidade;
-	
-	@ManyToOne
-	@JoinColumn(name = "metodo_id_metodo", insertable=true, updatable=true)
-	private Metodo metodo;
+
+	private EnumEntidade entidade;
+
+	private EnumMetodo metodo;
 	
 	@ManyToOne
 	@JoinColumn(name = "funcionario_id_funcionario", insertable=true, updatable=true)
@@ -66,28 +64,28 @@ public class Relatorio {
 		this.created_at = created_at;
 	}
 
-	public Entidade getEntidade() {
-		return entidade;
-	}
-
-	public void setEntidade(Entidade entidade) {
-		this.entidade = entidade;
-	}
-
-	public Metodo getMetodo() {
-		return metodo;
-	}
-
-	public void setMetodo(Metodo metodo) {
-		this.metodo = metodo;
-	}
-
 	public Funcionario getFuncionario() {
 		return funcionario;
 	}
 
 	public void setFuncionario(Funcionario funcionario) {
 		this.funcionario = funcionario;
+	}
+
+	public EnumEntidade getEntidade() {
+		return entidade;
+	}
+
+	public void setEntidade(EnumEntidade entidade) {
+		this.entidade = entidade;
+	}
+
+	public EnumMetodo getMetodo() {
+		return metodo;
+	}
+
+	public void setMetodo(EnumMetodo metodo) {
+		this.metodo = metodo;
 	}
 	
 	

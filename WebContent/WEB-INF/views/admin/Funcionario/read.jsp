@@ -28,6 +28,7 @@
 					<strong><form:errors path="funcionario.cpf_fun"/></strong>
 					<strong><form:errors path="funcionario.email_fun"/></strong>
 					<strong><form:errors path="funcionario.senha_fun"/></strong>
+
 				<!--	-->
                   </span>
                 </div>
@@ -60,7 +61,7 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">Cargo</th> <!-- ver se vai ficar aq mesmo -->
+	                          <th style="width: 10%">Cargo</th> 
 	                          <th style="width: 10%">Nome</th>
 	                          <th style="width: 45%">CPF</th>
 	                          <th style="width: 25%">Bloqueado</th>

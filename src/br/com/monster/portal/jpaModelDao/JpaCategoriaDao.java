@@ -33,7 +33,7 @@ public class JpaCategoriaDao implements CategoriaDao {
 	    * A seguir m�todos de pesquisa
 	    * 
 	    */
-		public List<Categoria> Read() {
+		public List<Categoria> read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT pro "//16
