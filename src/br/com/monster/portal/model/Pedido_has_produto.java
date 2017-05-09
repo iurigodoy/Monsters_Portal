@@ -23,7 +23,7 @@ public class Pedido_has_produto {
 	
 	@NotNull(message="{prod.preco.NotEmpty}")
 	@Column(name = "prod_preco")			//Nome real dentro do banco
-	private Float preco_prod;			//Nome do campo no sistema
+	private Double preco_prod = 0.00;		//Nome do campo no sistema
 
 	/*
 	 |--------------------------------------
@@ -31,7 +31,7 @@ public class Pedido_has_produto {
 	 |--------------------------------------
 	 */
 	
-	// MUITOS Ramais estão em UM Setor	(N-1)
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
 	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
 	private Produto produto;
@@ -79,11 +79,11 @@ public class Pedido_has_produto {
 		this.pedido = pedido;
 	}
 
-	public Float getPreco_prod() {
+	public Double getPreco_prod() {
 		return preco_prod;
 	}
 
-	public void setPreco_prod(Float preco_prod) {
+	public void setPreco_prod(Double preco_prod) {
 		this.preco_prod = preco_prod;
 	}
 	

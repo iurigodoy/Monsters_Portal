@@ -19,7 +19,6 @@ public class JpaProduto_has_fornecedorDao implements Produto_has_fornecedorDao {
 	@PersistenceContext
 	EntityManager manager;
 
-	@Override
 	public Produto_has_fornecedor recarrega(Long id_prod, Long id_forn) {
 		
 		Query query = manager
@@ -42,6 +41,19 @@ public class JpaProduto_has_fornecedorDao implements Produto_has_fornecedorDao {
 		return produtos;
 	}
 	
-	
+	public Produto_has_fornecedor findOnePublic(Long id){
+		
+		Query query = manager
+		        .createQuery("SELECT pro "
+		        		+ "FROM Produto_has_fornecedor pro "
+		        		+ "WHERE pro.produto.id_produto = :Id ");
+		
+		query.setParameter("Id", id);
+	    	
+
+			Produto_has_fornecedor produto = (Produto_has_fornecedor) query.getSingleResult();
+
+		return produto;
+	}
 	   
 }

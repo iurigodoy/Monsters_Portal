@@ -129,6 +129,7 @@
 	<context:component-scan base-package="br.com.monster.portal.loja.controller" />
 	<context:component-scan base-package="br.com.monster.portal.carrinho" />
 	<context:component-scan base-package="br.com.monster.portal.frete" />
+	<context:component-scan base-package="br.com.monsterportal.identificacao" />
 
 
 
@@ -149,7 +150,7 @@
 		OUTROS	
 ********************
  - - - - - - - - -->
-
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"></bean>
 
 
 	<!-- Ativa o Transactional do Hibernate -->

@@ -11,9 +11,7 @@
 
 <c:forEach var="produto" items="${produtos}">
 	<c:if test="${count_prod == 1}"><div class="row"></c:if>
-	
-	
-	
+
 			<c:forEach var="forn" items="${produto.produto_has_fornecedor}">
 				<c:set var="valor_prod"	value="${ forn.preco_prod }" scope="page" />
 			</c:forEach>
@@ -35,15 +33,8 @@
 				  
 				  <div class="panel-body">
 <!--------------------------------------	NOME	--------------------------------------->
-					<h4 class="nome_produto" title="${ produto.nome_pro }">
-					  <a href="<c:url value="/Produtos/${ produto.id_produto }"/>">${ fn:substring(produto.nome_pro,0,30) } ...<br>
-		 			  	<i class="fa fa-star gold-star"></i>
-		 			  	<i class="fa fa-star gold-star"></i>
-		 			  	<i class="fa fa-star gold-star"></i>
-		 			  	<i class="fa fa-star gold-star"></i>
-		 			  	<i class="fa fa-star"></i>
-					  </a>
-					  <strong class="red"><-- Erro!</strong>
+					<h4 class="nome_produto" title="${ produto.id_produto }">
+					  <a href="<c:url value="/Produtos/${ produto.id_produto }"/>">${ produto.nome_pro }</a>
 					</h4>
 		 			  	
 					<!-- Se houver desconto -->
@@ -59,20 +50,13 @@
 		 			  <c:if test="${ produto.promocao_pro == false }">
 						<br><font class="preco"> <fmt:formatNumber value="${ valor_prod }" type="currency"/> </font>
 					  </c:if>
-					
-					
-			  		<a href="<c:url value="/Pagamento/${ produto.id_produto }"/>">
-					  <button class="btn btn-danger btn-block btn-comprar">Comprar</button>
-				    </a>
 				    
 					<c:forEach var="forn" items="${produto.produto_has_fornecedor}">
-						<form action="<c:url value="AdicionaItemCarrinho"/>" method="POST">
+						<form action="<c:url value="/AdicionaItemCarrinho"/>" method="POST">
 						  <input type="hidden" name="quantidade" value="1">
 						  <input type="hidden" name="id_prod" value="${ forn.produto.id_produto }">
 						  <input type="hidden" name="id_forn" value="${ forn.fornecedor.id_fornecedor }">
-						  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
-							<i class="fa fa-shopping-cart" style="font-size:12px;"></i> Carrinho
-						  </button>
+					  	  <button type="submit" class="btn btn-danger btn-block btn-comprar">Comprar</button>
 						</form>
 				    </c:forEach>
 				    

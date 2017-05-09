@@ -93,7 +93,7 @@ public class JpaClienteDao implements ClienteDao {
 							query.setParameter("email", email);
 							query.setParameter("senha", senha);
 				
-				// Pega os resultados + senha já criptografada
+				// Pega os resultados + senha jï¿½ criptografada
 			Cliente cliente = (Cliente) JpaResultHelper.getSingleResultOrNull(query);
 			
 			return cliente;

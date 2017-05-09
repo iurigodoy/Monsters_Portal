@@ -24,7 +24,7 @@ import br.com.monster.portal.security.Permissoes;
 /*
  * @author Iuri Godoy
  * @version 1.2
- * @since Release 03 do 5º semestre
+ * @since Release 03 do 5Âº semestre da aplicaÃ§Ã£o
  */
 
 @Transactional
@@ -41,7 +41,7 @@ public class ProdutoController {
 	FornecedorDao forc_dao;
 	
 	/*
-	 * Registros e permissões
+	 * Registros e permissÃµes
 	 */
 	// Define Entidade
 	private EnumEntidade entidade = EnumEntidade.PRODUTO;
@@ -52,10 +52,10 @@ public class ProdutoController {
 	/*
 
 	 |==================================|
-	 |				Métodos				|
+	 |				MÃ©todos				|
 	 |==================================|
 	 */
-	// Página de adição
+	// PÃ¡gina de adiÃ§Ã£o
 	@RequestMapping("Admin/adicionar_produto")
 	public String create_page(HttpSession session, Model model) {
 		
@@ -73,15 +73,15 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Create			
 	 * -------------------------
-	 *	1º Consulta Permissão
-	 *	2º Valida
-	 *	3º Realiza ação no banco (criar)
-	 *	4º Gera Relatório
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Valida
+	 *	3Âº Realiza aÃ§Ã£o no banco (criar)
+	 *	4Âº Gera RelatÃ³rio
 	 *
 	 *	@author Iuri Godoy
-	 *	@param Produto - O Objeto principal para a criação
+	 *	@param Produto - O Objeto principal para a criaÃ§Ã£o
 	 *	@param ImagemMultiple - Podem ser inseridas multiplas imagens para um produto
-	 *	@return String - Manipulado pelo Spring para o método read (leitura)
+	 *	@return String - Manipulado pelo Spring para o mÃ©todo read (leitura)
 	 */
 	
 	@RequestMapping("Admin/Add_Produto")
@@ -95,13 +95,13 @@ public class ProdutoController {
 	@RequestMapping("Admin/CreateProduto")
 	public String create(HttpSession session, @Valid Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedores, BindingResult result) {
 		
-		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar Permissão
-			if(result.hasErrors()) {											//	Se houver erro na validação
-			    return "forward:adicionar_produto";								//	Volte para a página de adição
+		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar PermissÃ£o
+			if(result.hasErrors()) {											//	Se houver erro na validaÃ§Ã£o
+			    return "forward:adicionar_produto";								//	Volte para a pÃ¡gina de adiÃ§Ã£o
 			} else {
-				dao.create(produto, imagens, fornecedores);									//	Ação no banco
-				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	Relatório
-				return "redirect:produto";										//	Retorna para o método Read
+				dao.create(produto, imagens, fornecedores);						//	AÃ§Ã£o no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	RelatÃ³rio
+				return "redirect:produto";										//	Retorna para o mÃ©todo Read
 			}
 		}
 		return "403";
@@ -112,20 +112,20 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Read			
 	 * -------------------------
-	 *	1º Consulta Permissão
-	 *	2º Realiza ação no banco (ler)
-	 *	3º Retorna para a página JSP
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Realiza aÃ§Ã£o no banco (ler)
+	 *	3Âº Retorna para a pÃ¡gina JSP
 	 *
 	 *	@author Iuri Godoy
-	 *	@return String - Página read (leitura)
+	 *	@return String - PÃ¡gina read (leitura)
 	 */
 	
 	@RequestMapping("Admin/produto")
 	public String read(HttpSession session, Model model) {
 		
-		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){				//	Consulta Permissão
-			model.addAttribute("produtos", dao.read());							//	Consulta o Banco e coloca na variável da página
-			return "admin/Produto/read";										//	Retorna para á página JSP
+		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){				//	Consulta PermissÃ£o
+			model.addAttribute("produtos", dao.read());							//	Consulta o Banco e coloca na variÃ¡vel da pÃ¡gina
+			return "admin/Produto/read";										//	Retorna para Ã¡ pÃ¡gina JSP
 		}
 		return "403";
 		
@@ -135,27 +135,27 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Update			
 	 * -------------------------
-	 *	1º Consulta Permissão
-	 *	2º Valida
-	 *	3º Realiza ação no banco (atualizar)
-	 *	4º Gera Relatório
-	 *	5º Retorna para o método READ
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Valida
+	 *	3Âº Realiza aÃ§Ã£o no banco (atualizar)
+	 *	4Âº Gera RelatÃ³rio
+	 *	5Âº Retorna para o mÃ©todo READ
 	 *
 	 *	@author Iuri Godoy
-	 *	@param Produto - O Objeto principal para a atualização
-	 *	@return String - Manipulado pelo Spring para o método read (leitura)
+	 *	@param Produto - O Objeto principal para a atualizaÃ§Ã£o
+	 *	@return String - Manipulado pelo Spring para o mÃ©todo read (leitura)
 	 */
 
 	@RequestMapping("Admin/UpdateProduto")
 	public String update(HttpSession session, @Valid Produto produto, BindingResult result) {
 		
-		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta Permissão
-			if(result.hasErrors()) {											//	Se houver erro na validação
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta PermissÃ£o
+			if(result.hasErrors()) {											//	Se houver erro na validaÃ§Ã£o
 			    return "forward:produto";										//	Volte
 			} else {
-				dao.update(produto);											//	Ação no banco
-				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera Relatório e armazena no banco
-				return "redirect:produto";										//	Retorna para o método Read
+				dao.update(produto);											//	AÃ§Ã£o no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera RelatÃ³rio e armazena no banco
+				return "redirect:produto";										//	Retorna para o mÃ©todo Read
 			}
 		}
 		return "403";
@@ -166,22 +166,22 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Delete			
 	 * -------------------------
-	 *	Requisição AJAX
+	 *	RequisiÃ§Ã£o AJAX
 	 *
-	 *	1º Consulta Permissão
-	 *	2º Realiza ação no banco (excluir)
-	 *	3º Gera Relatório
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Realiza aÃ§Ã£o no banco (excluir)
+	 *	3Âº Gera RelatÃ³rio
 	 *
 	 *	@author Iuri Godoy
 	 *	@param id Long - id do objeto a ser deletado
-	 *	@return void - deletar não precisa de um retorno
+	 *	@return void - deletar nÃ£o precisa de um retorno
 	 */
 	
 	@RequestMapping("Admin/DeleteProduto")
 	public void delete(HttpSession session, Long id) {
-		if(Permissoes.checar(session, EnumMetodo.EXCLUIR, entidade)){			//	Consulta a permissão
-			dao.delete(id);														//	Ação no banco
-			relatorio.gerarRelatorio(session, EnumMetodo.EXCLUIR, entidade);	//	Gera Relatório e armazena no banco
+		if(Permissoes.checar(session, EnumMetodo.EXCLUIR, entidade)){			//	Consulta a permissÃ£o
+			dao.delete(id);														//	AÃ§Ã£o no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.EXCLUIR, entidade);	//	Gera RelatÃ³rio e armazena no banco
 		}
 	} 
 	
@@ -189,22 +189,22 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Restore			
 	 * -------------------------
-	 *	Requisição AJAX
+	 *	RequisiÃ§Ã£o AJAX
 	 *
-	 *	1º Consulta Permissão
-	 *	2º Realiza ação no banco (restaurar)
-	 *	3º Gera Relatório
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Realiza aÃ§Ã£o no banco (restaurar)
+	 *	3Âº Gera RelatÃ³rio
 	 *
 	 *	@author Iuri Godoy
-	 *	@param id Long - id do objeto a ser restaurado (após ser deletado)
-	 *	@return void - restaurar não precisa de um retorno
+	 *	@param id Long - id do objeto a ser restaurado (apÃ³s ser deletado)
+	 *	@return void - restaurar nÃ£o precisa de um retorno
 	 */
 	
 	@RequestMapping("Admin/RestoreProduto")
 	public void restore(HttpSession session, Long id) {
-		if(Permissoes.checar(session, EnumMetodo.RESTAURAR, entidade)){			//	Consulta a permissão
-			dao.restore(id);													//	Ação no banco
-			relatorio.gerarRelatorio(session, EnumMetodo.RESTAURAR, entidade);	//	Gera Relatório e armazena no banco
+		if(Permissoes.checar(session, EnumMetodo.RESTAURAR, entidade)){			//	Consulta a permissÃ£o
+			dao.restore(id);													//	AÃ§Ã£o no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.RESTAURAR, entidade);	//	Gera RelatÃ³rio e armazena no banco
 		}
 	}
 
@@ -213,23 +213,23 @@ public class ProdutoController {
 	 * -------------------------
 	 * 			Find			
 	 * -------------------------
-	 *	Requisição AJAX
+	 *	RequisiÃ§Ã£o AJAX
 	 * 
-	 *	1º Consulta Permissão
-	 *	2º Realiza consulta no Banco
+	 *	1Âº Consulta PermissÃ£o
+	 *	2Âº Realiza consulta no Banco
 	 *
 	 *	@author Iuri Godoy
 	 *	@param id Long - id do objeto a ser deletado
-	 *	@return String - retorna uma página JSP
+	 *	@return String - retorna uma pÃ¡gina JSP
 	 */
 	
-	@RequestMapping("Admin/FindProduto")
-	public String Find(Long id, HttpSession session, Model model) {
-		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
-			model.addAttribute("produtos", dao.findOne(id));					//	Consulta o Banco e coloca na variável da página
-			model.addAttribute("fornecedores", forc_dao.read());				//	Consulta o Banco e coloca na variável da página
-			model.addAttribute("categorias", cat_dao.read());					//	Consulta o Banco e coloca na variável da página
-			return "admin/Produto/edt";											//	Retorna para a página JSP edt
+	@RequestMapping("Admin/ProcurarProduto")
+	public String Find(HttpSession session, Model model, Long id) {
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissÃ£o
+			model.addAttribute("produtos", dao.findOne(id));					//	Consulta o Banco e coloca na variÃ¡vel da pÃ¡gina
+			model.addAttribute("fornecedores", forc_dao.read());				//	Consulta o Banco e coloca na variÃ¡vel da pÃ¡gina
+			model.addAttribute("categorias", cat_dao.read());					//	Consulta o Banco e coloca na variÃ¡vel da pÃ¡gina
+			return "admin/Produto/edt";											//	Retorna para a pÃ¡gina JSP edt
 		}
 		return"403";
 	}

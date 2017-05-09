@@ -1,20 +1,28 @@
-package br.com.monster.portal.carrinho;
+package br.com.monster.portal.loja.controller;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.monster.portal.carrinho.Carrinho;
+import br.com.monster.portal.carrinho.Item;
+import br.com.monster.portal.modelDao.CategoriaDao;
 import br.com.monster.portal.modelDao.Produto_has_fornecedorDao;
 
 @Transactional
 @Controller
 public class CarrinhoController {
+	
+	@Autowired
+	CategoriaDao dao_cat;
 
 	@Autowired
 	Produto_has_fornecedorDao dao;
+	
 	@Autowired
 	Carrinho carrinho;
 
@@ -28,7 +36,8 @@ public class CarrinhoController {
 	}
 
 	@RequestMapping("carrinho")
-	public String visualiza() {
+	public String carrinho(Model model) {
+		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		return "carrinho";
 	}
 
