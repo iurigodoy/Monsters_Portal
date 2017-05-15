@@ -115,13 +115,13 @@ public class JpaProdutoDao implements ProdutoDao {
 		public List<Produto> find_produto_cat(Long id) {
 
 			Query query = manager
-			        .createQuery("SELECT prod "
-			        		+ "FROM Produto prod "
-			        		+ "WHERE prod.categoria.id_categoria = :Id "
+			        .createQuery("SELECT pro "
+			        		+ "FROM Produto pro "
+			        		+ "WHERE pro.categoria.id_categoria = :Id "
 			        		+ "AND pro.publicado_pro = true "
 			        		+ "AND pro.deleted = false ");
 
-			query.setParameter(":Id", id);
+			query.setParameter("Id", id);
 
 			@SuppressWarnings("unchecked")
 			List<Produto> produtos = query.getResultList();
@@ -184,7 +184,7 @@ public class JpaProdutoDao implements ProdutoDao {
 	    */
 		public void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedores) {
 			
-			boolean error; // não esqueça de colocar os fornecedores
+			boolean error; // nï¿½o esqueï¿½a de colocar os fornecedores
 			
 			produto.setCreated_at(cal.getTime());
 			produto.setUpdated_at(cal.getTime());

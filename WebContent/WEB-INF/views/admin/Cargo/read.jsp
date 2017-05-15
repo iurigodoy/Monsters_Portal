@@ -5,17 +5,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<c:import url="../../Header.jsp" />
+<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-building"></i> Empresa</h3>
+                <h3><i class="fa fa-sitemap"></i> Cargo</h3>
               </div>
             </div>
-            
-            <ul>
-              <li class="red">NÃO HÁ UPLOAD DE IMAGENS</li>	<!--	Mensagens para nós mesmos	-->
-            </ul>
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -37,7 +33,7 @@
               <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-user"></i> Cargos <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
+                    <h2><i class="fa fa-pencil-square-o"></i> Cargos <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -168,7 +164,7 @@
 
 </script>
 
-<c:import url="../../Footer.jsp" />
+<c:import url="../Footer.jsp" />
 <script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">

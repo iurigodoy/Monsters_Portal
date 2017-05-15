@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -91,7 +90,7 @@ public class Funcionario {
 	private Cargo cargo;
 	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="funcionario", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="funcionario")
 	private Set<Relatorio> relatorios;
 	
 	// Outros M�todos

@@ -1,6 +1,7 @@
 package br.com.monster.portal.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -76,7 +77,7 @@ public class Permissao {
 	 */
 
 	// MUITAS Permissões para UM Cargo	(N-1)
-	@OneToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "cargo_id_cargo", insertable=true, updatable=true)
 	private Cargo cargo;
 	

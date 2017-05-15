@@ -110,10 +110,11 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Object objCliente) {
-			Cliente cliente = (Cliente) objCliente;
+		public void create(Cliente cliente) {
+
+			Crypt crypt = new Crypt();
 			
-			cliente.setSenha_cli(Cliente.criptografar_senha(cliente.getSenha_cli()));
+			cliente.setSenha_cli(crypt.criptografar(cliente.getSenha_cli()));
 			cliente.setCreated_at(cal.getTime());
 			cliente.setUpdated_at(cal.getTime());
 			cliente.setDeleted(false);

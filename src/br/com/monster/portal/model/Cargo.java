@@ -55,7 +55,7 @@ public class Cargo {
 	 */
 	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cargo")
 	private Set<Funcionario> funcionario;
 	
 	@OneToOne(mappedBy="cargo", fetch=FetchType.EAGER)

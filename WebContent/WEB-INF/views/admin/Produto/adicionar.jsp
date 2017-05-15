@@ -6,7 +6,7 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-cubes"></i> Produtos</h3>
+                <h3><i class="fa fa-cubes"></i> Produtos <a href="<c:url value="/Admin/produto"/>" class="btn btn-default blue"><i class="fa fa-pencil-square-o"></i> Editar</a></h3>
               </div>
 
               <div class="title_right">
@@ -14,7 +14,7 @@
                   <div class="input-group">
                     <input type="text" class="form-control" placeholder="Procure por...">
                     <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá!</button>
+                      <button class="btn btn-default" type="button">Vá</button>
                     </span>
                   </div>
                 </div>
@@ -87,14 +87,14 @@
 	
 	                    <div class="btn-group">
 	                      <a class="btn" data-edit="bold" title="Negrito (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-	                      <a class="btn" data-edit="italic" title="Itálico (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+	                      <a class="btn" data-edit="italic" title="Itï¿½lico (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
 	                      <a class="btn" data-edit="strikethrough" title="Tachado"><i class="fa fa-strikethrough"></i></a>
 	                      <a class="btn" data-edit="underline" title="Sublinhado (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
 	                    </div>
 	
 	                    <div class="btn-group">
 	                      <a class="btn" data-edit="insertunorderedlist" title="Lista de Marcadores"><i class="fa fa-list-ul"></i></a>
-	                      <a class="btn" data-edit="insertorderedlist" title="Lista de Números"><i class="fa fa-list-ol"></i></a>
+	                      <a class="btn" data-edit="insertorderedlist" title="Lista de Nï¿½meros"><i class="fa fa-list-ol"></i></a>
 	                      <a class="btn" data-edit="outdent" title="Reduzir Recuo (Shift+Tab)"><i class="fa fa-dedent"></i></a>
 	                      <a class="btn" data-edit="indent" title="Recuo (Tab)"><i class="fa fa-indent"></i></a>
 	                    </div>
@@ -146,7 +146,7 @@
                 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-truck"></i> Logística<small> Limites de dimenção peso e garantia</small></h2>
+                    <h2><i class="fa fa-truck"></i> Logística<small> Limites de dimenções e peso</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
@@ -154,12 +154,6 @@
                   </div>
                   <div class="x_content">
 								<div class="form-group">
-									<!-- Garantia -->
-				                    <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
-				                      <input type="text" name="garantia_pro" class="form-control has-feedback-left" placeholder="Garantia (em dias, meses ou anos)" title="Garantia">
-				                      <span class="fa fa-calendar form-control-feedback left" aria-hidden="true"></span>
-				                    </div>
-				                    
 									<!-- Peso -->
 				                    <div class="col-md-6 col-sm-12 col-xs-12 form-group has-feedback">
 				                      <input type="text" name="peso_pro" class="form-control has-feedback-left" placeholder="Peso" title="Peso (kg)">
@@ -168,26 +162,31 @@
 				                    </div>
 								</div>
 								
-								<!-- Dimensão -->
+								<!-- Dimensï¿½o -->
 								<div class="row">
 									<div class="col-xs-12">
-										<label class="col-md-12 col-sm-12 col-xs-12 col-form-label">Dimensões: </label>
+										<label class="col-md-12 col-sm-12 col-xs-12 col-form-label">Dimensções: </label>
 									</div>
 									
-				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+				                    <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
 				                      <input type="text" name="altura_pro" class="form-control has-feedback-left" placeholder="Altura" title="Altura (Cm)">
 				                      <span class="fa fa-arrows-v form-control-feedback left" aria-hidden="true"></span>
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 									
-				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+				                    <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
 				                      <input type="text" name="largura_pro" class="form-control has-feedback-left" placeholder="Largura" title="Largura (Cm)">
 				                      <span class="fa fa-arrows-h form-control-feedback left" aria-hidden="true"></span>
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 				                    
-				                    <div class="col-md-4 col-sm-12 col-xs-12 form-group has-feedback">
+				                    <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
 				                      <input type="text" name="comprimento_pro" class="form-control has-feedback-left" placeholder="Comprimento" title="Comprimento (Cm)">
+				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
+				                    </div>
+				                    
+				                    <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
+				                      <input type="text" name="diametro_pro" class="form-control has-feedback-left" placeholder="Diâmetro" title="Diâmetro (Cm)">
 				                      <span class="form-control-feedback right" aria-hidden="true">(Cm)</span>
 				                    </div>
 								</div>
@@ -213,7 +212,7 @@
 							<input type="radio"	name="publicado_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="publicado_pro" value="0" checked>NÃO
+							<input type="radio"	name="publicado_pro" value="0" checked>Não
 						</label>
 					</div>
                   </div>
@@ -244,13 +243,13 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<p>Deseja destacar o produto, colocando-o na página inicial do site?</p>
+                  	<p>Deseja destacar o produto, colocando-o na pï¿½gina inicial do site?</p>
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
 							<input type="radio"	name="destaque_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="destaque_pro" value="0" checked>NÃO
+							<input type="radio"	name="destaque_pro" value="0" checked>Não
 						</label>
 					</div>
                   </div>
@@ -265,7 +264,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<p>Quanto deseja descontar do preço total?</p>
+                  	<p>Quanto deseja descontar do preï¿½o total?</p>
 					<!-- Desconto -->
 					<div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
@@ -279,7 +278,7 @@
 							<input type="radio"	name="promocao_pro" value="1">SIM
 						</label>
 						<label class="btn btn-primary btn-sm active">
-							<input type="radio"	name="promocao_pro" value="0" checked>NÃO
+							<input type="radio"	name="promocao_pro" value="0" checked>Não
 						</label>
 					</div>
                   </div>
@@ -297,7 +296,7 @@
                   	<p>A qual categoria esse produto pertence?</p>
 										  <!-- Marca -->
 										  <select class="form-control" name="cat.id_categoria">
-											<!-- mostra categorias, se a categoria for diferente da categoria já existente no produto ele exibirá -->
+											<!-- mostra categorias, se a categoria for diferente da categoria jï¿½ existente no produto ele exibirï¿½ -->
 												<c:forEach var="categoria" items="${categorias}">
 												
 												  <c:if test="${ cat.id_categoria == pro.cat.id_categoria}">
@@ -325,15 +324,15 @@
                   	<p>A quem o produto pertence?</p>
 										  <!-- Marca -->
 										  <select class="form-control" name="for.id_fornecedor">
-											<!-- mostra categorias, se a categoria for diferente da categoria já existente no produto ele exibirá -->
-												<c:forEach var="fornecedor" items="${fornecedores}">
+											<!-- mostra categorias, se a categoria for diferente da categoria jï¿½ existente no produto ele exibirï¿½ -->
+												<c:forEach var="forn" items="${fornecedores}">
 												
-												  <c:if test="${ for.id_fornecedor == pro.for.id_fornecedor}">
-													<option value="${ for.id_fornecedor }" selected>${for.nome_for }
+												  <c:if test="${ forn.id_fornecedor == pro.forn.id_fornecedor}">
+													<option value="${ forn.id_fornecedor }" selected>${forn.nome_for }
 												  </c:if>
 												  
-												  <c:if test="${ for.id_fornecedor ne produto.for.id_fornecedor}">
-													<option value="${ for.id_fornecedor }">${for.nome_for }
+												  <c:if test="${ forn.id_fornecedor ne produto.forn.id_fornecedor}">
+													<option value="${ forn.id_fornecedor }">${forn.nome_for }
 												  </c:if>
 												  
 												</c:forEach>

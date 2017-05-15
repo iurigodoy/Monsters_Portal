@@ -4,24 +4,23 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.monster.portal.model.Cliente;
 
+@Transactional
 @Controller
 public class IdentificacaoCompraController extends Identificacao {
-
-	String paginaSucesso = "forma_de_pagamento";
-	String paginaErro = "identificacao";
 	
 	/*
 	 * Login
 	 */
-	@RequestMapping("LoginIdentificacao")
+	@RequestMapping("loginIdentificacao")
 	public String login(String email, String senha, HttpSession session, Model model) {
-		return loginDao(email, senha, session, model, paginaSucesso, paginaErro);
+		return loginDao(email, senha, session, model, "forma_de_pagamento", "identificacao");
 	}
 	
 	/*
@@ -33,7 +32,20 @@ public class IdentificacaoCompraController extends Identificacao {
 		if(result.hasErrors()) {															// Valida
 		    return "forward:identificacao";													// Retorna erro
 		} else {
-			return cadastroDao(cliente, session, model, paginaSucesso, paginaErro);	// Efetua Login do tipo identificacao
+			return cadastroDao(cliente, session, model, "forma_de_pagamento", "identificacao");	// Efetua Login do tipo identificacao
 		}
+	}
+	
+	@RequestMapping(value = "/comprar_agora")
+	public String comprarAgora(Model model) {
+		model.addAttribute("categorias", dao_cat.read());
+		return "identificacao/cadastroComprarAgora";
+	}
+	
+	@RequestMapping(value = "/CadastroComprarAgora")
+	public String cadastroComprarAgora(Model model, HttpSession session, Cliente cliente) {
+		model.addAttribute("categorias", dao_cat.read());
+		session.setAttribute("clienteLogado", cliente);
+		return "redirect:forma_de_pagamento";
 	}
 }

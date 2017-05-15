@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
@@ -32,13 +31,13 @@
 
 					<!--	Input sem ícone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="nome_car" class="form-control" placeholder="Nome" title="Nome" value="${ car.nome_car }">
+					  <input type="text" name="car_nome" class="form-control" placeholder="Nome" title="Nome" value="${ car.car_nome }">
 					</div>
 
 					<!--	Booleano	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="padrao_car" class="js-switch" title="Cargo Padrao" value="${ cargo.padrao_car }"> <i class="fa fa-plus"></i> Cargo Padrao
+						<input type="checkbox" name="car_padrao" class="js-switch" title="Cargo Padrao" value="${ cargo.car_padrao }"> <i class="fa fa-plus"></i> Cargo Padrao
 					  </label>
 					</div>
 
@@ -74,4 +73,3 @@
 				
 
 
-<c:import url="../../Footer.jsp" />

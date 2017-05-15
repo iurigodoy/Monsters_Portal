@@ -178,10 +178,10 @@
 						<tr></tr>
 					  </thead>
 					  <tbody>
-						  <tr><td> Peso: ${ produto.peso_pro } (g)</td></tr>
-						  <tr><td> Altura: ${ produto.altura_pro } (cm)</td></tr>
-						  <tr><td> Largura: ${ produto.largura_pro } (cm)</td></tr>
-						  <tr><td> Comprimento: ${ produto.comprimento_pro } (cm)</td></tr>
+						  <tr><td> peso: ${ produto.peso_pro } <small>(kg)</small></td></tr>
+						  <tr><td> altura: ${ produto.altura_pro } <small>(cm)</small></td></tr>
+						  <tr><td> largura: ${ produto.largura_pro } <small>(cm)</small></td></tr>
+						  <tr><td> comprimento: ${ produto.comprimento_pro } <small>(cm)</small></td></tr>
 					  </tbody>
 				  	</table>
 			  </div>
@@ -203,6 +203,7 @@
  	var altura		= "${ produto.altura_pro }";
  	var largura		= "${ produto.largura_pro }";
  	var comprimento	= "${ produto.comprimento_pro }";
+ 	var diametro	= "${ produto.diametro_pro }";
  	var peso		= "${ produto.peso_pro }";
 
 // Pega variável
@@ -214,7 +215,7 @@ $(".calcularFrete").click(function() {
  	
   	// Função
   	$.post("<c:url value="/consultarFrete"/>", {'cep_cli' : cep_cli, 'cep_forn' : cep_forn,
-  		'altura' : altura, 'largura' : largura, 'comprimento' : comprimento, 'peso' : peso }, function(resposta) {
+  		'altura' : altura, 'largura' : largura, 'comprimento' : comprimento, 'peso' : peso, 'diametro' : diametro }, function(resposta) {
 		// Onde é escrito
 		$("#frete_content").html(resposta);
 		$(".spin-load").css("visibility", "hidden");

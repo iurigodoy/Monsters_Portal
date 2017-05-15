@@ -2,6 +2,7 @@ package br.com.monster.portal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -32,11 +33,11 @@ public class Pedido_has_produto {
 	 */
 	
 	// MUITOS Ramais est�o em UM Setor	(N-1)
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
 	private Produto produto;
 			
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "pedido_id_pedido", insertable=true, updatable=true)
 	private Pedido pedido;
 	

@@ -56,7 +56,7 @@ public class Produto {
 	@NotNull(message="{pro.peso.NotEmpty}")
 	@Size(min=2, max=12, message = "{pro.peso.Size}")
 	@Column(name = "pro_peso")				//Nome real dentro do banco
-	private Double peso_pro = 0.000;		// Padrão em gramas (g)
+	private Double peso_pro = 0.000;		// Padrão em quilogramas (kg)
 
 	@NotNull(message="{pro.altura.NotEmpty}")
 	@Column(name = "pro_altura")			//Nome real dentro do banco

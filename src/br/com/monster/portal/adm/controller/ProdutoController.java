@@ -24,7 +24,7 @@ import br.com.monster.portal.security.Permissoes;
 /*
  * @author Iuri Godoy
  * @version 1.2
- * @since Release 03 do 5º semestre da aplicação
+ * @since Release 03 do 5º semestre
  */
 
 @Transactional
@@ -54,22 +54,6 @@ public class ProdutoController {
 	 |==================================|
 	 |				Métodos				|
 	 |==================================|
-	 */
-	// Página de adição
-	@RequestMapping("Admin/adicionar_produto")
-	public String create_page(HttpSession session, Model model) {
-		
-		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){
-			model.addAttribute("produtos", dao.read());
-			model.addAttribute("fornecedores", forc_dao.read());
-			model.addAttribute("categorias", cat_dao.read());
-			return "admin/Produto/adicionar";
-		}
-		return "403";
-		
-	}
-
-	/*
 	 * -------------------------
 	 * 			Create			
 	 * -------------------------
@@ -84,7 +68,7 @@ public class ProdutoController {
 	 *	@return String - Manipulado pelo Spring para o método read (leitura)
 	 */
 	
-	@RequestMapping("Admin/Add_Produto")
+	@RequestMapping("Admin/adicionar_produto")
 	public String create_page(Model model) {
 		model.addAttribute("produtos", dao.read());
 		model.addAttribute("fornecedores", forc_dao.read());
@@ -99,7 +83,7 @@ public class ProdutoController {
 			if(result.hasErrors()) {											//	Se houver erro na validação
 			    return "forward:adicionar_produto";								//	Volte para a página de adição
 			} else {
-				dao.create(produto, imagens, fornecedores);						//	Ação no banco
+				dao.create(produto, imagens, fornecedores);									//	Ação no banco
 				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	Relatório
 				return "redirect:produto";										//	Retorna para o método Read
 			}
@@ -223,8 +207,8 @@ public class ProdutoController {
 	 *	@return String - retorna uma página JSP
 	 */
 	
-	@RequestMapping("Admin/ProcurarProduto")
-	public String Find(HttpSession session, Model model, Long id) {
+	@RequestMapping("Admin/FindProduto")
+	public String Find(Long id, HttpSession session, Model model) {
 		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
 			model.addAttribute("produtos", dao.findOne(id));					//	Consulta o Banco e coloca na variável da página
 			model.addAttribute("fornecedores", forc_dao.read());				//	Consulta o Banco e coloca na variável da página

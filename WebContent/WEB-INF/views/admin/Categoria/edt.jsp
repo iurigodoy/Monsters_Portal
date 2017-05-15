@@ -2,7 +2,6 @@
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
@@ -38,7 +37,7 @@
                   </div>
                   <div class="x_content">
 					<c:forEach var="categoria" items="${categorias}">
-						<div class="col-md-8 col-sm-8 col-xs-8"><h2>${cat.nome_cat}</h2></div>
+						<div class="col-md-8 col-sm-8 col-xs-8"><h2>${cat.cat_nome}</h2></div>
 						<div class="col-md-4 col-sm-4 col-xs-4">
 						  <form>
 							<input type="hidden" name="id_categoria" value="${ cat.id_categoria }">
@@ -73,4 +72,3 @@
     </p>
 
 			  
-			  <c:import url="../Footer.jsp" />

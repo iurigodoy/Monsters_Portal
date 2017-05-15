@@ -5,17 +5,13 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
-<c:import url="../../Header.jsp" />
+<c:import url="../Header.jsp" />
 
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-building"></i> Empresa</h3>
+                <h3><i class="fa fa-th"></i> Categoria</h3>
               </div>
             </div>
-            
-            <ul>
-              <li class="red">NÃO HÁ UPLOAD DE IMAGENS</li>	<!--	Mensagens para nós mesmos	-->
-            </ul>
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -91,7 +87,7 @@
 
 		</script>
 
-		<c:import url="../../Footer.jsp" />
+		<c:import url="../Footer.jsp" />
 		<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">

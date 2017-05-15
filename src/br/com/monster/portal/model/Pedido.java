@@ -25,29 +25,31 @@ public class Pedido {
 	private Long id_pedido;
 	
 	@NotNull(message="{ped.numero.NotEmpty}")
-	@Column(name = "ped_numero")			//Nome real dentro do banco
-	private String numero_ped;			//Nome do campo no sistema
+	@Column(name = "ped_numero")						//Nome real dentro do banco
+	private int numero_ped;								//Nome do campo no sistema
 	
 	@NotNull(message="{ped.preco.NotEmpty}")
-	@Column(name = "ped_preco")			//Nome real dentro do banco
-	private Double preco_ped = 0.00;			//Nome do campo no sistema
+	@Column(name = "ped_preco")							//Nome real dentro do banco
+	private Double preco_ped = 0.00;					//Nome do campo no sistema
 	
 
-	@Column(name = "ped_custo_forma_de_pagamento")			//Nome real dentro do banco
-	private Double custo_forma_de_pagamento_ped = 0.00;			//Nome do campo no sistema
+	@Column(name = "ped_custo_forma_de_pagamento")		//Nome real dentro do banco
+	private Double custo_forma_de_pagamento_ped = 0.00;	//Nome do campo no sistema
 	
 	@NotNull(message="{ped.custo.frete.NotEmpty}")
-	@Column(name = "ped_custo_frete")			//Nome real dentro do banco
-	private Double custo_frete_ped = 0.00;			//Nome do campo no sistema
+	@Column(name = "ped_custo_frete")					//Nome real dentro do banco
+	private Double custo_frete_ped = 0.00;				//Nome do campo no sistema
 	
 	@NotNull(message="{ped.status.NotEmpty}")
-	@Column(name = "ped_status")			//Nome real dentro do banco
-	private Integer status_ped;			//Nome do campo no sistema
-	
+	@Column(name = "ped_status")						//Nome real dentro do banco
+	private Integer status_ped;							//	0 = não foi efetuado o pagamento,
+														//	1 = efetuado o pagamento, esperando entrega
+														//	2 = entrega efetuada, pedido finalizado
+														//	3 = cancelado
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "ped_entrega_data")			//Nome real dentro do banco
-	private Date data_entrega_ped;			//Nome do campo no sistema
+	@Column(name = "ped_entrega_data")					//Nome real dentro do banco
+	private Date data_entrega_ped;						//Nome do campo no sistema
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -73,13 +75,18 @@ public class Pedido {
 	
 	
 	// MUITOS Ramais est�o em UM Setor	(N-1)
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id_cliente", insertable=true, updatable=true)
 	private Cliente cliente;
 	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="pedido")
 	private Set<Pedido_has_produto> pedido_has_produto;
+	
+	public Double getPreco_total(Double preco_ped, Double custo_forma_de_pagamento_ped, Double custo_frete_ped){
+		Double precoTotal = preco_ped + custo_forma_de_pagamento_ped + custo_frete_ped;
+		return precoTotal;
+	}
 	
 	/*
 	|---------------------------------------
@@ -95,12 +102,12 @@ public class Pedido {
 		this.id_pedido = id_pedido;
 	}
 
-	public String getNumero_ped() {
+	public int getNumero_ped() {
 		return numero_ped;
 	}
 
-	public void setNumero_ped(String numero_ped) {
-		this.numero_ped = numero_ped;
+	public void setNumero_ped(int numb_ped) {
+		this.numero_ped = numb_ped;
 	}
 
 	public Double getPreco_ped() {

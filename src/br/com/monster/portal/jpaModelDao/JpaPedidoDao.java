@@ -12,11 +12,12 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.monster.portal.model.Cliente;
-import br.com.monster.portal.model.ListaProduto;
 import br.com.monster.portal.model.Pedido;
 import br.com.monster.portal.model.Pedido_has_produto;
 import br.com.monster.portal.model.Produto;
+import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.PedidoDao;
+import br.com.monster.portal.carrinho.Carrinho;
 
 
 
@@ -66,6 +67,22 @@ public class JpaPedidoDao implements PedidoDao {
 			Query query = manager
 			        .createQuery("SELECT ped FROM Pedido ped "
 			        		+ "WHERE ped.id_pedido = :Id ");
+			
+			query.setParameter("Id", id);
+	
+				Pedido pedidos = (Pedido) query.getSingleResult();
+	
+			return pedidos;
+			
+		}
+	   
+	   public Pedido findOneNoPay(Long id) {
+			
+			// Escreve a SQL
+			Query query = manager
+			        .createQuery("SELECT ped FROM Pedido ped "
+			        		+ "WHERE ped.id_pedido = :Id "
+			        		+ "AND ped.status_ped = 0 ");
 			
 			query.setParameter("Id", id);
 	
@@ -138,26 +155,39 @@ public class JpaPedidoDao implements PedidoDao {
 	    * A seguir mï¿½todos de alteraï¿½ï¿½o
 	    * 
 	    */
-		public void create(Pedido pedido, ListaProduto produtos) {
+		public Long create(Pedido pedido, Carrinho carrinho, Cliente cliente) {
+			
+			manager.merge(cliente);
+			manager.flush();
+			
+			pedido.setCliente(cliente);
 			pedido.setCreated_at(cal.getTime());
 			pedido.setUpdated_at(cal.getTime());
 			pedido.setDeleted(false);
 			
 			manager.persist(pedido);
 			manager.flush();
-			// Pega o Id do último dado inserido
+			// Pega o Id do ï¿½ltimo dado inserido
 			pedido.getId_pedido();
 
-			// Checa se o array está correto e faz o laço de repetição
-			if(null != produtos.getProdutos() && produtos.getProdutos().size() > 0) {
-				for (Produto produto : produtos.getProdutos()) {
+			// Checa se o array estï¿½ correto e faz o laï¿½o de repetiï¿½ï¿½o
+			if(carrinho.getItens().size() > 0) {
+				for (int i = 0; i < carrinho.getItens().size(); i++) {
+					
+				  // Melhorando a leitura com duas variaveis
+				  Produto_has_fornecedor prod_forn = carrinho.getItens().get(i).getProduto_has_fornecedor();
+				  Produto produto = prod_forn.getProduto();
+				  
 				  if(produto.getId_produto() != null && produto.getId_produto() != 0){
 
-						// Segundo o Hibernate é necessário atualizar o objeto e pegar seu id novamente
+						// Segundo o Hibernate ï¿½ necessï¿½rio atualizar o objeto e pegar seu id novamente
 						manager.merge(produto);
 						manager.flush();
 					
 						Pedido_has_produto ped_prod = new Pedido_has_produto();
+						
+						ped_prod.setQuantidade_prod(prod_forn.getQuantidade_prod());
+						ped_prod.setPreco_prod(prod_forn.getPreco_prod());
 						ped_prod.setPedido(pedido);
 						ped_prod.setProduto(produto);
 						
@@ -166,6 +196,7 @@ public class JpaPedidoDao implements PedidoDao {
 				  }
 				}
 			}
+			return pedido.getId_pedido();
 	    }
 
 	   /*

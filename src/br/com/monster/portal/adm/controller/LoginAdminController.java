@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.monster.portal.model.Funcionario;
 import br.com.monster.portal.modelDao.FuncionarioDao;
 
+/*
+ * @author Filipe A. Pimenta
+ * @version 1.2
+ * @since Release 03 do 5Âº semestre
+ */
+
 @Transactional
 @Controller
 public class LoginAdminController {
@@ -18,13 +24,19 @@ public class LoginAdminController {
 	@Autowired
 	FuncionarioDao dao;
 	
-	// Página de Login
+	/*
+
+	 |==================================|
+	 |				MÃ©todos				|
+	 |==================================|
+	 */
+	// PÃ¡gina de Login
 	@RequestMapping("Admin/LoginAdmin")
 	public String LoginAdmin(Model model) {
 		return "admin/LoginAdmin";
 	}
 	
-	// Método de Login
+	// MÃ©todo de Login
 	@RequestMapping("Admin/efetuaLoginAdmin")
 	public String efetuaLoginAdmin(Model model,Funcionario funcionario, HttpSession session) {
 		
@@ -32,10 +44,10 @@ public class LoginAdminController {
 	  if(autentica != null) {
 	    session.setAttribute("administradorLogado", autentica);
 	    session.setAttribute("permissao", autentica.getCargo().getPermissao());
-	    return "redirect:Produto";
+	    return "redirect:produto";
 	  }
 
-	  model.addAttribute("login_error", "Usuário ou senha incorretos");
+	  model.addAttribute("login_error", "UsuÃ¡rio ou senha incorretos");
 	  return "redirect:LoginAdmin";
 	}
 	

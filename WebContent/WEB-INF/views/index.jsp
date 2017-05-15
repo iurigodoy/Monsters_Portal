@@ -3,17 +3,18 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
  <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:import url="Header.jsp" />
-
-		  <div class="col-xs-12">
+			
+		  <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-0 col-md-10 col-md-10 col-xs-12">
 			<c:import url="Banner.jsp" />
 		  </div>
 		  
-		  <div class="col-xs-12">
+		  <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-0 col-md-10 col-md-10 col-xs-12">
+		  	<div class="row"><div class="teste"></div></div>
 		  	<h2 class="red"><strong>Destaques</strong></h2>
-		  </div>${ teste }
+		  </div>
 
-		  <div class="col-xs-12">
+		  <div class="col-md-offset-1 col-sm-offset-1 col-xs-offset-0 col-md-10 col-md-10 col-xs-12">
 			<c:import url="Produto.jsp" />
 		  </div>
-			
+		  
 <c:import url="Footer.jsp" />

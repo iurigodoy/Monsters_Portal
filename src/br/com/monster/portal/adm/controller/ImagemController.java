@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import br.com.monster.portal.model.Imagem;
 import br.com.monster.portal.modelDao.ImagemDao;
 
+/*
+ * @author Filipe A. Pimenta
+ * @version 1.2
+ * @since Release 03 do 5º semestre
+ */
+
 @Transactional
 @Controller
 public class ImagemController {
@@ -21,22 +27,28 @@ public class ImagemController {
 		/*
 
 		 |==================================|
-		 |				M�todos				|
+		 |				Métodos				|
 		 |==================================|
 
 		 * -------------------------
 		 * 			Create			
 		 * -------------------------
+		 *	1º Valida
+		 *	2º Realiza ação no banco (criar)
+		 *
+		 *	@author Filipe A. Pimenta
+		 *	@param Imagem - O Objeto principal para a criação
+		 *	@return String - Manipulado pelo Spring para o método read (leitura)
 		 */
 		
 		@RequestMapping("Admin/Createimagem")
-		public String create(@Valid Imagem imagem, BindingResult result) {
+		public String create(@Valid Imagem imagem, BindingResult result) {			
 			
-			if(result.hasErrors()) {
-			    return "forward:Produto";
+			if(result.hasErrors()) {												//	Se houver erro na validação
+			    return "forward:Produto";											//	Volte para a página produto
 			} else {
-				dao.create(imagem);
-				return "redirect:Produto";
+				dao.create(imagem);													//	Ação no banco
+				return "redirect:Produto";											//	Retorna para o método Read
 			}
 			
 		}
@@ -46,16 +58,23 @@ public class ImagemController {
 		 * -------------------------
 		 * 			Update			
 		 * -------------------------
+		 *	1º Valida
+		 *	2º Realiza ação no banco (atualizar)
+		 *	3º Retorna para o método READ
+		 *
+		 *	@author Filipe A. Pimenta
+		 *	@param Imagem - O Objeto principal para a atualização
+		 *	@return String - Manipulado pelo Spring para o método read (leitura)
 		 */
 
 		@RequestMapping("Admin/Updateimagem")
 		public String update(@Valid Imagem imagem, BindingResult result) {
 
-			if(result.hasErrors()) {
-			    return "forward:Produto";
+			if(result.hasErrors()) {												//	Se houver erro na validação
+			    return "forward:Produto";											//	Volte
 			} else {
-				dao.update(imagem);
-				return "redirect:Produto";
+				dao.update(imagem);													//	Ação no banco
+				return "redirect:Produto";											//	Retorna para o método Read
 			}
 		}
 
@@ -63,12 +82,20 @@ public class ImagemController {
 		 * -------------------------
 		 * 			Delete			
 		 * -------------------------
+		 *	Requisição AJAX
+		 *
+		 *	1º Realiza ação no banco (excluir)
+		 *	2º Retorna para o método READ
+		 *
+		 *	@author Filipe A. Pimenta
+		 *	@param id Long - id do objeto a ser deletado
+		 *	@return String - Manipulado pelo Spring para o método read (leitura)
 		 */
 		
 		@RequestMapping("Admin/Deleteimagem")
 		public String delete(Long id) {
-		  dao.delete(id);
-		  return "redirect:Produto";
+		  dao.delete(id);															//	Ação no banco
+		  return "redirect:Produto";												//	Retorna para o método Read
 		}
 
 }

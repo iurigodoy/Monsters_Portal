@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -113,10 +112,8 @@ public class Cliente {
 	 |--------------------------------------
 	 */
 	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cliente")
 	private Set<Pedido> pedido;
-	
-	public String form;
 
 
 	// Outros M�todos
@@ -306,14 +303,6 @@ public class Cliente {
 
 	public void setPedido(Set<Pedido> pedido) {
 		this.pedido = pedido;
-	}
-
-	public String getForm() {
-		return form;
-	}
-
-	public void setForm(String form) {
-		this.form = form;
 	}
 	
 }

@@ -10,7 +10,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            MonstersPortal - Desenvolvido por <a href="">Monsters Portal</a>
+            Pentágono Portal - Desenvolvido por <a href="">Monsters Dev</a>
           </div>
           <div class="clearfix"></div>
         </footer>

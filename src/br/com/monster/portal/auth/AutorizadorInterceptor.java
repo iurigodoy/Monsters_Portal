@@ -24,12 +24,10 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 
 	    	 uri.endsWith("checarIdentificacao")||
 	    	 uri.endsWith("identificacao")		||
-	    	 uri.endsWith("Cadastro")			||
+	    	 uri.endsWith("cadastro")			||
 	    	 uri.endsWith("CreateCliente")		||
 	    	 uri.endsWith("CreateIdentificacaoCliente")	||
-	    	 uri.endsWith("Login")				||
-	    	 uri.endsWith("efetuaLogin")		||
-	    	 uri.endsWith("LoginIdentificacao")	||
+	    	 uri.endsWith("loginIdentificacao")	||
 	    	 
 	    	 uri.endsWith("consultarFrete")		||
 	    	 
@@ -38,7 +36,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	    	 uri.endsWith("FinalizarCompraSegura")	||
 	    	 uri.endsWith("Boleto")				||
 	    	 
-	    	 uri.endsWith("Login")				||
+	    	 uri.endsWith("login")				||
 	         uri.endsWith("efetuaLogin")		|| 
 	         uri.endsWith("Admin/LoginAdmin")	|| 
 	         uri.endsWith("efetuaLoginAdmin")	|| 
@@ -69,7 +67,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	        return true;
 	      }
 
-	      response.sendRedirect("/Monsters_Portal/Login");
+	      response.sendRedirect("/Monsters_Portal/login");
 	      return false;
 	  }
 	}

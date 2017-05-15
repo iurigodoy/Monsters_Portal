@@ -6,7 +6,7 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 
 
-<c:import url="Header.jsp" />
+<c:import url="../Header.jsp" />
   <div class="content">
 	<div class="col-xs-12">
 	  <div class="panel panel-default">
@@ -39,12 +39,6 @@
 				<c:set var="id_produto"		value="${ produto.id_produto }"			scope="page" />
 				<c:set var="frete"			value="0.00"							scope="page" />
 				<c:set var="ped_preco"		value="${ produto.preco_produto }"		scope="page" />
-				<c:set var="ped_qtd"		value="1"								scope="page" />
-				<c:set var="ped_parcelas"	value="1"								scope="page" />
-				<c:set var="ped_peso"		value="${ produto.peso_produto }"		scope="page" />
-				<c:set var="ped_altura"		value="${ produto.altura_produto }"		scope="page" />
-				<c:set var="ped_largura"	value="${ produto.largura_produto }"	scope="page" />
-				<c:set var="ped_comprimento" value="${ produto.comprimento_produto }" scope="page" />
 				
 				<h3>${ produto.nome_produto }</h3>
 			  </c:forEach>
@@ -59,28 +53,17 @@
 					
 					<a href="#boleto" data-toggle="collapse" data-parent="#accordion_pay" data-target="#collapse1">
 					  <div class="panel-heading">
-						<h4><i class="fa fa-barcode"></i> Boleto </h4>
+						<h4><i class="fa fa-barcode"></i> Boleto <strong class="red">Frete não incluido</strong></h4>
 					  </div>
 					</a>
 					  <div id="collapse1" class="panel-collapse collapse">
 					  
-						<form action="<c:url value="/Comprar_um"/>" method="post">
-						  <input type="hidden" name="id_produto"						value="${id_produto}">
-						  <input type="hidden" name="cliente.id_cliente"				value="${id_cliente}">
-						  <input type="hidden" name="forma_de_pagamento_pedido"			value="boleto">
-						  <input type="hidden" name="custo_forma_de_pagamento_pedido"	value="0.00">
-						  <input type="hidden" name="numero_pedido"						value="0000000000">
-						  <input type="hidden" name="data_pedido"						value="<fmt:formatDate type="date" value="${now}" pattern="yyyy/MM/dd" />">
-						  <input type="hidden" name="hora_pedido"						value="<fmt:formatDate value="${now}" pattern="MM/dd/yyyy HH:mm" />">
-						  <input type="hidden" name="status_pedido"						value="1">
-						  <input type="hidden" name="preco_pedido"				value="${ped_preco}">
-						  <input type="hidden" name="qtd_pedido"				value="${ped_qtd}">
-						  <input type="hidden" name="custo_frete_pedido"		value="0.00">
-						  <input type="hidden" name="parcelas_pedido"			value="${ped_parcelas}">
-						  <input type="hidden" name="peso_pedido"				value="${ped_peso}">
-						  <input type="hidden" name="altura_pedido"				value="${ped_altura}">
-						  <input type="hidden" name="largura_pedido"			value="${ped_largura}">
-						  <input type="hidden" name="comprimento_pedido"		value="${ped_comprimento}">
+						<form action="<c:url value="/FinalizarCompraSegura"/>" method="post">
+						  <input type="hidden" name="numero_ped"					value="0000000000">
+						  <input type="hidden" name="preco_ped"						value="${carrinho.total}">
+						  <input type="hidden" name="custo_forma_de_pagamento_ped"	value="0.00">
+						  <input type="hidden" name="custo_frete_ped"				value="0.00">
+						  <input type="hidden" name="status_ped"					value="0">
 						  <div class="panel-body">
 						  
 					  		<strong>Necessário confirmar dados</strong>
@@ -151,6 +134,9 @@
 		  </div><!--/ row -->
 		</div><!--/ panel-body -->
 	  </div><!--/ panel -->
+	  <h4 align="center">
+		<strong class="blue"> Qualquer compra feita através deste site será considerada uma doação para os desenvolvedores. </strong>
+	  </h4>
 	</div><!--/ col-xs-12 -->
   </div><!--/ container -->
-<c:import url="Footer.jsp" />
+<c:import url="../Footer.jsp" />

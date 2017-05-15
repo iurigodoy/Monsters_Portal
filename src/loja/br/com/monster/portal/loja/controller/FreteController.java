@@ -11,7 +11,7 @@ import br.com.monster.portal.frete.ListaFrete;
 public class FreteController {
 
 	@RequestMapping(value = "/consultarFrete")
-	public String consultaFrete(String cep_cli, String cep_forn, String altura, String largura, String comprimento, String peso, Model model){
+	public String consultaFrete(String cep_cli, String cep_forn, String altura, String largura, String comprimento, String peso, String diametro, Model model){
 
 		// Dados pesquisa
 		// Informações da empresa e cliente
@@ -32,12 +32,12 @@ public class FreteController {
 		String nCdServico = "04014";
 		
 		//				Informações do produto
-		String nVlPeso = "0.300"; //peso
+		String nVlPeso = peso; //peso
 		String nCdFormato = "1";			// 1 – Formato caixa/pacote, 2 – Formato rolo/prisma, 3 - Envelope
-		String nVlComprimento = "16";
-		String nVlAltura = "5";
-		String nVlLargura = "12";
-		String nVlDiametro = "5";			// 
+		String nVlComprimento = comprimento;
+		String nVlAltura = altura;
+		String nVlLargura = largura;
+		String nVlDiametro = diametro;			// 
 		//				Informações do fornecedor
 		String sCdMaoPropria = "N";			// Indica se a encomenda será entregue com o serviço adicional mão própria, S ou N
 		String nVlValorDeclarado = "0";		//
