@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,45 +26,45 @@ public class Cliente {
 	
 	@NotNull(message="{cli.nome.NotEmpty}")
 	@Size(min=3, max=200, message = "{cli.nome.Size}")
-	@Column(name = "cli_nome")			//Nome real dentro do banco
-	private String nome_cli;			//Nome do campo no sistema
+	@Column(name = "cli_nome")				//Nome real dentro do banco
+	private String nome_cli;				//Nome do campo no sistema
 	
 	
-	@Column(name = "cli_cpf")			//Nome real dentro do banco
-	private String cpf_cli;			//Nome do campo no sistema
+	@Column(name = "cli_cpf")				//Nome real dentro do banco
+	private String cpf_cli;					//Nome do campo no sistema
 
 	
-	@Column(name = "cli_cnpj")			//Nome real dentro do banco
-	private String cnpj_cli;			//Nome do campo no sistema
+	@Column(name = "cli_cnpj")				//Nome real dentro do banco
+	private String cnpj_cli;				//Nome do campo no sistema
 
 
-	@Column(name = "cli_sexo")			//Nome real dentro do banco
-	private String sexo_cli;			//Nome do campo no sistema
+	@Column(name = "cli_sexo")				//Nome real dentro do banco
+	private String sexo_cli;				//Nome do campo no sistema
 
 	
-	@Column(name = "cli_ativo")			//Nome real dentro do banco
-	private Boolean ativo_cli;			//Nome do campo no sistema
+	@Column(name = "cli_ativo")				//Nome real dentro do banco
+	private Boolean ativo_cli;				//Nome do campo no sistema
 
 	@NotNull(message="{cli.senha.NotEmpty}")
 	@Size(min=6, max=255, message = "{cli.senha.Size}")
-	@Column(name = "cli_senha")			//Nome real dentro do banco
-	private String senha_cli;			//Nome do campo no sistema
+	@Column(name = "cli_senha")				//Nome real dentro do banco
+	private String senha_cli;				//Nome do campo no sistema
 
 
-	@Column(name = "cli_news_letter")			//Nome real dentro do banco
-	private Boolean news_letter_cli;			//Nome do campo no sistema
+	@Column(name = "cli_news_letter")		//Nome real dentro do banco
+	private Boolean news_letter_cli;		//Nome do campo no sistema
 
 	
-	@Column(name = "cli_cep")			//Nome real dentro do banco
-	private String cep_cli;			//Nome do campo no sistema
+	@Column(name = "cli_cep")				//Nome real dentro do banco
+	private String cep_cli;					//Nome do campo no sistema
 
 	
 	@Column(name = "cli_estado")			//Nome real dentro do banco
-	private String estado_cli;			//Nome do campo no sistema
+	private String estado_cli;				//Nome do campo no sistema
 
 	
 	@Column(name = "cli_cidade")			//Nome real dentro do banco
-	private String cidade_cli;			//Nome do campo no sistema
+	private String cidade_cli;				//Nome do campo no sistema
 
 	
 	@Column(name = "cli_endereco")			//Nome real dentro do banco
@@ -73,24 +72,24 @@ public class Cliente {
 
 	
 	@Column(name = "cli_numero")			//Nome real dentro do banco
-	private String numero_cli;			//Nome do campo no sistema
+	private String numero_cli;				//Nome do campo no sistema
 
 	
-	@Column(name = "cli_complemento")			//Nome real dentro do banco
+	@Column(name = "cli_complemento")		//Nome real dentro do banco
 	private String complemento_cli;			//Nome do campo no sistema
 
 	
-	@Column(name = "cli_residencial")			//Nome real dentro do banco
+	@Column(name = "cli_residencial")		//Nome real dentro do banco
 	private String residencial_cli;			//Nome do campo no sistema
 
 	
 	@Column(name = "cli_celular")			//Nome real dentro do banco
-	private String celular_cli;			//Nome do campo no sistema
+	private String celular_cli;				//Nome do campo no sistema
 
 	@NotNull(message="{cli.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{cli.email.Size}")
-	@Column(name = "cli_email")			//Nome real dentro do banco
-	private String email_cli;			//Nome do campo no sistema
+	@Column(name = "cli_email", unique=true)//Nome real dentro do banco
+	private String email_cli;				//Nome do campo no sistema
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
@@ -113,16 +112,11 @@ public class Cliente {
 	 |--------------------------------------
 	 */
 	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
-	private Set<Avaliacao> avaliacao;
-	
-	@OneToMany(mappedBy="cliente", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cliente")
 	private Set<Pedido> pedido;
-	
-	public String form;
 
 
-	// Outros Métodos
+	// Outros Mï¿½todos
 	public static String criptografar_senha(String senha) {
 		String senha_cli_criptografada = new Crypt().criptografar(senha);
 		senha = senha_cli_criptografada;
@@ -303,28 +297,12 @@ public class Cliente {
 		this.deleted = deleted;
 	}
 
-	public Set<Avaliacao> getAvaliacao() {
-		return avaliacao;
-	}
-
-	public void setAvaliacao(Set<Avaliacao> avaliacao) {
-		this.avaliacao = avaliacao;
-	}
-
 	public Set<Pedido> getPedido() {
 		return pedido;
 	}
 
 	public void setPedido(Set<Pedido> pedido) {
 		this.pedido = pedido;
-	}
-
-	public String getForm() {
-		return form;
-	}
-
-	public void setForm(String form) {
-		this.form = form;
 	}
 	
 }

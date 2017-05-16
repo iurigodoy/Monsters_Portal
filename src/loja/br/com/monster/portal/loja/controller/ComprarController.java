@@ -1,7 +1,8 @@
 package br.com.monster.portal.loja.controller;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.ThreadLocalRandom;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +13,9 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import br.com.monster.portal.model.ListaProduto;
+import br.com.monster.portal.carrinho.Carrinho;
+import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.model.Pedido;
-import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.modelDao.CategoriaDao;
 import br.com.monster.portal.modelDao.PedidoDao;
 import br.com.monster.portal.modelDao.ProdutoDao;
@@ -30,7 +31,7 @@ public class ComprarController {
 	ProdutoDao dao_prod;
 	
 	@Autowired
-	PedidoDao dao_ped;
+	PedidoDao dao;
 
 	/*
 	 *==============================
@@ -38,40 +39,49 @@ public class ComprarController {
 	 *==============================
 	 */
 	
-	@RequestMapping(value = "/Pagamento/{id}")
-	public String Pagamento(Model model, @PathVariable("id") Long id, Produto produto) {
-		model.addAttribute("produtos", dao_prod.FindOnePublic(id));
+	@RequestMapping(value = "/checarIdentificacao")
+	public String checarIdentificacao(HttpSession session) {
+		if(session.getAttribute("clienteLogado") != null)
+			return "redirect:forma_de_pagamento";
+		else
+			return "redirect:identificacao";
+	}
+	
+	@RequestMapping(value = "/identificacao")
+	public String identificacao(Model model) {
 		model.addAttribute("categorias", dao_cat.read());
-		return "Pagamento";
+		return "identificacao/identificacao";
+	}
+	
+	@RequestMapping(value = "/forma_de_pagamento")
+	public String formaDePagamento(Model model) {
+		model.addAttribute("categorias", dao_cat.read());
+		return "comprar/forma_de_pagamento";
 	}
 	
 	
 	
 	
 	
-	
-	// Produto produto, PARA TESTAR
-	// Set<Produto> produto,
-	
 	@RequestMapping(value = "/FinalizarCompraSegura")
-	public String comprar(Model model, @Valid Pedido pedido, ListaProduto produtos, BindingResult result) {
-		//	Cabeçalho
-		model.addAttribute("categorias", dao_cat.read());
-
-		// Gerar numero randomico
-		//int min = 100000000;//na vdd são 14 campos
-		//int max = 999999999;
-		//String numb_ped = "00000.00000  00000.000000  00000.000000  0  "+ThreadLocalRandom.current().nextInt(min, max + 1);
+	public String comprar(Model model, @Valid Pedido pedido, HttpSession session, BindingResult result) {
 		
-		long teste;
+		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
+		Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
+		
+		// Gerar numero randomico
+		int min = 100000000;//na vdd sï¿½o 14 campos
+		int max = 999999999;
+		int numb_ped = ThreadLocalRandom.current().nextInt(min, max + 1);
+		
+		pedido.setNumero_ped(numb_ped);
 		
 		if(result.hasErrors()) {
 			// EM TESTE
-		    return "forward:Pagamento/1";
+		    return "forward:forma_de_pagamento";
 		} else {
-			dao_ped.create(pedido, produtos);
-			//model.addAttribute("numb_ped", numb_ped);
-			return "redirect:Boleto";
+			Long id = dao.create(pedido, carrinho, cliente);
+			return "redirect:boleto/"+id;
 		}
 	}
 	
@@ -83,17 +93,17 @@ public class ComprarController {
 	
 	
 	
-	@RequestMapping("Boleto")
-	public String Boleto(Model model) {
+	@RequestMapping("/boleto/{id}")
+	public String Boleto(Model model, @PathVariable ("id") Long id) {
 		model.addAttribute("categorias", dao_cat.read());
-		return "Boleto";
+		model.addAttribute("pedido", dao.findOne(id));
+		return "comprar/boleto";
 	}
 	
-	@RequestMapping(value = "Imprimir_Boleto")
-	public String Imprimir_Boleto(Model model, Pedido pedido, HttpServletRequest request, HttpServletResponse response) {
-		String numb_ped = request.getParameter("numb_ped");
-		model.addAttribute("pedidos", dao_ped.Find_pedido_boleto(numb_ped));
-		return "Imprimir_Boleto";
+	@RequestMapping("/imprimir_boleto/{id}")
+	public String Imprimir_Boleto(Model model, @PathVariable ("id") Long id, Pedido pedido) {
+		model.addAttribute("pedido", dao.findOneNoPay(id));
+		return "comprar/imprimirBoleto";
 	}
 	
 }

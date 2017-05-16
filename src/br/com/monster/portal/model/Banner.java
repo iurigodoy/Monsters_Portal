@@ -24,7 +24,7 @@ public class Banner {
 	
 	@NotNull(message="{ban.arquivo.NotEmpty}")
 	@Size(min=2, max=100, message = "{ban.arquivo.Size}")
-	@Column(name = "ban_arquivo")			//Nome real dentro do banco
+	@Column(name = "ban_arquivo", unique=true)	//Nome real dentro do banco
 	private String arquivo_ban;			//Nome do campo no sistema
 	
 	@Column(name = "ban_ativo")			//Nome real dentro do banco
@@ -51,7 +51,7 @@ public class Banner {
 	 |--------------------------------------
 	 */
 
-	// MUITOS Ramais estão em UM Setor	(N-1)
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
 	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
 	private Produto produto;

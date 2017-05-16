@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -25,33 +24,33 @@ public class Fornecedor {
 	
 	@NotNull(message="{for.nome.NotEmpty}")
 	@Size(min=1, max=200, message = "{for.nome.Size}")
-	@Column(name = "for_nome")			//Nome real dentro do banco
-	private String nome_for;			//Nome do campo no sistema
+	@Column(name = "for_nome")				//Nome real dentro do banco
+	private String nome_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.cnpj.NotEmpty}")
 	@Size(min=2, max=20, message = "{for.cnpj.Size}")
-	@Column(name = "for_cnpj")			//Nome real dentro do banco
-	private String cnpj_for;			//Nome do campo no sistema
+	@Column(name = "for_cnpj")				//Nome real dentro do banco
+	private String cnpj_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.logo.NotEmpty}")
 	@Size(min=2, max=100, message = "{for.logo.Size}")
-	@Column(name = "for_logo")			//Nome real dentro do banco
-	private String logo_for;			//Nome do campo no sistema
+	@Column(name = "for_logo", unique=true)	//Nome real dentro do banco
+	private String logo_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.cep.NotEmpty}")
 	@Size(min=7, max=20, message = "{for.cep.Size}")
-	@Column(name = "for_cep")			//Nome real dentro do banco
-	private String cep_for;			//Nome do campo no sistema
+	@Column(name = "for_cep")				//Nome real dentro do banco
+	private String cep_for;					//Nome do campo no sistema
 	
 	@NotNull(message="{for.estado.NotEmpty}")
 	@Size(min=2, max=10, message = "{for.estado.Size}")
 	@Column(name = "for_estado")			//Nome real dentro do banco
-	private String estado_for;			//Nome do campo no sistema
+	private String estado_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.cidade.NotEmpty}")
 	@Size(min=3, max=50, message = "{for.cidade.Size}")
 	@Column(name = "for_cidade")			//Nome real dentro do banco
-	private String cidade_for;			//Nome do campo no sistema
+	private String cidade_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.endereco.NotEmpty}")
 	@Size(min=6, max=50, message = "{for.endereco.Size}")
@@ -61,16 +60,16 @@ public class Fornecedor {
 	@NotNull(message="{for.numero.NotEmpty}")
 	@Size(min=2, max=10, message = "{for.numero.Size}")
 	@Column(name = "for_numero")			//Nome real dentro do banco
-	private String numero_for;			//Nome do campo no sistema
+	private String numero_for;				//Nome do campo no sistema
 	
 	
-	@Column(name = "for_complemento")			//Nome real dentro do banco
+	@Column(name = "for_complemento")		//Nome real dentro do banco
 	private String complemento_for;			//Nome do campo no sistema
 	
 	@NotNull(message="{for.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{for.email.Size}")
-	@Column(name = "for_email")			//Nome real dentro do banco
-	private String email_for;			//Nome do campo no sistema
+	@Column(name = "for_email", unique=true)//Nome real dentro do banco
+	private String email_for;				//Nome do campo no sistema
 	
 	@NotNull(message="{for.comercial.NotEmpty}")
 	@Size(min=3, max=20, message = "{for.comercial.Size}")
@@ -98,8 +97,8 @@ public class Fornecedor {
 	 |--------------------------------------
 	 */
 	
-	// UM Ramal tem MUITOS Funcionários	(1-N)
-	@OneToMany(mappedBy="fornecedor", fetch=FetchType.EAGER)
+	// UM Ramal tem MUITOS Funcionï¿½rios	(1-N)
+	@OneToMany(mappedBy="fornecedor")
 	private Set<Produto_has_fornecedor> produto_has_fornecedor;
 
 	

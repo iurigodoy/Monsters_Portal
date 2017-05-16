@@ -9,13 +9,9 @@
 
             <div class="page-title">
               <div class="title_left">
-                <h3><i class="fa fa-building"></i> Empresa</h3>
+                <h3><i class="fa fa-user"></i> Funcion·rio</h3>
               </div>
             </div>
-            
-            <ul>
-              <li class="red">N√ÉO H√Å UPLOAD DE IMAGENS</li>	<!--	Mensagens para n√≥s mesmos	-->
-            </ul>
 
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right">
@@ -40,14 +36,14 @@
               <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-user"></i> Funcion√°rios <small class="restore-info blue">√â necess√°rio <strong>atualizar</strong> a p√°gina para as atualiza√ß√µes entrarem em vigor.</small></h2>
+                    <h2><i class="fa fa-pencil-square-o"></i> Editar <small class="restore-info blue">È necess·rio <strong>atualizar</strong> a p·gina para as atualizaÁıes entrarem em vigor.</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a class="toolbox-history"><i class="fa fa-history"></i> Exibir Hist√≥rico</a>
+                          <li><a class="toolbox-history"><i class="fa fa-history"></i> Exibir HistÛrico</a>
                           </li>
                           <li><a class="toolbox-history-return"><i class="fa fa-history"></i> Voltar</a>
                           </li>
@@ -61,7 +57,7 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">Cargo</th> <!-- ver se vai ficar aq mesmo -->
+	                          <th style="width: 10%">Cargo</th> 
 	                          <th style="width: 10%">Nome</th>
 	                          <th style="width: 45%">CPF</th>
 	                          <th style="width: 25%">Bloqueado</th>
@@ -83,7 +79,7 @@
 	                      	  	<td>${ fun.nome_fun }</td>
 	                      	  	<td>${ fun.cpf_fun }</td>
 	                      	  	<td>${ fun.bloqueado_fun }</td>
-								<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
+								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
 	                      	  	<td>${ fun.residencial_fun }</td>
 	                      	  	<td>${ fun.celular_fun }</td>
 	                      	  	<td>${ fun.email_fun }</td>
@@ -134,7 +130,7 @@
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-plus"></i> Funcion√°rio</h2>
+                    <h2><i class="fa fa-plus"></i> Adicionar <small>Funcionario</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -146,11 +142,11 @@
                   <div class="x_content">
 					<!--	
 					
-							Formul√°rio Create Aqui !!! -->
-					<!--		Formul√°rio		-->
+							Formul·rio Create Aqui !!! -->
+					<!--		Formul·rio		-->
 					<form action="<c:url value="CreateFuncionario"/>" method="POST" class="form-horizontal form-label-left input_mask">
 
-					<!--	Input sem √≠cone 	-->
+					<!--	Input sem Ìcone 	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <input type="text" name="nome_fun" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_fun }">
 					</div>
@@ -170,7 +166,7 @@
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <input type="text" name="foto_fun" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.foto_fun}">
 					</div>
-					<!--	Input com √≠cone
+					<!--	Input com Ìcone
 							(Preferencial)  	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <input type="text" name="email_fun" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_fun }">
@@ -187,11 +183,11 @@
 						  <option value="${ cargo.id_cargo }">${ cargo.car_nome }</option>
 						</c:forEach>
 					  </select>
-					  <!-- exemplo para facilitar pro usu√°rio -->
-					  <p>N√£o encontrou o cargo certo? <a href="<c:url value="/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
+					  <!-- exemplo para facilitar pro usu·rio -->
+					  <p>N„o encontrou o cargo certo? <a href="<c:url value="/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
 					</div>
 
-					<!--	Bot√£o de envio	-->
+					<!--	Bot„o de envio	-->
 					<div class="btn-group pull-right">
 					  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
 						<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
@@ -207,7 +203,7 @@
 <script type="text/javascript">
 
 	edition_param	= "Find_Funcionario";						// Find Controller Function
-	delete_message	= 'quer mesmo deletar este funcion√°rio?';	// Delete Message
+	delete_message	= 'quer mesmo deletar este funcion·rio?';	// Delete Message
 	delete_param	= "DeleteFuncionario";						// Delete Controller Function
 	restore_param	= "RestoreFuncionario";						// Restore Controller Function
 
@@ -223,9 +219,9 @@
 	  <!--								^^^^^^^^^^^	-->
 
 		<div class="modal-header">
-		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">√ó</span>
+		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">◊</span>
 	      </button>
-	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Funcion√°rio</h4>
+	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Funcion·rio</h4>
 		  <!--																						^^^^^^^^^^^	-->
 	    </div>
 	    <div class="modal-body">

@@ -5,7 +5,6 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Properties;
 import javax.xml.parsers.DocumentBuilder;
@@ -17,16 +16,14 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import antlr.collections.List;
-public class calculoFreteCorreio {
-	public static void main(String[] args) {
-		ListaFrete listaFrete = new ListaFrete();
+public class CalculoFreteCorreio {
+	public static ListaFrete main(
 		// Dados pesquisa
 		// Informações da empresa e cliente
-		String nCdEmpresa = "";				//
-		String sDsSenha = ""; 				//
-		String sCepOrigem = "09920175";		// CEP Fornecedor
-		String sCepDestino = "72151613";	// CEP Cliente
+		String nCdEmpresa,				//
+		String sDsSenha, 				//
+		String sCepOrigem,				// CEP Fornecedor
+		String sCepDestino,				// CEP Cliente
 		
 		/*
 		 *	Serviços do Correio
@@ -37,21 +34,23 @@ public class calculoFreteCorreio {
 		 *	40290 SEDEX Hoje Varejo
 		 *	41106 PAC Varejo
 		 */
-		String nCdServico = "41106";
+		String nCdServico,
 		
 		//				Informações do produto
-		String nVlPeso = "0.300";			// Peso do produto
-		String nCdFormato = "1";			// 1 – Formato caixa/pacote, 2 – Formato rolo/prisma, 3 - Envelope
-		String nVlComprimento = "20";		// 
-		String nVlAltura = "5";				// 
-		String nVlLargura = "15";			// 
-		String nVlDiametro = "0";			// 
+		String nVlPeso,					// Peso do produto
+		String nCdFormato,				// 1 – Formato caixa/pacote, 2 – Formato rolo/prisma, 3 - Envelope
+		String nVlComprimento,			// 
+		String nVlAltura,				// 
+		String nVlLargura,				// 
+		String nVlDiametro,				// 
 		//				Informações do fornecedor
-		String sCdMaoPropria = "s";			// Indica se a encomenda será entregue com o serviço adicional mão própria, S ou N
-		String nVlValorDeclarado = "200";	//
-		String sCdAvisoRecebimento = "s";	// Indica se a encomenda será entregue com o serviço adicional aviso de recebimento. S ou N
-		String StrRetorno = "xml";  		// formato
+		String sCdMaoPropria,			// Indica se a encomenda será entregue com o serviço adicional mão própria, S ou N
+		String nVlValorDeclarado,		//
+		String sCdAvisoRecebimento,		// Indica se a encomenda será entregue com o serviço adicional aviso de recebimento. S ou N
+		String StrRetorno	  			// formato
+		) {
 		
+		ListaFrete listaFrete = new ListaFrete();
 		
 		
 		//URL do webservice correio para calculo de frete
@@ -119,19 +118,61 @@ public class calculoFreteCorreio {
 		      // Codigo, Valor, PrazoEntrega, MaoPropria, Recebimento, ValorDeclarado, EntregaDomiciliar, EntregaSabado, Erro, MsgErro
 		      Element element = (Element) nodes.item(j);
 		      
+		      NodeList codigo = element.getElementsByTagName("Codigo");
+		      Element line = (Element) codigo.item(0);
+		      listaFrete.setCodigo(getCharacterDataFromElement(line)); // Código
+		      System.out.println("Código: " + getCharacterDataFromElement(line));
+		      
 		      NodeList valor = element.getElementsByTagName("Valor");
-		      Element line = (Element) valor.item(0);
+		      line = (Element) valor.item(0);
+		      listaFrete.setValor(getCharacterDataFromElement(line)); // Valor
 		      System.out.println("Valor: " + getCharacterDataFromElement(line));
-		      listaFrete.setValor(getCharacterDataFromElement(line));		// Valor
+		      
+		      NodeList prazoEntrega = element.getElementsByTagName("PrazoEntrega");
+		      line = (Element) prazoEntrega.item(0);
+		      listaFrete.setPrazoEntrega(getCharacterDataFromElement(line)); // Prazo de entrega
+		      System.out.println("Prazo de entrega: " + listaFrete.getPrazoEntrega());
+		      
+		      NodeList maoPropria = element.getElementsByTagName("ValorMaoPropria");
+		      line = (Element) maoPropria.item(0);
+		      listaFrete.setMaoPropria(getCharacterDataFromElement(line)); // ValorMaoPropria
+		      System.out.println("ValorMaoPropria: " + listaFrete.getMaoPropria());
+		      
+		      NodeList recebimento = element.getElementsByTagName("ValorAvisoRecebimento");
+		      line = (Element) recebimento.item(0);
+		      listaFrete.setRecebimento(getCharacterDataFromElement(line)); // ValorAvisoRecebimento
+		      System.out.println("ValorAvisoRecebimento: " + listaFrete.getRecebimento());
+		      
+		      NodeList valorDeclarado = element.getElementsByTagName("ValorValorDeclarado");
+		      line = (Element) valorDeclarado.item(0);
+		      listaFrete.setValorDeclarado(getCharacterDataFromElement(line)); // ValorValorDeclarado
+		      System.out.println("ValorValorDeclarado: " + listaFrete.getValorDeclarado());
+		      
+		      NodeList entregaDomiciliar = element.getElementsByTagName("EntregaDomiciliar");
+		      line = (Element) entregaDomiciliar.item(0);
+		      listaFrete.setEntregaDomiciliar(getCharacterDataFromElement(line)); // EntregaDomiciliar
+		      System.out.println("EntregaDomiciliar: " + listaFrete.getEntregaDomiciliar());
+		      
+		      NodeList entregaSabado = element.getElementsByTagName("EntregaSabado");
+		      line = (Element) entregaSabado.item(0);
+		      listaFrete.setEntregaSabado(getCharacterDataFromElement(line)); // EntregaSabado
+		      System.out.println("EntregaSabado: " + listaFrete.getEntregaSabado());
 		      
 		      NodeList erro = element.getElementsByTagName("Erro");
 		      line = (Element) erro.item(0);
-		      listaFrete.setErro(getCharacterDataFromElement(line));		// Erro
+		      listaFrete.setErro(getCharacterDataFromElement(line)); // Erro
 		      System.out.println("Erro: " + listaFrete.getErro());
+		      
+		      NodeList msgErro = element.getElementsByTagName("MsgErro");
+		      line = (Element) msgErro.item(0);
+		      listaFrete.setMsgErro(getCharacterDataFromElement(line)); // MsgErro
+		      System.out.println("MsgErro: " + listaFrete.getMsgErro());
+		      return listaFrete;
 		    }			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 	public static String getCharacterDataFromElement(Element e) {
 	    Node child = e.getFirstChild();

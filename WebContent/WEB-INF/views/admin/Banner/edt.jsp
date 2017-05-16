@@ -1,7 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+
+
+<div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-group"></i> Banner </h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Procure por...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Vá!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+
 
 <!--	Formulário de Edição Aqui !!!	-->
 <!--		Formulário		-->
@@ -9,7 +30,7 @@
 
 <!--	Input sem ícone 	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="arquivo_ban" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ banner.arquivo_ban }">
+  <input type="text" name="ban_arquivo" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ banner.ban_arquivo }">
 </div>
 
 
@@ -17,7 +38,7 @@
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>
-	<input type="checkbox" name="ativo_ban" class="js-switch"  title="Banner Ativo" value="${ banner.ativo_ban }"><i class="fa fa-plus"></i> Banner Ativo ?
+	<input type="checkbox" name="ban_ativo" class="js-switch"  title="Banner Ativo" value="${ banner.ban_ativo }"><i class="fa fa-plus"></i> Banner Ativo ?
   </label>
 </div>
 

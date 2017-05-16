@@ -3,6 +3,27 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+
+            <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-road"></i> Pedidos </h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Procure por...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Vá!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="clearfix"></div>
+
+
 <!--	Formulário de Edição Aqui !!!	-->
 <!--		Formulário		-->
 <form action="<c:url value="UpdatePedido"/>" method="POST" class="form-horizontal form-label-left input_mask">
@@ -82,3 +103,4 @@
     </p>
 
 </form>
+

@@ -1,10 +1,11 @@
 package br.com.monster.portal.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -13,7 +14,7 @@ public class Permissao {
 	
 	@Id
 	@GeneratedValue
-	private Long id_permissao;
+	private Long id_permissoes;
 	
 	private boolean lerBanner;
 	private boolean criarBanner;
@@ -76,7 +77,7 @@ public class Permissao {
 	 */
 
 	// MUITAS Permissões para UM Cargo	(N-1)
-	@ManyToOne
+	@OneToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "cargo_id_cargo", insertable=true, updatable=true)
 	private Cargo cargo;
 	
@@ -87,7 +88,7 @@ public class Permissao {
 	*/
 
 	public Long getId_permissao() {
-		return id_permissao;
+		return id_permissoes;
 	}
 
 	public boolean isLerBanner() {

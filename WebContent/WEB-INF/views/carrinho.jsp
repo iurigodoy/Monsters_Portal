@@ -43,7 +43,15 @@
 			  	<tr id="total-carrinho"><td></td><td></td><td></td><td>${ carrinho.total }</td><td></td></tr>
 			</tbody>
 		  </table>
-	    
+		  < c :if test="$ { (not empty carrinho.itens) && (carrinho.total > 0) } ">< / c :if>
+			  <div class="col-xs-12 col-sm-4 col-md-3 pull-right">
+			  	<a href="<c:url value="/checarIdentificacao"/>">
+				  <button class="btn btn-danger btn-block btn-comprar">
+					<i class="fa fa-"></i> Finalizar Compra
+				  </button>
+				</a>
+			  </div>
+		  
 		</div>
 	  </div>
 	</div>

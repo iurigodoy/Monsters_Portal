@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Monsters Portal</title>
+    <title>Pentágono Portal</title>
 
     <!-- Bootstrap -->
     <link href="../resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -65,8 +65,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Monsters Portal!</h1>
-                  <p>©2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
+                  <h1><i class="fa fa-university"></i> Pentágono Portal!</h1>
+                  <p>2016 Todos os direitos reservados. Pentágono Portal! Desenvolvido por Monsters Dev. <a href="#term">Termos de privacidade</a></p>
                 </div>
               </div>
             </form>
@@ -96,8 +96,8 @@
                 <br />
 
                 <div>
-                  <h1><i class="fa fa-paw"></i> Monsters Portal!</h1>
-                  <p>©2016 Todos os direitos reservados. Monsters Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
+                  <h1><i class="fa fa-paw"></i> Pentágono Portal!</h1>
+                  <p>2016 Todos os direitos reservados. Pentágono Portal! Desenvolvido por Monsters. <a href="#term">Termos de privacidade</a></p>
                 </div>
               </div>
             </form>

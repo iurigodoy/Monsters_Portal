@@ -13,14 +13,30 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	      Object controller) throws Exception {
 
 	      String uri = request.getRequestURI();
-	      if(uri.endsWith("index")			||
-	    	 uri.endsWith("Contato")		||
-	    	 uri.endsWith("Cadastro")		||
-	    	 uri.endsWith("CreateCliente")	||
-	    	 uri.endsWith("Categoria/")		||
-	    	 uri.endsWith("Produtos/")		||
-	    	 uri.endsWith("Login")			||
-	    	 uri.endsWith("LoginEsqueciSenha")	||
+	      if(uri.endsWith("index")				||
+	    	 uri.endsWith("Contato")			||
+	    	 uri.contains("Categoria")			||
+	    	 uri.contains("Produtos")			||
+	    	 
+	    	 uri.endsWith("carrinho")			||
+	    	 uri.endsWith("AdicionaItemCarrinho")	||
+	    	 uri.endsWith("RemoveItemCarrinho")	||
+
+	    	 uri.endsWith("checarIdentificacao")||
+	    	 uri.endsWith("identificacao")		||
+	    	 uri.endsWith("cadastro")			||
+	    	 uri.endsWith("CreateCliente")		||
+	    	 uri.endsWith("CreateIdentificacaoCliente")	||
+	    	 uri.endsWith("loginIdentificacao")	||
+	    	 
+	    	 uri.endsWith("consultarFrete")		||
+	    	 
+	    	 uri.endsWith("comprar_agora")		||
+	    	 uri.endsWith("forma_de_pagamento")	||
+	    	 uri.endsWith("FinalizarCompraSegura")	||
+	    	 uri.endsWith("Boleto")				||
+	    	 
+	    	 uri.endsWith("login")				||
 	         uri.endsWith("efetuaLogin")		|| 
 	         uri.endsWith("Admin/LoginAdmin")	|| 
 	         uri.endsWith("efetuaLoginAdmin")	|| 
@@ -41,17 +57,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	      
 	      if(request.getSession()
 	 	     .getAttribute("administradorLogado") == null 
-	 	     && (
-		 	     uri.endsWith("Admin/Produto")			||
-		 	     uri.endsWith("Admin/Cliente")			||
-		 	     uri.endsWith("Admin/Pedido")			||
-		 	     uri.endsWith("Admin/Fornecedor")		||
-		 	     uri.endsWith("Admin/Funcionario")		||
-		 	     uri.endsWith("Admin/Marketing")		||
-	 	                   uri.contains("resources")
-	 	     )
-	 	   ){
-
+	 	     && (uri.contains("Admin")) ){
 		      response.sendRedirect("/Monsters_Portal/Admin/LoginAdmin");
 		      return false;
 	 	  }
@@ -61,7 +67,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	        return true;
 	      }
 
-	      response.sendRedirect("/Monsters_Portal/Login");
+	      response.sendRedirect("/Monsters_Portal/login");
 	      return false;
 	  }
 	}

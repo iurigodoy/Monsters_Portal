@@ -2,17 +2,20 @@ package br.com.monster.portal.modelDao;
 
 import java.util.List;
 
+import br.com.monster.portal.model.FornecedorMultiple;
 import br.com.monster.portal.model.ImagemMultiple;
 import br.com.monster.portal.model.Produto;
 
 public interface ProdutoDao extends MetodosBasicos {
 
-	List<Produto> Read_publico();
-	List<Produto> Read_destacado();
-	List<Produto> Find_By_Name(String nome_prod);
-	List<Produto> FindOnePublic(Long id);
-	List<Produto> FindManyPublic(String nome_prod);
+	List<Produto> read();
+	List<Produto> read_publico();
+	List<Produto> read_destacado();
+	List<Produto> findByName(String nome_prod);
+	List<Produto> find_produto_cat(Long id);
 	
-	void create(Produto produto, ImagemMultiple imagens);
+	Produto findOnePublic(Long id);
+	
+	void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedor);
 	void update(Produto produto);
 }

@@ -11,6 +11,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import br.com.monster.portal.model.FornecedorMultiple;
 import br.com.monster.portal.model.Imagem;
 import br.com.monster.portal.model.ImagemMultiple;
 import br.com.monster.portal.model.Produto;
@@ -52,7 +53,8 @@ public class JpaProdutoDao implements ProdutoDao {
 
 			return produtos;
 		}
-		public List<Produto> Read_publico() {
+		
+		public List<Produto> read_publico() {
 			
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -71,7 +73,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			return produtos;
 		}
 
-		public List<Produto> Read_destacado() {
+		public List<Produto> read_destacado() {
 			
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -90,42 +92,18 @@ public class JpaProdutoDao implements ProdutoDao {
 
 			return produtos;
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-
-		   
-		public Produto findOne(Long id) {
-
-			Query query = manager
-				        .createQuery("SELECT pro "
-				        		+ "FROM Produto pro "
-				        		+ "WHERE pro.nome_pro = :Id "
-				        		+ "AND pro.id_produto IN "
-				        		+ "(SELECT produto FROM Imagem ima) ");
-				
-				query.setParameter("Id", id);
 		
-				Produto produtos = (Produto) query.getResultList();
-		
-				return produtos;
-				
-			}
-	   
-	   public List<Produto> Find_By_Name(String nome_prod) {
+		public List<Produto> findByName(String nome_produto) {
 
 			Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.nome_pro LIKE :Nome "
-			        		+ "AND pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) ");
+			        		+ "WHERE pro.id_produto IN "
+			        		+ "(SELECT produto FROM Imagem ima) "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.nome_pro LIKE :Nome");
 			
-			query.setParameter("Nome", (String) "%"+nome_prod+"%");
+			query.setParameter("Nome", (String) "%"+nome_produto+"%");
 	
 				@SuppressWarnings("unchecked")
 				List<Produto> produtos = query.getResultList();
@@ -134,8 +112,47 @@ public class JpaProdutoDao implements ProdutoDao {
 			
 		}
 		
-		@Override
-		public List<Produto> FindOnePublic(Long id) {
+		public List<Produto> find_produto_cat(Long id) {
+
+			Query query = manager
+			        .createQuery("SELECT pro "
+			        		+ "FROM Produto pro "
+			        		+ "WHERE pro.categoria.id_categoria = :Id "
+			        		+ "AND pro.publicado_pro = true "
+			        		+ "AND pro.deleted = false ");
+
+			query.setParameter("Id", id);
+
+			@SuppressWarnings("unchecked")
+			List<Produto> produtos = query.getResultList();
+
+			return produtos;
+		}
+		   
+		   /*
+		    * ----------------------------------
+		    *			M�todo Find_One			
+		    * ----------------------------------
+		    * 
+		    */
+
+			   
+			public Produto findOne(Long id) {
+
+				Query query = manager
+					        .createQuery("SELECT pro "
+					        		+ "FROM Produto pro "
+					        		+ "WHERE pro.id_produto = :Id ");
+					
+					query.setParameter("Id", id);
+			
+					Produto produto = (Produto) query.getSingleResult();
+			
+					return produto;
+					
+				}
+		
+		public Produto findOnePublic(Long id) {
 
 			Query query = manager
 			        .createQuery("SELECT pro "
@@ -148,30 +165,9 @@ public class JpaProdutoDao implements ProdutoDao {
 			
 			query.setParameter("Id", id);
 	
-			@SuppressWarnings("unchecked")
-			List<Produto> produtos = query.getResultList();
+			Produto produto = (Produto) query.getSingleResult();
 	
-			return produtos;
-			
-		}
-		
-		@Override
-		public List<Produto> FindManyPublic(String nome_produto) {
-
-			Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Produto pro "
-			        		+ "WHERE pro.id_produto IN "
-			        		+ "(SELECT produto FROM Imagem ima) "
-			        		+ "AND pro.publicado_produto = true "
-			        		+ "AND pro.nome_pro LIKE :Nome");
-			
-			query.setParameter("Nome", (String) "%"+nome_produto+"%");
-	
-				@SuppressWarnings("unchecked")
-				List<Produto> produtos = query.getResultList();
-	
-			return produtos;
+			return produto;
 			
 		}
 	   
@@ -186,7 +182,10 @@ public class JpaProdutoDao implements ProdutoDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Produto produto, ImagemMultiple imagens) {
+		public void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedores) {
+			
+			boolean error; // n�o esque�a de colocar os fornecedores
+			
 			produto.setCreated_at(cal.getTime());
 			produto.setUpdated_at(cal.getTime());
 			produto.setDeleted(false);

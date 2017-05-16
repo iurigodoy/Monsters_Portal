@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.sql.Time;
 import java.util.Date;
 import java.util.Set;
 
@@ -16,7 +15,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "pedido")
@@ -27,56 +25,31 @@ public class Pedido {
 	private Long id_pedido;
 	
 	@NotNull(message="{ped.numero.NotEmpty}")
-	@Column(name = "ped_numero")			//Nome real dentro do banco
-	private String numero_ped;			//Nome do campo no sistema
+	@Column(name = "ped_numero")						//Nome real dentro do banco
+	private int numero_ped;								//Nome do campo no sistema
 	
 	@NotNull(message="{ped.preco.NotEmpty}")
-	@Column(name = "ped_preco")			//Nome real dentro do banco
-	private Float preco_ped;			//Nome do campo no sistema
+	@Column(name = "ped_preco")							//Nome real dentro do banco
+	private Double preco_ped = 0.00;					//Nome do campo no sistema
 	
 
-	@Column(name = "ped_custo_forma_de_pagamento")			//Nome real dentro do banco
-	private Float custo_forma_de_pagamento_ped;			//Nome do campo no sistema
+	@Column(name = "ped_custo_forma_de_pagamento")		//Nome real dentro do banco
+	private Double custo_forma_de_pagamento_ped = 0.00;	//Nome do campo no sistema
 	
 	@NotNull(message="{ped.custo.frete.NotEmpty}")
-	@Column(name = "ped_custo_frete")			//Nome real dentro do banco
-	private Float custo_frete_ped;			//Nome do campo no sistema
-	
-	@NotNull(message="{ped.parcelas.NotEmpty}")
-	@Column(name = "ped_parcelas")			//Nome real dentro do banco
-	private Integer parcelas_ped;			//Nome do campo no sistema
+	@Column(name = "ped_custo_frete")					//Nome real dentro do banco
+	private Double custo_frete_ped = 0.00;				//Nome do campo no sistema
 	
 	@NotNull(message="{ped.status.NotEmpty}")
-	@Column(name = "ped_status")			//Nome real dentro do banco
-	private Integer status_ped;			//Nome do campo no sistema
+	@Column(name = "ped_status")						//Nome real dentro do banco
+	private Integer status_ped;							//	0 = não foi efetuado o pagamento,
+														//	1 = efetuado o pagamento, esperando entrega
+														//	2 = entrega efetuada, pedido finalizado
+														//	3 = cancelado
 	
-	@NotNull(message="{ped.peso.NotEmpty}")
-	@Size(min=2, max=20, message = "{ped.peso.Size}")
-	@Column(name = "ped_peso")			//Nome real dentro do banco
-	private String peso_ped;			//Nome do campo no sistema
-	
-	@NotNull(message="{ped.altura.NotEmpty}")
-	@Size(min=1, max=10, message = "{ped.altura.Size}")
-	@Column(name = "ped_altura")			//Nome real dentro do banco
-	private String altura_ped;			//Nome do campo no sistema
-	
-	@NotNull(message="{ped.largura.NotEmpty}")
-	@Size(min=1, max=10, message = "{ped.largura.Size}")
-	@Column(name = "ped_largura")			//Nome real dentro do banco
-	private String largura_ped;			//Nome do campo no sistema
-	
-	@NotNull(message="{ped.comprimento.NotEmpty}")
-	@Size(min=1, max=10, message = "{ped.comprimento.Size}")
-	@Column(name = "ped_comprimento")			//Nome real dentro do banco
-	private String comprimento_ped;			//Nome do campo no sistema
-	
-	
-	@Column(name = "ped_entrega_data")			//Nome real dentro do banco
-	private Date entrega_data_ped;			//Nome do campo no sistema
-	
-
-	@Column(name = "ped_entrega_hora")			//Nome real dentro do banco
-	private Time entrega_hora_ped;			//Nome do campo no sistema
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "ped_entrega_data")					//Nome real dentro do banco
+	private Date data_entrega_ped;						//Nome do campo no sistema
 	
 	
 	@Temporal(TemporalType.TIMESTAMP)
@@ -102,21 +75,18 @@ public class Pedido {
 	
 	
 	// MUITOS Ramais est�o em UM Setor	(N-1)
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "cliente_id_cliente", insertable=true, updatable=true)
 	private Cliente cliente;
 	
-	@ManyToOne
-	@JoinColumn(name = "forma_pagamento_id_forma_pagamento", insertable=true, updatable=true)
-	private Forma_pagamento forma_pagamento;
-	
-	@ManyToOne
-	@JoinColumn(name = "status_pedido_id_status_pedido", insertable=true, updatable=true)
-	private StatusPedido statusPedido;
-	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="pedido", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="pedido")
 	private Set<Pedido_has_produto> pedido_has_produto;
+	
+	public Double getPreco_total(Double preco_ped, Double custo_forma_de_pagamento_ped, Double custo_frete_ped){
+		Double precoTotal = preco_ped + custo_forma_de_pagamento_ped + custo_frete_ped;
+		return precoTotal;
+	}
 	
 	/*
 	|---------------------------------------
@@ -132,44 +102,36 @@ public class Pedido {
 		this.id_pedido = id_pedido;
 	}
 
-	public String getNumero_ped() {
+	public int getNumero_ped() {
 		return numero_ped;
 	}
 
-	public void setNumero_ped(String numero_ped) {
-		this.numero_ped = numero_ped;
+	public void setNumero_ped(int numb_ped) {
+		this.numero_ped = numb_ped;
 	}
 
-	public Float getPreco_ped() {
+	public Double getPreco_ped() {
 		return preco_ped;
 	}
 
-	public void setPreco_ped(Float preco_ped) {
+	public void setPreco_ped(Double preco_ped) {
 		this.preco_ped = preco_ped;
 	}
 
-	public Float getCusto_forma_de_pagamento_ped() {
+	public Double getCusto_forma_de_pagamento_ped() {
 		return custo_forma_de_pagamento_ped;
 	}
 
-	public void setCusto_forma_de_pagamento_ped(Float custo_forma_de_pagamento_ped) {
+	public void setCusto_forma_de_pagamento_ped(Double custo_forma_de_pagamento_ped) {
 		this.custo_forma_de_pagamento_ped = custo_forma_de_pagamento_ped;
 	}
 
-	public Float getCusto_frete_ped() {
+	public Double getCusto_frete_ped() {
 		return custo_frete_ped;
 	}
 
-	public void setCusto_frete_ped(Float custo_frete_ped) {
+	public void setCusto_frete_ped(Double custo_frete_ped) {
 		this.custo_frete_ped = custo_frete_ped;
-	}
-
-	public Integer getParcelas_ped() {
-		return parcelas_ped;
-	}
-
-	public void setParcelas_ped(Integer parcelas_ped) {
-		this.parcelas_ped = parcelas_ped;
 	}
 
 	public Integer getStatus_ped() {
@@ -180,52 +142,12 @@ public class Pedido {
 		this.status_ped = status_ped;
 	}
 
-	public String getPeso_ped() {
-		return peso_ped;
+	public Date getData_entrega_ped() {
+		return data_entrega_ped;
 	}
 
-	public void setPeso_ped(String peso_ped) {
-		this.peso_ped = peso_ped;
-	}
-
-	public String getAltura_ped() {
-		return altura_ped;
-	}
-
-	public void setAltura_ped(String altura_ped) {
-		this.altura_ped = altura_ped;
-	}
-
-	public String getLargura_ped() {
-		return largura_ped;
-	}
-
-	public void setLargura_ped(String largura_ped) {
-		this.largura_ped = largura_ped;
-	}
-
-	public String getComprimento_ped() {
-		return comprimento_ped;
-	}
-
-	public void setComprimento_ped(String comprimento_ped) {
-		this.comprimento_ped = comprimento_ped;
-	}
-
-	public Date getEntrega_data_ped() {
-		return entrega_data_ped;
-	}
-
-	public void setEntrega_data_ped(Date entrega_data_ped) {
-		this.entrega_data_ped = entrega_data_ped;
-	}
-
-	public Time getEntrega_hora_ped() {
-		return entrega_hora_ped;
-	}
-
-	public void setEntrega_hora_ped(Time entrega_hora_ped) {
-		this.entrega_hora_ped = entrega_hora_ped;
+	public void setData_entrega_ped(Date data_entrega_ped) {
+		this.data_entrega_ped = data_entrega_ped;
 	}
 
 	public Date getCreated_at() {
@@ -268,24 +190,12 @@ public class Pedido {
 		this.cliente = cliente;
 	}
 
-	public Forma_pagamento getForma_pagamento() {
-		return forma_pagamento;
-	}
-
-	public void setForma_pagamento(Forma_pagamento forma_pagamento) {
-		this.forma_pagamento = forma_pagamento;
-	}
-
 	public Set<Pedido_has_produto> getPedido_has_produto() {
 		return pedido_has_produto;
 	}
 
 	public void setPedido_has_produto(Set<Pedido_has_produto> pedido_has_produto) {
 		this.pedido_has_produto = pedido_has_produto;
-	}
-
-	public StatusPedido getStatusPedido() {
-		return statusPedido;
 	}
 	
 }

@@ -3,6 +3,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
+
+            <div class="page-title">
+              <div class="title_left">
+                <h3><i class="fa fa-cubes"></i> Produtos</h3>
+              </div>
+
+              <div class="title_right">
+                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Procure por...">
+                    <span class="input-group-btn">
+                      <button class="btn btn-default" type="button">Vá!</button>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="clearfix"></div>
+            
 <!--	Formulário de Edição Aqui !!!	-->
 <!--		Formulário		-->
 <form action="<c:url value="UpdateProduto"/>" method="POST" class="form-horizontal form-label-left input_mask">
@@ -62,9 +82,6 @@
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <select type="hidden"name="imagem.id_imagem" class="form-control">
 	<option value="0">Imagem</option>
-	<c:forEach var="imagem" items="${imagens}">
-	  <option value="${ imagem.id_imagem }">${ imagem.ima_arquivo }</option>
-	</c:forEach>
   </select>
   <!-- exemplo para facilitar pro usuário -->
   <p>Não encontrou a imagem certa? <a href="<c:url value="/imagem"/>" title="Editar Imagens">Clique aqui</a></p>
@@ -97,3 +114,5 @@
     </p>
 
 </form>
+
+

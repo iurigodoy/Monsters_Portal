@@ -25,7 +25,7 @@ public class Imagem {
 	
 	@NotNull(message="{ima.arquivo.NotEmpty}")
 	@Size(min=2, max=100, message = "{ima.arquivo.Size}")
-	@Column(name = "ima_arquivo")			//Nome real dentro do banco
+	@Column(name = "ima_arquivo", unique=true)			//Nome real dentro do banco
 	private String arquivo_ima;			//Nome do campo no sistema
 
 	/*
@@ -34,7 +34,7 @@ public class Imagem {
 	 |--------------------------------------
 	 */
 
-	// MUITOS Ramais estão em UM Setor	(N-1)
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
 	@ManyToOne
 	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
 	private Produto produto;

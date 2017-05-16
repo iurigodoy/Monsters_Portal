@@ -11,8 +11,10 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import JpaUtil.JpaResultHelper;
 import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.modelDao.ClienteDao;
+import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -73,25 +75,29 @@ public class JpaClienteDao implements ClienteDao {
 
 		
 		public Cliente autenticaEmailSenha(String email, String senha) {
+			
+			Crypt crypt = new Crypt();
+			if(senha != null){
+				senha = crypt.criptografar(senha);
+			} else {
+				return null;
+			}
 						
 			// Escreve a SQL
 			Query query = manager
 				.createQuery("SELECT cli FROM Cliente as cli "
-							+ "WHERE cli.email_cli = :email ");
+						
+							+ "WHERE cli.email_cli = :email "
+							+ "AND cli.senha_cli = :senha");
 		
-							query.setParameter("email", (String) email);
-			// Pega os resultados + senha já criptografada
-			Cliente clientes = (Cliente) query.getSingleResult();
+							query.setParameter("email", email);
+							query.setParameter("senha", senha);
+				
+				// Pega os resultados + senha j� criptografada
+			Cliente cliente = (Cliente) JpaResultHelper.getSingleResultOrNull(query);
 			
-			// Criptografa a senha que o usuário digitou
-			senha = Cliente.criptografar_senha(senha);
-
-			// Compara as senhas
-			if (clientes.getSenha_cli().equals(senha)) {
-				return clientes;
-			} else {
-				return null;
-			}
+			return cliente;
+			
 		}
 	   
 	   
@@ -104,10 +110,11 @@ public class JpaClienteDao implements ClienteDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Object objCliente) {
-			Cliente cliente = (Cliente) objCliente;
+		public void create(Cliente cliente) {
+
+			Crypt crypt = new Crypt();
 			
-			cliente.setSenha_cli(Cliente.criptografar_senha(cliente.getSenha_cli()));
+			cliente.setSenha_cli(crypt.criptografar(cliente.getSenha_cli()));
 			cliente.setCreated_at(cal.getTime());
 			cliente.setUpdated_at(cal.getTime());
 			cliente.setDeleted(false);

@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -54,11 +55,11 @@ public class Cargo {
 	 */
 	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
-	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="cargo")
 	private Set<Funcionario> funcionario;
 	
-	@OneToMany(mappedBy="cargo", fetch=FetchType.EAGER)
-	private Set<Permissao> permissoes;
+	@OneToOne(mappedBy="cargo", fetch=FetchType.EAGER)
+	private Permissao permissao;
 	
 	/*
 	|---------------------------------------
@@ -131,12 +132,12 @@ public class Cargo {
 		this.funcionario = funcionario;
 	}
 
-	public Set<Permissao> getPermissoes() {
-		return permissoes;
+	public Permissao getPermissao() {
+		return permissao;
 	}
 
-	public void setPermissoes(Set<Permissao> permissoes) {
-		this.permissoes = permissoes;
+	public void setPermisao(Permissao permissao) {
+		this.permissao = permissao;
 	}
 	
 	

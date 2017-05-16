@@ -11,8 +11,10 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import JpaUtil.JpaResultHelper;
 import br.com.monster.portal.model.Funcionario;
 import br.com.monster.portal.modelDao.FuncionarioDao;
+import br.com.monster.portal.security.Crypt;
 
 
 // Container do Spring
@@ -69,21 +71,33 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   
 
 		public Funcionario autenticaEmailSenha(String email, String senha) {
-						
-			// Escreve a SQL
-			Query query = manager
-				.createQuery("SELECT fun FROM Funcionario as fun "
-							+ "WHERE fun.email_fun = :email ");
-
-						query.setParameter("email", email);
 			
-			Funcionario funcionarioDB = (Funcionario) query.getSingleResult();
-			
-			if (funcionarioDB.getSenha_fun().equals(senha)) {
-				return funcionarioDB;
+			Crypt crypt = new Crypt();
+			if(senha != null){
+				senha = crypt.criptografar(senha);
 			} else {
 				return null;
 			}
+
+			// Escreve a SQL
+			Query query = manager
+				.createQuery("SELECT fun FROM Funcionario as fun "
+						
+							+ "WHERE fun.email_fun = :email "
+							+ "AND fun.senha_fun = :senha "
+						
+							+ "AND fun.id_funcionario IN "
+							+ "(SELECT fun FROM Cargo cargo "
+							
+							+ "WHERE cargo.id_cargo IN "
+							+ "(SELECT cargo FROM Permissao perm)) ");
+
+						query.setParameter("email", email);
+						query.setParameter("senha", senha);
+				
+				Funcionario funcionario = (Funcionario) JpaResultHelper.getSingleResultOrNull(query);		// armazena no Objeto
+				
+				return funcionario;
 		}
 	   
 	   

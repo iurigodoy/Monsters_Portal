@@ -62,9 +62,9 @@
     <script src="<c:url value="/resources/vendors/switchery/dist/switchery.min.js"/>"></script>
     <!-- jQuery autocomplete -->
     <script src="<c:url value="/resources/vendors/devbridge-autocomplete/dist/jquery.autocomplete.min.js"/>"></script>
+    
     <!-- Custom Theme Scripts -->
     <script src="<c:url value="/resources/build/js/custom.min.js"/>"></script>
-    
     
   </body>
 </html>

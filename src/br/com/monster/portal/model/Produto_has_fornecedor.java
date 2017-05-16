@@ -2,6 +2,7 @@ package br.com.monster.portal.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -23,10 +24,7 @@ public class Produto_has_fornecedor {
 	
 	@NotNull(message="{prod.preco.NotEmpty}")
 	@Column(name = "prod_preco")			//Nome real dentro do banco
-	private Float preco_prod;			//Nome do campo no sistema
-	
-	@Column(name = "prod_garantia")			//Nome real dentro do banco
-	private Integer garantia_prod;			//Nome do campo no sistema
+	private Double preco_prod = 0.00;			//Nome do campo no sistema
 
 	/*
 	 |--------------------------------------
@@ -34,12 +32,12 @@ public class Produto_has_fornecedor {
 	 |--------------------------------------
 	 */
 	
-	// MUITOS Ramais estão em UM Setor	(N-1)
-	@ManyToOne
+	// MUITOS Ramais estï¿½o em UM Setor	(N-1)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "produto_id_produto", insertable=true, updatable=true)
 	private Produto produto;
 		
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name = "fornecedor_id_fornecedor", insertable=true, updatable=true)
 	private Fornecedor fornecedor;
 	
@@ -57,22 +55,6 @@ public class Produto_has_fornecedor {
 		this.quantidade_prod = quantidade_prod;
 	}
 
-	public Float getPreco_prod() {
-		return preco_prod;
-	}
-
-	public void setPreco_prod(Float preco_prod) {
-		this.preco_prod = preco_prod;
-	}
-
-	public Integer getGarantia_prod() {
-		return garantia_prod;
-	}
-
-	public void setGarantia_prod(Integer garantia_prod) {
-		this.garantia_prod = garantia_prod;
-	}
-
 	public Produto getProduto() {
 		return produto;
 	}
@@ -87,6 +69,22 @@ public class Produto_has_fornecedor {
 
 	public void setFornecedor(Fornecedor fornecedor) {
 		this.fornecedor = fornecedor;
+	}
+
+	public long getId_produto_has_fornecedor() {
+		return id_produto_has_fornecedor;
+	}
+
+	public void setId_produto_has_fornecedor(long id_produto_has_fornecedor) {
+		this.id_produto_has_fornecedor = id_produto_has_fornecedor;
+	}
+
+	public Double getPreco_prod() {
+		return preco_prod;
+	}
+
+	public void setPreco_prod(Double preco_prod) {
+		this.preco_prod = preco_prod;
 	}
 
 }
