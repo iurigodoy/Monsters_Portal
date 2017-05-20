@@ -8,36 +8,34 @@
           <!-- top tiles -->
           <div class="row tile_count">
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-user"></i> Total Usuï¿½rios</span>
-              <div class="count green">
-			<c:forEach var="cliente" items="${clientes}">${cliente}</c:forEach>
-			</div>
-              <span class="count_bottom"><i class="green">0% </i> Na ï¿½ltima semana</span>
+              <span class="count_top"><i class="fa fa-user"></i> Total Usuários <small>cadastrados</small></span>
+              <div class="count green">1000</div>
+              <span class="count_bottom"><i class="green">10% </i> Na útima semana</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top"><i class="fa fa-external-link-square"></i> Visitantes</span>
-              <div class="count green">0</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>0% </i> Na ï¿½ltima semana</span>
+              <div class="count green">600</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>10% </i> Na última semana</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top"><i class="fa fa-eye"></i> Visualizaï¿½ï¿½es</span>
-              <div class="count green">0</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>0% </i> Na ï¿½ltima semana</span>
+              <span class="count_top"><i class="fa fa-eye"></i> Visualizações</span>
+              <div class="count green">1200</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>20% </i> Na última semana</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top blue"><i class="fa fa-male"></i> Homens</span>
-              <div class="count"><c:forEach var="cliente_h" items="${clientes_h}">${cliente_h}</c:forEach></div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>0% </i> Na ï¿½ltima semana</span>
+              <span class="count_top blue"><i class="fa fa-male"></i> Homens <small>cadastrados</small></span>
+              <div class="count">400</div>
+              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>20% </i> Na última semana</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
-              <span class="count_top red"><i class="fa fa-female"></i> Mulheres</span>
-              <div class="count"><c:forEach var="cliente_m" items="${clientes_m}">${cliente_m}</c:forEach></div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>0% </i> Na ï¿½ltima semana</span>
+              <span class="count_top red"><i class="fa fa-female"></i> Mulheres <small>cadastradas</small></span>
+              <div class="count">600</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>20% </i> Na última semana</span>
             </div>
             <div class="col-md-2 col-sm-4 col-xs-6 tile_stats_count">
               <span class="count_top green"><i class="fa fa-money"></i> Compras</span>
-              <div class="count">0</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>0% </i> Na ï¿½ltima semana</span>
+              <div class="count">300</div>
+              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>10% </i> Na útima semana</span>
             </div>
           </div>
           <!-- /top tiles -->
@@ -68,42 +66,42 @@
                 </div>
                 <div class="col-md-3 col-sm-3 col-xs-12 bg-white">
                   <div class="x_title">
-                    <h2><i class="fa fa-envelope"></i> Campanhas</h2>
+                    <h2><i class="fa fa-shopping-cart"></i> Conversão em compras</h2>
                     <div class="clearfix"></div>
                   </div>
 
                   <div class="col-md-12 col-sm-12 col-xs-6">
                     <div>
-                      <p>Campanha 1</p>
+                      <p><i class="fa fa-shopping-cart"></i> 300 - Compras</p>
                       <div class="">
                         <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="80"></div>
+                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="25"></div>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <p>Campanha 2</p>
+                      <p><i class="fa fa-eye"></i> 1200 - Visualizações</p>
                       <div class="">
                         <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="60"></div>
+                          <div class="progress-bar bg-blue" role="progressbar" data-transitiongoal="60"></div>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="col-md-12 col-sm-12 col-xs-6">
                     <div>
-                      <p>Campanha 3</p>
+                      <p><i class="fa fa-external-link-square"></i> 600 - Visitas</p>
                       <div class="">
                         <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="40"></div>
+                          <div class="progress-bar bg-sky" role="progressbar" data-transitiongoal="40"></div>
                         </div>
                       </div>
                     </div>
                     <div>
-                      <p>Campanha 4</p>
+                      <p><i class="fa fa-user"></i> 200 - Cadastros</p>
                       <div class="">
                         <div class="progress progress_sm" style="width: 76%;">
-                          <div class="progress-bar bg-green" role="progressbar" data-transitiongoal="50"></div>
+                          <div class="progress-bar bg-purple" role="progressbar" data-transitiongoal="30"></div>
                         </div>
                       </div>
                     </div>
@@ -288,13 +286,121 @@
                   <div class="x_content">
                     <article class="media event">
                       <a class="pull-left">
-               			<span class="avatar"><img src="../resources/imagens/funcionarios/foto6.jpg" /></span>
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto1.jpg" /></span>
                       </a>
                       <div class="media-body">
+                        <p><strong>800 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
                         <a class="title">
-                        	<i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i><i class="fa fa-star gold"></i>
 	                        Item 1
-                        </a>
+                        </a></p>
+                        <p> R$ 200,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto2.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 2
+                        </a></p>
+                        <p> R$ 400,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto3.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 3
+                        </a></p>
+                        <p> R$ 300,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto4.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 4
+                        </a></p>
+                        <p> R$ 1200,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto5.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 5
+                        </a></p>
+                        <p> R$ 1000,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto6.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 6
+                        </a></p>
+                        <p> R$ 1000,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto7.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 7
+                        </a></p>
+                        <p> R$ 1000,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto8.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 8
+                        </a></p>
+                        <p> R$ 1000,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto9.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 9
+                        </a></p>
+                        <p> R$ 1000,00</p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/produtos/foto10.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <p><strong>0 <i class="fa fa-cube" title="produtos"></i> Vendidos - </strong>
+                        <a class="title">
+	                        Item 10
+                        </a></p>
                         <p> R$ 1000,00</p>
                       </div>
                     </article>
@@ -319,11 +425,62 @@
                   </div>
                   <div class="x_content">
                     <article class="media event">
-                      <a class="pull-left">
-               			<span class="avatar"><img src="../resources/imagens/funcionarios/foto6.jpg" /></span>
-                      </a>
                       <div class="media-body">
-                        <a class="title">Cliente 1 Tï¿½tulo</a>
+                        <a class="title">1000 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 1</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">900 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 2</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">850 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 3</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">800 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 4</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">750 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 5</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">720 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 6</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">700 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 7</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">680 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 8</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">660 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 9</a>
+                        <p> email: xxxxxxxxxx@hotmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <div class="media-body">
+                        <a class="title">650 <i class="fa fa-cube" title="produtos"></i> comprados - Cliente 10</a>
                         <p> email: xxxxxxxxxx@hotmail.com </p>
                       </div>
                     </article>
@@ -349,10 +506,91 @@
                   <div class="x_content">
                     <article class="media event">
                       <a class="pull-left">
-               			<span class="avatar"><img src="../resources/imagens/funcionarios/foto6.jpg" /></span>
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto1.jpg" /></span>
                       </a>
                       <div class="media-body">
-                        <a class="title">Fornecedor 1 Tï¿½tulo</a>
+                        <a class="title">2500 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 1</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto2.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">2350 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 2</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto3.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">2220 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 3</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto4.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">2150 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 4</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto5.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1999 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 5</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto6.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1900 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 6</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto7.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1800 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 7</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto8.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1600 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 8</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto9.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1500 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 9</a>
+                        <p> email: xxxxxxxxxx@gmail.com </p>
+                      </div>
+                    </article>
+                    <article class="media event">
+                      <a class="pull-left">
+               			<span class="avatar"><img src="../resources/imagens/fornecedores/foto10.jpg" /></span>
+                      </a>
+                      <div class="media-body">
+                        <a class="title">1450 <i class="fa fa-cube" title="produtos"></i> Vendidos - Fornecedor 10</a>
                         <p> email: xxxxxxxxxx@gmail.com </p>
                       </div>
                     </article>
@@ -369,15 +607,52 @@
     <!-- Flot -->
     <script>
       $(document).ready(function() {
-        var data1 = [
-			<c:forEach var="pedido" items="${pedidos}">
+        var data4 = [
+			/*<c:forEach var="pedido" items="${pedidos}">
 			  <c:set var="DataPed" value="${fn:split(pedido[1], '-')}" />
 		      [gd(${DataPed[0]}, ${DataPed[1]}, ${DataPed[2]}), ${pedido[0]}]<c:if test="${!loop.last}">,</c:if>
-            </c:forEach>
+            </c:forEach>*/
+            [gd(2017, 5, 1), 20],
+            [gd(2017, 5, 2), 50],
+            [gd(2017, 5, 3), 30],
+            [gd(2017, 5, 4), 40],
+            [gd(2017, 5, 5), 30],
+            [gd(2017, 5, 6), 60],
+            [gd(2017, 5, 7), 70]
+        ];
+
+        var data1 = [
+          [gd(2017, 5, 1), 160],
+          [gd(2017, 5, 2), 240],
+          [gd(2017, 5, 3), 120],
+          [gd(2017, 5, 4), 220],
+          [gd(2017, 5, 5), 180],
+          [gd(2017, 5, 6), 200],
+          [gd(2017, 5, 7), 300]
+        ];
+
+        var data2 = [
+          [gd(2017, 5, 1), 20],
+          [gd(2017, 5, 2), 120],
+          [gd(2017, 5, 3), 100],
+          [gd(2017, 5, 4), 60],
+          [gd(2017, 5, 5), 60],
+          [gd(2017, 5, 6), 100],
+          [gd(2017, 5, 7), 140]
+        ];
+
+        var data3 = [
+          [gd(2017, 5, 1), 82],
+          [gd(2017, 5, 2), 23],
+          [gd(2017, 5, 3), 66],
+          [gd(2017, 5, 4), 9],
+          [gd(2017, 5, 5), 11],
+          [gd(2017, 5, 6), 6],
+          [gd(2017, 5, 7), 109]
         ];
         
         $("#canvas_dahs").length && $.plot($("#canvas_dahs"), [
-          data1
+          data1, data2, data3, data4
         ], {
           series: {
             lines: {
@@ -404,7 +679,7 @@
             borderWidth: 1,
             color: '#fff'
           },
-          colors: ["rgba(38, 185, 154, 0.38)", "rgba(3, 88, 106, 0.38)"],
+          colors: ["rgba(52, 152, 219, 0.38)", "rgba(51, 122, 183, 0.38)", "rgba(155, 89, 182, 0.38)", "rgba(38, 185, 154, 1)"],
           xaxis: {
             tickColor: "rgba(51, 51, 51, 0.06)",
             mode: "time",

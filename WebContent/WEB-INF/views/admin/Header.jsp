@@ -118,19 +118,10 @@
                       <li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-file-text"></i> Relatórios</a></li>
                     </ul>
                   </li>
-                  
-                  
                   <li><a href="<c:url value="/Admin/banner"/>"><i class="fa fa-clone"></i> Banners</a>
                   </li>
-                  
-                  
-                  <li><a><i class="fa fa-bar-chart-o"></i> Dashboard <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="<c:url value="/Admin/Acessos"/>"><i class="fa fa-external-link-square"></i> Acessos</a></li>
-                      <li><a href="<c:url value="/Admin/Pedidos"/>"><i class="fa fa-pie-chart"></i> Pedidos</a></li>
-                    </ul>
+                  <li><a href="<c:url value="/Admin/Pedidos"/>"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
                   </li>
-                  
                   <li><a><i class="fa fa-question"></i> HELP</a></li>
                 </ul>
               </div>
