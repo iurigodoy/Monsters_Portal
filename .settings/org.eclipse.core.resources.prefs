@@ -3,7 +3,6 @@ encoding//WebContent/WEB-INF/views=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Banner/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Cliente/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Dashboard/acessos.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Dashboard/pedidos.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Fornecedor/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Funcionario/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Funcionario/relatorio.jsp=UTF-8

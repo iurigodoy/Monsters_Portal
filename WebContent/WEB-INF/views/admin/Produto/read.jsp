@@ -66,13 +66,13 @@
 	                      <thead>
 	                        <tr>
 	                          <th style="width: 20%">Nome</th>
-	                          <th style="width: 25%">Descrição</th>
-	                          <th style="width: 25%">Publicado</th>
-	                          <th style="width: 25%">Destaque</th>
-	                          <th style="width: 25%">Desconto</th>
-	                          <th style="width: 25%">Promoção</th>
-	                          <th style="width: 40%">Peso e Dimensões</th>
-	                          <th style="width: 10%">#Editar</th>
+	                          <!-- <th style="width: 10%">Descrição</th>
+	                          <th style="width: 10%">Publicado</th>
+	                          <th style="width: 10%">Destaque</th>
+	                          <th style="width: 10%">Desconto</th>
+	                          <th style="width: 10%">Promoção</th> -->
+	                          <th style="width: 30%">Peso e Dimensões</th>
+	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
@@ -82,11 +82,11 @@
 					  		<c:if test="${ not pro.deleted }">
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="1">
 	                      	  	<td><strong>${ pro.nome_pro }</strong><br>${ pro.categoria.nome_cat }</td>
-	                      	  	<td>${ pro.descricao_pro }</td>
+	                      		<!-- <td>${ pro.descricao_pro }</td>
 	                      	  	<td>${ pro.publicado_pro }</td>
 	                      	  	<td>${ pro.destaque_pro }</td>
 								<td>${ pro.desconto_pro }</td>
-								<td>${ pro.promocao_pro }</td>
+								<td>${ pro.promocao_pro }</td> -->
 	                      	  	<td>
 	                      	  	Peso: ${ pro.peso_pro } <small>(kg)</small><br>
 	                      	  	Altura: ${ pro.altura_pro } <small>(cm)</small><br>
@@ -111,8 +111,8 @@
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="0">
 	                      	  	
 	                      	  	<td>${ pro.nome_pro }<br>${ pro.categoria.nome_cat }</td>
-	                      	  	<td>${ pro.descricao_pro }</td>
-	                      	  	<!-- <td>${ pro.publicado_pro }</td>
+	                      	  	<!-- <td>${ pro.descricao_pro }</td>
+	                      	  	<td>${ pro.publicado_pro }</td>
 	                      	  	<td>${ pro.destaque_pro }</td>
 								<td>${ pro.desconto_pro }</td>
 								<td>${ pro.promocao_pro }</td> -->

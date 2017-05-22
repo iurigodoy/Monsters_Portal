@@ -6,6 +6,12 @@ import br.com.monster.portal.model.FornecedorMultiple;
 import br.com.monster.portal.model.ImagemMultiple;
 import br.com.monster.portal.model.Produto;
 
+/*
+ * @author Iuri Godoy
+ * @version 2
+ * @since Release 03 do 5º semestre
+ */
+
 public interface ProdutoDao extends MetodosBasicos {
 
 	List<Produto> read();

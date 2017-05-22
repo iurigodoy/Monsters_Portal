@@ -20,6 +20,12 @@ import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+/*
+ * @author Iuri Godoy
+ * @version 2
+ * @since Release 03 do 5º semestre
+ */
+
 @Entity
 @Table(name = "produto")
 public class Produto {
