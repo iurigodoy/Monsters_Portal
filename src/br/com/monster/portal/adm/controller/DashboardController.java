@@ -25,7 +25,7 @@ public class DashboardController {
 	/*
 
 	 |==================================|
-	 |				Métodos			|
+	 |				Métodos				|
 	 |==================================|
 
 	/*
@@ -39,18 +39,12 @@ public class DashboardController {
 	 *	@return String - Página read (leitura)
 	 */
 	
-	@RequestMapping("Admin/Acessos")
-	public String Acessos(Model model, Pedido pedido) {					
-		model.addAttribute("pedidos", dao.Pedidos_por_semana());		//	Consulta o Banco e coloca na variável da página
+	@RequestMapping("Admin/dashboard")
+	public String Compra(Model model, Pedido pedido) {
+		/*model.addAttribute("pedidos", dao.Pedidos_por_semana());		//	Consulta o Banco e coloca na variável da página
 		model.addAttribute("clientes", dao.Qtd_clientes());				//	Consulta o Banco e coloca na variável da página
 		model.addAttribute("clientes_h", dao.Qtd_Clientes_Homens());	//	Consulta o Banco e coloca na variável da página
-		model.addAttribute("clientes_m", dao.Qtd_Clientes_Mulheres());	//	Consulta o Banco e coloca na variável da página
-		return "admin/Dashboard/acessos";								//	Retorna para á página JSP
-	}
-	
-	@RequestMapping("Admin/Pedidos")
-	public String Compra(Model model, Pedido pedido) {
-		//model.addAttribute("pedidos", dao.Read());					//	Consulta o Banco e coloca na variável da página
+		model.addAttribute("clientes_m", dao.Qtd_Clientes_Mulheres());	*/
 		return "admin/Dashboard/pedidos";								//	Retorna para á página JSP
 	}
 	

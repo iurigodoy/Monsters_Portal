@@ -6,6 +6,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
+import JpaUtil.JpaResultHelper;
 import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.Produto_has_fornecedorDao;
 
@@ -49,9 +50,8 @@ public class JpaProduto_has_fornecedorDao implements Produto_has_fornecedorDao {
 		        		+ "WHERE pro.produto.id_produto = :Id ");
 		
 		query.setParameter("Id", id);
-	    	
 
-			Produto_has_fornecedor produto = (Produto_has_fornecedor) query.getSingleResult();
+		Produto_has_fornecedor produto = (Produto_has_fornecedor) JpaResultHelper.getSingleResultOrNull(query);
 
 		return produto;
 	}

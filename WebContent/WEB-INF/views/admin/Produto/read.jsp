@@ -65,14 +65,9 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 20%">Nome</th>
-	                          <!-- <th style="width: 10%">Descrição</th>
-	                          <th style="width: 10%">Publicado</th>
-	                          <th style="width: 10%">Destaque</th>
-	                          <th style="width: 10%">Desconto</th>
-	                          <th style="width: 10%">Promoção</th> -->
+	                          <th style="width: 30%">Nome</th>
+	                          <th style="width: 40%">Publicidade</th>
 	                          <th style="width: 30%">Peso e Dimensões</th>
-	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
@@ -81,26 +76,29 @@
 					  		
 					  		<c:if test="${ not pro.deleted }">
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="1">
-	                      	  	<td><strong>${ pro.nome_pro }</strong><br>${ pro.categoria.nome_cat }</td>
-	                      		<!-- <td>${ pro.descricao_pro }</td>
-	                      	  	<td>${ pro.publicado_pro }</td>
-	                      	  	<td>${ pro.destaque_pro }</td>
-								<td>${ pro.desconto_pro }</td>
-								<td>${ pro.promocao_pro }</td> -->
-	                      	  	<td>
-	                      	  	Peso: ${ pro.peso_pro } <small>(kg)</small><br>
-	                      	  	Altura: ${ pro.altura_pro } <small>(cm)</small><br>
-	                      	  	Largura: ${ pro.largura_pro } <small>(cm)</small><br>
-	                      	  	Comprimento: ${ pro.comprimento_pro } <small>(cm)</small><br>
-	                      	  	Diâmetro: ${ pro.diametro_pro } <small>(cm)</small>
-	                      	  	</td>
-	                      	  	<td>
+	                      	  	<td><strong>${ pro.nome_pro }</strong><br>${ pro.categoria.nome_cat }
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ pro.id_produto }">
+	                      	  	  	<c:if test="${ permissao.atualizarProduto }">
 					                  <button type="button" data-id="${ pro.id_produto }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					              	</c:if>
+	                      	  	  	<c:if test="${ permissao.excluirProduto }">
 						              <button type="button" data-id="${ pro.id_produto }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+						    		</c:if>
 						          </div>
+						        </td>
+	                      		<!-- <td>${ pro.descricao_pro }</td> -->
+	                      	  	<td>${ pro.publicado_pro }
+									${ pro.destaque_pro }
+									${ pro.desconto_pro }
+									${ pro.promocao_pro }</td>
+	                      	  	<td>
+		                      	  	Peso: ${ pro.peso_pro } <small>(kg)</small><br>
+		                      	  	Altura: ${ pro.altura_pro } <small>(cm)</small><br>
+		                      	  	Largura: ${ pro.largura_pro } <small>(cm)</small><br>
+		                      	  	Comprimento: ${ pro.comprimento_pro } <small>(cm)</small><br>
+		                      	  	Diâmetro: ${ pro.diametro_pro } <small>(cm)</small>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
@@ -109,32 +107,25 @@
 	                      	  
 					  		<c:if test="${ pro.deleted }">
 	                      	  <tr id="tr_${ pro.id_produto }" data-history="0">
-	                      	  	
-	                      	  	<td>${ pro.nome_pro }<br>${ pro.categoria.nome_cat }</td>
-	                      	  	<!-- <td>${ pro.descricao_pro }</td>
-	                      	  	<td>${ pro.publicado_pro }</td>
-	                      	  	<td>${ pro.destaque_pro }</td>
-								<td>${ pro.desconto_pro }</td>
-								<td>${ pro.promocao_pro }</td> -->
+	                      	  	<td>${ pro.nome_pro }<br>${ pro.categoria.nome_cat }
+	                      		  <c:if test="${ permissao.restaurarProduto }">
+					              	<button type="button"							 data-id="${ pro.id_produto }"
+					              	class="btn btn-success btn-xs restore-button" id="restore_${ pro.id_produto }">
+									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
+					              	<i class="fa fa-refresh"></i> Restaurar</button>
+								  </c:if>
+					            </td>
+	                      	  	<!-- <td>${ pro.descricao_pro }</td> -->
+	                      	  	<td>${ pro.publicado_pro }
+									${ pro.destaque_pro }
+									${ pro.desconto_pro }
+									${ pro.promocao_pro }</td>
 	                      	  	<td>
 	                      	  	Peso: ${ pro.peso_pro } <small>(kg)</small><br>
 	                      	  	Altura: ${ pro.altura_pro } <small>(cm)</small><br>
 	                      	  	Largura: ${ pro.largura_pro } <small>(cm)</small><br>
 	                      	  	Comprimento: ${ pro.comprimento_pro } <small>(cm)</small><br>
 	                      	  	Diâmetro: ${ pro.diametro_pro } <small>(cm)</small>
-	                      	  	</td>
-	                      	  	
-	                      	  	<!-- <td>
-									<small>Criado em:	<fmt:formatDate value="${ pro.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ pro.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ pro.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-	                      	  	</td> -->
-	                      	  	
-	                      	  	<td>
-					              	<button type="button"							 data-id="${ pro.id_produto }"
-					              	class="btn btn-success btn-xs restore-button" id="restore_${ pro.id_produto }">
-									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
-					              	<i class="fa fa-refresh"></i> Restaurar</button>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>

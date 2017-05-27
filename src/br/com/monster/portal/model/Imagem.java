@@ -18,8 +18,6 @@ public class Imagem {
 	@GeneratedValue
 	private Long id_imagem;
 	
-	@NotNull(message="{ima.ordem.NotEmpty}")
-	@Size(min=2, max=50, message = "{ima.ordem.Size}")
 	@Column(name = "ima_ordem")			//Nome real dentro do banco
 	private Integer ordem_ima;			//Nome do campo no sistema
 	

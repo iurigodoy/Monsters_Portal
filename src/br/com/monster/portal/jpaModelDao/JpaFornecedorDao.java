@@ -130,8 +130,8 @@ public class JpaFornecedorDao implements FornecedorDao {
 		   
 		   Query query = manager
 				   .createQuery("UPDATE Fornecedor fornecedor "
-				   				+ "SET forn.deleted = false "
-   								+ "WHERE forn.id_fornecedor = :id");
+				   				+ "SET fornecedor.deleted = false "
+   								+ "WHERE fornecedor.id_fornecedor = :id");
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }

@@ -54,13 +54,11 @@ public class Produto {
 	@Column(name = "pro_promocao")			//Nome real dentro do banco
 	private Boolean promocao_pro;			//Responsável por ativar o desconto
 
-
 	@Column(name = "pro_desconto")			//Nome real dentro do banco
 	private Double desconto_pro = 0.00;		//  1.00 = 100%
 	
 
 	@NotNull(message="{pro.peso.NotEmpty}")
-	@Size(min=2, max=12, message = "{pro.peso.Size}")
 	@Column(name = "pro_peso")				//Nome real dentro do banco
 	private Double peso_pro = 0.000;		// Padrão em quilogramas (kg)
 

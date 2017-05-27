@@ -47,7 +47,11 @@
     <!-- *************************** - - 
    			Configuraï¿½ï¿½o Pessoal		
     - -  *************************** -->
-    
+    <style>
+    	.restore-info{
+    		visibility: hidden;
+    	}
+    </style>
   </head>
 
   <body class="nav-md">
@@ -80,29 +84,19 @@
               <div class="menu_section">
                 <h3>${ administradorLogado.cargo.nome_car }</h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i> Home </a>
-                  
-                  
-                      <li><a><i class="fa fa-cubes"></i> Produtos <span class="fa fa-chevron-down"></span></a>
-	                    <ul class="nav child_menu">
-                     	  <li><a href="<c:url value="/Admin/categoria"/>"><i class="fa fa-th"></i> Categorias</a></li>
-                     	  <li><a href="<c:url value="/Admin/adicionar_produto"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
-                     	  <li><a href="<c:url value="/Admin/produto"/>"><i class="fa fa-edit"></i> Editar</a></li>
-	                    </ul>
-	                  </li>
+	     			<li><a href="<c:url value="/Admin/dashboard"/>"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
+	                </li>
                       <li><a><i class="fa fa-road"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
 	                    <ul class="nav child_menu">
+                     	  <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
                      	  <li><a href="<c:url value="/Admin/Add_Pedido"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
-                     	  <li><a><i class="fa fa-eye"></i> Visualizar <span class="fa fa-chevron-down"></span></a>
-		                    <ul class="nav child_menu">
-	                     	  <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-eye"></i> Todos</a></li>
-	                     	  <li><a href="<c:url value="/Admin/Pedido/Pago"/>"><i class="fa fa-truck"></i> Pagos</a></li>
-	                     	  <li><a href="<c:url value="/Admin/Pedido/Pendente"/>"><i class="fa fa-refresh"></i> Pendentes</a></li>
-	                     	  <li><a href="<c:url value="/Admin/Pedido/Entregue"/>"><i class="fa fa-check"></i> Entregues</a></li>
-	                     	  <li><a href="<c:url value="/Admin/Pedido/Cancelado"/>"><i class="fa fa-remove"></i> Cancelados</a></li>
-	                     	  <li><a href="<c:url value="/Admin/Pedido/Devolvido"/>"><i class="fa fa-thumbs-o-down"></i> Devolvidos</a></li>
-		                    </ul>
-	                      </li>
+	                    </ul>
+	                  </li>
+                      <li><a><i class="fa fa-cubes"></i> Produtos <span class="fa fa-chevron-down"></span></a>
+	                    <ul class="nav child_menu">
+                     	  <li><a href="<c:url value="/Admin/adicionar_produto"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
+                     	  <li><a href="<c:url value="/Admin/produto"/>"><i class="fa fa-edit"></i> Editar</a></li>
+                     	  <li><a href="<c:url value="/Admin/categoria"/>"><i class="fa fa-th"></i> Categorias</a></li>
 	                    </ul>
 	                  </li>
                       <li><a href="<c:url value="/Admin/cliente"/>"><i class="fa fa-users"></i> Clientes</a>
@@ -113,14 +107,11 @@
                   
                   <li><a><i class="fa fa-users"></i> Funcionarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<c:url value="/Admin/cargo"/>"><i class="fa fa-sitemap"></i> Cargos</a></li>
                       <li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
-                      <li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-file-text"></i> Relatórios</a></li>
+                      <li><a href="<c:url value="/Admin/cargo"/>"><i class="fa fa-sitemap"></i> Cargos</a></li>
                     </ul>
                   </li>
                   <li><a href="<c:url value="/Admin/banner"/>"><i class="fa fa-clone"></i> Banners</a>
-                  </li>
-                  <li><a href="<c:url value="/Admin/Pedidos"/>"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
                   </li>
                   <li><a><i class="fa fa-question"></i> HELP</a></li>
                 </ul>

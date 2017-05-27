@@ -17,6 +17,7 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 	    	 uri.endsWith("Contato")			||
 	    	 uri.contains("Categoria")			||
 	    	 uri.contains("Produtos")			||
+	    	 uri.contains("Procurar")			||
 	    	 
 	    	 uri.endsWith("carrinho")			||
 	    	 uri.endsWith("AdicionaItemCarrinho")	||
