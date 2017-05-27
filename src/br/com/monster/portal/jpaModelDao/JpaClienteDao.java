@@ -40,9 +40,7 @@ public class JpaClienteDao implements ClienteDao {
 			
 	    	Query query = manager
 			        .createQuery("SELECT cli "//16
-			        		+ "FROM Cliente cli "
-			        		+ "WHERE cli.deleted = false "
-			        		+ "ORDER BY cli.id_cliente");
+			        		+ "FROM Cliente cli ");
 
 			@SuppressWarnings("unchecked")
 			List<Cliente> clientes = query.getResultList();

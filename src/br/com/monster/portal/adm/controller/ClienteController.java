@@ -1,5 +1,7 @@
 package br.com.monster.portal.adm.controller;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.modelDao.ClienteDao;
+import br.com.monster.portal.modelDao.RelatorioDao;
+import br.com.monster.portal.security.EnumEntidade;
+import br.com.monster.portal.security.EnumMetodo;
+import br.com.monster.portal.security.Permissoes;
 
 /*
  * @author Filipe A. Pimenta
@@ -24,6 +30,15 @@ public class ClienteController {
 
 	@Autowired
 	ClienteDao dao;
+	
+	/*
+	 * Registros e permissões
+	 */
+	// Define Entidade
+	private EnumEntidade entidade = EnumEntidade.CLIENTE;
+	// Consulta a interface RelatorioDao
+	@Autowired
+	RelatorioDao relatorio;
 	
 	/*
 
@@ -44,22 +59,18 @@ public class ClienteController {
 	 *	@return String - Manipulado pelo Spring para o método read (leitura)
 	 */
 	
-	@RequestMapping("Admin/adicionar_cliente")
-	public String create_page(Model model) {
-		model.addAttribute("clie_page", "active");
-		model.addAttribute("clientes", dao.read());
-		return "admin/Cliente/adicionar";
-	}
-	
 	@RequestMapping("Admin/CreateCliente")
-	public String createAdmin(@Valid Cliente cliente, BindingResult result) {			
-		if(result.hasErrors()) {														//	Se houver erro na validação
-		    return "forward:adicionar_cliente";											//	Volte para a página de adição
-		} else {
-			dao.create(cliente);														//	Ação no banco
-			return "redirect:cliente";													//	Retorna para o método Read
+	public String create(@Valid Cliente cliente, HttpSession session, BindingResult result) {
+		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Consulta Permissão
+			if(result.hasErrors()) {											//	Se houver erro na validação
+			    return "forward:cliente";										//	Volte para a página de adição
+			} else {
+				dao.create(cliente);											//	Ação no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	Relatório
+				return "redirect:cliente";										//	Retorna para o método Read
+			}
 		}
-		
+		return "403";
 	}
 	
 	/*
@@ -74,9 +85,12 @@ public class ClienteController {
 	 */
 	
 	@RequestMapping("Admin/cliente")
-	public String Read(Model model) {
-		model.addAttribute("clientes", dao.read());										//	Consulta o Banco e coloca na variável da página
-		return "admin/Cliente/read";													//	Retorna para á página JSP
+	public String read(HttpSession session, Model model) {
+		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){				//	Consulta Permissão
+			model.addAttribute("clientes", dao.read());							//	Consulta o Banco e coloca na variável da página
+			return "admin/Cliente/read";										//	Retorna para á página JSP
+		}
+		return "403";
 	}
 
 	/*
@@ -92,24 +106,18 @@ public class ClienteController {
 	 *	@return String - Manipulado pelo Spring para o método read (leitura)
 	 */
 
-	@RequestMapping("UpdateCliente")
-	public String update(@Valid Cliente cliente, BindingResult result) {
-		if(result.hasErrors()) {														//	Se houver erro na validação
-		    return "forward:MinhaConta";												//	Volte
-		} else {
-			dao.update(cliente);														//	Ação no banco
-			return "redirect:MinhaConta";												//	Retorna para o método Read
-		}
-	}
-
 	@RequestMapping("/Admin/UpdateCliente")
-	public String updateAdmin(@Valid Cliente cliente, BindingResult result) {
-		if(result.hasErrors()) {														//	Se houver erro na validação
-		    return "forward:Cliente";													//	Volte
-		} else {
-			dao.update(cliente);														//	Ação no banco
-			return "redirect:Cliente";													//	Retorna para o método Read
+	public String updateAdmin(@Valid Cliente cliente, HttpSession session, BindingResult result) {
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta Permissão
+			if(result.hasErrors()) {											//	Se houver erro na validação
+			    return "forward:cliente";										//	Volte
+			} else {
+				dao.update(cliente);											//	Ação no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera Relatório e armazena no banco
+				return "redirect:cliente";										//	Retorna para o método Read
+			}
 		}
+		return "403";
 	}
 
 	/*
@@ -126,10 +134,13 @@ public class ClienteController {
 	 */
 	
 	@RequestMapping("Admin/DeleteCliente")
-	public void bloquear(Cliente cliente) {
-	  //dao.delete(cliente);															//	Ação no banco
-	}
-	
+	public void delete(HttpSession session, Long id, HttpServletResponse response) {
+		if(Permissoes.checar(session, EnumMetodo.EXCLUIR, entidade)){			//	Consulta a permissão
+			dao.delete(id);														//	Ação no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.EXCLUIR, entidade);	//	Gera Relatório e armazena no banco
+			response.setStatus(200);											//	Indica para a requisição AJAX que tudo ocorreu bem
+		}
+	} 
 	
 	/*
 	 * -------------------------
@@ -145,8 +156,12 @@ public class ClienteController {
 	 */
 	
 	@RequestMapping("Admin/RestoreCliente")
-	public void restore(Long id) {
-		dao.restore(id);																//	Ação no banco
+	public void restore(HttpSession session, Long id, HttpServletResponse response) {
+		if(Permissoes.checar(session, EnumMetodo.RESTAURAR, entidade)){			//	Consulta a permissão
+			dao.restore(id);													//	Ação no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.RESTAURAR, entidade);	//	Gera Relatório e armazena no banco
+			response.setStatus(200);											//	Indica para a requisição AJAX que tudo ocorreu bem
+		}
 	}
 
 	/*
@@ -163,9 +178,14 @@ public class ClienteController {
 	 */
 	
 	@RequestMapping("Admin/FindCliente")
-	public String find_one(Long id, Model model) {
-	  model.addAttribute("clientes", dao.findOne(id));									//	Consulta o Banco e coloca na variável da página
-	  return "admin/Cliente/edt";														//	Retorna para a página JSP edt
+	public String Find(Long id, HttpSession session, Model model) {
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
+			model.addAttribute("cliente", dao.read());							//	Consulta o Banco e coloca na variável da página
+			return "admin/Cliente/edt";											//	Retorna para a página JSP edt
+		}
+		return"403";
 	}
 	
 }
+
+		

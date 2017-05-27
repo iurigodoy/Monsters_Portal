@@ -33,7 +33,7 @@
               <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-pencil-square-o"></i> Banners <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
+                    <h2><i class="fa fa-pencil-square-o"></i> Banners</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -122,7 +122,7 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Banner";						// Find Controller Function
+	edition_param	= "FindBanner";							// Find Controller Function
 	delete_message	= 'quer mesmo deletar este banner?';	// Delete Message
 	delete_param	= "DeleteBanner";						// Delete Controller Function
 	restore_param	= "RestoreBanner";						// Restore Controller Function

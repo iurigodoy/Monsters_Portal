@@ -43,7 +43,7 @@
             <div class="clearfix"></div>
             
 			<div class="row">
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-8 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-pencil-square-o"></i> Editar <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
@@ -79,19 +79,19 @@
 							<!--			^^^^			^^^^	-->
 					  		<c:if test="${ not cli.deleted }">
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="1">	
-	                      	  	<td>${ cli.nome_cli }<br>${ cli.email_cli }</td>
+	                      	  	<td><strong>${ cli.nome_cli }</strong><br>${ cli.email_cli }</td>
 	                      	  	<td>${ cli.cep_cli } 
 	                      	  	<br> ${ cli.cidade_cli } - ${ cli.estado_cli }
 	                      	  	<br> ${ cli.endereco_cli } nº ${ cli.numero_cli } 
 	                      	  	<br> ${ cli.complemento_cli }</td>
 	                      	  	<td>tel: ${ cli.residencial_cli }<br>cel: ${ cli.celular_cli }</td>
 	                      	  	<td><small>CPF:</small> ${ cli.cpf_cli } <small>CNPJ:</small> ${ cli.cnpj_cli }<br>
-	                      	  		<c:if test="${ cli.sexo_cli == 'm' }">	<i class="fa fa-lg fa-male blue"></i></c:if>
-	                      	  		<c:if test="${ cli.sexo_cli == 'f' }">	<i class="fa fa-lg fa-female red"></i></c:if>
-	                      	  		<c:if test="${ cli.ativo_cli }">		<i class="fa fa-lg fa-lock blue"></i></c:if>
-	                      	  		<c:if test="${ not cli.ativo_cli }">	<i class="fa fa-lg fa-unlock red"></i></c:if>
-	                      	  		<c:if test="${ cli.news_letter_cli }">	<i class="fa fa-lg fa-envelope blue"></i></c:if>
-	                      	  		<c:if test="${ not cli.news_letter_cli }"><i class="fa fa-lg fa-envelope-o red"></i></c:if>
+	                      	  		<c:if test="${ cli.sexo_cli == 'm' }">	<i class="fa fa-lg fa-male blue"	title="sexo masculino"></i></c:if>
+	                      	  		<c:if test="${ cli.sexo_cli == 'f' }">	<i class="fa fa-lg fa-female red"	title="sexo feminino"></i></c:if>
+	                      	  		<c:if test="${ not cli.ativo_cli }">	<i class="fa fa-lg fa-lock blue"	title="bloqueado"></i></c:if>
+	                      	  		<c:if test="${ cli.ativo_cli }">		<i class="fa fa-lg fa-unlock red"	title="desbloqueado"></i></c:if>
+	                      	  		<c:if test="${ cli.news_letter_cli }">	<i class="fa fa-lg fa-envelope blue" title="deseja receber a NewsLetter"></i></c:if>
+	                      	  		<c:if test="${ not cli.news_letter_cli }"><i class="fa fa-lg fa-envelope-o red" title="não deseja receber a NewsLetter"></i></c:if>
 	                      	  	</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cli.id_cliente }">
@@ -125,14 +125,6 @@
 	                      	  		<c:if test="${ cli.news_letter_cli }">	<i class="fa fa-lg fa-envelope blue"></i></c:if>
 	                      	  		<c:if test="${ not cli.news_letter_cli }"><i class="fa fa-lg fa-envelope-o red"></i></c:if>
 	                      	  	</td>
-	                      	  	
-	                      	  	<!--<td>
-									<small>Criado em:	<fmt:formatDate value="${ cli.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ cli.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ cli.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-																		  (3) ^^^^^^^^^^^^^^^	
-	                      	  	</td>-->
-	                      	  	
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ cli.id_cliente }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ cli.id_cliente }">
@@ -150,7 +142,7 @@
                 </div>
 				</div>
 
-              <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-plus"></i> Adicionar <small>Cliente</small></h2>

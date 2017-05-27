@@ -1,7 +1,7 @@
 package br.com.monster.portal.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -27,9 +27,6 @@ public class Categoria {
 	@Column(name = "cat_nome")			//Nome real dentro do banco
 	private String nome_cat;			//Nome do campo no sistema
 	
-	
-	@NotNull(message="{cat.hierarquia.NotEmpty}")
-	@Size(min=1, max=20, message = "{cat.hierarquia.Size}")
 	@Column(name = "cat_hierarquia")			//Nome real dentro do banco
 	private Integer hierarquia_cat;			//Nome do campo no sistema
 	
@@ -56,7 +53,7 @@ public class Categoria {
 	
 	// UM Ramal tem MUITOS Funcion�rios	(1-N)
 	@OneToMany(mappedBy="categoria")
-	private Set<Produto> produto;
+	private List<Produto> produto;
 	
 	/*
 	|---------------------------------------
@@ -121,11 +118,11 @@ public class Categoria {
 		this.deleted = deleted;
 	}
 
-	public Set<Produto> getProduto() {
+	public List<Produto> getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Set<Produto> produto) {
+	public void setProduto(List<Produto> produto) {
 		this.produto = produto;
 	}
 	

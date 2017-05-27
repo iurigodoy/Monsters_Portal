@@ -106,7 +106,7 @@ public class ProdutoController {
 	@RequestMapping("Admin/produto")
 	public String read(HttpSession session, Model model) {
 		
-		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){				//	Consulta Permissão
+		if(Permissoes.checar(session, EnumMetodo.LER, entidade) == true){				//	Consulta Permissão
 			model.addAttribute("produtos", dao.read());							//	Consulta o Banco e coloca na variável da página
 			return "admin/Produto/read";										//	Retorna para á página JSP
 		}
@@ -210,7 +210,7 @@ public class ProdutoController {
 	@RequestMapping("Admin/FindProduto")
 	public String Find(Long id, HttpSession session, Model model) {
 		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
-			model.addAttribute("produtos", dao.findOne(id));					//	Consulta o Banco e coloca na variável da página
+			model.addAttribute("produto", dao.findOne(id));						//	Consulta o Banco e coloca na variável da página
 			model.addAttribute("fornecedores", forc_dao.read());				//	Consulta o Banco e coloca na variável da página
 			model.addAttribute("categorias", cat_dao.read());					//	Consulta o Banco e coloca na variável da página
 			return "admin/Produto/edt";											//	Retorna para a página JSP edt

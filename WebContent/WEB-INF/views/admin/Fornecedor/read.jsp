@@ -64,36 +64,23 @@
 	                      <thead>
 	                        <tr>
 							  <th style="width: 45%">Nome</th>
-	                          <th style="width: 10%">CNPJ</th>
-	                          <th style="width: 45%">Logo</th>
-	                          <th style="width: 25%">CEP</th>
-	                          <th style="width: 25%">Estado</th>
-	                          <th style="width: 25%">Cidade</th>
-	                          <th style="width: 25%">Endereço</th>
-	                          <th style="width: 25%">Número</th>
-	                          <th style="width: 25%">Complemento</th>
-	                          <th style="width: 25%">E-mail</th>
-	                          <th style="width: 25%">Comercial</th>
+	                          <th style="width: 25%">Localização</th>
+	                          <th style="width: 20%">Contato</th>
 	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="forn" items="${fors}">
+					  		<c:forEach var="forn" items="${fornecedores}">
 							<!--			^^^^			^^^^	-->
 					  		
 					  		<c:if test="${ not forn.deleted }">
 	                      	  <tr id="tr_${ forn.id_fornecedor }" data-history="1">
-	                      	  	<td>${ forn.nome_for }</td>
-	                      	  	<td>${ forn.cnpj_for }</td>
-	                      	  	<td>${ forn.logo_for }</td>
-	                      	  	<td>${ forn.cep_for }</td>
-	                      	  	<td>${ forn.estado_for }</td>
-	                      	  	<td>${ forn.cidade_for }</td>
-								<td>${ forn.endereco_for }</td>
-								<td>${ forn.numero_for }</td>
-	                      	  	<td>${ forn.complemento_for }</td>
-	                      	  	<td>${ forn.email_for }</td>
-	                      	  	<td>${ forn.comercial_for }</td>
+	                      	  	<td><strong>${ forn.nome_for }</strong><br><small>${ forn.cnpj_for }</small></td>
+	                      	  	<td>${ forn.cep_for } 
+	                      	  	<br> ${ forn.cidade_for } - ${ forn.estado_for }
+	                      	  	<br> ${ forn.endereco_for }
+	                      	  	<br> ${ forn.complemento_for }</td>
+	                      	  	<td>${ forn.email_for }<br><small>Tel:</small>${ forn.comercial_for }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ forn.id_fornecedor }">
 					                  <button type="button" data-id="${ forn.id_fornecedor }" class="btn btn-primary btn-xs Modal"
@@ -109,26 +96,12 @@
 	                      	  
 					  		<c:if test="${ forn.deleted }">
 	                      	  <tr id="tr_${ forn.id_fornecedor }" data-history="0">
-	                      	  	
-	                      	  	<td>${ forn.nome_for }</td>
-	                      	  	<td>${ forn.cnpj_for }</td>
-	                      	  	<td>${ forn.logo_for }</td>
-	                      	  	<td>${ forn.cep_for }</td>
-	                      	  	<td>${ forn.estado_for }</td>
-	                      	  	<td>${ forn.cidade_for }</td>
-								<td>${ forn.endereco_for }</td>
-								<td>${ forn.numero_for }</td>
-	                      	  	<td>${ forn.complemento_for }</td>
-	                      	  	<td>${ forn.email_for }</td>
-	                      	  	<td>${ forn.comercial_for }</td>
-	                      	  	
-	                      	  	<td>
-									<small>Criado em:	<fmt:formatDate value="${ forn.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ forn.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ forn.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-									<!--									  (3) ^^^^^^^^^^^^^^^	-->
-	                      	  	</td>
-	                      	  	
+	                      	  	<td><strong>${ forn.nome_for }</strong><br><small>${ forn.cnpj_for }</small></td>
+	                      	  	<td>${ forn.cep_for } 
+	                      	  	<br> ${ forn.cidade_for } - ${ forn.estado_for }
+	                      	  	<br> ${ forn.endereco_for }
+	                      	  	<br> ${ forn.complemento_for }</td>
+	                      	  	<td>${ forn.email_for }<br><small>Tel:</small>${ forn.comercial_for }</td>
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ forn.id_fornecedor }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ forn.id_fornecedor }">
@@ -255,7 +228,7 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Fornecedor";						// Find Controller Function
+	edition_param	= "FindFornecedor";						// Find Controller Function
 	delete_message	= 'quer mesmo deletar este fornecedor?';	// Delete Message
 	delete_param	= "DeleteFornecedor";						// Delete Controller Function
 	restore_param	= "RestoreFornecedor";						// Restore Controller Function
@@ -263,7 +236,7 @@
 </script>
 
 <c:import url="../Footer.jsp" />
-<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
+<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">

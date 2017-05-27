@@ -289,6 +289,194 @@ public class Permissao {
 
 
 
+	public Long getId_permissoes() {
+		return id_permissoes;
+	}
+
+	public void setId_permissoes(Long id_permissoes) {
+		this.id_permissoes = id_permissoes;
+	}
+
+	public void setLerBanner(boolean lerBanner) {
+		this.lerBanner = lerBanner;
+	}
+
+	public void setCriarBanner(boolean criarBanner) {
+		this.criarBanner = criarBanner;
+	}
+
+	public void setAtualizarBanner(boolean atualizarBanner) {
+		this.atualizarBanner = atualizarBanner;
+	}
+
+	public void setExcluirBanner(boolean excluirBanner) {
+		this.excluirBanner = excluirBanner;
+	}
+
+	public void setRestaurarBanner(boolean restaurarBanner) {
+		this.restaurarBanner = restaurarBanner;
+	}
+
+	public void setLerCampanha(boolean lerCampanha) {
+		this.lerCampanha = lerCampanha;
+	}
+
+	public void setCriarCampanha(boolean criarCampanha) {
+		this.criarCampanha = criarCampanha;
+	}
+
+	public void setAtualizarCampanha(boolean atualizarCampanha) {
+		this.atualizarCampanha = atualizarCampanha;
+	}
+
+	public void setExcluirCampanha(boolean excluirCampanha) {
+		this.excluirCampanha = excluirCampanha;
+	}
+
+	public void setRestaurarCampanha(boolean restaurarCampanha) {
+		this.restaurarCampanha = restaurarCampanha;
+	}
+
+	public void setLerCargo(boolean lerCargo) {
+		this.lerCargo = lerCargo;
+	}
+
+	public void setCriarCargo(boolean criarCargo) {
+		this.criarCargo = criarCargo;
+	}
+
+	public void setAtualizarCargo(boolean atualizarCargo) {
+		this.atualizarCargo = atualizarCargo;
+	}
+
+	public void setExcluirCargo(boolean excluirCargo) {
+		this.excluirCargo = excluirCargo;
+	}
+
+	public void setRestaurarCargo(boolean restaurarCargo) {
+		this.restaurarCargo = restaurarCargo;
+	}
+
+	public void setLerCategoria(boolean lerCategoria) {
+		this.lerCategoria = lerCategoria;
+	}
+
+	public void setCriarCategoria(boolean criarCategoria) {
+		this.criarCategoria = criarCategoria;
+	}
+
+	public void setAtualizarCategoria(boolean atualizarCategoria) {
+		this.atualizarCategoria = atualizarCategoria;
+	}
+
+	public void setExcluirCategoria(boolean excluirCategoria) {
+		this.excluirCategoria = excluirCategoria;
+	}
+
+	public void setRestaurarCategoria(boolean restaurarCategoria) {
+		this.restaurarCategoria = restaurarCategoria;
+	}
+
+	public void setLerCliente(boolean lerCliente) {
+		this.lerCliente = lerCliente;
+	}
+
+	public void setCriarCliente(boolean criarCliente) {
+		this.criarCliente = criarCliente;
+	}
+
+	public void setAtualizarCliente(boolean atualizarCliente) {
+		this.atualizarCliente = atualizarCliente;
+	}
+
+	public void setExcluirCliente(boolean excluirCliente) {
+		this.excluirCliente = excluirCliente;
+	}
+
+	public void setRestaurarCliente(boolean restaurarCliente) {
+		this.restaurarCliente = restaurarCliente;
+	}
+
+	public void setLerFornecedor(boolean lerFornecedor) {
+		this.lerFornecedor = lerFornecedor;
+	}
+
+	public void setCriarFornecedor(boolean criarFornecedor) {
+		this.criarFornecedor = criarFornecedor;
+	}
+
+	public void setAtualizarFornecedor(boolean atualizarFornecedor) {
+		this.atualizarFornecedor = atualizarFornecedor;
+	}
+
+	public void setExcluirFornecedor(boolean excluirFornecedor) {
+		this.excluirFornecedor = excluirFornecedor;
+	}
+
+	public void setRestaurarFornecedor(boolean restaurarFornecedor) {
+		this.restaurarFornecedor = restaurarFornecedor;
+	}
+
+	public void setLerFuncionario(boolean lerFuncionario) {
+		this.lerFuncionario = lerFuncionario;
+	}
+
+	public void setCriarFuncionario(boolean criarFuncionario) {
+		this.criarFuncionario = criarFuncionario;
+	}
+
+	public void setAtualizarFuncionario(boolean atualizarFuncionario) {
+		this.atualizarFuncionario = atualizarFuncionario;
+	}
+
+	public void setExcluirFuncionario(boolean excluirFuncionario) {
+		this.excluirFuncionario = excluirFuncionario;
+	}
+
+	public void setRestaurarFuncionario(boolean restaurarFuncionario) {
+		this.restaurarFuncionario = restaurarFuncionario;
+	}
+
+	public void setLerPedido(boolean lerPedido) {
+		this.lerPedido = lerPedido;
+	}
+
+	public void setCriarPedido(boolean criarPedido) {
+		this.criarPedido = criarPedido;
+	}
+
+	public void setAtualizarPedido(boolean atualizarPedido) {
+		this.atualizarPedido = atualizarPedido;
+	}
+
+	public void setExcluirPedido(boolean excluirPedido) {
+		this.excluirPedido = excluirPedido;
+	}
+
+	public void setRestaurarPedido(boolean restaurarPedido) {
+		this.restaurarPedido = restaurarPedido;
+	}
+
+	public void setLerProduto(boolean lerProduto) {
+		this.lerProduto = lerProduto;
+	}
+
+	public void setCriarProduto(boolean criarProduto) {
+		this.criarProduto = criarProduto;
+	}
+
+	public void setAtualizarProduto(boolean atualizarProduto) {
+		this.atualizarProduto = atualizarProduto;
+	}
+
+	public void setExcluirProduto(boolean excluirProduto) {
+		this.excluirProduto = excluirProduto;
+	}
+
+	public void setRestaurarProduto(boolean restaurarProduto) {
+		this.restaurarProduto = restaurarProduto;
+	}
+
 	public Cargo getCargo() {
 		return cargo;
 	}

@@ -7,22 +7,22 @@ import br.com.monster.portal.model.Permissao;
 public class Permissoes {
 	public static boolean checar(HttpSession session, EnumMetodo metodo, EnumEntidade entidade){
 		
-		// Pega a permissão do usuário pela sessão
+		// Pega a permissï¿½o do usuï¿½rio pela sessï¿½o
 		Permissao permissao = (Permissao) session.getAttribute("permissao");
 		
 		if(EnumEntidade.BANNER == entidade){
-			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerBanner()){		return true; } else { return false ; } }
-			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarBanner()){		return true; } else { return false ; } }
-			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarBanner()){	return true; } else { return false ; } }
-			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirBanner()){	return true; } else { return false ; } }
-			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarBanner()){	return true; } else { return false ; } } else { return false; }
+			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerBanner()){			return true; } else { return false ; } }
+			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarBanner()){			return true; } else { return false ; } }
+			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarBanner()){		return true; } else { return false ; } }
+			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirBanner()){		return true; } else { return false ; } }
+			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarBanner()){		return true; } else { return false ; } } else { return false; }
 		}
 		if(EnumEntidade.CARGO == entidade){
-			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerCargo()){		return true; } else { return false ; } }
-			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarCargo()){		return true; } else { return false ; } }
-			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarCargo()){	return true; } else { return false ; } }
-			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirCargo()){	return true; } else { return false ; } }
-			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarCargo()){	return true; } else { return false ; } } else { return false; }
+			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerCargo()){			return true; } else { return false ; } }
+			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarCargo()){			return true; } else { return false ; } }
+			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarCargo()){		return true; } else { return false ; } }
+			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirCargo()){		return true; } else { return false ; } }
+			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarCargo()){		return true; } else { return false ; } } else { return false; }
 		}
 		if(EnumEntidade.CATEGORIA == entidade){
 			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerCategoria()){		return true; } else { return false ; } }
@@ -46,18 +46,18 @@ public class Permissoes {
 			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarFornecedor()){	return true; } else { return false ; } } else { return false; }
 		}
 		if(EnumEntidade.FUNCIONARIO == entidade){
-			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerFuncionario()){			return true; } else { return false ; } }
-			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarFuncionario()){		return true; } else { return false ; } }
-			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarFuncionario()){	return true; } else { return false ; } }
-			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirFuncionario()){		return true; } else { return false ; } }
-			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarFuncionario()){	return true; } else { return false ; } } else { return false; }
+			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerFuncionario()){		return true; } else { return false ; } }
+			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarFuncionario()){	return true; } else { return false ; } }
+			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarFuncionario()){return true; } else { return false ; } }
+			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirFuncionario()){	return true; } else { return false ; } }
+			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarFuncionario()){return true; } else { return false ; } } else { return false; }
 		}
 		if(EnumEntidade.PEDIDO == entidade){
-			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerPedido()){		return true; } else { return false ; } }
-			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarPedido()){		return true; } else { return false ; } }
-			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarPedido()){	return true; } else { return false ; } }
-			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirPedido()){	return true; } else { return false ; } }
-			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarPedido()){	return true; } else { return false ; } } else { return false; }
+			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerPedido()){			return true; } else { return false ; } }
+			if(EnumMetodo.CRIAR		==	metodo){ if(permissao.isCriarPedido()){			return true; } else { return false ; } }
+			if(EnumMetodo.ATUALIZAR	==	metodo){ if(permissao.isAtualizarPedido()){		return true; } else { return false ; } }
+			if(EnumMetodo.EXCLUIR	==	metodo){ if(permissao.isExcluirPedido()){		return true; } else { return false ; } }
+			if(EnumMetodo.RESTAURAR ==	metodo){ if(permissao.isRestaurarPedido()){		return true; } else { return false ; } } else { return false; }
 		}
 		if(EnumEntidade.PRODUTO == entidade){
 			if(EnumMetodo.LER		==	metodo){ if(permissao.isLerProduto()){			return true; } else { return false ; } }

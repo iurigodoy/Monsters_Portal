@@ -44,7 +44,7 @@ public class LoginAdminController {
 	  if(autentica != null) {
 	    session.setAttribute("administradorLogado", autentica);
 	    session.setAttribute("permissao", autentica.getCargo().getPermissao());
-	    return "redirect:produto";
+	    return "redirect:dashboard";
 	  }
 
 	  model.addAttribute("login_error", "Usuário ou senha incorretos");

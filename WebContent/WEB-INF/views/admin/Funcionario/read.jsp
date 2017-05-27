@@ -57,15 +57,9 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 10%">Cargo</th> 
-	                          <th style="width: 10%">Nome</th>
-	                          <th style="width: 45%">CPF</th>
-	                          <th style="width: 25%">Bloqueado</th>
-	                          <th style="width: 25%">Foto</th>
-	                          <th style="width: 25%">Residencial</th>
-	                          <th style="width: 25%">Celular</th>
-	                          <th style="width: 25%">E-mail</th>
-	                          <th style="width: 25%">Senha</th>
+	                          <th style="width: 20%">Foto</th>
+	                          <th style="width: 20%">Nome</th>
+	                          <th style="width: 25%">Contato</th>
 	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
@@ -75,21 +69,30 @@
 					  		
 					  		<c:if test="${ not fun.deleted }">
 	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="1">
-	                      	  	<td>${ fun.cargo.nome_car }</td>
-	                      	  	<td>${ fun.nome_fun }</td>
-	                      	  	<td>${ fun.cpf_fun }</td>
-	                      	  	<td>${ fun.bloqueado_fun }</td>
 								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ fun.residencial_fun }</td>
-	                      	  	<td>${ fun.celular_fun }</td>
-	                      	  	<td>${ fun.email_fun }</td>
-	                      	  	<td>${ fun.senha_fun }</td>
+	                      	  	<td><strong>${ fun.nome_fun }</strong>
+	                      	  	<br><small>${ fun.cargo.nome_car }</small>
+	                      	  	<br><small>${ fun.cpf_fun }</small></td>
+	                      	  	<td>${ fun.email_fun }<br>
+								<small>Tel:</small> ${ fun.residencial_fun }
+								<small>Cel:</small> ${ fun.celular_fun }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ fun.id_funcionario }">
 					                  <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
 						              <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+									<br>
+	                      	  	  	<c:if test="${ not fun.bloqueado_fun }">
+										<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-sm"
+											title="Bloquear"><i class="fa fa-unlock"></i></button>
+	                      	  	  	</c:if>
+	                      	  	  	<c:if test="${ fun.bloqueado_fun }">
+										<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-success btn-sm"
+											title="Desbloquear"><i class="fa fa-lock"></i></button>
+	                      	  	  	</c:if>
+									<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-default btn-sm"
+										title="Relatório"><i class="fa fa-file-text-o"></i> Relatório</button>
 						          </div>
 	                      	  	</td>
 	                      	  </tr>
@@ -99,17 +102,13 @@
 	                      	  
 					  		<c:if test="${ fun.deleted }">
 	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="0">
-	                      	  	
-	                      	  	<td><img src="<c:url value="resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td>${ fun.nome_fun }<br><small>${ fun.email_fun }<br></small>${ fun.cargo.nome_cargo } - Atendente</td>
-	                      	  	
-	                      	  	<td>
-									<small>Criado em:	<fmt:formatDate value="${ fun.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ fun.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ fun.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-									<!--									  (3) ^^^^^^^^^^^^^^^	-->
-	                      	  	</td>
-	                      	  	
+								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
+	                      	  	<td><strong>${ fun.nome_fun }</strong>
+	                      	  	<br><small>${ fun.cargo.nome_car }</small>
+	                      	  	<br><small>${ fun.cpf_fun }</small></td>
+	                      	  	<td>${ fun.email_fun }<br>
+								<small>Tel:</small> ${ fun.residencial_fun }
+								<small>Cel:</small> ${ fun.celular_fun }</td>
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ fun.id_funcionario }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ fun.id_funcionario }">
@@ -202,7 +201,7 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Funcionario";						// Find Controller Function
+	edition_param	= "FindFuncionario";						// Find Controller Function
 	delete_message	= 'quer mesmo deletar este funcionário?';	// Delete Message
 	delete_param	= "DeleteFuncionario";						// Delete Controller Function
 	restore_param	= "RestoreFuncionario";						// Restore Controller Function
@@ -210,7 +209,7 @@
 </script>
 
 <c:import url="../Footer.jsp" />
-<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
+<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">

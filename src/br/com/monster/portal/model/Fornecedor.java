@@ -57,11 +57,8 @@ public class Fornecedor {
 	@Column(name = "for_endereco")			//Nome real dentro do banco
 	private String endereco_for;			//Nome do campo no sistema
 	
-	@NotNull(message="{for.numero.NotEmpty}")
-	@Size(min=2, max=10, message = "{for.numero.Size}")
 	@Column(name = "for_numero")			//Nome real dentro do banco
 	private String numero_for;				//Nome do campo no sistema
-	
 	
 	@Column(name = "for_complemento")		//Nome real dentro do banco
 	private String complemento_for;			//Nome do campo no sistema
@@ -170,14 +167,6 @@ public class Fornecedor {
 
 	public void setEndereco_for(String endereco_for) {
 		this.endereco_for = endereco_for;
-	}
-
-	public String getNumero_for() {
-		return numero_for;
-	}
-
-	public void setNumero_for(String numero_for) {
-		this.numero_for = numero_for;
 	}
 
 	public String getComplemento_for() {

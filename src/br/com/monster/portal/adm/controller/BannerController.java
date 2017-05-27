@@ -1,5 +1,7 @@
 package br.com.monster.portal.adm.controller;
 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,9 +12,12 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.monster.portal.model.Banner;
-import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.modelDao.BannerDao;
 import br.com.monster.portal.modelDao.ProdutoDao;
+import br.com.monster.portal.modelDao.RelatorioDao;
+import br.com.monster.portal.security.EnumEntidade;
+import br.com.monster.portal.security.EnumMetodo;
+import br.com.monster.portal.security.Permissoes;
 
 /*
  * @author Filipe A. Pimenta
@@ -29,6 +34,15 @@ public class BannerController {
 
 	@Autowired
 	ProdutoDao dao_prod;
+	
+	/*
+	 * Registros e permissões
+	 */
+	// Define Entidade
+	private EnumEntidade entidade = EnumEntidade.BANNER;
+	// Consulta a interface RelatorioDao
+	@Autowired
+	RelatorioDao relatorio;
 	
 	/*
 
@@ -48,16 +62,18 @@ public class BannerController {
 	 */
 	
 	@RequestMapping("Admin/CreateBanner")
-	public String create(@Valid Banner banner, BindingResult result) {		
-		if(result.hasErrors()) {												//	Se houver erro na validação
-		    return "forward:banner";											//	Volte para a página banner
-		} else {
-			dao.create(banner);													//	Ação no banco
-			return "redirect:banner";											//	Retorna para o método Read
+	public String create(HttpSession session, @Valid Banner banner, BindingResult result) {
+		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar Permissão
+			if(result.hasErrors()) {											//	Se houver erro na validação
+			    return "forward:banner";										//	Volte para a página de adição
+			} else {
+				dao.create(banner);												//	Ação no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	Relatório
+				return "redirect:banner";										//	Retorna para o método Read
+			}
 		}
-		
+		return "403";
 	}
-
 	/*
 	 * -------------------------
 	 * 			Read			
@@ -70,12 +86,15 @@ public class BannerController {
 	 */
 	
 	@RequestMapping("Admin/banner")
-	public String Read(Model model, Produto produto) {				
-		model.addAttribute("banners", dao.read());								//	Consulta o Banco e coloca na variável da página
-		model.addAttribute("produtos", dao_prod.read());						//	Consulta o Banco e coloca na variável da página
-		return "admin/Banner/read";												//	Retorna para á página JSP
-	}
-
+	public String Read(HttpSession session, Model model, Banner banner) {
+		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){
+			model.addAttribute("banners", dao.read());							//	Consulta o Banco e coloca na variável da página
+			return "admin/Banner/read";											//	Consulta o Banco e coloca na variável da página
+		}																		//	Retorna para á página JSP
+		return "403";
+	}	
+	
+	
 	/*
 	 * -------------------------
 	 * 			Update			
@@ -90,15 +109,21 @@ public class BannerController {
 	 */
 
 	@RequestMapping("Admin/UpdateBanner")
-	public String update(@Valid Banner banner, BindingResult result) {			
-		if(result.hasErrors()) {												//	Se houver erro na validação
-		    return "forward:banner";											//	Volte
-		} else {
-			dao.update(banner);													//	Ação no banco
-			return "redirect:banner";											//	Retorna para o método Read
+	public String update(HttpSession session, @Valid Banner banner, BindingResult result) {
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta Permissão
+			if(result.hasErrors()) {											//	Se houver erro na validação
+			    return "forward:banner";										//	Volte
+			} else {
+				dao.update(banner);												//	Ação no banco
+				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera Relatório e armazena no banco
+				return "redirect:banner";										//	Retorna para o método Read
+			}
 		}
+		return "403";
+		
 	}
-
+	
+	
 	/*
 	 * -------------------------
 	 * 			Delete			
@@ -113,9 +138,14 @@ public class BannerController {
 	 */
 	
 	@RequestMapping("Admin/DeleteBanner")
-	public void delete(Long id) {
-	  dao.delete(id);															//	Ação no banco
-	}
+	public void delete(HttpSession session, Long id, HttpServletResponse response) {
+		if(Permissoes.checar(session, EnumMetodo.EXCLUIR, entidade)){			//	Consulta a permissão
+			dao.delete(id);														//	Ação no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.EXCLUIR, entidade);	//	Gera Relatório e armazena no banco
+			response.setStatus(200);											//	Indica para a requisição AJAX que tudo ocorreu bem
+		}
+	} 
+	
 	
 	/*
 	 * -------------------------
@@ -131,10 +161,14 @@ public class BannerController {
 	 */
 	
 	@RequestMapping("Admin/RestoreBanner")
-	public void restore(Long id) {
-		  dao.restore(id);														//	Ação no banco
+	public void restore(HttpSession session, Long id, HttpServletResponse response) {
+		if(Permissoes.checar(session, EnumMetodo.RESTAURAR, entidade)){			//	Consulta a permissão
+			dao.restore(id);													//	Ação no banco
+			relatorio.gerarRelatorio(session, EnumMetodo.RESTAURAR, entidade);	//	Gera Relatório e armazena no banco
+			response.setStatus(200);											//	Indica para a requisição AJAX que tudo ocorreu bem
+		}
 	}
-
+	
 	/*
 	 * -------------------------
 	 * 			Find			
@@ -148,10 +182,15 @@ public class BannerController {
 	 *	@return String - retorna uma página JSP
 	 */
 	
+	
 	@RequestMapping("Admin/FindBanner")
-	public String Find(Model model, Long id) {
-		model.addAttribute("banners", dao.findOne(id));							//	Consulta o Banco e coloca na variável da página
-		return "admin/Banner/edt";												//	Retorna para a página JSP edt
+	public String Find(Long id, HttpSession session, Model model) {
+		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
+			model.addAttribute("banner", dao.findOne(id));						//	Consulta o Banco e coloca na variável da página
+			return "admin/Banner/edt";											//	Consulta o Banco e coloca na variável da página
+		}
+		return"403";
 	}
 	
 }
+

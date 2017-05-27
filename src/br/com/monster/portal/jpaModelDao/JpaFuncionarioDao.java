@@ -161,9 +161,9 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 	   public void restore(Long id) {
 		   
 		   Query query = manager
-				   .createQuery("UPDATE Funcionario funcionario "
+				   .createQuery("UPDATE Funcionario fun "
 				   				+ "SET fun.deleted = false "
-   								+ "WHERE fun.funcionario = :id");
+   								+ "WHERE fun.id_funcionario = :id");
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
