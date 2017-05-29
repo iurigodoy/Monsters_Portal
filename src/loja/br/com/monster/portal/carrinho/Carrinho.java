@@ -24,6 +24,11 @@ public class Carrinho {
 	    total -= removido.getProduto_has_fornecedor().getPreco_prod() * removido.getQuantidade();
 	  }
 	  
+	public void removeAll(){
+		itens.removeAll(itens);
+		total = 0.00;
+	}
+	  
 	  //ggas
 
 	public List<Item> getItens() {
@@ -37,12 +42,5 @@ public class Carrinho {
 	public Double getTotal() {
 		return total;
 	}
-
-	public void setTotal(Double total) {
-		this.total = total;
-	}
-	  
-	  
-	  
 
 }

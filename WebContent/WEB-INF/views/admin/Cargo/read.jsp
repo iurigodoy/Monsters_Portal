@@ -33,16 +33,17 @@
               <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-pencil-square-o"></i> Cargos <small class="restore-info blue">É necessário <strong>atualizar</strong> a página para as atualizações entrarem em vigor.</small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a class="toolbox-history"><i class="fa fa-history"></i> Exibir Histórico</a>
+                          <li><a class="toolbox-history"><i class="fa fa-history"></i> Exibir Hist�rico</a>
                           </li>
                           <li><a class="toolbox-history-return"><i class="fa fa-history"></i> Voltar</a>
+                          </li>
+                          <li><a class="toolbox-history"><i class="fa fa-users"></i> Funcion�rios</a>
                           </li>
                         </ul>
                       </li>
@@ -55,18 +56,14 @@
 	                      <thead>
 	                        <tr>
 	                          <th style="width: 45%">Nome</th>
-	                          <th style="width: 25%">Padrão</th>
 	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
-					  		<c:forEach var="car" items="${cars}">
-							<!--			^^^^			^^^^	-->
-					  		
+					  		<c:forEach var="car" items="${cargos}">
 					  		<c:if test="${ not car.deleted }">
 	                      	  <tr id="tr_${ car.id_cargo }" data-history="1">
 	                      	  	<td>${ car.nome_car }</td>
-	                      	  	<td><strong>${ car.padrao_car }</strong></td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ car.id_cargo }">
 					                  <button type="button" data-id="${ car.id_cargo }" class="btn btn-primary btn-xs Modal"
@@ -77,22 +74,9 @@
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
-	                      	  
-	                      	  
-	                      	  
 					  		<c:if test="${ car.deleted }">
 	                      	  <tr id="tr_${ car.id_cargo }" data-history="0">
-	                      	  	
 	                      	  	<td>${ car.nome_car }</td>
-	                      	  	<td><strong>${ car.padrao_car }</strong></td>
-	                      	  	
-	                      	  	<td>
-									<small>Criado em:	<fmt:formatDate value="${ car.created_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Atualizado em:		<fmt:formatDate value="${ car.updated_at }" pattern="dd/MM/yyyy HH:mm"/><br>
-								    Apagado em:			<fmt:formatDate value="${ car.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></small>
-									<!--									  (3) ^^^^^^^^^^^^^^^	-->
-	                      	  	</td>
-	                      	  	
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ car.id_cargo }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ car.id_cargo }">
@@ -137,7 +121,7 @@
 					<!--	Booleano	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="padrao_car" class="js-switch" title="Cargo Padrao" value="${ cargo.padrao_car }"> <i class="fa fa-plus"></i> Cargo Padrao
+						<input type="checkbox" name="padrao_car" class="js-switch" title="Cargo Padrao" value="${ cargo.padrao_car }"> Cargo Padrao
 					  </label>
 					</div>
 
@@ -157,7 +141,7 @@
 
 <script type="text/javascript">
 
-	edition_param	= "Find_Cargo";						// Find Controller Function
+	edition_param	= "FindCargo";						// Find Controller Function
 	delete_message	= 'quer mesmo deletar este cargo?';	// Delete Message
 	delete_param	= "DeleteCargo";						// Delete Controller Function
 	restore_param	= "RestoreCargo";						// Restore Controller Function
@@ -165,7 +149,7 @@
 </script>
 
 <c:import url="../Footer.jsp" />
-<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
+<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">
@@ -174,7 +158,7 @@
 	  <!--								^^^^^^^^^^^	-->
 
 		<div class="modal-header">
-		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+		  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">x</span>
 	      </button>
 	      <h4 class="modal-title" id="myModalLabel"><i class="fa fa-spinner fa-spin spin-load"></i> Cargo</h4>
 		  <!--																						^^^^^^^^^^^	-->

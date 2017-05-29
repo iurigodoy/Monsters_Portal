@@ -26,12 +26,7 @@ public class JpaProduto_has_fornecedorDao implements Produto_has_fornecedorDao {
 		        .createQuery("SELECT pro "
 		        		+ "FROM Produto_has_fornecedor pro "
 		        		+ "WHERE pro.produto.id_produto = :Id_prod "
-		        		+ "AND pro.fornecedor.id_fornecedor = :Id_forn "
-		        		
-		        		+ "AND pro.produto IN "
-		        		+ "(SELECT pro FROM Produto prod "
-		        		+ "WHERE prod.id_produto IN "
-		        		+ "(SELECT prod FROM Imagem ima WHERE ima.ordem_ima = 1))");
+		        		+ "AND pro.fornecedor.id_fornecedor = :Id_forn ");
 		
 		query.setParameter("Id_prod", (long) id_prod);
 		query.setParameter("Id_forn", (long) id_forn);

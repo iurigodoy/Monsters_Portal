@@ -63,9 +63,9 @@
 	  			  <div class="row row-separator">
 					<h3><strong>${ produto.nome_pro }</strong></h3>
 				  </div>
-	  			  <div class="row row-separator">
+	  			  <!-- <div class="row row-separator">
 					<h5 class="escolher-fornecedor"><a href="#">Escolha outros <strong>fornecedores</strong> com o mesmo produto</a></h5>
-				  </div>
+				  </div> -->
 	  		
 	  			  <div class="row row-separator row-comprar">
 				  	<div class="col-md-6 col-sm-12 col-xs-12" align="center">
@@ -113,10 +113,14 @@
 						  <div class="row">
 						 	  <div class="col-md-12 col-sm-12 col-xs-12">
 								<form action="<c:url value="/AdicionaItemCarrinho"/>" method="POST">
-								  <input type="hidden" name="quantidade" value="1">
 								  <input type="hidden" name="id_prod" value="${ produto.id_produto }">
 								  <input type="hidden" name="id_forn" value="${ prod_forn.fornecedor.id_fornecedor }">
 							  	  <button type="submit" class="btn btn-danger btn-block btn-comprar">comprar</button>
+							  	  <br>
+								  <div class="col-md-offset-4 col-sm-offset-3 col-xs-offset-2 col-md-4 col-sm-6 col-xs-8">
+								  	<label>Quantidade:</label>
+								  	<input type="number" name="quantidade" value="1" size="2" min="0" max="${ prod_forn.quantidade_prod }" class="form-control">
+								  </div>
 								</form>
 							  </div>
 						  </div>
@@ -142,7 +146,7 @@
 										<input type="text" id="cep" name="cep" value="" class="form-control cep cep-correios">
 									</c:if>
 							  		<c:if test="${not empty clienteLogado.cep_cli}">
-										<input type="text" id="cep" name="cep" class="form-control cep cep-correios" value="${ cep_cliente }" placeholder="CEP">
+										<input type="text" id="cep" name="cep" class="form-control cep cep-correios" value="${ clienteLogado.cep_cli }" placeholder="CEP">
 									</c:if>
 									
 									<div class="input-group-btn">
@@ -155,7 +159,11 @@
 							  </div>
 							</div>
 							<i class="fa fa-spinner fa-spin spin-load"></i>
-							<div id="frete_content"></div>
+							<div id="frete_content">
+							  <c:if test="${ not empty frete }">
+								<c:import url="frete.jsp"></c:import>
+							  </c:if>
+							</div>
 					  </div>
 					  
 					  

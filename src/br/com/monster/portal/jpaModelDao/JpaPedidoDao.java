@@ -126,16 +126,11 @@ public class JpaPedidoDao implements PedidoDao {
 		return pedidos;
 		}
 
-		public List<Pedido> Find_ped_cli(Cliente clienteInfo) {
-
-
-			System.out.print("------------------------------------------------------- " + clienteInfo + " ---------------------------------------------------------------------------");
-			// Escreve a SQL
+		public List<Pedido> Find_ped_cli(Long id) {
 			Query query = manager
-			        .createQuery("SELECT t FROM Pedido as t "
-			        		+ "WHERE t.cliente = :Id "
-			                + "ORDER BY t.id_pedido ASC");
-			query.setParameter("Id", clienteInfo);
+			        .createQuery("SELECT ped FROM Pedido ped "
+			        		+ "WHERE ped.cliente.id_cliente = :Id ");
+			query.setParameter("Id", id);
 			
 			@SuppressWarnings("unchecked")
 			List<Pedido> pedidos = query.getResultList();

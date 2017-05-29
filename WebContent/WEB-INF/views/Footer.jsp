@@ -42,8 +42,8 @@
        	  </div>
           <div class="row">
 	       	  <div class="col-xs-12">
-			  	<p align="center">© 2016 Todos os direitos reservados. Monsters Portal!
-			  	<br>Desenvolvido por <a href="" class="blue">Monsters</a></p>
+			  	<p align="center">© 2016 Todos os direitos reservados. Pentágono Portal!
+			  	<br>Desenvolvido por <a href="" class="blue">Monsters Dev</a>.</p>
 		      </div>
        	  </div>
         </footer>

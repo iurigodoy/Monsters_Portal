@@ -1,6 +1,5 @@
 package br.com.monster.portal.loja.controller;
 
-import java.util.ArrayList;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.monster.portal.model.Cliente;
-import br.com.monster.portal.model.Pedido;
 import br.com.monster.portal.modelDao.CategoriaDao;
 import br.com.monster.portal.modelDao.PedidoDao;
 
@@ -26,14 +24,10 @@ public class UsuarioController {
 	PedidoDao dao_ped;
 	
 	@RequestMapping("MinhaConta")
-	public String MinhaConta(Model model, HttpSession session, Pedido pedido) {
+	public String MinhaConta(Model model, HttpSession session) {
 		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
-
-		@SuppressWarnings("unchecked")
-		ArrayList< Cliente > clienteInfo = (ArrayList<Cliente>) session.getAttribute("clienteLogadoInfo");
-		Cliente Id_cli = clienteInfo.get(0);
-		
-		model.addAttribute("pedidos", dao_ped.Find_ped_cli(Id_cli));
+		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
+		model.addAttribute("pedidos", dao_ped.Find_ped_cli(cliente.getId_cliente()));
 		return "MinhaConta";
 	}
 }

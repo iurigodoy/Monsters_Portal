@@ -77,9 +77,10 @@ public class ComprarController {
 		pedido.setNumero_ped(numb_ped);
 		
 		if(result.hasErrors()) {
-			// EM TESTE
 		    return "forward:forma_de_pagamento";
 		} else {
+			carrinho.removeAll();
+			session.setAttribute("carrinho", carrinho);
 			Long id = dao.create(pedido, carrinho, cliente);
 			return "redirect:boleto/"+id;
 		}

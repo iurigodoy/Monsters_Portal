@@ -1,6 +1,7 @@
 package br.com.monster.portal.loja.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import br.com.monster.portal.frete.Frete;
+import br.com.monster.portal.frete.ListaFrete;
+import br.com.monster.portal.model.Cliente;
+import br.com.monster.portal.model.Fornecedor;
 import br.com.monster.portal.model.Produto;
 import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.BannerDao;
@@ -65,14 +70,24 @@ public class PagesController {
 	}
 
 	@RequestMapping(value = "/Produtos/{id}")
-	public String Find_Produto(Model model, @PathVariable("id") Long id){
+	public String Find_Produto(Model model, @PathVariable("id") Long id, HttpSession session){
 		model.addAttribute("categorias", dao_cat.read());	// Cabeçalho
 		
 		Produto_has_fornecedor prod_forn = (Produto_has_fornecedor) prod_forn_dao.findOnePublic(id);
+		Produto produto = prod_forn.getProduto();
+		Fornecedor fornecedor = prod_forn.getFornecedor();
 		
-		model.addAttribute("produto", prod_forn.getProduto());
-		model.addAttribute("fornecedor", prod_forn.getFornecedor());
+		model.addAttribute("produto", produto);
+		model.addAttribute("fornecedor", fornecedor);
 		model.addAttribute("prod_forn", prod_forn);
+		
+		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
+		if(cliente != null){
+			if(cliente.getCep_cli() != null){
+				ListaFrete frete = Frete.consultaFrete(cliente, fornecedor, produto);
+				model.addAttribute("frete", frete);
+			}
+		}
 	    return "Escolha";
 	}
 
