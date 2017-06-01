@@ -83,10 +83,13 @@
 	                      	  	<td>${ forn.email_for }<br><small>Tel:</small>${ forn.comercial_for }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ forn.id_fornecedor }">
+	                      	  	    <c:if test="${ permissao.atualizarFornecedor }">
 					                  <button type="button" data-id="${ forn.id_fornecedor }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					                </c:if>
+	                      	  	    <c:if test="${ permissao.excluirFornecedor }">
 						              <button type="button" data-id="${ forn.id_fornecedor }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+									</c:if>
 						          </div>
 	                      	  	</td>
 	                      	  </tr>
@@ -103,10 +106,12 @@
 	                      	  	<br> ${ forn.complemento_for }</td>
 	                      	  	<td>${ forn.email_for }<br><small>Tel:</small>${ forn.comercial_for }</td>
 	                      	  	<td>
+	                      	  	  <c:if test="${ permissao.restaurarFornecedor }">
 					              	<button type="button"							 data-id="${ forn.id_fornecedor }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ forn.id_fornecedor }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					              </c:if>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
@@ -119,6 +124,7 @@
                 </div>
               </div>
 
+	        <c:if test="${ permissao.criarFornecedor }">
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -225,6 +231,7 @@
                   </div>
                 </div>
               </div>
+            </c:if>
             </div>
 
 <script type="text/javascript">

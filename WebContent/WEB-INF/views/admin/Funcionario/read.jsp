@@ -57,7 +57,6 @@
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
 	                        <tr>
-	                          <th style="width: 20%">Foto</th>
 	                          <th style="width: 20%">Nome</th>
 	                          <th style="width: 25%">Contato</th>
 	                          <th style="width: 20%">#Editar</th>
@@ -69,8 +68,8 @@
 					  		
 					  		<c:if test="${ not fun.deleted }">
 	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="1">
-								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td><strong>${ fun.nome_fun }</strong>
+								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto">
+								<strong>${ fun.nome_fun }</strong>
 	                      	  	<br><small>${ fun.cargo.nome_car }</small>
 	                      	  	<br><small>${ fun.cpf_fun }</small></td>
 	                      	  	<td>${ fun.email_fun }<br>
@@ -78,10 +77,13 @@
 								<small>Cel:</small> ${ fun.celular_fun }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ fun.id_funcionario }">
+	                      	  	  	<c:if test="${ permissao.atualizarFuncionario }">
 					                  <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					                </c:if>
+	                      	  	  	<c:if test="${ permissao.excluirFuncionario }">
 						              <button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+									</c:if>
 									<br>
 	                      	  	  	<c:if test="${ not fun.bloqueado_fun }">
 										<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-danger btn-sm"
@@ -102,18 +104,20 @@
 	                      	  
 					  		<c:if test="${ fun.deleted }">
 	                      	  <tr id="tr_${ fun.id_funcionario }" data-history="0">
-								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto"></td>
-	                      	  	<td><strong>${ fun.nome_fun }</strong>
+								<td><img src="<c:url value="/resources/imagens/funcionarios/${ fun.foto_fun }"/>" class="avatar" alt="Foto">
+								<strong>${ fun.nome_fun }</strong>
 	                      	  	<br><small>${ fun.cargo.nome_car }</small>
 	                      	  	<br><small>${ fun.cpf_fun }</small></td>
 	                      	  	<td>${ fun.email_fun }<br>
 								<small>Tel:</small> ${ fun.residencial_fun }
 								<small>Cel:</small> ${ fun.celular_fun }</td>
 	                      	  	<td>
+	                      	  	  <c:if test="${ permissao.restaurarFuncionario }">
 					              	<button type="button"							 data-id="${ fun.id_funcionario }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ fun.id_funcionario }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+          						  </c:if>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
@@ -126,6 +130,7 @@
                 </div>
               </div>
 
+			<c:if test="${ permissao.criarFuncionario }">
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -187,6 +192,7 @@
                   </div>
                 </div>
               </div>
+          	</c:if>
             </div>
 
 <script type="text/javascript">

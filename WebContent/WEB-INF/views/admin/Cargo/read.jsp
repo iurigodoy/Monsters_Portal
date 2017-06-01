@@ -70,10 +70,13 @@
 	                      	  	</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ car.id_cargo }">
+   					  				<c:if test="${ permissao.atualizarCargo }">
 					                  <button type="button" data-id="${ car.id_cargo }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					                </c:if>
+									<c:if test="${ permissao.excluirCargo }">
 						              <button type="button" data-id="${ car.id_cargo }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+									</c:if>
 						          </div>
 	                      	  	</td>
 	                      	  </tr>
@@ -85,10 +88,12 @@
 	                      	  	${ car.permissao.lerBanner }
 	                      	  	</td>
 	                      	  	<td>
+   					  			  <c:if test="${ permissao.restaurarCargo }">
 					              	<button type="button"							 data-id="${ car.id_cargo }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ car.id_cargo }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					              </c:if>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
@@ -100,7 +105,8 @@
                   </div>
                 </div>
               </div>
-
+              
+			<c:if test="${ permissao.criarCargo }">
               <div class="col-md-5 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -330,6 +336,7 @@
                   </div>
                 </div>
               </div>
+              </c:if>
             </div>
 
 <script type="text/javascript">

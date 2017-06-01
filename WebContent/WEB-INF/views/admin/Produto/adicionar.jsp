@@ -8,22 +8,11 @@
               <div class="title_left">
                 <h3><i class="fa fa-cubes"></i> Produtos <a href="<c:url value="/Admin/produto"/>" class="btn btn-default blue"><i class="fa fa-pencil-square-o"></i> Editar</a></h3>
               </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Procure por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
             </div>
 
             <div class="clearfix"></div>
             
-            <form class="form-horizontal form-label-left input_mask">
+            <form action="<c:url value="CreateProduto"/>" method="POST" class="form-horizontal form-label-left input_mask">
             
 			<div class="row">
               <div class="col-md-8 col-sm-12 col-xs-12">
@@ -87,14 +76,14 @@
 	
 	                    <div class="btn-group">
 	                      <a class="btn" data-edit="bold" title="Negrito (Ctrl/Cmd+B)"><i class="fa fa-bold"></i></a>
-	                      <a class="btn" data-edit="italic" title="Itï¿½lico (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
+	                      <a class="btn" data-edit="italic" title="Itálico (Ctrl/Cmd+I)"><i class="fa fa-italic"></i></a>
 	                      <a class="btn" data-edit="strikethrough" title="Tachado"><i class="fa fa-strikethrough"></i></a>
 	                      <a class="btn" data-edit="underline" title="Sublinhado (Ctrl/Cmd+U)"><i class="fa fa-underline"></i></a>
 	                    </div>
 	
 	                    <div class="btn-group">
 	                      <a class="btn" data-edit="insertunorderedlist" title="Lista de Marcadores"><i class="fa fa-list-ul"></i></a>
-	                      <a class="btn" data-edit="insertorderedlist" title="Lista de Nï¿½meros"><i class="fa fa-list-ol"></i></a>
+	                      <a class="btn" data-edit="insertorderedlist" title="Lista de Números"><i class="fa fa-list-ol"></i></a>
 	                      <a class="btn" data-edit="outdent" title="Reduzir Recuo (Shift+Tab)"><i class="fa fa-dedent"></i></a>
 	                      <a class="btn" data-edit="indent" title="Recuo (Tab)"><i class="fa fa-indent"></i></a>
 	                    </div>
@@ -128,7 +117,7 @@
 	
 	                  <div id="editor" class="editor-wrapper"></div>
 	
-	                  <textarea name="descricao_pro" id="descr" style="display:none;"></textarea>
+	                  <textarea name="descricao_pro" id="descr" style="display:none;">${ produto.descricao_pro }</textarea>
                   </div>
                 </div>
                 

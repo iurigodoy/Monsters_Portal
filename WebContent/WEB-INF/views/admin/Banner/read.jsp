@@ -56,10 +56,13 @@
                             <div class="mask">
                               <p>${ ban.produto.nome_pro }</p>
                               <div class="tools tools-bottom">
-                                <a href="#"><i class="fa fa-link"></i></a>
-                                <a href="#" data-id="${ ban.id_banner }" class="Modal"
-					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i></a>
-                                <a href="#" data-id="${ ban.id_banner }" class="delete-button" title="Excluir"><i class="fa fa-times"></i></a>
+	                      	  	<c:if test="${ permissao.atualizarBanner }">
+	                                <a href="#" data-id="${ ban.id_banner }" class="Modal"
+						                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i></a>
+						        </c:if>
+	                      	  	<c:if test="${ permissao.excluirBanner }">
+	                                <a href="#" data-id="${ ban.id_banner }" class="delete-button" title="Excluir"><i class="fa fa-times"></i></a>
+	                            </c:if>
                               </div>
                             </div>
                           </div>
@@ -71,8 +74,9 @@
                   	</c:forEach>
                   </div>
                 </div>
-					</div>
+			  </div>
 
+	        <c:if test="${ permissao.criarBanner }">
               <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -127,6 +131,7 @@
                   </div>
                 </div>
               </div>
+              </c:if>
             </div>
 
 <script type="text/javascript">

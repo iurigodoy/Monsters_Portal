@@ -73,10 +73,12 @@
 					  		<c:if test="${ not ped.deleted }">
 	                      	  <tr id="tr_${ ped.id_pedido }" data-history="1">
 	                      	  	<td>${ ped.cliente.nome_cli }
+	                      	  	<c:if test="${ permissao.excluirPedido }">
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ ped.id_pedido }">
 						              <button type="button" data-id="${ ped.id_pedido }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
 									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
 						          </div>
+						        </c:if>
 						        </td>
 	                      	  	<td><small>Preço:</small> ${ ped.preco_ped }
 								<br><small>Forma de Pagamento:</small> ${ ped.custo_forma_de_pagamento_ped }
@@ -92,10 +94,12 @@
 	                      	  <tr id="tr_${ ped.id_pedido }" data-history="0">
 	                      	  	
 	                      	  	<td>${ ped.cliente.nome_cli }
+	                      	  	  <c:if test="${ permissao.restaurarPedido }">
 					              	<button type="button"							 data-id="${ ped.id_pedido }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ ped.id_pedido }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					              </c:if>
 					            </td>
 	                      	  	<td><small>Preço:</small> ${ ped.preco_ped }
 								<br><small>Forma de Pagamento:</small> ${ ped.custo_forma_de_pagamento_ped }

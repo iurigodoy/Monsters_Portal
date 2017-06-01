@@ -84,29 +84,49 @@
                 <ul class="nav side-menu">
 	     			<li><a href="<c:url value="/Admin/dashboard"/>"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
 	                </li>
-                      <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-road"></i> Pedidos</a>
-	                  </li>
-                      <li><a><i class="fa fa-cubes"></i> Produtos <span class="fa fa-chevron-down"></span></a>
-	                    <ul class="nav child_menu">
-                     	  <li><a href="<c:url value="/Admin/adicionar_produto"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
-                     	  <li><a href="<c:url value="/Admin/produto"/>"><i class="fa fa-edit"></i> Editar</a></li>
-                     	  <li><a href="<c:url value="/Admin/categoria"/>"><i class="fa fa-th"></i> Categorias</a></li>
-	                    </ul>
-	                  </li>
-                      <li><a href="<c:url value="/Admin/cliente"/>"><i class="fa fa-users"></i> Clientes</a>
-                      </li>
-	                  <li><a href="<c:url value="/Admin/fornecedor"/>"><i class="fa fa-truck"></i> Fornecedores</a>
-	                  </li>
-                  
-                  
+	       		  <c:if test="${ permissao.lerPedido }">
+                    <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-road"></i> Pedidos</a>
+	                </li>
+	              </c:if>
+	       		  <c:if test="${ permissao.lerProduto || permissao.lerCategoria }">
+                    <li><a><i class="fa fa-cubes"></i> Produtos <span class="fa fa-chevron-down"></span></a>
+	                  <ul class="nav child_menu">
+	       		  		<c:if test="${ permissao.criarProduto }">
+	                    <!-- <li><a href="<c:url value="/Admin/adicionar_produto"/>"><i class="fa fa-plus"></i> Adicionar</a></li> -->
+	                    </c:if>
+	       		  		<c:if test="${ permissao.lerProduto }">
+	                      <li><a href="<c:url value="/Admin/produto"/>"><i class="fa fa-edit"></i> Editar</a></li>
+	                    </c:if>
+	       		  		<c:if test="${ permissao.lerCategoria }">
+	                      <li><a href="<c:url value="/Admin/categoria"/>"><i class="fa fa-th"></i> Categorias</a></li>
+	                    </c:if>
+	                  </ul>
+	                </li>
+	              </c:if>
+	       		  <c:if test="${ permissao.lerCliente }">
+                    <li><a href="<c:url value="/Admin/cliente"/>"><i class="fa fa-users"></i> Clientes</a>
+                    </li>
+                  </c:if>
+	       		  <c:if test="${ permissao.lerFornecedor }">
+	                <li><a href="<c:url value="/Admin/fornecedor"/>"><i class="fa fa-truck"></i> Fornecedores</a>
+	                </li>
+                  </c:if>
+	       		  <c:if test="${ permissao.lerFuncionario || permissao.lerCargo }">
                   <li><a><i class="fa fa-users"></i> Funcionarios <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
-                      <li><a href="<c:url value="/Admin/cargo"/>"><i class="fa fa-sitemap"></i> Cargos</a></li>
+   					  <c:if test="${ permissao.lerFuncionario }">
+                    	<li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
+                      </c:if>
+	       		  	  <c:if test="${ permissao.lerCargo }">
+                    	<li><a href="<c:url value="/Admin/cargo"/>"><i class="fa fa-sitemap"></i> Cargos</a></li>
+                      </c:if>
                     </ul>
                   </li>
-                  <li><a href="<c:url value="/Admin/banner"/>"><i class="fa fa-clone"></i> Banners</a>
-                  </li>
+                  </c:if>
+	       		  <c:if test="${ permissao.lerBanner }">
+					<li><a href="<c:url value="/Admin/banner"/>"><i class="fa fa-clone"></i> Banners</a>
+	                </li>
+                  </c:if>
                   <li><a><i class="fa fa-question"></i> HELP</a></li>
                 </ul>
               </div>

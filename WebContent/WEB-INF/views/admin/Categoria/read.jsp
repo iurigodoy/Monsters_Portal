@@ -29,7 +29,7 @@
 
             <div class="clearfix"></div>
 
-
+			<div class="row">
               <div class="col-md-8 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -66,10 +66,13 @@
 	                      	  	<td>${ cat.nome_cat }</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cat.id_categoria }">
+	       							<c:if test="${ permissao.atualizarCategoria }">
 					                  <button type="button" data-id="${ cat.id_categoria }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					                </c:if>
+	       							<c:if test="${ permissao.excluirCategoria }">
 						              <button type="button" data-id="${ cat.id_categoria }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+						            </c:if>
 						          </div>
 	                      	  	</td>
 	                      	  </tr>
@@ -78,10 +81,12 @@
 	                      	  <tr id="tr_${ cat.id_categoria }" data-history="0">
 	                      	  	<td>${ cat.nome_cat }</td>
 	                      	  	<td>
+	       						  <c:if test="${ permissao.restaurarCategoria }">
 					              	<button type="button"							 data-id="${ cat.id_categoria }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ cat.id_categoria }">
 									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					              </c:if>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
@@ -94,7 +99,8 @@
                 </div>
               </div>
               
-		<div class="col-md-4 col-sm-12 col-xs-12">
+	    	<c:if test="${ permissao.criarCategoria }">
+			  <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-plus"></i> Adicionar <small>Categorias</small></h2>
@@ -130,6 +136,8 @@
 				  </div>
                 </div>
               </div>
+            </c:if>
+          </div>
 			  
 		<script type="text/javascript">
 

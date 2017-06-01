@@ -80,10 +80,13 @@
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="1">	
 	                      	  	<td><strong>${ cli.nome_cli }</strong><br>${ cli.email_cli }
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cli.id_cliente }">
+	       							<c:if test="${ permissao.atualizarCliente }">
 					                  <button type="button" data-id="${ cli.id_cliente }" class="btn btn-primary btn-xs Modal"
 					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+					                </c:if>
+	       							<c:if test="${ permissao.excluirCliente }">
 						              <button type="button" data-id="${ cli.id_cliente }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+									</c:if>
 						          </div></td>
 	                      	  	<td>${ cli.cep_cli } 
 	                      	  	<br> ${ cli.cidade_cli } - ${ cli.estado_cli }
@@ -107,10 +110,11 @@
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="0">
              	  	
 	                      	  	<td>${ cli.nome_cli }<br>${ cli.email_cli }
+	       						  <c:if test="${ permissao.restaurarCliente }">
 					              	<button type="button"							 data-id="${ cli.id_cliente }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ cli.id_cliente }">
-									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
 					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					              </c:if>
 					            </td>
 	                      	  	<td>${ cli.cep_cli } 
 	                      	  	<br> ${ cli.cidade_cli } - ${ cli.estado_cli }
@@ -136,6 +140,7 @@
                 </div>
 				</div>
 
+	        <c:if test="${ permissao.criarCliente }">
               <div class="col-md-4 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
@@ -263,6 +268,7 @@
                   </div>
                 </div>
               </div>
+            </c:if>
             </div>
 
 <script type="text/javascript">

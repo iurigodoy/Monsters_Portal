@@ -85,7 +85,7 @@ public class CargoController {
 		
 	@RequestMapping("Admin/cargo")
 	public String read(HttpSession session, Model model) {
-		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar Permissão
+		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){				//	Checar Permissão
 			model.addAttribute("cargos", dao.read());							//	Consulta o Banco e coloca na variável da página
 			return "admin/Cargo/read";											//	Retorna para á página JSP
 		}
