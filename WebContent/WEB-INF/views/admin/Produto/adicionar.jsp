@@ -165,7 +165,7 @@
 								<!-- Dimensï¿½o -->
 								<div class="row">
 									<div class="col-xs-12">
-										<label class="col-md-12 col-sm-12 col-xs-12 col-form-label">Dimensções: </label>
+										<label class="col-md-12 col-sm-12 col-xs-12 col-form-label">Dimenções: </label>
 									</div>
 									
 				                    <div class="col-md-3 col-sm-3 col-xs-12 form-group has-feedback">
@@ -220,22 +220,6 @@
                 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-money"></i> Preço</h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
-                  		<input type="text" name="preco_pro" value="${ pro.preco_pro }" class="form-control has-feedback-left preco_toolspin" placeholder="Preço" title="Preço">
-				        <span class="form-control-feedback left" aria-hidden="true">R$</span>
-                    </div>
-                  </div>
-                </div>
-                
-                <div class="x_panel">
-                  <div class="x_title">
                     <h2><i class="fa fa-laptop"></i> Destaque</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
@@ -243,7 +227,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<p>Deseja destacar o produto, colocando-o na pï¿½gina inicial do site?</p>
+                  	<p>Deseja destacar o produto, colocando-o na página inicial do site?</p>
 					<div class="btn-group pull-right" data-toggle="buttons">
 						<label class="btn btn-primary btn-sm">
 							<input type="radio"	name="destaque_pro" value="1">SIM
@@ -264,7 +248,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  	<p>Quanto deseja descontar do preï¿½o total?</p>
+                  	<p>Quanto deseja descontar do preço total?</p>
 					<!-- Desconto -->
 					<div class="form-group">
                         <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
@@ -296,25 +280,17 @@
                   	<p>A qual categoria esse produto pertence?</p>
 										  <!-- Marca -->
 										  <select class="form-control" name="cat.id_categoria">
-											<!-- mostra categorias, se a categoria for diferente da categoria jï¿½ existente no produto ele exibirï¿½ -->
-												<c:forEach var="categoria" items="${categorias}">
-												
-												  <c:if test="${ cat.id_categoria == pro.cat.id_categoria}">
-													<option value="${ cat.id_categoria }" selected>${cat.nome_cat }
-												  </c:if>
-												  
-												  <c:if test="${ cat.id_categoria ne produto.cat.id_categoria}">
-													<option value="${ cat.id_categoria }">${cat.nome_cat }
-												  </c:if>
-												  
-												</c:forEach>
+										  	<option value="0">Categoria</option>
+											<c:forEach var="cat" items="${categorias}">
+											  <option value="${ cat.id_categoria }">${cat.nome_cat }
+											</c:forEach>
 										  </select>
                   </div>
                 </div>
                 
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-truck"></i> Fornecedor</h2>
+                    <h2><i class="fa fa-truck"></i> Fornecedores</h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                     </ul>
@@ -322,7 +298,7 @@
                   </div>
                   <div class="x_content">
                   	<p>A quem o produto pertence?</p>
-										  <!-- Marca -->
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group">
 										  <select class="form-control" name="for.id_fornecedor">
 											<!-- mostra categorias, se a categoria for diferente da categoria jï¿½ existente no produto ele exibirï¿½ -->
 												<c:forEach var="forn" items="${fornecedores}">
@@ -337,6 +313,15 @@
 												  
 												</c:forEach>
 										  </select>
+					</div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  		<input type="text" name="preco_prod" value="${ pro.preco_prod }" class="form-control has-feedback-left" placeholder="Preço" title="Preço">
+				        <span class="form-control-feedback left" aria-hidden="true">R$</span>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-xs-12 form-group has-feedback">
+                  		<input type="text" name="quantidade_prod" value="${ pro.quantidade_prod }" class="form-control has-feedback-left" placeholder="Qtd. no estoque" title="Qtd. no estoque">
+				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-cube"></i></span>
+                    </div>
                   </div>
                 </div>
               </div>

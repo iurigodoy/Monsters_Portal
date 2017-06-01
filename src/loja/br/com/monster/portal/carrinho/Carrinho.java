@@ -32,16 +32,6 @@ public class Carrinho {
 	    return itens.size();
 	  }
 	  
-	  public void remove(int indiceItem) {
-	    Item removido = itens.remove(indiceItem);
-	    total -= removido.getProduto_has_fornecedor().getPreco_prod() * removido.getQuantidade();
-	  }
-	  
-	public void removeAll(){
-		itens.removeAll(itens);
-		total = 0.00;
-	}
-	  
 	public void frete(HttpSession session, Item item){
 		Cliente cliente = (Cliente) session.getAttribute("clienteLogado");
 		if(cliente != null){
@@ -58,6 +48,17 @@ public class Carrinho {
 	
 	public Double totalComFrete(){
 		return valorFrete + total;
+	}
+	  
+	  public void remove(int indiceItem) {
+	    Item removido = itens.remove(indiceItem);
+	    Double preco = removido.getProduto_has_fornecedor().getPreco_prod();
+	    total -= removido.getProduto_has_fornecedor().getProduto().calcularDesconto(preco) * removido.getQuantidade();
+	  }
+	  
+	public void removeAll(){
+		itens.removeAll(itens);
+		total = 0.00;
 	}
 	  
 	  //ggas

@@ -82,24 +82,24 @@ public class EncherBanco {
 		
 		Permissao permissao1 = new Permissao();
 		
-		permissao1.setAtualizarBanner(true);
-		permissao1.setAtualizarCargo(true);
-		permissao1.setAtualizarCategoria(true);
-		permissao1.setAtualizarCliente(true);
-		permissao1.setAtualizarFornecedor(true);
-		permissao1.setAtualizarFuncionario(true);
-		permissao1.setAtualizarPedido(true);
-		permissao1.setAtualizarProduto(true);
+		permissao1.setAtualizarBanner(false);
+		permissao1.setAtualizarCargo(false);
+		permissao1.setAtualizarCategoria(false);
+		permissao1.setAtualizarCliente(false);
+		permissao1.setAtualizarFornecedor(false);
+		permissao1.setAtualizarFuncionario(false);
+		permissao1.setAtualizarPedido(false);
+		permissao1.setAtualizarProduto(false);
 		
-		permissao1.setCriarBanner(true);
-		permissao1.setCriarCampanha(true);
-		permissao1.setCriarCargo(true);
-		permissao1.setCriarCategoria(true);
-		permissao1.setCriarCliente(true);
-		permissao1.setCriarFornecedor(true);
-		permissao1.setCriarFuncionario(true);
-		permissao1.setCriarPedido(true);
-		permissao1.setCriarProduto(true);
+		permissao1.setCriarBanner(false);
+		permissao1.setCriarCampanha(false);
+		permissao1.setCriarCargo(false);
+		permissao1.setCriarCategoria(false);
+		permissao1.setCriarCliente(false);
+		permissao1.setCriarFornecedor(false);
+		permissao1.setCriarFuncionario(false);
+		permissao1.setCriarPedido(false);
+		permissao1.setCriarProduto(false);
 
 		permissao1.setLerBanner(true);
 		permissao1.setLerCampanha(true);
@@ -111,25 +111,25 @@ public class EncherBanco {
 		permissao1.setLerPedido(true);
 		permissao1.setLerProduto(true);
 		
-		permissao1.setExcluirBanner(true);
-		permissao1.setExcluirCampanha(true);
-		permissao1.setExcluirCargo(true);
-		permissao1.setExcluirCategoria(true);
-		permissao1.setExcluirCliente(true);
-		permissao1.setExcluirFornecedor(true);
-		permissao1.setExcluirFuncionario(true);
-		permissao1.setExcluirPedido(true);
-		permissao1.setExcluirProduto(true);
+		permissao1.setExcluirBanner(false);
+		permissao1.setExcluirCampanha(false);
+		permissao1.setExcluirCargo(false);
+		permissao1.setExcluirCategoria(false);
+		permissao1.setExcluirCliente(false);
+		permissao1.setExcluirFornecedor(false);
+		permissao1.setExcluirFuncionario(false);
+		permissao1.setExcluirPedido(false);
+		permissao1.setExcluirProduto(false);
 		
-		permissao1.setRestaurarBanner(true);
-		permissao1.setRestaurarCampanha(true);
-		permissao1.setRestaurarCargo(true);
-		permissao1.setRestaurarCategoria(true);
-		permissao1.setRestaurarCliente(true);
-		permissao1.setRestaurarFornecedor(true);
-		permissao1.setRestaurarFuncionario(true);
-		permissao1.setRestaurarPedido(true);
-		permissao1.setRestaurarProduto(true);
+		permissao1.setRestaurarBanner(false);
+		permissao1.setRestaurarCampanha(false);
+		permissao1.setRestaurarCargo(false);
+		permissao1.setRestaurarCategoria(false);
+		permissao1.setRestaurarCliente(false);
+		permissao1.setRestaurarFornecedor(false);
+		permissao1.setRestaurarFuncionario(false);
+		permissao1.setRestaurarPedido(false);
+		permissao1.setRestaurarProduto(false);
 		
 		Cargo cargo = new Cargo();
 
@@ -1074,11 +1074,11 @@ public class EncherBanco {
 	    
 	    funcionario.setCargo(cargo);
 	    manager.persist(funcionario);
-	    funcionario1.setCargo(cargo);
+	    funcionario1.setCargo(cargo1);
 	    manager.persist(funcionario1);
 	    funcionario2.setCargo(cargo1);
 	    manager.persist(funcionario2);
-	    funcionario3.setCargo(cargo1);
+	    funcionario3.setCargo(cargo);
 	    manager.persist(funcionario3);
 	    
 	    System.out.println("--------------------------------------------------------------------------");
@@ -1274,6 +1274,7 @@ public class EncherBanco {
 	    
 	    banner.setProduto(produto);
 	    manager.persist(banner);
+	    banner1.setProduto(produto4);
 	    manager.persist(banner1);
 	    manager.persist(banner2);
 	    manager.persist(banner3);
