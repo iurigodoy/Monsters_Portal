@@ -111,7 +111,8 @@ public class CargoController {
 			if(result.hasErrors()) {												//	Se houver erro na validação
 			    return "forward:cargo";												//	Volte
 			} else {
-				dao.update(cargo, permissao);													//	Ação no banco
+				dao.update(cargo);													//	Ação no banco
+				dao.updatePermissao(permissao);										//	Ação no banco
 				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera Relatório e armazena no banco
 				return "redirect:cargo";											//	Retorna para o método Read
 			}

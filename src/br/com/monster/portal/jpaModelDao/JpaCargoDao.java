@@ -68,6 +68,20 @@ public class JpaCargoDao implements CargoDao {
 		   return cargo;
 	   }
 	   
+	   public Permissao findOnePermissao(Long id){
+			
+	    	Query query = manager
+			        .createQuery("SELECT permissao "//16
+			        		+ "FROM Permissao permissao "
+			        		+ "WHERE permissao.cargo.id_cargo = :Id");
+	    	
+			query.setParameter("Id", id);
+
+			Permissao permissao = (Permissao) query.getSingleResult();
+			
+		   return permissao;
+	   }
+	   
 	   
 	   
 	   
@@ -95,10 +109,12 @@ public class JpaCargoDao implements CargoDao {
 	    * ----------------------------------
 	    * 
 	    */
-		public void update(Cargo cargo, Permissao permissao) {
+		public void update(Cargo cargo) {
 			cargo.setUpdated_at(cal.getTime());
 			manager.merge(cargo);
-			permissao.setCargo(cargo);
+		}
+		
+		public void updatePermissao(Permissao permissao) {
 			manager.persist(permissao);
 		}
 	   
