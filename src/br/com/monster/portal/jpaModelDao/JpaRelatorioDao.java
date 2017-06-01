@@ -22,7 +22,6 @@ import br.com.monster.portal.security.EnumMetodo;
 // Container do Spring
 @Repository
 public class JpaRelatorioDao implements RelatorioDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
@@ -32,54 +31,26 @@ public class JpaRelatorioDao implements RelatorioDao {
 	   
 	   /*
 	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Relatorio> Read() {
-			
-				/*Query query = manager
-				        .createQuery("SELECT pro "//16
-				        		+ "FROM Produto pro INNER JOIN pro.produto pro "//33
-				        		+ "WHERE pro.produto = pro.id_produto "
-								+ "ORDER BY pro.id_Produto ASC");*/
-	    	Query query = manager
-			        .createQuery("SELECT pro "
-			        		+ "FROM Relatorios pro "
-			        		+ "WHERE pro.deleted = false "
-			        		+ "ORDER BY pro.id_relatorios ASC");
-
-			@SuppressWarnings("unchecked")
-			List<Relatorio> relatorios = query.getResultList();
-
-			return relatorios;
-		}
-	   
-	   /*
-	    * ----------------------------------
 	    *			M�todo Find_One			
 	    * ----------------------------------
 	    * 
 	    */
 	   
-	   public Relatorio Find_One(Long id){
+	   public List<Relatorio> Find_One(Long id){
 			
 	    	Query query = manager
 			        .createQuery("SELECT relatorios "//16
-			        		+ "FROM Relatorios relatorios "
-			        		+ "WHERE relatorios.id_relatorios = :Id");
+			        		+ "FROM Relatorio relatorios "
+			        		+ "WHERE relatorios.funcionario.id_funcionario = :Id "
+			        		+ "ORDER BY relatorios.created_at DESC");
 	    	
 			query.setParameter("Id", id);
 
-			Relatorio relatorios = (Relatorio) query.getSingleResult();
+			@SuppressWarnings("unchecked")
+			List<Relatorio> relatorios = (List<Relatorio>) query.getResultList();
 			
 		   return relatorios;
 	   }
-	   
-	   
-	   
 	   
 	
 	   /*
@@ -100,5 +71,4 @@ public class JpaRelatorioDao implements RelatorioDao {
 			relatorio.setCreated_at(cal.getTime());
 			manager.persist(relatorio);
 	    }
-	   
 }

@@ -19,6 +19,7 @@ import br.com.monster.portal.model.Pedido;
 import br.com.monster.portal.modelDao.CategoriaDao;
 import br.com.monster.portal.modelDao.PedidoDao;
 import br.com.monster.portal.modelDao.ProdutoDao;
+import br.com.monster.portal.carrinho.Item;
 
 @Transactional
 @Controller
@@ -54,8 +55,14 @@ public class ComprarController {
 	}
 	
 	@RequestMapping(value = "/forma_de_pagamento")
-	public String formaDePagamento(Model model) {
+	public String formaDePagamento(Model model, HttpSession session) {
 		model.addAttribute("categorias", dao_cat.read());
+		
+		Carrinho carrinho = (Carrinho) session.getAttribute("carrinho");
+		Item item = carrinho.getItens().get(0);
+		carrinho.frete(session, item);
+		session.setAttribute("carrinho", carrinho);
+		
 		return "comprar/forma_de_pagamento";
 	}
 	

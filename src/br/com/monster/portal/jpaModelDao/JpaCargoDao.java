@@ -12,6 +12,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import br.com.monster.portal.model.Cargo;
+import br.com.monster.portal.model.Permissao;
 import br.com.monster.portal.modelDao.CargoDao;
 
 // Container do Spring
@@ -38,7 +39,6 @@ public class JpaCargoDao implements CargoDao {
 	    	Query query = manager
 			        .createQuery("SELECT pro "//16
 			        		+ "FROM Cargo pro "
-			        		+ "WHERE pro.deleted = false "
 			        		+ "ORDER BY pro.id_cargo");
 
 			@SuppressWarnings("unchecked")
@@ -80,11 +80,13 @@ public class JpaCargoDao implements CargoDao {
 	    * A seguir m�todos de altera��o
 	    * 
 	    */
-		public void create(Cargo cargo) {
+		public void create(Cargo cargo, Permissao permissao) {
 			cargo.setCreated_at(cal.getTime());
 			cargo.setUpdated_at(cal.getTime());
 			cargo.setDeleted(false);
-			 manager.persist(cargo);
+			manager.persist(cargo);
+			permissao.setCargo(cargo);
+			manager.persist(permissao);
 	    }
 
 	   /*
@@ -93,9 +95,11 @@ public class JpaCargoDao implements CargoDao {
 	    * ----------------------------------
 	    * 
 	    */
-		public void update(Cargo cargo) {
+		public void update(Cargo cargo, Permissao permissao) {
 			cargo.setUpdated_at(cal.getTime());
 			manager.merge(cargo);
+			permissao.setCargo(cargo);
+			manager.persist(permissao);
 		}
 	   
 	   /*

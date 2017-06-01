@@ -4,45 +4,43 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-
-
-<head>
+  <head>
 	<title>Painel de Controle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap -->
-    <link href="../resources/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/bootstrap/dist/css/bootstrap.min.css"/>" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="../resources/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/font-awesome/css/font-awesome.min.css"/>" rel="stylesheet">
     <!-- NProgress -->
-    <link href="../resources/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/nprogress/nprogress.css"/>" rel="stylesheet">
     <!-- Dropzone.js -->
-    <link href="../resources/vendors/dropzone/dist/min/dropzone.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/dropzone/dist/min/dropzone.min.css"/>" rel="stylesheet">
     <!-- iCheck -->
-    <link href="../resources/vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/iCheck/skins/flat/green.css"/>" rel="stylesheet">
     <!-- bootstrap-progressbar -->
-    <link href="../resources/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css"/>" rel="stylesheet">
     <!-- bootstrap-wysiwyg -->
-    <link href="../resources/vendors/google-code-prettify/bin/prettify.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/google-code-prettify/bin/prettify.min.css"/>" rel="stylesheet">
     <!-- Switchery -->
-    <link href="../resources/vendors/switchery/dist/switchery.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/switchery/dist/switchery.min.css"/>" rel="stylesheet">
     <!-- Select2 -->
-    <link href="../resources/vendors/select2/dist/css/select2.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/select2/dist/css/select2.min.css"/>" rel="stylesheet">
     <!-- Datatables -->
-    <link href="../resources/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../resources/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-    <link href="../resources/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-    <link href="../resources/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-    <link href="../resources/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css"/>" rel="stylesheet">
     
     <!-- bootstrap-daterangepicker -->
-    <link href="../resources/vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/bootstrap-daterangepicker/daterangepicker.css"/>" rel="stylesheet">
     
     <!-- Jquery Confirm -->
-    <link href="<c:url value="../resources/vendors/jquery-confirm-master/dist/jquery-confirm.min.css"/>" rel="stylesheet">
+    <link href="<c:url value="/resources/vendors/jquery-confirm-master/dist/jquery-confirm.min.css"/>" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="../resources/build/css/custom.min.css" rel="stylesheet">
+    <link href="<c:url value="/resources/build/css/custom.min.css"/>" rel="stylesheet">
     
     <!-- *************************** - - 
    			Configura��o Pessoal		
@@ -86,11 +84,7 @@
                 <ul class="nav side-menu">
 	     			<li><a href="<c:url value="/Admin/dashboard"/>"><i class="fa fa-bar-chart-o"></i> Dashboard</a>
 	                </li>
-                      <li><a><i class="fa fa-road"></i> Pedidos <span class="fa fa-chevron-down"></span></a>
-	                    <ul class="nav child_menu">
-                     	  <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-eye"></i> Visualizar</a></li>
-                     	  <li><a href="<c:url value="/Admin/Add_Pedido"/>"><i class="fa fa-plus"></i> Adicionar</a></li>
-	                    </ul>
+                      <li><a href="<c:url value="/Admin/pedido"/>"><i class="fa fa-road"></i> Pedidos</a>
 	                  </li>
                       <li><a><i class="fa fa-cubes"></i> Produtos <span class="fa fa-chevron-down"></span></a>
 	                    <ul class="nav child_menu">

@@ -119,7 +119,7 @@
 							  	  <br>
 								  <div class="col-md-offset-4 col-sm-offset-3 col-xs-offset-2 col-md-4 col-sm-6 col-xs-8">
 								  	<label>Quantidade:</label>
-								  	<input type="number" name="quantidade" value="1" size="2" min="0" max="${ prod_forn.quantidade_prod }" class="form-control">
+								  	<input type="number" name="quantidade" value="1" size="2" min="1" max="${ prod_forn.quantidade_prod }" class="form-control">
 								  </div>
 								</form>
 							  </div>

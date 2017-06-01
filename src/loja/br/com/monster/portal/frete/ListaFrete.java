@@ -19,6 +19,16 @@ public class ListaFrete {
 	private String erro;				// <Códigos de Erros retornados pelo calculador> + o código 7 (Serviço indisponível, tente mais tarde)
 	private String msgErro;				// Retorna a descrição do erro gerado.
 	
+	public Double converterValorDouble(String valor){
+		valor = valor.replaceAll(",", ".");
+		System.out.println(valor+"-----------------------------------------------------------------------");
+		return Double.parseDouble(valor);
+	}
+	
+	public Integer converterPrazoInteger(String prazoEntrega){
+		return Integer.parseInt(prazoEntrega);
+	}
+	
 	// Getters And Setters ...
 	
 	public String getCodigo() {

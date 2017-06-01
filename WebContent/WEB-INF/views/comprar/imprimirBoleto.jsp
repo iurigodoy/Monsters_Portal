@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-<c:set var = "preco_total" scope = "session" value = "${pedido.getPreco_total(pedido.preco_ped, pedido.custo_forma_de_pagamento_ped, pedido.custo_frete_ped)}"/>
+<c:set var = "preco_total" scope = "session" value = "${pedido.preco_total}"/>
 
 <fmt:setLocale value="pt-BR" />
 

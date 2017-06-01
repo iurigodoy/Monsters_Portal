@@ -233,6 +233,14 @@ public class Fornecedor {
 			Set<Produto_has_fornecedor> produto_has_fornecedor) {
 		this.produto_has_fornecedor = produto_has_fornecedor;
 	}
+
+	public String getNumero_for() {
+		return numero_for;
+	}
+
+	public void setNumero_for(String numero_for) {
+		this.numero_for = numero_for;
+	}
 	
 	
 }

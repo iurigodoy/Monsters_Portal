@@ -9,9 +9,8 @@ import br.com.monster.portal.security.EnumEntidade;
 import br.com.monster.portal.security.EnumMetodo;
 
 public interface RelatorioDao {
-	
-	List<Relatorio> Read();
-	Relatorio Find_One(Long id);
+
+	List<Relatorio> Find_One(Long id);
 	
 	void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidades);
 	

@@ -5,6 +5,12 @@
     
 <c:import url="../Header.jsp" />
 
+<style>
+.cadastro{
+	display: none;
+}
+</style>
+
 <div class="container">
   <div class="panel panel-default">
 	<div class="panel-body">
@@ -16,7 +22,7 @@
 			<h5 class="green"><i class="fa fa-lock"></i> Compra segura</h5>
 		  </div>
 		</div>
-	  	<div class="col-md-4 col-sm-6 col-xs-12">
+	  	<div class="col-md-6 col-sm-6 col-xs-12">
 	  	  <h4>Login</h4>
 			<form class="form-horizontal form-label-left input_mask" role="form" method="POST" action="loginIdentificacao">
 		
@@ -47,13 +53,11 @@
 		                                <button type="submit" class="btn btn-primary">
 		                                    <i class="fa fa-btn fa-sign-in"></i> Login
 		                                </button>
-		
-		                                <a class="btn btn-link"  href="#signup">Esqueci a senha !</a>
 		                            </div>
 		                        </div>
 			</form>
 		</div>
-	  	<div class="col-md-4 col-sm-6 col-xs-12 footer-left-border-div">
+	  	<div class="col-md-6 col-sm-6 col-xs-12 footer-left-border-div">
 	  		<h4>Cadastro</h4>
 	  		<br>
 	  		<p><strong>fazer cadastro</strong></p>
@@ -62,20 +66,24 @@
 	  		  <li>Compras rápidas com poucos cliques.</li>
 	  		  <li>Salve seus dados e não perca tempo.</li>
 	  		</ul>
-			<c:import url="cadastro_completo.jsp" />
 		</div>
-	  	<div class="col-md-4 col-sm-6 col-xs-12 footer-left-border-div">
-	  		<h4>Comprar Agora</h4>
-	  		<br>
-	  		<p><strong>compre sem cadastro</strong></p>
-	  		<ul>
-	  		  <li>Não precisa de login para comprar</li>
-	  		  <li>Apenas para pessoas físicas.</li>
-	  		</ul>
+	  	<div class="col-md-offset-6 col-sm-offset-6 col-xs-offset-0 col-md-6 col-sm-6 col-xs-12">
+	  	  <button class="btn btn-md btn-success btn-cadastro">Cadastrar</button>
+	  	  <br><br>
+	  	  <div class="cadastro">
+			<c:import url="cadastro_completo.jsp" />
+		  </div>
 		</div>
 	</div>
   </div>
 </div>
 
 <c:import url="../Footer.jsp" />
+<script>
+$(document).ready(function(){
+	$(".btn-cadastro").click(function(){
+	    $(".cadastro").fadeIn();
+	});
+});
+</script>
                     

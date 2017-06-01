@@ -1,13 +1,8 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Banner/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Cliente/edt.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Dashboard/acessos.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Fornecedor/edt.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Funcionario/edt.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Funcionario/relatorio.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Pedido/edt.jsp=UTF-8
-encoding//WebContent/WEB-INF/views/admin/Pedido/read.jsp=UTF-8
 encoding//WebContent/WEB-INF/views/admin/Produto/edt.jsp=UTF-8
 encoding//src/br/com/monster/portal/adm/controller=UTF-8
 encoding//src/br/com/monster/portal/jpaModelDao/JpaFuncionarioDao.java=UTF-8

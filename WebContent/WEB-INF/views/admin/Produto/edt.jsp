@@ -3,57 +3,37 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
-            <div class="page-title">
-              <div class="title_left">
-                <h3><i class="fa fa-cubes"></i> Produtos</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Procure por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-            
 <!--	Formulário de Edição Aqui !!!	-->
 <!--		Formulário		-->
 <form action="<c:url value="UpdateProduto"/>" method="POST" class="form-horizontal form-label-left input_mask">
 
 <!--	Input sem ícone 	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_nome" class="form-control" placeholder="Nome" title="Nome" value="${ produto.pro_nome }">
+  <input type="text" name="nome_pro" class="form-control" placeholder="Nome" title="Nome" value="${ produto.nome_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_descricao" class="form-control" placeholder="Descricao" title="Descricao" value="${ produto.pro_descricao }">
+  <input type="text" name="descricao_pro" class="form-control" placeholder="Descricao" title="Descricao" value="${ produto.descricao_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_desconto" class="form-control" placeholder="Desconto" title="Desconto" value="${ produto.pro_desconto }">
+  <input type="text" name="desconto_pro" class="form-control" placeholder="Desconto" title="Desconto" value="${ produto.desconto_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_peso" class="form-control" placeholder="Peso" title="Peso" value="${ produto.pro_peso }">
+  <input type="text" name="peso_pro" class="form-control" placeholder="Peso" title="Peso" value="${ produto.peso_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_altura" class="form-control" placeholder="Altura" title="Altura" value="${ produto.pro_altura }">
+  <input type="text" name="altura_pro" class="form-control" placeholder="Altura" title="Altura" value="${ produto.altura_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_largura" class="form-control" placeholder="Largura" title="Largura" value="${ produto.pro_largura }">
+  <input type="text" name="largura_pro" class="form-control" placeholder="Largura" title="Largura" value="${ produto.largura_pro }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="pro_comprimento" class="form-control" placeholder="Comprimento" title="Comprimento" value="${ produto.pro_comprimento }">
+  <input type="text" name="comprimento_pro" class="form-control" placeholder="Comprimento" title="Comprimento" value="${ produto.comprimento_pro }">
 </div>
 
 
@@ -62,19 +42,19 @@
 <!--	Booleano	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>
-	<input type="checkbox" name="pro_publicado" class="js-switch"   title="Produto Publicado" value="${ produto.pro_publicado "> <i class="fa fa-plus"></i> Produto Publicado ?
+	<input type="checkbox" name="publicado_pro" class="js-switch"   title="Produto Publicado" value="${ produto.publicado_pro }"> <i class="fa fa-plus"></i> Produto Publicado ?
   </label>
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>
-	<input type="checkbox" name="pro_destaque" class="js-switch"   title="Produto Destaque" value="${ produto.pro_destaque "> <i class="fa fa-plus"></i> Produto Destaque ?
+	<input type="checkbox" name="destaque_pro" class="js-switch"   title="Produto Destaque" value="${ produto.destaque_pro }"> <i class="fa fa-plus"></i> Produto Destaque ?
   </label>
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>
-	<input type="checkbox" name="pro_promocao" class="js-switch"   title="Promocao" value="${ produto.pro_promocao "> <i class="fa fa-plus"></i> Produto em Promoção ?
+	<input type="checkbox" name="promocao_pro" class="js-switch"   title="Promocao" value="${ produto.promocao_pro }"> <i class="fa fa-plus"></i> Produto em Promoção ?
   </label>
 </div>
 <!--	Select com
@@ -99,18 +79,18 @@
 
 <!--							Propriedades de Tempo								-->
 
-	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ pro.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
-	<c:if test="${not empty pro.deleted_at}">
-		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ pro.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ produto.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<c:if test="${not empty produto.deleted_at}">
+		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ produto.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
 	</c:if>
-	<input type="hidden" name="deleted"		value="${ pro.deleted }"/>
+	<input type="hidden" name="deleted"		value="${ produto.deleted }"/>
 
 
 
 	<p>
-	Criado em:		<strong><fmt:formatDate value="${ pro.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Atualizado em:	<strong><fmt:formatDate value="${ pro.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Apagado em:		<strong><fmt:formatDate value="${ pro.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
+	Criado em:		<strong><fmt:formatDate value="${ produto.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Atualizado em:	<strong><fmt:formatDate value="${ produto.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Apagado em:		<strong><fmt:formatDate value="${ produto.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
     </p>
 
 </form>

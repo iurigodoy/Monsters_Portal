@@ -83,7 +83,7 @@ public class Pedido {
 	@OneToMany(mappedBy="pedido")
 	private Set<Pedido_has_produto> pedido_has_produto;
 	
-	public Double getPreco_total(Double preco_ped, Double custo_forma_de_pagamento_ped, Double custo_frete_ped){
+	public Double getPreco_total(){
 		Double precoTotal = preco_ped + custo_forma_de_pagamento_ped + custo_frete_ped;
 		return precoTotal;
 	}

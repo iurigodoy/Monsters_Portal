@@ -12,8 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import br.com.monster.portal.model.Cargo;
-import br.com.monster.portal.model.FornecedorMultiple;
-import br.com.monster.portal.model.ImagemMultiple;
+import br.com.monster.portal.model.Permissao;
 import br.com.monster.portal.modelDao.CargoDao;
 import br.com.monster.portal.modelDao.RelatorioDao;
 import br.com.monster.portal.security.EnumEntidade;
@@ -60,12 +59,12 @@ public class CargoController {
 		 */
 		
 	@RequestMapping("Admin/CreateCargo")
-	public String create(HttpSession session, @Valid Cargo cargo, ImagemMultiple imagens, FornecedorMultiple fornecedores, BindingResult result) {
+	public String create(HttpSession session, @Valid Cargo cargo, Permissao permissao, BindingResult result) {
 		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar Permissão
 			if(result.hasErrors()) {											//	Se houver erro na validação
 			    return "forward:cargo";								//	Volte para a página de adição
 			} else {
-				dao.create(cargo);												//	Ação no banco
+				dao.create(cargo, permissao);									//	Ação no banco
 				relatorio.gerarRelatorio(session, EnumMetodo.CRIAR, entidade);	//	Relatório
 				return "redirect:cargo";										//	Retorna para o método Read
 			}
@@ -107,12 +106,12 @@ public class CargoController {
 		 */
 		
 	@RequestMapping("Admin/UpdateCargo")
-	public String update(HttpSession session, @Valid Cargo cargo, BindingResult result) {
+	public String update(HttpSession session, @Valid Cargo cargo, Permissao permissao, BindingResult result) {
 		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){				//	Consulta Permissão
 			if(result.hasErrors()) {												//	Se houver erro na validação
 			    return "forward:cargo";												//	Volte
 			} else {
-				dao.update(cargo);													//	Ação no banco
+				dao.update(cargo, permissao);													//	Ação no banco
 				relatorio.gerarRelatorio(session, EnumMetodo.ATUALIZAR, entidade);	//	Gera Relatório e armazena no banco
 				return "redirect:cargo";											//	Retorna para o método Read
 			}

@@ -3,58 +3,30 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
-            <div class="page-title">
-              <div class="title_left">
-                <h3><i class="fa fa-group"></i> Clientes </h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Procure por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-<!--	Formulário de Edição Aqui !!!	-->
-<!--		Formulário		-->
-<form action="<c:url value="UpdateCliente"/>" method="POST" class="form-horizontal form-label-left input_mask">
-
 <!--	Input sem ícone 	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_nome" class="form-control" placeholder="Nome" title="Nome" value="${ cliente.cli_nome }">
+  <input type="text" name="nome_cli" class="form-control" placeholder="Nome" title="Nome" value="${ cliente.nome_cli }">
+</div>
+
+<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+  <input type="text" name="cpf_cli" class="form-control" placeholder="CPF" title="CPF" value="${ cliente.cpf_cli }">
+</div>
+
+<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+  <input type="text" name="cnpj_cli" class="form-control" placeholder="CNPJ" title="CNPJ" value="${ cliente.cnpj_cli }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_cpf" class="form-control" placeholder="CPF" title="CPF" value="${ cliente.cli_cpf }">
+  <input type="text" name="sexo_cli" class="form-control" placeholder="Sexo" title="Sexo" value="${ cliente.sexo_cli }">
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_cnpj" class="form-control" placeholder="CNPJ" title="CNPJ" value="${ cliente.cli_cnpj }">
-</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_sexo" class="form-control" placeholder="Sexo" title="Sexo" value="${ cliente.cli_sexo }">
-</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <input type="text" name="cep_cli" class="form-control" placeholder="CEP" title="CEP" value="${ cliente.cep_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_senha" class="form-control" placeholder="Senha" title="Senha" value="${ cliente.cli_senha }">
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_cep" class="form-control" placeholder="CEP" title="CEP" value="${ cliente.cli_cep }">
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_estado" class="form-control" placeholder="Estado" title="Estado" value="${ cliente.cli_estado }">
-					<select>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <select name="estado_cli" class="form-control">
 							<option value="">Estado
 							<option value="AC">AC
 							<option value="AL">AL
@@ -84,36 +56,36 @@
 							<option value="SE">SE
 							<option value="TO">TO
 						</select>
-</div>
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_cidade" class="form-control" placeholder="Cidade" title="Cidade" value="${ cliente.cli_cidade }">
-</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <input type="text" name="cidade_cli" class="form-control" placeholder="Cidade" title="Cidade" value="${ cliente.cidade_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_endereco" class="form-control" placeholder="Endereco" title="Endereco" value="${ cliente.cli_endereco }">
-</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <input type="text" name="endereco_cli" class="form-control" placeholder="Endereco" title="Endereco" value="${ cliente.endereco_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_numero" class="form-control" placeholder="Numero" title="Numero" value="${ cliente.cli_numero }">
-</div>
+					<div class="col-md-3 col-sm-3 col-xs-12 form-group">
+					  <input type="text" name="numero_cli" class="form-control" placeholder="Numero" title="Numero" value="${ cliente.numero_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_complemento" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.cli_complemento }">
-</div>
+					<div class="col-md-9 col-sm-9 col-xs-12 form-group">
+					  <input type="text" name="complemento_cli" class="form-control" placeholder="Complemento" title="Complemento" value="${ cliente.complemento_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_residencial" class="form-control" placeholder="Residencial" title="Residencial" value="${ cliente.cli_residencial }">
-</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <input type="text" name="residencial_cli" class="form-control" placeholder="Tel. Residencial" title="Residencial" value="${ cliente.residencial_cli }">
+					</div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_celular" class="form-control" placeholder="Celular" title="Celular" value="${ cliente.cli_celular }">
-</div>
+					<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					  <input type="text" name="celular_cli" class="form-control" placeholder="Celular" title="Celular" value="${ cliente.celular_cli }">
+					</div>
 
 <!--	Input com ícone
 		(Preferencial)  	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="cli_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ cliente.cli_email }">
+  <input type="text" name="email_cli" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ cliente.email_cli }">
   <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
 </div>
 
@@ -121,37 +93,28 @@
 <!--	Booleano	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
   <label>
-	<input type="checkbox" name="cli_ativo" class="js-switch" title="Cliente Ativo" value="${ cliente.cli_ativo }"> <i class="fa fa-plus"></i> Cliente Ativo 
+	<input type="checkbox" name="ativo_cli" class="js-switch" title="Cliente Ativo" value="${ cliente.ativo_cli }"> Cliente Ativo 
   </label>
-</div>
-
-
-<!--	Botão de envio	-->
-<div class="btn-group pull-right">
-  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
-	<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
-  </button>
 </div>
 
 <!--							Padrões do Sistema									-->
 
-	<input type="hidden" name="id_cliente"	value="${ cliente.id_cliente }"/>
+<input type="hidden" name="id_cliente"	value="${ cliente.id_cliente }"/>
+<input type="hidden" name="senha_cli" class="form-control" placeholder="Senha" title="Senha" value="${ cliente.senha_cli }">
 
 <!--							Propriedades de Tempo								-->
 
-	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ cli.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
-	<c:if test="${not empty cli.deleted_at}">
-		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ cli.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ cliente.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<c:if test="${not empty cliente.deleted_at}">
+		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ cliente.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
 	</c:if>
-	<input type="hidden" name="deleted"		value="${ cli.deleted }"/>
+	<input type="hidden" name="deleted"		value="${ cliente.deleted }"/>
 
 
 
 	<p>
-	Criado em:		<strong><fmt:formatDate value="${ cli.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Atualizado em:	<strong><fmt:formatDate value="${ cli.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Apagado em:		<strong><fmt:formatDate value="${ cli.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
+	Criado em:		<strong><fmt:formatDate value="${ cliente.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Atualizado em:	<strong><fmt:formatDate value="${ cliente.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Apagado em:		<strong><fmt:formatDate value="${ cliente.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
     </p>
-
-</form>
 

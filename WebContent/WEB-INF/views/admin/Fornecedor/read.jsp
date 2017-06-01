@@ -138,87 +138,88 @@
 					<!--		Formulário		-->
 					<form action="<c:url value="CreateFornecedor"/>" method="POST" class="form-horizontal form-label-left input_mask">
 
-					<!--	Input sem ícone 	-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="nome_for" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.nome_for }">
-					</div>
+						<input type="hidden" name="logo_for" value="teste.jpg">
+						<!--	Input sem ícone 	-->
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="nome_for" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.nome_for }">
+						</div>
+						
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="cnpj_for" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.cnpj_for }">
+						</div>
+						
+						<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+						  <input type="text" name="cep_for" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.cep_for }">
+						</div>
+						
+						<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+											<select class="form-control" name="estado_for">
+													<option value="">Estado
+													<option value="AC">AC
+													<option value="AL">AL
+													<option value="AP">AP
+													<option value="AM">AM
+													<option value="BA">BA
+													<option value="CE">CE
+													<option value="DF">DF
+													<option value="ES">ES
+													<option value="GO">GO
+													<option value="MA">MA
+													<option value="MT">MT
+													<option value="MS">MS
+													<option value="MG">MG
+													<option value="PA">PA
+													<option value="PB">PB
+													<option value="PR">PR
+													<option value="PE">PE
+													<option value="PI">PI
+													<option value="RJ">RJ
+													<option value="RN">RN
+													<option value="RO">RO
+													<option value="RS">RS
+													<option value="RR">RR
+													<option value="SC">SC
+													<option value="SP">SP
+													<option value="SE">SE
+													<option value="TO">TO
+												</select>
+						</div>
+						
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="cidade_for" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.cidade_for }">
+						</div>
+						
+						<div class="col-md-9 col-sm-9 col-xs-12 form-group">
+						  <input type="text" name="endereco_for" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.endereco_for }">
+						</div>
+						
+						<div class="col-md-3 col-sm-3 col-xs-12 form-group">
+						  <input type="text" name="numero_for" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.numero_for }">
+						</div>
+						
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="complemento_for" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.complemento_for }">
+						</div>
+						
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="comercial_for" class="form-control has-feedback-left" placeholder="Comercial" title="Comercial" value="${ fornecedor.comercial_for }">
+						  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-phone"></i></span>
+						</div>
+						
+						<!--	Input com ícone
+								(Preferencial)  	-->
+						<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+						  <input type="text" name="email_for" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.email_for }">
+						  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
+						</div>
 
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cnpj_for" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.cnpj_for }">
-					</div>
 
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cep_for" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.cep_for }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="estado_for" class="form-control" placeholder="Estado" title="Estado" value="${ fornecedor.estado_for }">
-					  <select>
-							<option value="">Estado
-							<option value="AC">AC
-							<option value="AL">AL
-							<option value="AP">AP
-							<option value="AM">AM
-							<option value="BA">BA
-							<option value="CE">CE
-							<option value="DF">DF
-							<option value="ES">ES
-							<option value="GO">GO
-							<option value="MA">MA
-							<option value="MT">MT
-							<option value="MS">MS
-							<option value="MG">MG
-							<option value="PA">PA
-							<option value="PB">PB
-							<option value="PR">PR
-							<option value="PE">PE
-							<option value="PI">PI
-							<option value="RJ">RJ
-							<option value="RN">RN
-							<option value="RO">RO
-							<option value="RS">RS
-							<option value="RR">RR
-							<option value="SC">SC
-							<option value="SP">SP
-							<option value="SE">SE
-							<option value="TO">TO
-						</select>
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cidade_for" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.cidade_for }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="endereco_for" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.endereco_for }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="numero_for" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.numero_for }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="complemento_for" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.complemento_for }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="comercial_for" class="form-control" placeholder="Comercial" title="Comercial" value="${ fornecedor.comercial_for }">
-					</div>
-
-					<!--	Input com ícone
-							(Preferencial)  	-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="email_for" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.email_for }">
-					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
-					</div>
-
-
-					<!--	Botão de envio	-->
-					<div class="btn-group pull-right">
-					  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
-						<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
-					  </button>
-					</div>
+						<!--	Botão de envio	-->
+						<div class="btn-group pull-right">
+						  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
+							<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
+						  </button>
+						</div>
 					</form>
 				<!--	-->
                   </div>

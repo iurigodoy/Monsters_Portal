@@ -57,7 +57,7 @@ public class FornecedorController {
 	 *	@return String - Manipulado pelo Spring para o método read (leitura)
 	 */
 	
-	@RequestMapping("Admin/CreateForncedor")
+	@RequestMapping("Admin/CreateFornecedor")
 	public String create(HttpSession session, @Valid Fornecedor fornecedor, BindingResult result) {
 		if(Permissoes.checar(session, EnumMetodo.CRIAR, entidade)){				//	Checar Permissão
 			if(result.hasErrors()) {											//	Se houver erro na validação

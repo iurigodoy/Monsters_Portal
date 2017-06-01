@@ -44,9 +44,8 @@ public class JpaPedidoDao implements PedidoDao {
 			
 	    	Query query = manager
 			        .createQuery("SELECT ped "
-			        		+ "FROM Pedido ped INNER JOIN ped.cliente cli "
-			        		+ "WHERE ped.deleted = false "
-			        		+ "ORDER BY ped.data_pedido DESC");
+			        		+ "FROM Pedido ped "
+			        		+ "ORDER BY ped.created_at DESC");
 
 			@SuppressWarnings("unchecked")
 			List<Pedido> pedidos = query.getResultList();
@@ -236,9 +235,9 @@ public class JpaPedidoDao implements PedidoDao {
 	   public void restore(Long id) {
 		   
 		   Query query = manager
-				   .createQuery("UPDATE Pedido pedido "
+				   .createQuery("UPDATE Pedido ped "
 				   				+ "SET ped.deleted = false "
-   								+ "WHERE ped.pedido = :id");
+   								+ "WHERE ped.id_pedido = :id");
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }

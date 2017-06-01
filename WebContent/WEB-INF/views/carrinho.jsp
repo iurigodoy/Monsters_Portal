@@ -3,7 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="Header.jsp" />
-  <div class="content">
+  <div class="container">
 	<div class="col-xs-12">
 	  <div class="panel panel-default">
 		<div class="panel-heading">
@@ -39,7 +39,7 @@
 					 <strong>${ prod.produto_has_fornecedor.fornecedor.nome_for }</strong>
 				  	</td>
 					<td>${ prod.quantidade }</td>
-					<td>R$ ${ prod.produto_has_fornecedor.preco_prod }</td><!-- PROVISÓRIO -->
+					<td>R$ ${ prod.produto_has_fornecedor.produto.calcularDesconto(prod.produto_has_fornecedor.preco_prod) }</td><!-- PROVISÓRIO -->
 					<td>
 					  <form action="<c:url value="RemoveItemCarrinho"/>" method="POST">
 						  <input type="hidden" name="indiceItem" value="${ delete.index }">
@@ -54,7 +54,16 @@
 			  	<tr id="total-carrinho"><td></td><td></td><td></td><td>total: R$  ${ carrinho.total }</td><td></td></tr>
 			</tbody>
 		  </table>
-		  <div class="col-xs-12 col-sm-4 col-md-3 pull-right">
+		  <div class="col-xs-6 col-sm-4 col-md-3">
+			<c:if test="${ carrinho.valorFrete > 0.00 }">
+			  	<h4>Frete</h4>
+				<ul class="fa-ul">
+				  <li><i class="fa-li fa fa-money"></i> Valor: R$ ${ carrinho.valorFrete }</li>
+				  <li><i class="fa-li fa fa-clock-o"></i> Entrega em: ${ carrinho.prazoEntrega } dias.</li>
+				</ul>
+			</c:if>
+		  </div>
+		  <div class="col-xs-6 col-sm-4 col-md-3 pull-right">
 			<a href="<c:url value="/checarIdentificacao"/>">
 			  <button class="btn btn-danger btn-block btn-comprar">
 				<i class="fa fa-"></i> Finalizar Compra

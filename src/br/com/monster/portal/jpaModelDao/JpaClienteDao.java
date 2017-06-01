@@ -60,8 +60,7 @@ public class JpaClienteDao implements ClienteDao {
 					// Escreve a SQL
 					Query query = manager
 					        .createQuery("SELECT cli FROM Cliente cli "
-					        		+ "WHERE cli.id_cliente = :Id "
-					                + "ORDER BY nome_cliente DESC");
+					        		+ "WHERE cli.id_cliente = :Id ");
 					
 					query.setParameter("Id", (long) id);
 			
@@ -162,7 +161,7 @@ public class JpaClienteDao implements ClienteDao {
 	   public void restore(Long id) {
 		   
 		   Query query = manager
-				   .createQuery("UPDATE Cliente cliente "
+				   .createQuery("UPDATE Cliente cli "
 				   				+ "SET cli.deleted = false "
    								+ "WHERE cli.id_cliente = :id");
 			query.setParameter("id", id);

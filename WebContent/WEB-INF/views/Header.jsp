@@ -168,11 +168,14 @@
 					<li><a href="<c:url value="/login"/>"><i class="glyphicon glyphicon-log-in"></i> Login</a></li>
 				  </c:if>
 				  <c:if test="${not empty clienteLogado.email_cli}">
-					<li><a href="<c:url value="/MinhaConta"/>"><i class="glyphicon glyphicon-user"></i> ${clienteLogado.nome_cli}</a></li>
+					<li><a href="<c:url value="/MinhaConta"/>"><i class="glyphicon glyphicon-user"></i> ${clienteLogado.primeiroNome}</a></li>
 					<li><a href="<c:url value="/logout"/>"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
 				  </c:if>
 				<li><a href="<c:url value="/carrinho"/>">
 					<i class="fa fa-shopping-cart" style="font-size: 20px"></i>
+					<c:if test="${ carrinho.total > 0.0 }">
+					  <span class="badge bg-red">${ carrinho.totalDeItens }</span>
+					</c:if>
 				</a></li>
 			  </ul>
 			</div>

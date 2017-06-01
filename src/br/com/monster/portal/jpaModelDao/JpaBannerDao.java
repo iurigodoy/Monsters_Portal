@@ -1,7 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -122,34 +121,11 @@ public class JpaBannerDao implements BannerDao {
 	    */
 
 	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
-		   Query query = manager
-				   .createQuery("UPDATE Banner ban "
-				   				+ "SET ban.deleted = true, "
-				   				+ "ban.deleted_at = :Deleted_at "
-   								+ "WHERE ban.id_banner = :id");
-			query.setParameter("Deleted_at", datetime);
-			query.setParameter("id", id);
-			query.executeUpdate();
+		   Banner banner = findOne(id);
+		   manager.remove(banner);
 	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Restore			
-	    * ----------------------------------
-	    * 
-	    */
 
-	   public void restore(Long id) {
-		   
-		   Query query = manager
-				   .createQuery("UPDATE Banner ban "
-				   				+ "SET ban.deleted = false "
-   								+ "WHERE ban.id_banner = :id");
-			query.setParameter("id", id);
-			query.executeUpdate();
-	   }
+	public void restore(Long id) {
+	}
 	   
 }

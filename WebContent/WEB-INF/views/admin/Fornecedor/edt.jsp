@@ -3,46 +3,22 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
-
-            <div class="page-title">
-              <div class="title_left">
-                <h3><i class="fa fa-truck"></i> Fornecedores </h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Procure por...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Vá!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-			
-<!--	Formulário de Edição Aqui !!!	-->
-<!--		Formulário		-->
-<form action="<c:url value="UpdateFornecedor"/>" method="POST" class="form-horizontal form-label-left input_mask">
-
 <!--	Input sem ícone 	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_nome" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.for_nome }">
+  <input type="text" name="nome_for" class="form-control" placeholder="Nome" title="Nome" value="${ fornecedor.nome_for }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_cnpj" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.for_cnpj }">
+  <input type="text" name="cnpj_for" class="form-control" placeholder="CPNJ" title="CPNJ" value="${ fornecedor.cnpj_for }">
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_cep" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.for_cep }">
+<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+  <input type="text" name="cep_for" class="form-control" placeholder="CEP" title="CEP" value="${ fornecedor.cep_for }">
 </div>
 
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_estado" class="form-control"  title="Estado" value="${ fornecedor.for_estado }">
-					<select>
+<div class="col-md-6 col-sm-6 col-xs-12 form-group">
+					<select class="form-control" name="estado_for">
+							<option value="${ fornecedor.estado_for }">${ fornecedor.estado_for }
 							<option value="">Estado
 							<option value="AC">AC
 							<option value="AL">AL
@@ -75,58 +51,50 @@
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_cidade" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.for_cidade }">
+  <input type="text" name="cidade_for" class="form-control" placeholder="Cidade" title="Cidade" value="${ fornecedor.cidade_for }">
+</div>
+
+<div class="col-md-9 col-sm-9 col-xs-12 form-group">
+  <input type="text" name="endereco_for" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.endereco_for }">
+</div>
+
+<div class="col-md-3 col-sm-3 col-xs-12 form-group">
+  <input type="text" name="numero_for" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.numero_for }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_endereco" class="form-control" placeholder="Endereco" title="Endereco" value="${ fornecedor.for_endereco }">
+  <input type="text" name="complemento_for" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.complemento_for }">
 </div>
 
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_numero" class="form-control" placeholder="Numero" title="Numero" value="${ fornecedor.for_numero }">
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_complemento" class="form-control" placeholder="Complemento" title="Complemento" value="${ fornecedor.for_complemento }">
-</div>
-
-<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_comercial" class="form-control" placeholder="Comercial" title="Comercial" value="${ fornecedor.for_comercial }">
+  <input type="text" name="comercial_for" class="form-control has-feedback-left" placeholder="Comercial" title="Comercial" value="${ fornecedor.comercial_for }">
+  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-phone"></i></span>
 </div>
 
 <!--	Input com ícone
 		(Preferencial)  	-->
 <div class="col-md-12 col-sm-12 col-xs-12 form-group">
-  <input type="text" name="for_email" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.for_email }">
+  <input type="text" name="email_for" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ fornecedor.email_for }">
   <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
 </div>
 
-
-<!--	Botão de envio	-->
-<div class="btn-group pull-right">
-  <button type="submit" class="btn btn-sm btn-success pull-right" title="Salvar">
-	<i class="glyphicon glyphicon-ok" style="font-size:12px;"></i> Salvar
-  </button>
-</div>
 <!--							Padrões do Sistema									-->
 
-	<input type="hidden" name="id_fornecedor"	value="${ fornecedor.id_fornecedor }"/>
+<input type="hidden" name="id_fornecedor"	value="${ fornecedor.id_fornecedor }"/>
+<input type="hidden" name="logo_for" value="${ fornecedor.logo_for }">
 
 <!--							Propriedades de Tempo								-->
 
-	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ for.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
-	<c:if test="${not empty for.deleted_at}">
-		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ for.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<input type="hidden" name="created_at"	value="<fmt:formatDate value="${ fornecedor.created_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
+	<c:if test="${not empty fornecedor.deleted_at}">
+		<input type="hidden" name="deleted_at"	value="<fmt:formatDate value="${ fornecedor.deleted_at }" pattern="yyyy/MM/dd HH:mm"/>"/>
 	</c:if>
-	<input type="hidden" name="deleted"		value="${ for.deleted }"/>
+	<input type="hidden" name="deleted"		value="${ fornecedor.deleted }"/>
 
 
 
 	<p>
-	Criado em:		<strong><fmt:formatDate value="${ for.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Atualizado em:	<strong><fmt:formatDate value="${ for.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
-    Apagado em:		<strong><fmt:formatDate value="${ for.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
+	Criado em:		<strong><fmt:formatDate value="${ fornecedor.created_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Atualizado em:	<strong><fmt:formatDate value="${ fornecedor.updated_at }" pattern="dd/MM/yyyy HH:mm"/></strong><br>
+    Apagado em:		<strong><fmt:formatDate value="${ fornecedor.deleted_at }" pattern="dd/MM/yyyy HH:mm"/></strong>
     </p>
-
-</form>
-

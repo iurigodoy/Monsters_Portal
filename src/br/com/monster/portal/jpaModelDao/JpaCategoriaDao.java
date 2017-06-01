@@ -37,9 +37,7 @@ public class JpaCategoriaDao implements CategoriaDao {
 			
 	    	Query query = manager
 			        .createQuery("SELECT pro "//16
-			        		+ "FROM Categoria pro "
-			        		+ "WHERE pro.deleted = false "
-			        		+ "ORDER BY pro.id_categoria ASC");
+			        		+ "FROM Categoria pro ");
 
 			@SuppressWarnings("unchecked")
 			List<Categoria> categorias = query.getResultList();

@@ -180,7 +180,7 @@ public class ClienteController {
 	@RequestMapping("Admin/FindCliente")
 	public String Find(Long id, HttpSession session, Model model) {
 		if(Permissoes.checar(session, EnumMetodo.ATUALIZAR, entidade)){			//	Consulta a permissão
-			model.addAttribute("cliente", dao.read());							//	Consulta o Banco e coloca na variável da página
+			model.addAttribute("cliente", dao.findOne(id));							//	Consulta o Banco e coloca na variável da página
 			return "admin/Cliente/edt";											//	Retorna para a página JSP edt
 		}
 		return"403";

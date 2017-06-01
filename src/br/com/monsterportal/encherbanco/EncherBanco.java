@@ -80,58 +80,6 @@ public class EncherBanco {
 		permissao.setRestaurarPedido(true);
 		permissao.setRestaurarProduto(true);
 		
-		
-		Permissao permissao1 = new Permissao();
-		
-		permissao1.setAtualizarBanner(true);
-		permissao1.setAtualizarCargo(true);
-		permissao1.setAtualizarCategoria(true);
-		permissao1.setAtualizarCliente(true);
-		permissao1.setAtualizarFornecedor(true);
-		permissao1.setAtualizarFuncionario(true);
-		permissao1.setAtualizarPedido(true);
-		permissao1.setAtualizarProduto(true);
-		
-		permissao1.setCriarBanner(true);
-		permissao1.setCriarCampanha(true);
-		permissao1.setCriarCargo(true);
-		permissao1.setCriarCategoria(true);
-		permissao1.setCriarCliente(true);
-		permissao1.setCriarFornecedor(true);
-		permissao1.setCriarFuncionario(true);
-		permissao1.setCriarPedido(true);
-		permissao1.setCriarProduto(true);
-
-		permissao1.setLerBanner(true);
-		permissao1.setLerCampanha(true);
-		permissao1.setLerCargo(true);
-		permissao1.setLerCategoria(true);
-		permissao1.setLerCliente(true);
-		permissao1.setLerFornecedor(true);
-		permissao1.setLerFuncionario(true);
-		permissao1.setLerPedido(true);
-		permissao1.setLerProduto(true);
-		
-		permissao1.setExcluirBanner(false);
-		permissao1.setExcluirCampanha(false);
-		permissao1.setExcluirCargo(false);
-		permissao1.setExcluirCategoria(false);
-		permissao1.setExcluirCliente(false);
-		permissao1.setExcluirFornecedor(false);
-		permissao1.setExcluirFuncionario(false);
-		permissao1.setExcluirPedido(false);
-		permissao1.setExcluirProduto(false);
-		
-		permissao1.setRestaurarBanner(false);
-		permissao1.setRestaurarCampanha(false);
-		permissao1.setRestaurarCargo(false);
-		permissao1.setRestaurarCategoria(false);
-		permissao1.setRestaurarCliente(false);
-		permissao1.setRestaurarFornecedor(false);
-		permissao1.setRestaurarFuncionario(false);
-		permissao1.setRestaurarPedido(false);
-		permissao1.setRestaurarProduto(false);
-		
 		Cargo cargo = new Cargo();
 
 		cargo.setNome_car("Super Usuário");
@@ -143,12 +91,12 @@ public class EncherBanco {
 		
 		Cargo cargo1 = new Cargo();
 
-		cargo1.setNome_car("Medio Usuário");
-		cargo1.setPadrao_car(true);
-	    cargo1.setCreated_at(cal.getTime());
-		cargo1.setUpdated_at(cal.getTime());
-	    cargo1.setDeleted_at(null);
-	    cargo1.setDeleted(false);
+		cargo.setNome_car("Medio Usuário");
+		cargo.setPadrao_car(false);
+	    cargo.setCreated_at(cal.getTime());
+		cargo.setUpdated_at(cal.getTime());
+	    cargo.setDeleted_at(null);
+	    cargo.setDeleted(false);
 		
 		Funcionario funcionario = new Funcionario();
 
@@ -164,39 +112,39 @@ public class EncherBanco {
 		
 		Funcionario funcionario1 = new Funcionario();
 
-		funcionario1.setNome_fun("Caue Silva");
-		funcionario1.setFoto_fun("foto3.jpg");
-		funcionario1.setCpf_fun("408.750.798-06");
-		funcionario1.setEmail_fun("cauueh@hotmail.com");
-		funcionario1.setCelular_fun("11 953200491");
-		funcionario1.setResidencial_fun("11 28564221");
-		funcionario1.criptografar_senha("123456");
-		System.out.println("-------------------------------------------------"+funcionario1.getSenha_fun()+"------------------------------------------------------------");
-		funcionario1.setBloqueado_fun(false);
+		funcionario.setNome_fun("Caue Silva");
+		funcionario.setFoto_fun("foto3.jpg");
+		funcionario.setCpf_fun("408.750.798-06");
+		funcionario.setEmail_fun("cauueh@hotmail.com");
+		funcionario.setCelular_fun("11 953200491");
+		funcionario.setResidencial_fun("11 28564221");
+		funcionario.criptografar_senha("123456");
+		System.out.println("-------------------------------------------------"+funcionario.getSenha_fun()+"------------------------------------------------------------");
+		funcionario.setBloqueado_fun(false);
 		
 		Funcionario funcionario2 = new Funcionario();
 
-		funcionario2.setNome_fun("Iam Carvalho");
-		funcionario2.setFoto_fun("foto2.jpg");
-		funcionario2.setCpf_fun("405.751.797-06");
-		funcionario2.setEmail_fun("iam@hotmail.com");
-		funcionario2.setCelular_fun("11 983200991");
-		funcionario2.setResidencial_fun("11 26548796");
-		funcionario2.criptografar_senha("123456");
-		System.out.println("-------------------------------------------------"+funcionario2.getSenha_fun()+"------------------------------------------------------------");
-		funcionario2.setBloqueado_fun(false);
+		funcionario.setNome_fun("Iam Carvalho");
+		funcionario.setFoto_fun("foto2.jpg");
+		funcionario.setCpf_fun("405.751.797-06");
+		funcionario.setEmail_fun("iam@hotmail.com");
+		funcionario.setCelular_fun("11 983200991");
+		funcionario.setResidencial_fun("11 26548796");
+		funcionario.criptografar_senha("123456");
+		System.out.println("-------------------------------------------------"+funcionario.getSenha_fun()+"------------------------------------------------------------");
+		funcionario.setBloqueado_fun(false);
 		
 		Funcionario funcionario3 = new Funcionario();
 
-		funcionario3.setNome_fun("Leandro Domiciano");
-		funcionario3.setFoto_fun("foto4.jpg");
-		funcionario3.setCpf_fun("409.771.585-01");
-		funcionario3.setEmail_fun("leandro.domi@hotmail.com");
-		funcionario3.setCelular_fun("11 993204981");
-		funcionario3.setResidencial_fun("11 29588796");
-		funcionario3.criptografar_senha("123456");
-		System.out.println("-------------------------------------------------"+funcionario3.getSenha_fun()+"------------------------------------------------------------");
-		funcionario3.setBloqueado_fun(false);
+		funcionario.setNome_fun("Leandro Domiciano");
+		funcionario.setFoto_fun("foto4.jpg");
+		funcionario.setCpf_fun("409.771.585-01");
+		funcionario.setEmail_fun("leandro.domi@hotmail.com");
+		funcionario.setCelular_fun("11 993204981");
+		funcionario.setResidencial_fun("11 29588796");
+		funcionario.criptografar_senha("123456");
+		System.out.println("-------------------------------------------------"+funcionario.getSenha_fun()+"------------------------------------------------------------");
+		funcionario.setBloqueado_fun(false);
 		
 		
 	    // Histórico
@@ -204,21 +152,6 @@ public class EncherBanco {
 		funcionario.setUpdated_at(cal.getTime());
 	    funcionario.setDeleted_at(null);
 	    funcionario.setDeleted(false);
-	    // Histórico
-	    funcionario1.setCreated_at(cal.getTime());
-		funcionario1.setUpdated_at(cal.getTime());
-	    funcionario1.setDeleted_at(null);
-	    funcionario1.setDeleted(false);
-	    // Histórico
-	    funcionario2.setCreated_at(cal.getTime());
-		funcionario2.setUpdated_at(cal.getTime());
-	    funcionario2.setDeleted_at(null);
-	    funcionario2.setDeleted(false);
-	    // Histórico
-	    funcionario3.setCreated_at(cal.getTime());
-		funcionario3.setUpdated_at(cal.getTime());
-	    funcionario3.setDeleted_at(null);
-	    funcionario3.setDeleted(false);
 
 		/*
 		 * 
@@ -226,81 +159,59 @@ public class EncherBanco {
 		 * 
 		 */
 		
-		Categoria celular = new Categoria();
-		celular.setNome_cat("celular");
-		celular.setHierarquia_cat(0);
+		Categoria categoria = new Categoria();
+		categoria.setNome_cat("celular");
+		categoria.setHierarquia_cat(0);
 	    // Histórico
-	    celular.setCreated_at(cal.getTime());
-		celular.setUpdated_at(cal.getTime());
-	    celular.setDeleted_at(null);
-	    celular.setDeleted(false);
+	    categoria.setCreated_at(cal.getTime());
+		categoria.setUpdated_at(cal.getTime());
+	    categoria.setDeleted_at(null);
+	    categoria.setDeleted(false);
 		
-		Categoria eletronico = new Categoria();
-		eletronico.setNome_cat("eletrodomestico");
-		eletronico.setHierarquia_cat(0);
+		Categoria categoria1 = new Categoria();
+		categoria.setNome_cat("eletronico");
+		categoria.setHierarquia_cat(0);
 	    // Histórico
-	    eletronico.setCreated_at(cal.getTime());
-		eletronico.setUpdated_at(cal.getTime());
-	    eletronico.setDeleted_at(null);
-	    eletronico.setDeleted(false);
+	    categoria.setCreated_at(cal.getTime());
+		categoria.setUpdated_at(cal.getTime());
+	    categoria.setDeleted_at(null);
+	    categoria.setDeleted(false);
 		
-		Categoria acessorios = new Categoria();
-		acessorios.setNome_cat("eletroeletronico");
-		acessorios.setHierarquia_cat(0);
+		Categoria categoria2 = new Categoria();
+		categoria.setNome_cat("acessorios");
+		categoria.setHierarquia_cat(0);
 	    // Histórico
-	    acessorios.setCreated_at(cal.getTime());
-		acessorios.setUpdated_at(cal.getTime());
-	    acessorios.setDeleted_at(null);
-	    acessorios.setDeleted(false);
+	    categoria.setCreated_at(cal.getTime());
+		categoria.setUpdated_at(cal.getTime());
+	    categoria.setDeleted_at(null);
+	    categoria.setDeleted(false);
 		
-		Categoria games = new Categoria();
-		games.setNome_cat("games");
-		games.setHierarquia_cat(0);	
+		Categoria categoria3 = new Categoria();
+		categoria.setNome_cat("games");
+		categoria.setHierarquia_cat(0);
 		
 	    // Histórico
-	    games.setCreated_at(cal.getTime());
-		games.setUpdated_at(cal.getTime());
-	    games.setDeleted_at(null);
-	    games.setDeleted(false);
-	    
+	    categoria.setCreated_at(cal.getTime());
+		categoria.setUpdated_at(cal.getTime());
+	    categoria.setDeleted_at(null);
+	    categoria.setDeleted(false);
+
 		/*
 		 * 
 		 * Produto
 		 * 
 		 */
 	    
-	    Produto produto = new Produto();
+	    Produto produto1 = new Produto();
 	    
-	    produto.setNome_pro("Samsung");
-	    produto.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto.setCategoria(games);
-	    // MKT
-	    produto.setPromocao_pro(true);
-	    produto.setPublicado_pro(true);
-	    produto.setDesconto_pro(0.10);
-	    produto.setDestaque_pro(true);
-	    // Logistica
-	    produto.setPeso_pro(0.100);
-	    produto.setAltura_pro(20.000);
-	    produto.setLargura_pro(20.000);
-	    produto.setComprimento_pro(20.000);
-	    produto.setDiametro_pro(20.000);
-	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
-	    
-		Produto produto1 = new Produto();
-	    
-	    produto1.setNome_pro("Lg");
-	    produto1.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto1.setCategoria(eletronico);
+	    produto1.setNome_pro("Kit Pneu Aro 14 Dunlop 175/65r14 Sptrgt1 82t 4 Unidades");
+	    produto1.setDescricao_pro("Dunlop Sp Touring T1 foi concebido para durar, e dispõe de quatro ranhuras retas com ranhuras anti-aqua planagem dentro da banda de rodagem para reduzir aqua planagem e excelente aderência em condições molhadas. O uso de um composto de sílica banda de rodagem nos pneus Dunlop Sp Touring T1 melhora as acelerações, frenagem e dirigibilidade durante as condições de estrada molhada. A melhoria da aderência e tração ajuda o desempenho nas estradas em tempo de chuva. O Dunlop Sp Touring T1 é um pneu projetado com enfoque na durabilidade para pequenas e veículos de médio porte. O Dunlop Sp Touring T1 é projetado com um polímero especializado para resistência ao desgaste, sem comprometer a aderência do polímero existente, para fazer controle superior na estrada.");
+	    produto1.setCategoria(acessorios);
 	    // MKT
 	    produto1.setPromocao_pro(true);
 	    produto1.setPublicado_pro(true);
 	    produto1.setDesconto_pro(0.10);
-	    produto1.setDestaque_pro(true);
+	    produto1.setDestaque_pro(false);
 	    // Logistica
 	    produto1.setPeso_pro(0.100);
 	    produto1.setAltura_pro(20.000);
@@ -313,11 +224,12 @@ public class EncherBanco {
 	    produto1.setDeleted_at(null);
 	    produto1.setDeleted(false);
 		
+		
 		Produto produto2 = new Produto();
 	    
-	    produto2.setNome_pro("Motorola");
-	    produto2.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto2.setCategoria(acessorios);
+	    produto2.setNome_pro("martphone LG K10 Novo Dual Chip Android 7.0 Tela 5,3 32GB 4G 13MP - Preto");
+	    produto2.setDescricao_pro("Toda experiência da internet rápida no seu celular com o 4G da LG para você! Acesse as redes sociais, compartilhe fotos, jogue, assista vídeos e muito mais com o Smartphone LG K10, Performance de respeito! O LG K10 vem com processador Octa Core, muito mais velocidade e fluidez para tornar seu dia a dia mais produtivo. Tudo isso em uma tela de 5.3 polegadas de alta qualidade com tecnologia In-Cell touch para melhor visualização em ambientes externos. Domine as suas fotos com uma super câmera principal de 13MP e câmera de selfie de 8MP com Quick Selfie 2.0 e Virtual Flash.");
+	    produto2.setCategoria(celular);
 	    // MKT
 	    produto2.setPromocao_pro(true);
 	    produto2.setPublicado_pro(true);
@@ -337,8 +249,8 @@ public class EncherBanco {
 		
 		Produto produto3 = new Produto();
 	    
-	    produto3.setNome_pro("Samsung test");
-	    produto3.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	    produto3.setNome_pro("Apple iPhone 6s Plus 16 GB Unlocked Brand New Rose Gold");
+	    produto3.setDescricao_pro("É só começar a usar o iPhone 6s para perceber como ele é diferente de tudo o que você já experimentou. Com o 3D Touch, você faz muito mais em um só toque. Com as Live Photos, suas memórias ganham vida e movimento. E essas são só algumas das novidades. Quando você explora o iPhone 6s a fundo, encontra camadas e camadas de inovação. O iPhone 6s vem com o chip A9 de 64 bits. Ele oferece um desempenho que antes só era possível em computadores. Você vai notar um aumento de até 70% no desempenho da CPU e de até 90% na GPU para todos os seus jogos e apps com gráficos mais exigentes.");
 	    produto3.setCategoria(celular);
 	    // MKT
 	    produto3.setPromocao_pro(true);
@@ -357,10 +269,11 @@ public class EncherBanco {
 	    produto3.setDeleted_at(null);
 	    produto3.setDeleted(false);
 		
+		
 		Produto produto4 = new Produto();
 	    
-	    produto4.setNome_pro("Cafeteira Elétrica Philips Walita RI7546");
-	    produto4.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	    produto4.setNome_pro("Console PlayStation 4 500GB");
+	    produto4.setDescricao_pro("O PlayStation 4 é o melhor lugar para jogar jogos dinâmicos e conectados, com gráfico rico e alta velocidade, personalização inteligente, funcionalidades sociais altamente integradas e recursos de segunda tela inovadores. Combinando conteúdo sem igual, experiências de jogo envolventes, todos os seus aplicativos favoritos de entretenimento digital e as exclusividades do PlayStation, o PS4 é centrado nos jogadores, permitindo-lhes que joguem quando, onde e como quiserem. O PS4 permite que os melhores desenvolvedores de jogos do mundo liberem sua criatividade e estendam os limites do jogo por meio de um sistema que está sintonizado especificamente com suas necessidades");
 	    produto4.setCategoria(games);
 	    // MKT
 	    produto4.setPromocao_pro(true);
@@ -379,11 +292,12 @@ public class EncherBanco {
 	    produto4.setDeleted_at(null);
 	    produto4.setDeleted(false);
 		
+		
 		Produto produto5 = new Produto();
 	    
-	    produto5.setNome_pro("Samsung test");
-	    produto5.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto5.setCategoria(eletronico);
+	    produto5.setNome_pro("Mouse Wireless WM126 Preto - Dell");
+	    produto5.setDescricao_pro("O mouse óptico wireless WM126 da Dell oferece performance wireless para uso diário com excelente duração da bateria. Ele foi projetado para criar um espaço de trabalho organizado com uma conexão RF wireless e plug-and-play confiável.");
+	    produto5.setCategoria(acessorios);
 	    // MKT
 	    produto5.setPromocao_pro(true);
 	    produto5.setPublicado_pro(true);
@@ -401,10 +315,11 @@ public class EncherBanco {
 	    produto5.setDeleted_at(null);
 	    produto5.setDeleted(false);
 		
+	    
 		Produto produto6 = new Produto();
 	    
-	    produto6.setNome_pro("Samsung test");
-	    produto6.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	    produto6.setNome_pro("Mouse Sem Fio 2.4 Ghz Vermelho - Multilaser");
+	    produto6.setDescricao_pro("Ideal para facilitar seu trabalho e te ajudar na praticidade, chegou o Mouse Sem Fio, da Multilaser. Ele tem design compacto, facilitando seu armazenamento e transporte. Cheio de estilo com acabamento brilhante. Confira esta oportunidade! ");
 	    produto6.setCategoria(acessorios);
 	    // MKT
 	    produto6.setPromocao_pro(true);
@@ -423,11 +338,12 @@ public class EncherBanco {
 	    produto6.setDeleted_at(null);
 	    produto6.setDeleted(false);
 		
+		
 		Produto produto7 = new Produto();
 	    
-	    produto7.setNome_pro("Samsung test");
-	    produto7.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto7.setCategoria(celular);
+	    produto7.setNome_pro("Game FIFA 17 - PS4");
+	    produto7.setDescricao_pro("Com a tecnologia Frostbite, o FIFA 17 transforma a maneira de jogar, competir e se conectar emocionalmente ao jogo. O game insere você em experiências de futebol autênticas, trazendo jogadores de futebol cheios de profundidade e emoção e levando você a mundos novos e exclusivos do jogo. Você domina cada momento em campo com inovação total na maneira com que os jogadores pensam, se movimentam, interagem fisicamente com os adversários e executam ataques.");
+	    produto7.setCategoria(games);
 	    // MKT
 	    produto7.setPromocao_pro(true);
 	    produto7.setPublicado_pro(true);
@@ -445,11 +361,12 @@ public class EncherBanco {
 	    produto7.setDeleted_at(null);
 	    produto7.setDeleted(false);
 		
+		
 		Produto produto8 = new Produto();
 	    
-	    produto8.setNome_pro("Samsung test");
-	    produto8.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto8.setCategoria(games);
+	    produto8.setNome_pro("Alto Falante Eros E-18 Target Bass 4.5k 18 Polegadas 2250 W Rms 8r");
+	    produto8.setDescricao_pro("Resposta De Frequência: 30 ~ 1.000 Hz Sensibilidade (@ 1 W, 1 M) - Free-Air: 94.4 Db/Spl Potência Máxima (Rms): 2.250 W Potência Musical: 4.500 W Impedância Nominal:4 Ou 8 Ohms Resistência, Re: 3.0 Ou 6.0 Ohms / Vcc Área Do Cone: 0,120 Sq.M Freqüência De Ressonância: 34.5 Hz Volume Equivalente: 166.3 L Q Mecânico 8.948 (Qms) Q Elétrico: 0.412 (Qes) Q ");
+	    produto8.setCategoria(acessorios);
 	    // MKT
 	    produto8.setPromocao_pro(true);
 	    produto8.setPublicado_pro(true);
@@ -467,10 +384,11 @@ public class EncherBanco {
 	    produto8.setDeleted_at(null);
 	    produto8.setDeleted(false);
 		
+		
 		Produto produto9 = new Produto();
 	    
-	    produto9.setNome_pro("Samsung test");
-	    produto9.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+	    produto.setNome_pro("Kit Portão Eletrônico Deslizante Rossi Dz Nano Turbo 1/4 Hp");
+	    produto9.setDescricao_pro("Os Portões Deslizantes, Mais Conhecidos Como Portões De Correr, Abrem Por Deslizamentos Sobre Trilhos E Trabalham Com Trilho Inferiores Ou Superiores, Bem Aceitos No Mercado, Usados Em Residências, Prédios, Condomínios E Fábricas, Por Serem Mais Práticos E Rápidos");
 	    produto9.setCategoria(eletronico);
 	    // MKT
 	    produto9.setPromocao_pro(true);
@@ -489,11 +407,12 @@ public class EncherBanco {
 	    produto9.setDeleted_at(null);
 	    produto9.setDeleted(false);
 		
+		
 		Produto produto10 = new Produto();
 	    
-	    produto10.setNome_pro("Samsung test");
-	    produto10.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto10.setCategoria(acessorios);
+	    produto10.setNome_pro("Eletrônico Teclado Com Senha + Chave Sos Modelo Osd170");
+	    produto10.setDescricao_pro("Cofre Digital, Senha Alterável De 3 Até 8 Dígitos, Teclado Com Beep Sonoro E Led Indicador Da Operação, Bloqueio Do Teclado Ao Erro De Senha Em Três Tentativas, Estrutura Sólida Em Aço, Abastecimento De Pilhas Internamente, Travamento Com Dois Pinos (Ferrolhos) Horizontais, Excelente Acabamento Com Revestimento,Funciona Com 4 Pilhas 34aa34, Pintura Epoxi, Espessura Da Porta: 3mm, Espessura Do Corpo: 1mm");
+	    produto10.setCategoria(eletronico);
 	    // MKT
 	    produto10.setPromocao_pro(true);
 	    produto10.setPublicado_pro(true);
@@ -511,11 +430,12 @@ public class EncherBanco {
 	    produto10.setDeleted_at(null);
 	    produto10.setDeleted(false);
 		
+		
 		Produto produto11 = new Produto();
 	    
-	    produto11.setNome_pro("Samsung test");
-	    produto11.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto11.setCategoria(celular);
+	    produto11.setNome_pro("Bateria Moura Estacionaria Vrla 12v 7a Para Nobreak Estabilizadores Alarmes Dispositivos Eletronico");
+	    produto11.setDescricao_pro("Bateria Moura Estacionaria VRLA 12V 7A para No-break Estabilizadores Alarmes Dispositivos Eletronicos Produzida sob rigoroso padrão internacional de qualidade de processo e com plataforma tecnologica de classe mundial, a Moura VRLA para aplicações estacionarias e a bateria ideal para equipamentos que demandem alta segurança, confiabilidade e autonomia. Capaz de suportar picos de descarga e com excelente disposição para aceitação de carga, a bateria regulada por valvulas da Moura e a melhor opção para clientes exigentes e que se preocupam com a relação custo-beneficio.");
+	    produto11.setCategoria(acessorios);
 	    // MKT
 	    produto11.setPromocao_pro(true);
 	    produto11.setPublicado_pro(true);
@@ -533,11 +453,12 @@ public class EncherBanco {
 	    produto11.setDeleted_at(null);
 	    produto11.setDeleted(false);
 		
+		
 		Produto produto12 = new Produto();
 	    
-	    produto12.setNome_pro("Samsung test");
-	    produto12.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto12.setCategoria(celular);
+	    produto12.setNome_pro("Capa Estepe Ecosport 03 A 17 Global Preta");
+	    produto12.setDescricao_pro("Capa De Estepe Ecosport 03 04 05 06 07 08 09 10 11 12 12 14 15 16 17 Global Branca Os Veículos Que Possuem Modelo Off Road Contam Com O Estepe Do Lado Externo, E Por Este Motivo Ficam Expostos As Chuvas E Outros Fatores Que Podem Ocasionar Corrosões E Prejudicar O Seu Futuro Desempenho.");
+	    produto12.setCategoria(acessorios);
 	    // MKT
 	    produto12.setPromocao_pro(true);
 	    produto12.setPublicado_pro(true);
@@ -558,9 +479,9 @@ public class EncherBanco {
 		
 		Produto produto13 = new Produto();
 	    
-	    produto13.setNome_pro("Samsung test");
-	    produto13.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto13.setCategoria(celular);
+	    produto13.setNome_pro("Capa Estepe Ecosport 03 A 17 Global Branca + Cadeado");
+	    produto13.setDescricao_pro("Capa De Estepe Ecosport 03 04 05 06 07 08 09 10 11 12 12 14 15 16 17 Global Branca Os Veículos Que Possuem Modelo Off Road Contam Com O Estepe Do Lado Externo, E Por Este Motivo Ficam Expostos As Chuvas E Outros Fatores Que Podem Ocasionar Corrosões E Prejudicar O Seu Futuro Desempenho.");
+	    produto13.setCategoria(acessorios);
 	    // MKT
 	    produto13.setPromocao_pro(true);
 	    produto13.setPublicado_pro(true);
@@ -578,11 +499,12 @@ public class EncherBanco {
 	    produto13.setDeleted_at(null);
 	    produto13.setDeleted(false);
 		
+		
 		Produto produto14 = new Produto();
 	    
-	    produto14.setNome_pro("Samsung test");
-	    produto14.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto14.setCategoria(celular);
+	    produto14.setNome_pro("Capa Estepe Nproduto12sport 2013 2014 2015 Bepo Prata Enseada");
+	    produto14.setDescricao_pro("Capa de Estepe Nova Ecosport 2013 2014 2015 Bepo Prata Enseada em ABS Rígido Desenvolvida pela Bepo, fabricante nacionalmente conhecida pela excelência em acessórios automotivos de alto padrão, a capa de estepe é uma peça instalada sobre o estepe traseiro da sua Nova Ecosport e um acessório ideal para quem procura proteção e estilo, com seu design moderno e sofisticado a mesma garante ao estepe alta segurança, pois acompanha trava anti-furto");
+	    produto14.categoria(acessorios);
 	    // MKT
 	    produto14.setPromocao_pro(true);
 	    produto14.setPublicado_pro(true);
@@ -600,11 +522,12 @@ public class EncherBanco {
 	    produto14.setDeleted_at(null);
 	    produto14.setDeleted(false);
 		
+		
 		Produto produto15 = new Produto();
 	    
-	    produto15.setNome_pro("Samsung test");
-	    produto15.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto15.setCategoria(eletronico);
+	    produto15.setNome_pro("Capota Maritima Montana 2011 A 2016 C/Trek Covertech");
+	    produto15.setDescricao_pro("Características Capota Com Trek De Nylon, Modelo Classic Da Covertech. Trek É O Sistema De Fechamento Da Capota, Com Trava Interna. O Que Dá Durabilidade, Estiramento E Segurança À Capota.");
+	    produto15.setCategoria(acessorios);
 	    // MKT
 	    produto15.setPromocao_pro(true);
 	    produto15.setPublicado_pro(true);
@@ -622,11 +545,12 @@ public class EncherBanco {
 	    produto15.setDeleted_at(null);
 	    produto15.setDeleted(false);
 		
+		
 		Produto produto16 = new Produto();
 	    
-	    produto16.setNome_pro("Samsung test");
-	    produto16.setDescricao_pro("testeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
-	    produto16.setCategoria(celular);
+	    produto16.setNome_pro("Jogo De Tapete Carpete Nova Montana 11 A 16 Bordado Preto 2 Peças");
+	    produto16.setDescricao_pro("Tapete Carpete Com Logo Bordado Para Montana 11 12 13 14 15 16. Deixe O Interior Do Seu Carro Mais Moderno E Sofisticado Garantindo Proteção, Segurança, Beleza E Durabilidade Com Nosso Jogo De Tapetes Personalizados.");
+	    produto16.setCategoria(acessorios);
 	    // MKT
 	    produto16.setPromocao_pro(true);
 	    produto16.setPublicado_pro(true);
@@ -670,102 +594,6 @@ public class EncherBanco {
 	    Imagem imagem6 = new Imagem();
 	    imagem6.setArquivo_ima("06.jpg");
 	    imagem6.setOrdem_ima(6);
-	    Imagem imagem7 = new Imagem();
-	    imagem7.setArquivo_ima("07.jpg");
-	    imagem7.setOrdem_ima(1);
-	    Imagem imagem8 = new Imagem();
-	    imagem8.setArquivo_ima("08.jpg");
-	    imagem8.setOrdem_ima(2);
-	    Imagem imagem9 = new Imagem();
-	    imagem9.setArquivo_ima("09.jpg");
-	    imagem9.setOrdem_ima(1);
-	    Imagem imagem10 = new Imagem();
-	    imagem10.setArquivo_ima("10.jpg");
-	    imagem10.setOrdem_ima(2);
-	    Imagem imagem11 = new Imagem();
-	    imagem11.setArquivo_ima("11.jpg");
-	    imagem11.setOrdem_ima(1);
-	    Imagem imagem12 = new Imagem();
-	    imagem12.setArquivo_ima("12.jpg");
-	    imagem12.setOrdem_ima(2);
-	    Imagem imagem13 = new Imagem();
-	    imagem13.setArquivo_ima("13.jpg");
-	    imagem13.setOrdem_ima(1);
-	    Imagem imagem14 = new Imagem();
-	    imagem14.setArquivo_ima("14.jpg");
-	    imagem14.setOrdem_ima(2);
-	    Imagem imagem15 = new Imagem();
-	    imagem15.setArquivo_ima("15.jpg");
-	    imagem15.setOrdem_ima(1);
-	    Imagem imagem16 = new Imagem();
-	    imagem16.setArquivo_ima("16.jpg");
-	    imagem16.setOrdem_ima(2);
-	    Imagem imagem17 = new Imagem();
-	    imagem17.setArquivo_ima("17.jpg");
-	    imagem17.setOrdem_ima(1);
-	    Imagem imagem18 = new Imagem();
-	    imagem18.setArquivo_ima("18.jpg");
-	    imagem18.setOrdem_ima(2);
-	    Imagem imagem19 = new Imagem();
-	    imagem19.setArquivo_ima("19.jpg");
-	    imagem19.setOrdem_ima(1);
-	    Imagem imagem20 = new Imagem();
-	    imagem20.setArquivo_ima("20.jpg");
-	    imagem20.setOrdem_ima(2);
-	    Imagem imagem21 = new Imagem();
-	    imagem21.setArquivo_ima("21.jpg");
-	    imagem21.setOrdem_ima(1);
-	    Imagem imagem22 = new Imagem();
-	    imagem22.setArquivo_ima("22.jpg");
-	    imagem22.setOrdem_ima(2);
-	    Imagem imagem23 = new Imagem();
-	    imagem23.setArquivo_ima("23.jpg");
-	    imagem23.setOrdem_ima(1);
-	    Imagem imagem24 = new Imagem();
-	    imagem24.setArquivo_ima("24.jpg");
-	    imagem24.setOrdem_ima(2);
-	    Imagem imagem25 = new Imagem();
-	    imagem25.setArquivo_ima("25.jpg");
-	    imagem25.setOrdem_ima(1);
-	    Imagem imagem26 = new Imagem();
-	    imagem26.setArquivo_ima("26.jpg");
-	    imagem26.setOrdem_ima(2);
-	    Imagem imagem27 = new Imagem();
-	    imagem27.setArquivo_ima("27.jpg");
-	    imagem27.setOrdem_ima(1);
-	    Imagem imagem28 = new Imagem();
-	    imagem28.setArquivo_ima("28.jpg");
-	    imagem28.setOrdem_ima(2);
-	    Imagem imagem29 = new Imagem();
-	    imagem29.setArquivo_ima("29.jpg");
-	    imagem29.setOrdem_ima(1);
-	    Imagem imagem30 = new Imagem();
-	    imagem30.setArquivo_ima("30.jpg");
-	    imagem30.setOrdem_ima(2);
-	    Imagem imagem31 = new Imagem();
-	    imagem31.setArquivo_ima("31.jpg");
-	    imagem31.setOrdem_ima(1);
-	    Imagem imagem32 = new Imagem();
-	    imagem32.setArquivo_ima("32.jpg");
-	    imagem32.setOrdem_ima(2);
-	    Imagem imagem33 = new Imagem();
-	    imagem33.setArquivo_ima("33.jpg");
-	    imagem33.setOrdem_ima(1);
-	    Imagem imagem34 = new Imagem();
-	    imagem34.setArquivo_ima("34.jpg");
-	    imagem34.setOrdem_ima(2);
-	    Imagem imagem35 = new Imagem();
-	    imagem35.setArquivo_ima("35.jpg");
-	    imagem35.setOrdem_ima(1);
-	    Imagem imagem36 = new Imagem();
-	    imagem36.setArquivo_ima("36.jpg");
-	    imagem36.setOrdem_ima(2);
-	    Imagem imagem37 = new Imagem();
-	    imagem37.setArquivo_ima("37.jpg");
-	    imagem37.setOrdem_ima(1);
-	    Imagem imagem38 = new Imagem();
-	    imagem38.setArquivo_ima("38.jpg");
-	    imagem38.setOrdem_ima(2);
 	    
 		/*
 		 * 
@@ -775,53 +603,53 @@ public class EncherBanco {
 	    
 	    Banner banner = new Banner();
 	    
-	    banner.setArquivo_ban("banner.jpg");
+	    banner.setArquivo_ban("banner7.jpg");
 	    banner.setAtivo_ban(true);
 	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
+	    banner.setCreated_at(cal.getTime());
+		banner.setUpdated_at(cal.getTime());
+	    banner.setDeleted_at(null);
+	    banner.setDeleted(false);
 		
 	    Banner banner1 = new Banner();
+	    
+	    banner.setArquivo_ban("banner5.jpg");
+	    banner.setAtivo_ban(true);
+	    // Histórico
+	    banner1.setCreated_at(cal.getTime());
+		banner1.setUpdated_at(cal.getTime());
+	    banner1.setDeleted_at(null);
+	    banner1.setDeleted(false);
+		
+		Banner banner2 = new Banner();
 	    
 	    banner.setArquivo_ban("banner1.jpg");
 	    banner.setAtivo_ban(true);
 	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
+	    banner2.setCreated_at(cal.getTime());
+		banner2.setUpdated_at(cal.getTime());
+	    banner2.setDeleted_at(null);
+	    banner2.setDeleted(false);
 		
-		Banner banner2 = new Banner();
+		Banner banner3 = new Banner();
 	    
 	    banner.setArquivo_ban("banner2.jpg");
 	    banner.setAtivo_ban(true);
-	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
+	    // Histó
+	    banner3.setCreated_at(cal.getTime());
+		banner3.setUpdated_at(cal.getTime());
+	    banner3.setDeleted_at(null);
+	    banner3.setDeleted(false);
 		
-		Banner banner3 = new Banner();
+		Banner banner4 = new Banner();
 	    
 	    banner.setArquivo_ban("banner3.jpg");
 	    banner.setAtivo_ban(true);
 	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
-		
-		Banner banner4 = new Banner();
-	    
-	    banner.setArquivo_ban("banner4.jpg");
-	    banner.setAtivo_ban(true);
-	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
+	    banner4.setCreated_at(cal.getTime());
+		banner4.setUpdated_at(cal.getTime());
+	    banner4.setDeleted_at(null);
+	    banner4.setDeleted(false);
 		
 		
 		
@@ -934,29 +762,15 @@ public class EncherBanco {
 	          createEntityManagerFactory("produtos");
 	    EntityManager manager = factory.createEntityManager();
 
-	    manager.getTransaction().begin();
-	    // Cargos e permissoes
+	    manager.getTransaction().begin();   
+
 	    manager.persist(cargo);
 	    manager.flush();
 	    permissao.setCargo(cargo);
 	    manager.persist(permissao);
-	    
-	    manager.persist(cargo1);
 	    manager.flush();
-	    permissao1.setCargo(cargo1);
-	    manager.persist(permissao1);
-	    System.out.println("ID da permissao: " + permissao1.getId_permissao());
-
-	    // Funcionarios
 	    funcionario.setCargo(cargo);
-	    funcionario1.setCargo(cargo);
-	    funcionario2.setCargo(cargo1);
-	    funcionario3.setCargo(cargo1);
 	    manager.persist(funcionario);
-	    manager.persist(funcionario1);
-	    manager.persist(funcionario2);
-	    manager.persist(funcionario3);
-	    System.out.println("ID do funcionario: " + funcionario.getId_funcionario());
 	    
 	    System.out.println("--------------------------------------------------------------------------");
 	    System.out.println("ID da permissao: " + permissao.getId_permissao());
@@ -965,68 +779,11 @@ public class EncherBanco {
 	    System.out.println("--------------------------------------------------------------------------");
 	    System.out.println("-------------------------------------------------"+funcionario.getSenha_fun());
 	    
-	    manager.persist(celular);
+	    manager.persist(categoria);
 	    manager.flush();
-	    manager.persist(eletronico);
-	    manager.flush();
-	    manager.persist(games);
-	    manager.flush();
-	    manager.persist(acessorios);
-	    manager.flush();
-	    
-	    produto.setCategoria(celular);
-	    produto1.setCategoria(celular);
-	    produto2.setCategoria(celular);
-	    produto3.setCategoria(celular);
-	    produto4.setCategoria(eletronico);
-	    produto5.setCategoria(eletronico);
-	    produto6.setCategoria(eletronico);
-	    produto7.setCategoria(eletronico);
-	    produto8.setCategoria(games);
-	    produto9.setCategoria(games);
-	    produto10.setCategoria(games);
-	    produto11.setCategoria(games);
-	    produto12.setCategoria(acessorios);
-	    produto13.setCategoria(acessorios);
-	    produto14.setCategoria(acessorios);
-	    produto15.setCategoria(acessorios);
-	    produto16.setCategoria(celular);
-	    // Produtos e Imagens
+	    produto.setCategoria(categoria);
 	    manager.persist(produto);
 	    manager.flush();
-	    manager.persist(produto1);
-	    manager.flush();
-	    manager.persist(produto2);
-	    manager.flush();
-	    manager.persist(produto3);
-	    manager.flush();
-	    manager.persist(produto4);
-	    manager.flush();
-	    manager.persist(produto5);
-	    manager.flush();
-	    manager.persist(produto6);
-	    manager.flush();
-	    manager.persist(produto7);
-	    manager.flush();
-	    manager.persist(produto8);
-	    manager.flush();
-	    manager.persist(produto9);
-	    manager.flush();
-	    manager.persist(produto10);
-	    manager.flush();
-	    manager.persist(produto11);
-	    manager.flush();
-	    manager.persist(produto12);
-	    manager.flush();
-	    manager.persist(produto13);
-	    manager.flush();
-	    manager.persist(produto14);
-	    manager.flush();
-	    manager.persist(produto15);
-	    manager.flush();
-	    manager.persist(produto16);
-	    manager.flush();
-	    
 	    imagem1.setProduto(produto);
 	    imagem2.setProduto(produto);
 	    imagem3.setProduto(produto);
@@ -1039,52 +796,10 @@ public class EncherBanco {
 	    manager.persist(imagem4);
 	    manager.persist(imagem5);
 	    manager.persist(imagem6);
-	    imagem7.setProduto(produto1);
-	    imagem8.setProduto(produto1);
-	    imagem9.setProduto(produto2);
-	    imagem10.setProduto(produto2);
-	    imagem11.setProduto(produto3);
-	    imagem12.setProduto(produto3);
-	    imagem13.setProduto(produto4);
-	    imagem14.setProduto(produto4);
-	    imagem15.setProduto(produto5);
-	    imagem16.setProduto(produto5);
-	    imagem17.setProduto(produto6);
-	    imagem18.setProduto(produto6);
-	    imagem19.setProduto(produto7);
-	    imagem20.setProduto(produto7);
-	    imagem21.setProduto(produto8);
-	    imagem22.setProduto(produto8);
-	    imagem23.setProduto(produto9);
-	    imagem24.setProduto(produto9);
-	    imagem25.setProduto(produto10);
-	    imagem26.setProduto(produto10);
-	    imagem27.setProduto(produto11);
-	    imagem28.setProduto(produto11);
-	    imagem29.setProduto(produto12);
-	    imagem30.setProduto(produto12);
-	    imagem31.setProduto(produto13);
-	    imagem32.setProduto(produto13);
-	    imagem33.setProduto(produto14);
-	    imagem34.setProduto(produto14);
-	    imagem35.setProduto(produto15);
-	    imagem36.setProduto(produto15);
-	    imagem37.setProduto(produto16);
-	    imagem38.setProduto(produto16);
-	    
-	    banner.setProduto(produto);
-	    banner1.setProduto(produto1);
-	    banner2.setProduto(produto2);
-	    banner3.setProduto(produto3);
-	    banner4.setProduto(produto4);
 	    manager.persist(banner);
-	    manager.persist(banner1);
-	    manager.persist(banner2);
-	    manager.persist(banner3);
-	    manager.persist(banner4);
 
 	    System.out.println("--------------------------------------------------------------------------");
-	    System.out.println("ID da categoria: " + celular.getId_categoria());
+	    System.out.println("ID da categoria: " + categoria.getId_categoria());
 	    System.out.println("ID do produto: " + produto.getId_produto());
 	    System.out.println("ID da imagem: " + imagem1.getId_imagem());
 	    System.out.println("ID da imagem: " + imagem2.getId_imagem());
@@ -1097,17 +812,6 @@ public class EncherBanco {
 	    
 	    manager.persist(fornecedor);
 	    manager.flush();
-	    manager.persist(fornecedor1);
-	    manager.flush();
-	    manager.persist(fornecedor2);
-	    manager.flush();
-	    manager.persist(fornecedor3);
-	    manager.flush();
-	    manager.persist(fornecedor4);
-	    manager.flush();
-	    manager.persist(fornecedor5);
-	    manager.flush();
-	    
 	    prod_forn.setFornecedor(fornecedor);
 	    prod_forn.setProduto(produto);
 	    manager.persist(prod_forn);

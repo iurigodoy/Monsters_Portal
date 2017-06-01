@@ -89,6 +89,7 @@ public class BannerController {
 	public String Read(HttpSession session, Model model, Banner banner) {
 		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){
 			model.addAttribute("banners", dao.read());							//	Consulta o Banco e coloca na variável da página
+			model.addAttribute("produtos", dao_prod.read());
 			return "admin/Banner/read";											//	Consulta o Banco e coloca na variável da página
 		}																		//	Retorna para á página JSP
 		return "403";

@@ -121,10 +121,14 @@ public class Produto {
 	
 	// Outros M�todos
 	
-	public float calcularDesconto(float precoProduto){
-		float desconto = (float) (precoProduto * desconto_pro);
-		float precoDescontado = precoProduto - desconto;
-		return precoDescontado;
+	public Double calcularDesconto(Double precoProduto){
+		if(promocao_pro){
+			Double desconto = precoProduto * desconto_pro;
+			Double precoDescontado = precoProduto - desconto;
+			return precoDescontado;
+		} else {
+			return precoProduto;
+		}
 	}
 	
 	/*

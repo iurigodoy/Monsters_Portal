@@ -71,7 +71,6 @@
 	                          <th style="width: 25%">Localização</th>
 	                          <th style="width: 20%">Contato</th>
 	                          <th style="width: 25%">Outros</th>
-	                          <th style="width: 10%">#Editar</th>
 	                        </tr>
 	                      </thead>
 	                      <tbody>
@@ -79,7 +78,13 @@
 							<!--			^^^^			^^^^	-->
 					  		<c:if test="${ not cli.deleted }">
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="1">	
-	                      	  	<td><strong>${ cli.nome_cli }</strong><br>${ cli.email_cli }</td>
+	                      	  	<td><strong>${ cli.nome_cli }</strong><br>${ cli.email_cli }
+	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cli.id_cliente }">
+					                  <button type="button" data-id="${ cli.id_cliente }" class="btn btn-primary btn-xs Modal"
+					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
+						              <button type="button" data-id="${ cli.id_cliente }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
+									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
+						          </div></td>
 	                      	  	<td>${ cli.cep_cli } 
 	                      	  	<br> ${ cli.cidade_cli } - ${ cli.estado_cli }
 	                      	  	<br> ${ cli.endereco_cli } nº ${ cli.numero_cli } 
@@ -93,14 +98,6 @@
 	                      	  		<c:if test="${ cli.news_letter_cli }">	<i class="fa fa-lg fa-envelope blue" title="deseja receber a NewsLetter"></i></c:if>
 	                      	  		<c:if test="${ not cli.news_letter_cli }"><i class="fa fa-lg fa-envelope-o red" title="não deseja receber a NewsLetter"></i></c:if>
 	                      	  	</td>
-	                      	  	<td>
-	                      	  	  <div class="edition-buttons" id="edition-buttons_${ cli.id_cliente }">
-					                  <button type="button" data-id="${ cli.id_cliente }" class="btn btn-primary btn-xs Modal"
-					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
-						              <button type="button" data-id="${ cli.id_cliente }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
-						          </div>
-	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>
 	                      	  
@@ -109,9 +106,12 @@
 					  		<c:if test="${ cli.deleted }">
 	                      	  <tr id="tr_${ cli.id_cliente }" data-history="0">
              	  	
-	                      	  	<td>${ cli.nome_cli }<br>${ cli.email_cli }</td>
-	                      	  	<td><small>CPF:</small> ${ cli.cpf_cli }
-	                      	  	<br><small>CNPJ:</small> ${ cli.cnpj_cli }</td>
+	                      	  	<td>${ cli.nome_cli }<br>${ cli.email_cli }
+					              	<button type="button"							 data-id="${ cli.id_cliente }"
+					              	class="btn btn-success btn-xs restore-button" id="restore_${ cli.id_cliente }">
+									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
+					              	<i class="fa fa-refresh"></i> Restaurar</button>
+					            </td>
 	                      	  	<td>${ cli.cep_cli } 
 	                      	  	<br> ${ cli.cidade_cli } - ${ cli.estado_cli }
 	                      	  	<br> ${ cli.endereco_cli } nº ${ cli.numero_cli } 
@@ -124,12 +124,6 @@
 	                      	  		<c:if test="${ not cli.ativo_cli }">	<i class="fa fa-lg fa-unlock red"></i></c:if>
 	                      	  		<c:if test="${ cli.news_letter_cli }">	<i class="fa fa-lg fa-envelope blue"></i></c:if>
 	                      	  		<c:if test="${ not cli.news_letter_cli }"><i class="fa fa-lg fa-envelope-o red"></i></c:if>
-	                      	  	</td>
-	                      	  	<td>
-					              	<button type="button"							 data-id="${ cli.id_cliente }"
-					              	class="btn btn-success btn-xs restore-button" id="restore_${ cli.id_cliente }">
-									<!--													 (2) ^^^^^^^^^^^^^^^^^^^	-->
-					              	<i class="fa fa-refresh"></i> Restaurar</button>
 	                      	  	</td>
 	                      	  </tr>
 	                      	</c:if>

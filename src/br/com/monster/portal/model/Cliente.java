@@ -2,6 +2,7 @@ package br.com.monster.portal.model;
 
 import java.util.Date;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -121,6 +122,11 @@ public class Cliente {
 		String senha_cli_criptografada = new Crypt().criptografar(senha);
 		senha = senha_cli_criptografada;
 		return senha;
+	}
+	
+	public String getPrimeiroNome(){
+		String[] primeiroNome = nome_cli.split (Pattern.quote (" "));
+		return primeiroNome[0];
 	}
 	
 	/*

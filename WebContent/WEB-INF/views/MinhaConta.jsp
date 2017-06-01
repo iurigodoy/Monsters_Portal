@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="pt-BR" />
 
 <c:import url="Header.jsp" />
   <div class="container">
@@ -36,8 +36,8 @@
 					  	<td>
 					  	${ pedido.status_ped }
 					  	</td>
-					  	<td>R$ ${ pedido.preco_ped }</td>
-						<td>${ pedido.created_at }</td>
+					  	<td><fmt:formatNumber value="${ pedido.preco_total }" minFractionDigits="2" type="currency"/></td>
+						<td><fmt:formatDate value="${ pedido.created_at }" pattern="dd/MM/yyyy HH:mm"/></td>
 					  </tr>
 					</c:forEach>
 				  </tbody>

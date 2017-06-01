@@ -90,6 +90,7 @@ public class FuncionarioController {
 	public String read(HttpSession session, Model model) {
 		if(Permissoes.checar(session, EnumMetodo.LER, entidade)){					//	Consulta Permissão
 			model.addAttribute("funcionarios", dao.read());							//	Consulta o Banco e coloca na variável da página
+			model.addAttribute("cargos", cargo_dao.read());
 			return "admin/Funcionario/read";										//	Retorna para á página JSP
 		}
 		return "403";

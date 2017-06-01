@@ -40,9 +40,7 @@
                       <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
                         <ul class="dropdown-menu" role="menu">
-                          <li><a class="toolbox-history"><i class="fa fa-history"></i> Exibir Histórico</a>
-                          </li>
-                          <li><a class="toolbox-history-return"><i class="fa fa-history"></i> Voltar</a>
+                          <li><a href="<c:url value="/Admin/produto"/>"><i class="fa fa-cube"></i> Produtos</a>
                           </li>
                         </ul>
                       </li>
@@ -50,23 +48,27 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-                  
-					  		<c:forEach var="ban" items="${bans}">
-							<!--			^^^^			^^^^	-->
-					  		
-					  		<c:if test="${ not ban.deleted }">
-	                      	    ${ ban.pro.nome_pro }
-								${ ban.arquivo_ban }
-	                      	  	<strong>${ ban.ativo_ban }</strong>
-	                      	  	  <div class="edition-buttons" id="edition-buttons_${ ban.id_banner }">
-					                  <button type="button" data-id="${ ban.id_banner }" class="btn btn-primary btn-xs Modal"
-					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i> Editar</button>
-						              <button type="button" data-id="${ ban.id_banner }" class="btn btn-danger btn-xs delete-button"><i class="fa fa-trash-o"></i> Excluir</button>
-									  <!--							(2) ^^^^^^^^^^^^^^^^^^^ 	-->
-						          </div>
-	                      	</c:if>
-	                      	  
-                      		</c:forEach>
+                  	<c:forEach var="ban" items="${banners}">
+                      <div class="col-md-6">
+                        <div class="thumbnail">
+                          <div class="image view view-first">
+                            <img style="width: 100%; display: block;" src="<c:url value="/resources/imagens/banners/${ ban.arquivo_ban }"/>" alt="image" />
+                            <div class="mask">
+                              <p>${ ban.produto.nome_pro }</p>
+                              <div class="tools tools-bottom">
+                                <a href="#"><i class="fa fa-link"></i></a>
+                                <a href="#" data-id="${ ban.id_banner }" class="Modal"
+					                  		data-toggle="modal" data-target=".bs-modal" title="Editar"><i class="fa fa-pencil"></i></a>
+                                <a href="#" data-id="${ ban.id_banner }" class="delete-button" title="Excluir"><i class="fa fa-times"></i></a>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="caption">
+                            <p>${ ban.produto.nome_pro }</p>
+                          </div>
+                        </div>
+                      </div>
+                  	</c:forEach>
                   </div>
                 </div>
 					</div>
@@ -92,15 +94,22 @@
 
 				<!--	Input sem ícone 	-->
 				<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-				  <input type="text" name="arquivo_ban" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="${ ban.arquivo_ban }">
+				  <input type="hidden" name="arquivo_ban" class="form-control" placeholder="Arquivo Banner" title="Arquivo Banner" value="3.jpg">
 				</div>
 
-
+				<div class="col-md-12 col-sm-12 col-xs-12 form-group">
+				  <select name="produto.id_produto" class="form-control">
+					<c:forEach var="prod" items="${produtos}">
+					  <option value="${ prod.id_produto }">${ prod.nome_pro }</option>
+					</c:forEach>
+				  </select>
+				  <p>Não encontrou o produto certo? <a href="<c:url value="/Admin/produto"/>">Clique Aqui!</a></p>
+				</div>
+				
 				<!--	Booleano	-->
-
 				<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 				  <label>
-					<input type="checkbox" name="ativo_ban" class="js-switch"  title="Banner Ativo" value="${ ban.ativo_ban }"><i class="fa fa-plus"></i> Banner Ativo ?
+					<input type="checkbox" name="ativo_ban" class="js-switch"  title="Banner Ativo" value="${ ban.ativo_ban }"><i class="fa fa-eye"></i> Publicar
 				  </label>
 				</div>
 
@@ -130,7 +139,7 @@
 </script>
 
 <c:import url="../Footer.jsp" />
-<script type="text/javascript" charset="utf-8" src="<c:url value="resources/js/crud.js"/>"></script>
+<script type="text/javascript" charset="utf-8" src="<c:url value="/resources/js/crud.js"/>"></script>
 
 <div class="modal fade bs-modal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog modal-md">

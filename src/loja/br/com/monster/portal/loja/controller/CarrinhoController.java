@@ -30,6 +30,7 @@ public class CarrinhoController {
 	public String adiciona(Long id_prod, Long id_forn, Item item, HttpSession session) {
 		item.setProduto_has_fornecedor(dao.recarrega(id_prod, id_forn));
 		carrinho.adiciona(item);
+		carrinho.frete(session, item);
 		session.setAttribute("carrinho", carrinho);
 
 		return "redirect:carrinho";

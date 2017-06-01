@@ -91,8 +91,8 @@
 										<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-success btn-sm"
 											title="Desbloquear"><i class="fa fa-lock"></i></button>
 	                      	  	  	</c:if>
-									<button type="button" data-id="${ fun.id_funcionario }" class="btn btn-default btn-sm"
-										title="Relatório"><i class="fa fa-file-text-o"></i> Relatório</button>
+									<a href="<c:url value="/Admin/ProcurarRelatorios/${ fun.id_funcionario }"/>" target="blank" class="btn btn-default btn-sm"
+										title="Relatório"><i class="fa fa-file-text-o"></i> Relatório</a>
 						          </div>
 	                      	  	</td>
 	                      	  </tr>
@@ -145,46 +145,36 @@
 					<!--		Formulário		-->
 					<form action="<c:url value="CreateFuncionario"/>" method="POST" class="form-horizontal form-label-left input_mask">
 
-					<!--	Input sem ícone 	-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="nome_fun" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_fun }">
-					</div>
+                      <input type="hidden" name="foto_fun" value="teste.jpg">
 
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="cpf_fun" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.cpf_fun }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="celular_fun" class="form-control" placeholder="Celular" title="Celular" value="${ funcionario.celular_fun }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="senha_fun" class="form-control" placeholder="Senha" title="Senha" value="${ funcionario.senha_fun }">
-					</div>
-
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="foto_fun" class="form-control" placeholder="Foto" title="Foto" value="${ funcionario.foto_fun}">
-					</div>
-					<!--	Input com ícone
-							(Preferencial)  	-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <input type="text" name="email_fun" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_fun }">
-					  <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
-					</div>
-
-
-					<!--	Select com
-							Relacionamento		-->
-					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
-					  <select name="cargo.id_cargo" class="form-control">
-						<option value="0">Cargo</option>
-						<c:forEach var="cargo" items="${cargos}">
-						  <option value="${ cargo.id_cargo }">${ cargo.car_nome }</option>
-						</c:forEach>
-					  </select>
-					  <!-- exemplo para facilitar pro usuário -->
-					  <p>Não encontrou o cargo certo? <a href="<c:url value="/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
-					</div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <input type="text" name="nome_fun" class="form-control" placeholder="Nome" title="Nome" value="${ funcionario.nome_fun }">
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <input type="text" name="cpf_fun" class="form-control" placeholder="CPF" title="CPF" value="${ funcionario.cpf_fun }">
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <input type="text" name="celular_fun" class="form-control has-feedback-left" placeholder="Celular" title="Celular" value="${ funcionario.celular_fun }">
+				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-phone"></i></span>
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <input type="text" name="email_fun" class="form-control has-feedback-left" placeholder="Email" title="Email" value="${ funcionario.email_fun }">
+				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-envelope-o"></i></span>
+                      </div>
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+                        <input type="text" name="senha_fun" class="form-control has-feedback-left" placeholder="Senha" title="Senha" value="123456" readonly>
+				        <span class="form-control-feedback left" aria-hidden="true"><i class="fa fa-lock"></i></span>
+                      </div>
+                      
+                      <div class="col-md-12 col-sm-12 col-xs-12 form-group">
+	                        <select name="cargo.id_cargo" class="form-control">
+							  <option value="" selected>Cargo</option>
+						  	  <c:forEach var="cargo" items="${cargos}">
+	                          	<option value="${ cargo.id_cargo }">${ cargo.nome_car }</option>
+	                          </c:forEach>
+	                        </select>
+						  <p>Não encontrou o cargo certo? <a href="<c:url value="/Admin/cargo"/>" title="Editar Cargos">Clique aqui</a></p>
+                      </div>
 
 					<!--	Botão de envio	-->
 					<div class="btn-group pull-right">

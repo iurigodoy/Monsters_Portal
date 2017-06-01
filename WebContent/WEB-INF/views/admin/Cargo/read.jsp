@@ -30,7 +30,7 @@
             <div class="clearfix"></div>
             
 			<div class="row">
-              <div class="col-md-8 col-sm-12 col-xs-12">
+              <div class="col-md-7 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <ul class="nav navbar-right panel_toolbox">
@@ -43,7 +43,7 @@
                           </li>
                           <li><a class="toolbox-history-return"><i class="fa fa-history"></i> Voltar</a>
                           </li>
-                          <li><a class="toolbox-history"><i class="fa fa-users"></i> Funcionários</a>
+                          <li><a href="<c:url value="/Admin/funcionario"/>"><i class="fa fa-users"></i> Funcionários</a>
                           </li>
                         </ul>
                       </li>
@@ -54,8 +54,9 @@
                   	<div id="ajax-content-table">
                  		<table id="datatable-pt_br-responsivo" class="table table-striped table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
 	                      <thead>
-	                        <tr>
-	                          <th style="width: 45%">Nome</th>
+	                        <tr>	
+	                          <th style="width: 20%">Nome</th>
+	                          <th style="width: 60%">Permissões</th>
 	                          <th style="width: 20%">#Editar</th>
 	                        </tr>
 	                      </thead>
@@ -64,6 +65,9 @@
 					  		<c:if test="${ not car.deleted }">
 	                      	  <tr id="tr_${ car.id_cargo }" data-history="1">
 	                      	  	<td>${ car.nome_car }</td>
+	                      	  	<td>
+	                      	  	${ car.permissao.lerBanner }
+	                      	  	</td>
 	                      	  	<td>
 	                      	  	  <div class="edition-buttons" id="edition-buttons_${ car.id_cargo }">
 					                  <button type="button" data-id="${ car.id_cargo }" class="btn btn-primary btn-xs Modal"
@@ -77,6 +81,9 @@
 					  		<c:if test="${ car.deleted }">
 	                      	  <tr id="tr_${ car.id_cargo }" data-history="0">
 	                      	  	<td>${ car.nome_car }</td>
+	                      	  	<td>
+	                      	  	${ car.permissao.lerBanner }
+	                      	  	</td>
 	                      	  	<td>
 					              	<button type="button"							 data-id="${ car.id_cargo }"
 					              	class="btn btn-success btn-xs restore-button" id="restore_${ car.id_cargo }">
@@ -94,7 +101,7 @@
                 </div>
               </div>
 
-              <div class="col-md-4 col-sm-12 col-xs-12">
+              <div class="col-md-5 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
                     <h2><i class="fa fa-plus"></i> Cargo</h2>
@@ -121,7 +128,193 @@
 					<!--	Booleano	-->
 					<div class="col-md-12 col-sm-12 col-xs-12 form-group">
 					  <label>
-						<input type="checkbox" name="padrao_car" class="js-switch" title="Cargo Padrao" value="${ cargo.padrao_car }"> Cargo Padrao
+						<input type="checkbox" name="padrao_car" class="js-switch" title="Cargo Padrao" value="${ cargo.padrao_car }"> Cargo Padrão
+					  </label>
+					</div>
+					
+					<!--	Booleano	-->
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-clone"></i> Banner</h4>
+					  <label>
+						<input type="checkbox" name="lerBanner" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarBanner" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarBanner" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirBanner" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarBanner" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-sitemap"></i> Cargo</h4>
+					  <label>
+						<input type="checkbox" name="lerCargo" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarCargo" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarCargo" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirCargo" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarCargo" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-clone"></i> Categoria</h4>
+					  <label>
+						<input type="checkbox" name="lerCategoria" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarCategoria" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarCategoria" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirCategoria" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarCategoria" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-users"></i> Cliente</h4>
+					  <label>
+						<input type="checkbox" name="lerCliente" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarCliente" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarCliente" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirCliente" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarCliente" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-truck"></i> Fornecedor</h4>
+					  <label>
+						<input type="checkbox" name="lerFornecedor" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarFornecedor" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarFornecedor" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirFornecedor" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarFornecedor" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-users"></i> Funcionário</h4>
+					  <label>
+						<input type="checkbox" name="lerFuncionario" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarFuncionario" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarFuncionario" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirFuncionario" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarFuncionario" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-road"></i> Pedido</h4>
+					  <label>
+						<input type="checkbox" name="lerPedido" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarPedido" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarPedido" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirPedido" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarPedido" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
+					  </label>
+					</div>
+					<div class="col-md-6 col-sm-4 col-xs-12 form-group">
+					  <h4><i class="fa fa-cubes"></i> Produto</h4>
+					  <label>
+						<input type="checkbox" name="lerProduto" class="js-switch">
+						<i class="fa fa-eye"></i> Ler
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="criarProduto" class="js-switch">
+						<i class="fa fa-plus"></i> Criar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="atualizarProduto" class="js-switch">
+						<i class="fa fa-pencil"></i> Atualizar
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="excluirProduto" class="js-switch">
+						<i class="fa fa-trash-o"></i> Excluir
+					  </label><br>
+					  <label>
+						<input type="checkbox" name="restaurarProduto" class="js-switch">
+						<i class="fa fa-history"></i> Restaurar
 					  </label>
 					</div>
 

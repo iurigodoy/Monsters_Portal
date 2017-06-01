@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
-
+<fmt:setLocale value="pt-BR" />
 
 <c:import url="../Header.jsp" />
   <div class="content">
@@ -27,6 +27,36 @@
 				<i class="fa fa-warning"></i> ATENÇÃO: ESSE PORTAL e-COMMERCE É APENAS DEMONSTRATIVO, NÃO COMPRE PRODUTOS ATRAVÉS DELE!!!
 			  </strong>
 			</h3>
+			<div class="col-md-8 col-sm-6 col-xs-12">
+			  <table class="table table-striped dt-responsive nowrap" cellspacing="0" width="100%">
+				<thead>
+				 <tr>
+				 	<td>Produto</td>
+				 	<td>Preço</td>
+				 </tr>
+				</thead>
+				<tbody>
+				  <c:forEach var="item" items="${ carrinho.itens }">
+				  	<tr>
+				  	  <td>
+				  		<strong>${ item.produto_has_fornecedor.produto.nome_pro }</strong>
+					  </td>
+					  <td>
+				  	  	<fmt:formatNumber value="${ item.produto_has_fornecedor.produto.calcularDesconto(item.produto_has_fornecedor.preco_prod) }" minFractionDigits="2" type="currency"/>
+				  	  </td>
+					</tr>
+				  </c:forEach>
+				</tbody>
+			  </table>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-12">
+			  	<h4><i class="fa fa-truck"></i> Frete</h4>
+				<ul class="fa-ul">
+				  <li><i class="fa-li fa fa-money"></i> Valor: <fmt:formatNumber value="${ carrinho.valorFrete }" minFractionDigits="2" type="currency"/></li>
+				  <li><i class="fa-li fa fa-clock-o"></i> Entrega em: ${ carrinho.prazoEntrega } dias.</li>
+				</ul>
+			</div>
+			<h3>Total: <fmt:formatNumber value="${ carrinho.totalComFrete() }" minFractionDigits="2" type="currency"/></h3>
 			
 			<form:errors path="pedido.*"/>
 			  
@@ -38,22 +68,19 @@
 			  	<c:set var="now" value="<%=new java.util.Date()%>" />
 				<c:set var="id_produto"		value="${ produto.id_produto }"			scope="page" />
 				<c:set var="frete"			value="0.00"							scope="page" />
-				<c:set var="ped_preco"		value="${ produto.preco_produto }"		scope="page" />
 				
 				<h3>${ produto.nome_produto }</h3>
 			  </c:forEach>
 			</div>
 		  </div>
 		  <div class="row">
-		   <div class="col-xs-2"></div>
-			<div class="col-xs-8">
+			<div class="col-xs-offset-2 col-xs-8">
 			  <div id="accordion_pay" class="panel-group">
+				<div class="col-xs-12">
 				  <div class="panel panel-default">
-				
-					
 					<a href="#boleto" data-toggle="collapse" data-parent="#accordion_pay" data-target="#collapse1">
 					  <div class="panel-heading">
-						<h4><i class="fa fa-barcode"></i> Boleto <strong class="red">Frete não incluido</strong></h4>
+						<h4><i class="fa fa-barcode"></i> Boleto</h4>
 					  </div>
 					</a>
 					  <div id="collapse1" class="panel-collapse collapse">
@@ -62,7 +89,7 @@
 						  <input type="hidden" name="numero_ped"					value="0000000000">
 						  <input type="hidden" name="preco_ped"						value="${carrinho.total}">
 						  <input type="hidden" name="custo_forma_de_pagamento_ped"	value="0.00">
-						  <input type="hidden" name="custo_frete_ped"				value="0.00">
+						  <input type="hidden" name="custo_frete_ped"				value="${carrinho.valorFrete}">
 						  <input type="hidden" name="status_ped"					value="0">
 						  <div class="panel-body">
 						  
@@ -83,10 +110,10 @@
 							</div>
 						  </div>
 						</form>
-					
+					  </div>
 					</div><!--/ panel -->
-				  </div><!--/ col-xs-6 -->
-				  
+				  </div><!--/ col-xs-12 -->
+				  <br>
 				  <div class="col-xs-6">
 				    <div class="panel panel-default">
 					  <a href="#paypal" data-toggle="collapse" data-parent="#accordion_pay" data-target="#collapse2">
@@ -106,7 +133,7 @@
 				  	  </div>
 					</div><!--/ panel -->
 				  </div><!--/ col-xs-6 -->
-				  
+				  <br>
 				  <div class="col-xs-6">
 				 	<div class="panel panel-default">
 					
