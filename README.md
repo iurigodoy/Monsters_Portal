@@ -1,7 +1,7 @@
 # Monsters_Portal
 Um sistema de portal e-commerce com ambiente administrativo desenvolvido para a faculdade pentágono como teste de conclusão de curso.
 
-![Monsters Portal Administrador Template](https://github.com/iurigodoy/Monsters_Portal/Dashboard.png "Monsters Portal Administrador Template")
+![Monsters Portal Administrador Template](https://github.com/iurigodoy/Monsters_Portal/blob/master/Dashboad.png "Monsters Portal Administrador Template")
 
 ## Funcionalidades
 ### Loja
