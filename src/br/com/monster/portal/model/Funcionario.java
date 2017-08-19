@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,8 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,7 +17,7 @@ import br.com.monster.portal.security.Crypt;
 
 @Entity
 @Table(name = "funcionario")
-public class Funcionario {
+public class Funcionario extends Historico {
 	
 	@Id
 	@GeneratedValue
@@ -28,55 +25,40 @@ public class Funcionario {
 	
 	@NotNull(message="{fun.nome.NotEmpty}")
 	@Size(min=3, max=200, message = "{fun.nome.Size}")
-	@Column(name = "fun_nome")				//Nome real dentro do banco
-	private String nome_fun;				//Nome do campo no sistema
+	@Column(name = "fun_nome")
+	private String nome_fun;
 	
 	@NotNull(message="{fun.cpf.NotEmpty}")
-	@Column(name = "fun_cpf", unique=true)	//Nome real dentro do banco
-	private String cpf_fun;					//Nome do campo no sistema
+	@Column(name = "fun_cpf", unique=true)
+	private String cpf_fun;
 	
 	
-	@Column(name = "fun_bloqueado")			//Nome real dentro do banco
-	private Boolean bloqueado_fun;			//Nome do campo no sistema
+	@Column(name = "fun_bloqueado")
+	private Boolean bloqueado_fun;
 	
 	@NotNull(message="{fun.foto.NotEmpty}")
 	@Size(min=1, max=100, message = "{fun.foto.Size}")
-	@Column(name = "fun_foto", unique=true)	//Nome real dentro do banco
-	private String foto_fun;				//Nome do campo no sistema
+	@Column(name = "fun_foto", unique=true)
+	private String foto_fun;
 	
 
-	@Column(name = "fun_residencial")		//Nome real dentro do banco
-	private String residencial_fun;			//Nome do campo no sistema
+	@Column(name = "fun_residencial")
+	private String residencial_fun;
 	
 	@NotNull(message="{fun.celular.NotEmpty}")
 	@Size(min=8, max=20, message = "{fun.celular.Size}")
-	@Column(name = "fun_celular")			//Nome real dentro do banco
-	private String celular_fun;				//Nome do campo no sistema
+	@Column(name = "fun_celular")
+	private String celular_fun;
 	
 	@NotNull(message="{fun.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{fun.email.Size}")
-	@Column(name = "fun_email", unique=true)//Nome real dentro do banco
-	private String email_fun;				//Nome do campo no sistema
+	@Column(name = "fun_email", unique=true)
+	private String email_fun;
 	
 	@NotNull(message="{fun.senha.NotEmpty}")
 	@Size(min=6, max=255, message = "{fun.senha.Size}")
-	@Column(name = "fun_senha")				//Nome real dentro do banco
-	private String senha_fun;				//Nome do campo no sistema
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
+	@Column(name = "fun_senha")
+	private String senha_fun;
 
 	/*
 	 |--------------------------------------
@@ -176,38 +158,6 @@ public class Funcionario {
 
 	public void setSenha_fun(String senha_fun) {
 		this.senha_fun = senha_fun;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Cargo getCargo() {

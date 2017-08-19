@@ -1,8 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -40,9 +38,6 @@ public class JpaProdutoDao implements ProdutoDao {
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
 	   
 		/*
 		 * -------------------------
@@ -62,18 +57,15 @@ public class JpaProdutoDao implements ProdutoDao {
 		
 		public void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedores) {
 			
-			boolean error; // n�o esque�a de colocar os fornecedores
+			boolean error; // TODO n�o esque�a de colocar os fornecedores
 			
-			produto.setCreated_at(cal.getTime());
-			produto.setUpdated_at(cal.getTime());
-			produto.setDeleted(false);
+			produto.criarHistorico();
 			
 			manager.persist(produto);
-			manager.flush();	// Manter a sess�o aberta
-			// Pega o Id do �ltimo dado inserido
+			manager.flush();
+			
 				produto.getId_produto();
 				
-				// Checa se o array est� correto e faz o la�o de repeti��o
 				if(null != imagens.getImagens() && imagens.getImagens().size() > 0) {
 					for (Imagem imagem : imagens.getImagens()) {
 						
@@ -102,7 +94,7 @@ public class JpaProdutoDao implements ProdutoDao {
 		 *  
 		 */
 	
-		public List<Produto> read() {
+		public List<Object> read() {
 	    	Query query = manager
 			        .createQuery("SELECT pro "
 			        		+ "FROM Produto pro "
@@ -111,7 +103,7 @@ public class JpaProdutoDao implements ProdutoDao {
 			        		+ "ORDER BY pro.nome_pro ");
 	    	
 			@SuppressWarnings("unchecked")
-			List<Produto> produtos = query.getResultList();
+			List<Object> produtos = query.getResultList();
 			return produtos;
 		}
 		
@@ -162,8 +154,9 @@ public class JpaProdutoDao implements ProdutoDao {
 		 *
 		 */
 		
-		public void update(Produto produto) {
-			produto.setUpdated_at(cal.getTime());
+		public void update(Object object) {
+			Produto produto = (Produto) object;
+			produto.atualizarHistorico();
 			manager.merge(produto);
 		}
 
@@ -184,13 +177,12 @@ public class JpaProdutoDao implements ProdutoDao {
 		 */
 
 	   public void delete(Long id) {
-		   Date datetime = cal.getTime();
 		   Query query = manager
 				   .createQuery("UPDATE Produto pro "
 				   				+ "SET pro.deleted = true, "
 				   				+ "pro.deleted_at = :Deleted_at "
    								+ "WHERE pro.id_produto = :id");
-			query.setParameter("Deleted_at", datetime);
+			query.setParameter("Deleted_at", Calendar.getInstance());
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
@@ -288,5 +280,9 @@ public class JpaProdutoDao implements ProdutoDao {
 			@SuppressWarnings("unchecked")
 			List<Produto> produtos = query.getResultList();
 			return produtos;
+		}
+
+		public void create(Object object) {
+			// TODO Auto-generated method stub
 		}
 }

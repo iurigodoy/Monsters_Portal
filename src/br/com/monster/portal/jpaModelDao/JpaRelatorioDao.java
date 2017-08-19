@@ -1,7 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -17,27 +16,13 @@ import br.com.monster.portal.modelDao.RelatorioDao;
 import br.com.monster.portal.security.EnumEntidade;
 import br.com.monster.portal.security.EnumMetodo;
 
-
-
-// Container do Spring
 @Repository
 public class JpaRelatorioDao implements RelatorioDao {
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
 	   
 	   public List<Relatorio> Find_One(Long id){
-			
 	    	Query query = manager
 			        .createQuery("SELECT relatorios "//16
 			        		+ "FROM Relatorio relatorios "
@@ -52,23 +37,14 @@ public class JpaRelatorioDao implements RelatorioDao {
 		   return relatorios;
 	   }
 	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
-		public void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidade) {
-			Relatorio relatorio = new Relatorio();
-			Funcionario funcionario = (Funcionario) session.getAttribute("administradorLogado");
-			
-			relatorio.setFuncionario(funcionario);
-			relatorio.setMetodo(metodo);
-			relatorio.setEntidade(entidade);
-			relatorio.setCreated_at(cal.getTime());
-			manager.persist(relatorio);
-	    }
+	public void gerarRelatorio(HttpSession session, EnumMetodo metodo, EnumEntidade entidade) {
+		Relatorio relatorio = new Relatorio();
+		Funcionario funcionario = (Funcionario) session.getAttribute("administradorLogado");
+
+		relatorio.setFuncionario(funcionario);
+		relatorio.setMetodo(metodo);
+		relatorio.setEntidade(entidade);
+		relatorio.setCreated_at(Calendar.getInstance());
+		manager.persist(relatorio);
+	}
 }

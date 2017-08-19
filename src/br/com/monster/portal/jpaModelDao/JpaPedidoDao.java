@@ -2,7 +2,6 @@ package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -19,98 +18,58 @@ import br.com.monster.portal.model.Produto_has_fornecedor;
 import br.com.monster.portal.modelDao.PedidoDao;
 import br.com.monster.portal.carrinho.Carrinho;
 
-
-
-// Container do Spring
 @Repository
 public class JpaPedidoDao implements PedidoDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Pedido> read() {
-			
+
+		public List<Object> read() {
 	    	Query query = manager
 			        .createQuery("SELECT ped "
 			        		+ "FROM Pedido ped "
 			        		+ "ORDER BY ped.created_at DESC");
 
 			@SuppressWarnings("unchecked")
-			List<Pedido> pedidos = query.getResultList();
-
+			List<Object> pedidos = query.getResultList();
 			return pedidos;
 		}
 	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-	   
 	   public Pedido findOne(Long id) {
-			
-			// Escreve a SQL
 			Query query = manager
 			        .createQuery("SELECT ped FROM Pedido ped "
 			        		+ "WHERE ped.id_pedido = :Id ");
-			
 			query.setParameter("Id", id);
 	
-				Pedido pedidos = (Pedido) query.getSingleResult();
-	
+			Pedido pedidos = (Pedido) query.getSingleResult();
 			return pedidos;
-			
 		}
 	   
 	   public Pedido findOneNoPay(Long id) {
-			
-			// Escreve a SQL
 			Query query = manager
 			        .createQuery("SELECT ped FROM Pedido ped "
 			        		+ "WHERE ped.id_pedido = :Id "
 			        		+ "AND ped.status_ped = 0 ");
-			
 			query.setParameter("Id", id);
-	
-				Pedido pedidos = (Pedido) query.getSingleResult();
-	
+			
+			Pedido pedidos = (Pedido) query.getSingleResult();
 			return pedidos;
 			
 		}
 	   
 	   public List<Pedido> Find_By_Date(Date data_pedido) {
-			
-			// Escreve a SQL
 			Query query = manager
 			        .createQuery("SELECT ped FROM Pedido ped "
 			        		+ "WHERE ped.data_pedido = :Date "
 			                + "ORDER BY ped.data_pedido ASC");
-			
 			query.setParameter("Date", (Date) data_pedido);
-	
-				@SuppressWarnings("unchecked")
-				List<Pedido> pedidos = query.getResultList();
-	
-			return pedidos;
 			
+			@SuppressWarnings("unchecked")
+			List<Pedido> pedidos = query.getResultList();
+			return pedidos;
 		}
 
 		public Object Find_pedido_boleto(String numb_ped) {
-			
-			// Escreve a SQL
 			Query query = manager
 			        .createQuery("SELECT ped "
 			        			+ "FROM Pedido ped INNER JOIN ped.cliente cli "
@@ -121,8 +80,7 @@ public class JpaPedidoDao implements PedidoDao {
 			
 			@SuppressWarnings("unchecked")
 			List<Pedido> pedidos = query.getResultList();
-
-		return pedidos;
+			return pedidos;
 		}
 
 		public List<Pedido> Find_ped_cli(Long id) {
@@ -138,26 +96,12 @@ public class JpaPedidoDao implements PedidoDao {
 		}
 	   
 	   
-	   
-	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
 		public Long create(Pedido pedido, Carrinho carrinho, Cliente cliente) {
 			
 			manager.merge(cliente);
 			manager.flush();
 			
-			pedido.setCliente(cliente);
-			pedido.setCreated_at(cal.getTime());
-			pedido.setUpdated_at(cal.getTime());
-			pedido.setDeleted(false);
+			pedido.criarHistorico();
 			
 			manager.persist(pedido);
 			manager.flush();
@@ -192,48 +136,25 @@ public class JpaPedidoDao implements PedidoDao {
 			}
 			return pedido.getId_pedido();
 	    }
-
-	   /*
-	    * ----------------------------------
-	    *			M�todo Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Pedido pedido) {
-			pedido.setUpdated_at(cal.getTime());
+		
+		public void update(Object object) {
+			Pedido pedido = (Pedido) object;
+			pedido.atualizarHistorico();
 			manager.merge(pedido);
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Delete			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Pedido ped "
 				   				+ "SET ped.deleted = true, "
 				   				+ "ped.deleted_at = :Deleted_at "
    								+ "WHERE ped.id_pedido = :id");
-			query.setParameter("Deleted_at", datetime);
+			query.setParameter("Deleted_at", Calendar.getInstance());
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Restore			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void restore(Long id) {
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Pedido ped "
 				   				+ "SET ped.deleted = false "
@@ -242,6 +163,8 @@ public class JpaPedidoDao implements PedidoDao {
 			query.executeUpdate();
 	   }
 
-
+	public void create(Object object) {
+		// TODO Auto-generated method stub
+	}
 	   
 }

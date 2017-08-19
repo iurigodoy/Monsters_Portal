@@ -1,8 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -11,62 +9,35 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import JpaUtil.JpaResultHelper;
 import br.com.monster.portal.model.Funcionario;
 import br.com.monster.portal.modelDao.FuncionarioDao;
 import br.com.monster.portal.security.Crypt;
 
-
-// Container do Spring
 @Repository
 public class JpaFuncionarioDao implements FuncionarioDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Funcionario> read() {
-			
+
+		public List<Object> read() {
 	    	Query query = manager
-			        .createQuery("SELECT fun "//16
+			        .createQuery("SELECT fun "
 			        		+ "FROM Funcionario fun");
 
 			@SuppressWarnings("unchecked")
-			List<Funcionario> funcionarios = query.getResultList();
-
+			List<Object> funcionarios = query.getResultList();
 			return funcionarios;
 		}
 	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-	   
 	   public Funcionario findOne(Long id){
-			
 	    	Query query = manager
 			        .createQuery("SELECT funcionario "//16
 			        		+ "FROM Funcionario funcionario "
 			        		+ "WHERE funcionario.id_funcionario = :Id");
 	    	
 			query.setParameter("Id", id);
-
 			Funcionario funcionario = (Funcionario) query.getSingleResult();
-			
-		   return funcionario;
+			return funcionario;
 	   }
 	   
 
@@ -91,75 +62,38 @@ public class JpaFuncionarioDao implements FuncionarioDao {
 							
 							+ "WHERE cargo.id_cargo IN "
 							+ "(SELECT cargo FROM Permissao perm)) ");
-
+			
 						query.setParameter("email", email);
 						query.setParameter("senha", senha);
 				
-				Funcionario funcionario = (Funcionario) JpaResultHelper.getSingleResultOrNull(query);		// armazena no Objeto
-				
+				Funcionario funcionario = (Funcionario) query.getSingleResult();
 				return funcionario;
 		}
 	   
-	   
-	   
-	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
-		public void create(Funcionario funcionario) {
-			funcionario.setCreated_at(cal.getTime());
-			funcionario.setUpdated_at(cal.getTime());
-			funcionario.setDeleted(false);
+		public void create(Object object) {
+			Funcionario funcionario = (Funcionario) object;
+			funcionario.criarHistorico();
 			 manager.persist(funcionario);
 	    }
 
-	   /*
-	    * ----------------------------------
-	    *			M�todo Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Funcionario funcionario) {
-			funcionario.setUpdated_at(cal.getTime());
+		public void update(Object object) {
+			Funcionario funcionario = (Funcionario) object;
+			funcionario.atualizarHistorico();
 			manager.merge(funcionario);
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Delete			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Funcionario fun "
 				   				+ "SET fun.deleted = true, "
 				   				+ "fun.deleted_at = :Deleted_at "
    								+ "WHERE fun.id_funcionario = :id");
-			query.setParameter("Deleted_at", datetime);
+			query.setParameter("Deleted_at", Calendar.getInstance());
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Restore			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void restore(Long id) {
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Funcionario fun "
 				   				+ "SET fun.deleted = false "

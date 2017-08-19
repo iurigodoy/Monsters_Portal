@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -11,14 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "cargo")
-public class Cargo {
+public class Cargo extends Historico {
 	
 	@Id
 	@GeneratedValue
@@ -26,27 +23,12 @@ public class Cargo {
 	
 	@NotNull(message="{car.nome.NotEmpty}")
 	@Size(min=2, max=100, message = "{car.nome.Size}")
-	@Column(name = "car_nome")			//Nome real dentro do banco
-	private String nome_car;			//Nome do campo no sistema
+	@Column(name = "car_nome")
+	private String nome_car;
 	
 	
-	@Column(name = "car_padrao")			//Nome real dentro do banco
-	private Boolean padrao_car;			//Nome do campo no sistema
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
+	@Column(name = "car_padrao")
+	private Boolean padrao_car;
 
 	/*
 	 |--------------------------------------
@@ -90,38 +72,6 @@ public class Cargo {
 
 	public void setPadrao_car(Boolean padrao_car) {
 		this.padrao_car = padrao_car;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Set<Funcionario> getFuncionario() {

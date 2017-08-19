@@ -1,7 +1,5 @@
 package br.com.monster.portal.jpaModelDao;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -13,26 +11,13 @@ import org.springframework.stereotype.Repository;
 import br.com.monster.portal.model.Banner;
 import br.com.monster.portal.modelDao.BannerDao;
 
-// Container do Spring
 @Repository
 public class JpaBannerDao implements BannerDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Banner> read() {
+
+		public List<Object> read() {
 			
 	    	Query query = manager
 			        .createQuery("SELECT ban "//16
@@ -41,11 +26,9 @@ public class JpaBannerDao implements BannerDao {
 			        		+ "ORDER BY ban.id_banner");
 
 			@SuppressWarnings("unchecked")
-			List<Banner> banners = query.getResultList();
-
+			List<Object> banners = query.getResultList();
 			return banners;
 		}
-		
 		
 		public List<Banner> Read_publico() {
 			
@@ -62,13 +45,6 @@ public class JpaBannerDao implements BannerDao {
 			return banners;
 		}
 	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-	   
 	   public Banner findOne(Long id){
 			
 	    	Query query = manager
@@ -82,43 +58,18 @@ public class JpaBannerDao implements BannerDao {
 			
 		   return banner;
 	   }
-	   
-	   
-	   
-	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
-		public void create(Banner banner) {
-			banner.setCreated_at(cal.getTime());
-			banner.setUpdated_at(cal.getTime());
-			banner.setDeleted(false);
+
+		public void create(Object object) {
+			Banner banner = (Banner) object;
+			banner.criarHistorico();
 			 manager.persist(banner);
 	    }
 
-	   /*
-	    * ----------------------------------
-	    *			M�todo Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Banner banner) {
-			banner.setUpdated_at(cal.getTime());
+		public void update(Object object) {
+			Banner banner = (Banner) object;
+			banner.atualizarHistorico();;
 			manager.merge(banner);
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Delete			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void delete(Long id) {
 		   Banner banner = findOne(id);
@@ -126,6 +77,7 @@ public class JpaBannerDao implements BannerDao {
 	   }
 
 	public void restore(Long id) {
+		// TODO
 	}
 	   
 }

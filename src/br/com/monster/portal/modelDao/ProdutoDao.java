@@ -13,8 +13,6 @@ import br.com.monster.portal.model.Produto;
  */
 
 public interface ProdutoDao extends MetodosBasicos {
-
-	List<Produto> read();
 	List<Produto> read_publico();
 	List<Produto> read_destacado();
 	List<Produto> findByName(String nome_prod);
@@ -23,5 +21,4 @@ public interface ProdutoDao extends MetodosBasicos {
 	Produto findOnePublic(Long id);
 	
 	void create(Produto produto, ImagemMultiple imagens, FornecedorMultiple fornecedor);
-	void update(Produto produto);
 }

@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -13,12 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 /*
  * @author Iuri Godoy
@@ -28,7 +23,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "produto")
-public class Produto {
+public class Produto extends Historico {
 
 	@Id
 	@GeneratedValue
@@ -36,63 +31,47 @@ public class Produto {
 
 	@NotNull(message="{pro.nome.NotEmpty}")
 	@Size(min=2, max=200, message = "{pro.nome.Size}")
-	@Column(name = "pro_nome", unique=true)			//Nome real dentro do banco
-	private String nome_pro;			//Nome do campo no sistema
+	@Column(name = "pro_nome", unique=true)
+	private String nome_pro;
 
 	@NotNull(message="{pro.descricao.NotEmpty}")
 	@Size(min=20, max=2000, message = "{pro.descricao.Size}")
-	@Column(name = "pro_descricao")			//Nome real dentro do banco
-	private String descricao_pro;			//Nome do campo no sistema
+	@Column(name = "pro_descricao")
+	private String descricao_pro;
 
 
-	@Column(name = "pro_publicado")			//Nome real dentro do banco
-	private Boolean publicado_pro;			//Nome do campo no sistema
+	@Column(name = "pro_publicado")
+	private Boolean publicado_pro;
 
-	@Column(name = "pro_destaque")			//Nome real dentro do banco
-	private Boolean destaque_pro;			//Define se o produto estará na primeira página
+	@Column(name = "pro_destaque")
+	private Boolean destaque_pro;
 
-	@Column(name = "pro_promocao")			//Nome real dentro do banco
-	private Boolean promocao_pro;			//Responsável por ativar o desconto
+	@Column(name = "pro_promocao")
+	private Boolean promocao_pro;
 
-	@Column(name = "pro_desconto")			//Nome real dentro do banco
+	@Column(name = "pro_desconto")
 	private Double desconto_pro = 0.00;		//  1.00 = 100%
 	
 
 	@NotNull(message="{pro.peso.NotEmpty}")
-	@Column(name = "pro_peso")				//Nome real dentro do banco
+	@Column(name = "pro_peso")
 	private Double peso_pro = 0.000;		// Padrão em quilogramas (kg)
 
 	@NotNull(message="{pro.altura.NotEmpty}")
-	@Column(name = "pro_altura")			//Nome real dentro do banco
+	@Column(name = "pro_altura")
 	private Double altura_pro = 0.000;		// Padrão em centímetros (cm)
 
 	@NotNull(message="{pro.largura.NotEmpty}")
-	@Column(name = "pro_largura")			//Nome real dentro do banco
+	@Column(name = "pro_largura")
 	private Double largura_pro = 0.000;		// Padrão em centímetros (cm)
 
 	@NotNull(message="{pro.comprimento.NotEmpty}")
-	@Column(name = "pro_comprimento")		//Nome real dentro do banco
+	@Column(name = "pro_comprimento")
 	private Double comprimento_pro = 0.000;	// Padrão em centímetros (cm)
 
 	@NotNull(message="{pro.diametro.NotEmpty}")
-	@Column(name = "pro_diametro")			//Nome real dentro do banco
+	@Column(name = "pro_diametro")
 	private Double diametro_pro = 0.000;	// Padrão em centímetros (cm)
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy'T'hh:mm:ss.SSSZ")
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
 
 	/*
 	 |--------------------------------------
@@ -231,38 +210,6 @@ public class Produto {
 
 	public void setDiametro_pro(Double diametro_pro) {
 		this.diametro_pro = diametro_pro;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Categoria getCategoria() {

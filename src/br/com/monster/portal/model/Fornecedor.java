@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -9,14 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "fornecedor")
-public class Fornecedor {
+public class Fornecedor extends Historico {
 	
 	@Id
 	@GeneratedValue
@@ -24,69 +21,54 @@ public class Fornecedor {
 	
 	@NotNull(message="{for.nome.NotEmpty}")
 	@Size(min=1, max=200, message = "{for.nome.Size}")
-	@Column(name = "for_nome")				//Nome real dentro do banco
-	private String nome_for;				//Nome do campo no sistema
+	@Column(name = "for_nome")
+	private String nome_for;
 	
 	@NotNull(message="{for.cnpj.NotEmpty}")
 	@Size(min=2, max=20, message = "{for.cnpj.Size}")
-	@Column(name = "for_cnpj")				//Nome real dentro do banco
-	private String cnpj_for;				//Nome do campo no sistema
+	@Column(name = "for_cnpj")
+	private String cnpj_for;
 	
 	@NotNull(message="{for.logo.NotEmpty}")
 	@Size(min=2, max=100, message = "{for.logo.Size}")
-	@Column(name = "for_logo", unique=true)	//Nome real dentro do banco
-	private String logo_for;				//Nome do campo no sistema
+	@Column(name = "for_logo", unique=true)
+	private String logo_for;
 	
 	@NotNull(message="{for.cep.NotEmpty}")
 	@Size(min=7, max=20, message = "{for.cep.Size}")
-	@Column(name = "for_cep")				//Nome real dentro do banco
-	private String cep_for;					//Nome do campo no sistema
+	@Column(name = "for_cep")
+	private String cep_for;
 	
 	@NotNull(message="{for.estado.NotEmpty}")
 	@Size(min=2, max=10, message = "{for.estado.Size}")
-	@Column(name = "for_estado")			//Nome real dentro do banco
-	private String estado_for;				//Nome do campo no sistema
+	@Column(name = "for_estado")
+	private String estado_for;
 	
 	@NotNull(message="{for.cidade.NotEmpty}")
 	@Size(min=3, max=50, message = "{for.cidade.Size}")
-	@Column(name = "for_cidade")			//Nome real dentro do banco
-	private String cidade_for;				//Nome do campo no sistema
+	@Column(name = "for_cidade")
+	private String cidade_for;
 	
 	@NotNull(message="{for.endereco.NotEmpty}")
 	@Size(min=6, max=50, message = "{for.endereco.Size}")
-	@Column(name = "for_endereco")			//Nome real dentro do banco
-	private String endereco_for;			//Nome do campo no sistema
+	@Column(name = "for_endereco")
+	private String endereco_for;
 	
-	@Column(name = "for_numero")			//Nome real dentro do banco
-	private String numero_for;				//Nome do campo no sistema
+	@Column(name = "for_numero")
+	private String numero_for;
 	
-	@Column(name = "for_complemento")		//Nome real dentro do banco
-	private String complemento_for;			//Nome do campo no sistema
+	@Column(name = "for_complemento")
+	private String complemento_for;
 	
 	@NotNull(message="{for.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{for.email.Size}")
-	@Column(name = "for_email", unique=true)//Nome real dentro do banco
-	private String email_for;				//Nome do campo no sistema
+	@Column(name = "for_email", unique=true)
+	private String email_for;
 	
 	@NotNull(message="{for.comercial.NotEmpty}")
 	@Size(min=3, max=20, message = "{for.comercial.Size}")
-	@Column(name = "for_comercial")			//Nome real dentro do banco
-	private String comercial_for;			//Nome do campo no sistema
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
+	@Column(name = "for_comercial")
+	private String comercial_for;
 
 	/*
 	 |--------------------------------------
@@ -191,38 +173,6 @@ public class Fornecedor {
 
 	public void setComercial_for(String comercial_for) {
 		this.comercial_for = comercial_for;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Set<Produto_has_fornecedor> getProduto_has_fornecedor() {

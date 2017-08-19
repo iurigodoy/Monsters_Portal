@@ -18,27 +18,27 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "pedido")
-public class Pedido {
+public class Pedido extends Historico {
 	
 	@Id
 	@GeneratedValue
 	private Long id_pedido;
 	
 	@NotNull(message="{ped.numero.NotEmpty}")
-	@Column(name = "ped_numero")						//Nome real dentro do banco
-	private int numero_ped;								//Nome do campo no sistema
+	@Column(name = "ped_numero")
+	private int numero_ped;
 	
 	@NotNull(message="{ped.preco.NotEmpty}")
-	@Column(name = "ped_preco")							//Nome real dentro do banco
-	private Double preco_ped = 0.00;					//Nome do campo no sistema
+	@Column(name = "ped_preco")
+	private Double preco_ped = 0.00;
 	
 
-	@Column(name = "ped_custo_forma_de_pagamento")		//Nome real dentro do banco
-	private Double custo_forma_de_pagamento_ped = 0.00;	//Nome do campo no sistema
+	@Column(name = "ped_custo_forma_de_pagamento")
+	private Double custo_forma_de_pagamento_ped = 0.00;
 	
 	@NotNull(message="{ped.custo.frete.NotEmpty}")
-	@Column(name = "ped_custo_frete")					//Nome real dentro do banco
-	private Double custo_frete_ped = 0.00;				//Nome do campo no sistema
+	@Column(name = "ped_custo_frete")
+	private Double custo_frete_ped = 0.00;
 	
 	@NotNull(message="{ped.status.NotEmpty}")
 	@Column(name = "ped_status")						//Nome real dentro do banco
@@ -48,24 +48,8 @@ public class Pedido {
 														//	3 = cancelado
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "ped_entrega_data")					//Nome real dentro do banco
-	private Date data_entrega_ped;						//Nome do campo no sistema
-	
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
+	@Column(name = "ped_entrega_data")
+	private Date data_entrega_ped;
 
 	/*
 	 |--------------------------------------
@@ -148,38 +132,6 @@ public class Pedido {
 
 	public void setData_entrega_ped(Date data_entrega_ped) {
 		this.data_entrega_ped = data_entrega_ped;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Cliente getCliente() {

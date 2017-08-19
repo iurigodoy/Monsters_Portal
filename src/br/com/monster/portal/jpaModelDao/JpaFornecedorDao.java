@@ -1,8 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,120 +12,58 @@ import org.springframework.stereotype.Repository;
 import br.com.monster.portal.model.Fornecedor;
 import br.com.monster.portal.modelDao.FornecedorDao;
 
-
-// Container do Spring
 @Repository
 public class JpaFornecedorDao implements FornecedorDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
 	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Fornecedor> read() {
-			
+		public List<Object> read() {
 	    	Query query = manager
 			        .createQuery("SELECT forn "//16
 			        		+ "FROM Fornecedor forn "
 			        		+ "ORDER BY forn.nome_for");
 
 			@SuppressWarnings("unchecked")
-			List<Fornecedor> fornecedores = query.getResultList();
-
+			List<Object> fornecedores = query.getResultList();
 			return fornecedores;
 		}
 	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-	   
-	   public Fornecedor findOne(Long id){
-			
-	    	Query query = manager
+	public Fornecedor findOne(Long id){
+		Query query = manager
 			        .createQuery("SELECT fornecedor "//16
 			        		+ "FROM Fornecedor fornecedor "
 			        		+ "WHERE fornecedor.id_fornecedor = :Id");
-	    	
-			query.setParameter("Id", id);
-
-			Fornecedor fornecedor = (Fornecedor) query.getSingleResult();
-			
-		   return fornecedor;
-	   }
+	    
+		query.setParameter("Id", id);
+		Fornecedor fornecedor = (Fornecedor) query.getSingleResult();
+		return fornecedor;
+	}
 	   
-	   
-	   
-	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
-		public void create(Fornecedor fornecedor) {
-			fornecedor.setCreated_at(cal.getTime());
-			fornecedor.setUpdated_at(cal.getTime());
-			fornecedor.setDeleted(false);
+		public void create(Object object) {
+			Fornecedor fornecedor = (Fornecedor) object;
+			fornecedor.criarHistorico();
 			 manager.persist(fornecedor);
 	    }
-
-	   /*
-	    * ----------------------------------
-	    *			M�todo Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Fornecedor fornecedor) {
-			fornecedor.setUpdated_at(cal.getTime());
+		
+		public void update(Object object) {
+			Fornecedor fornecedor = (Fornecedor) object;
+			fornecedor.atualizarHistorico();
 			manager.merge(fornecedor);
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Delete			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Fornecedor forn "
 				   				+ "SET forn.deleted = true, "
 				   				+ "forn.deleted_at = :Deleted_at "
    								+ "WHERE forn.id_fornecedor = :id");
-			query.setParameter("Deleted_at", datetime);
+			query.setParameter("Deleted_at", Calendar.getInstance());
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Restore			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void restore(Long id) {
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Fornecedor fornecedor "
 				   				+ "SET fornecedor.deleted = false "
@@ -135,5 +71,4 @@ public class JpaFornecedorDao implements FornecedorDao {
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
 }

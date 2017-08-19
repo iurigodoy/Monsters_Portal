@@ -1,8 +1,5 @@
 package br.com.monsterportal.encherbanco;
 
-import java.util.Calendar;
-import java.util.GregorianCalendar;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -19,9 +16,6 @@ import br.com.monster.portal.model.Produto_has_fornecedor;
 
 public class EncherBanco {
 	public static void main(String[] args) {
-		
-		//Pegar a hora
-		Calendar cal = new GregorianCalendar();
 		
 		/*
 		 * 
@@ -135,19 +129,13 @@ public class EncherBanco {
 
 		cargo.setNome_car("Super Usuário");
 		cargo.setPadrao_car(false);
-	    cargo.setCreated_at(cal.getTime());
-		cargo.setUpdated_at(cal.getTime());
-	    cargo.setDeleted_at(null);
-	    cargo.setDeleted(false);
+		cargo.criarHistorico();
 		
 		Cargo cargo1 = new Cargo();
 
 		cargo1.setNome_car("Medio Usuário");
 		cargo1.setPadrao_car(false);
-	    cargo1.setCreated_at(cal.getTime());
-		cargo1.setUpdated_at(cal.getTime());
-	    cargo1.setDeleted_at(null);
-	    cargo1.setDeleted(false);
+	    cargo1.criarHistorico();
 		
 		Funcionario funcionario = new Funcionario();
 
@@ -199,28 +187,10 @@ public class EncherBanco {
 		
 		
 	    // Histórico
-	    funcionario.setCreated_at(cal.getTime());
-		funcionario.setUpdated_at(cal.getTime());
-	    funcionario.setDeleted_at(null);
-	    funcionario.setDeleted(false);
-		
-	    // Histórico
-	    funcionario1.setCreated_at(cal.getTime());
-		funcionario1.setUpdated_at(cal.getTime());
-	    funcionario1.setDeleted_at(null);
-	    funcionario1.setDeleted(false);
-		
-	    // Histórico
-	    funcionario2.setCreated_at(cal.getTime());
-		funcionario2.setUpdated_at(cal.getTime());
-	    funcionario2.setDeleted_at(null);
-	    funcionario2.setDeleted(false);
-		
-	    // Histórico
-	    funcionario3.setCreated_at(cal.getTime());
-		funcionario3.setUpdated_at(cal.getTime());
-	    funcionario3.setDeleted_at(null);
-	    funcionario3.setDeleted(false);
+	    funcionario.criarHistorico();
+	    funcionario1.criarHistorico();
+	    funcionario2.criarHistorico();
+	    funcionario3.criarHistorico();
 
 		/*
 		 * 
@@ -231,39 +201,22 @@ public class EncherBanco {
 		Categoria celular = new Categoria();
 		celular.setNome_cat("celular");
 		celular.setHierarquia_cat(0);
-	    // Histórico
-	    celular.setCreated_at(cal.getTime());
-		celular.setUpdated_at(cal.getTime());
-	    celular.setDeleted_at(null);
-	    celular.setDeleted(false);
+	    celular.criarHistorico();
 		
 		Categoria eletronico = new Categoria();
 		eletronico.setNome_cat("eletronico");
 		eletronico.setHierarquia_cat(0);
-	    // Histórico
-	    eletronico.setCreated_at(cal.getTime());
-		eletronico.setUpdated_at(cal.getTime());
-	    eletronico.setDeleted_at(null);
-	    eletronico.setDeleted(false);
+	    eletronico.criarHistorico();
 		
 		Categoria acessorio = new Categoria();
 		acessorio.setNome_cat("acessorios");
 		acessorio.setHierarquia_cat(0);
-	    // Histórico
-	    acessorio.setCreated_at(cal.getTime());
-		acessorio.setUpdated_at(cal.getTime());
-	    acessorio.setDeleted_at(null);
-	    acessorio.setDeleted(false);
+	    acessorio.criarHistorico();
 		
 		Categoria games = new Categoria();
 		games.setNome_cat("games");
 		games.setHierarquia_cat(0);
-		
-	    // Histórico
-	    games.setCreated_at(cal.getTime());
-		games.setUpdated_at(cal.getTime());
-	    games.setDeleted_at(null);
-	    games.setDeleted(false);
+	    games.criarHistorico();
 
 		/*
 		 * 
@@ -290,11 +243,7 @@ public class EncherBanco {
 	    produto.setLargura_pro(20.000);
 	    produto.setComprimento_pro(20.000);
 	    produto.setDiametro_pro(20.000);
-	    // Histórico
-	    produto.setCreated_at(cal.getTime());
-		produto.setUpdated_at(cal.getTime());
-	    produto.setDeleted_at(null);
-	    produto.setDeleted(false);
+	    produto.criarHistorico();
 	    
 	    Produto produto1 = new Produto();
 	    
@@ -311,11 +260,7 @@ public class EncherBanco {
 	    produto1.setLargura_pro(20.000);
 	    produto1.setComprimento_pro(20.000);
 	    produto1.setDiametro_pro(20.000);
-	    // Histórico
-	    produto1.setCreated_at(cal.getTime());
-		produto1.setUpdated_at(cal.getTime());
-	    produto1.setDeleted_at(null);
-	    produto1.setDeleted(false);
+	    produto1.criarHistorico();
 		
 		
 		Produto produto2 = new Produto();
@@ -333,11 +278,7 @@ public class EncherBanco {
 	    produto2.setLargura_pro(20.000);
 	    produto2.setComprimento_pro(20.000);
 	    produto2.setDiametro_pro(20.000);
-	    // Histórico
-	    produto2.setCreated_at(cal.getTime());
-		produto2.setUpdated_at(cal.getTime());
-	    produto2.setDeleted_at(null);
-	    produto2.setDeleted(false);
+	    produto2.criarHistorico();
 		
 		Produto produto3 = new Produto();
 	    
@@ -354,11 +295,7 @@ public class EncherBanco {
 	    produto3.setLargura_pro(20.000);
 	    produto3.setComprimento_pro(20.000);
 	    produto3.setDiametro_pro(20.000);
-	    // Histórico
-	    produto3.setCreated_at(cal.getTime());
-		produto3.setUpdated_at(cal.getTime());
-	    produto3.setDeleted_at(null);
-	    produto3.setDeleted(false);
+	    produto3.criarHistorico();
 		
 		
 		Produto produto4 = new Produto();
@@ -376,11 +313,7 @@ public class EncherBanco {
 	    produto4.setLargura_pro(20.000);
 	    produto4.setComprimento_pro(20.000);
 	    produto4.setDiametro_pro(20.000);
-	    // Histórico
-	    produto4.setCreated_at(cal.getTime());
-		produto4.setUpdated_at(cal.getTime());
-	    produto4.setDeleted_at(null);
-	    produto4.setDeleted(true);
+	    produto4.criarHistorico();
 		
 		
 		Produto produto5 = new Produto();
@@ -398,11 +331,7 @@ public class EncherBanco {
 	    produto5.setLargura_pro(20.000);
 	    produto5.setComprimento_pro(20.000);
 	    produto5.setDiametro_pro(20.000);
-	    // Histórico
-	    produto5.setCreated_at(cal.getTime());
-		produto5.setUpdated_at(cal.getTime());
-	    produto5.setDeleted_at(null);
-	    produto5.setDeleted(false);
+	    produto5.criarHistorico();
 		
 	    
 		Produto produto6 = new Produto();
@@ -420,11 +349,7 @@ public class EncherBanco {
 	    produto6.setLargura_pro(20.000);
 	    produto6.setComprimento_pro(20.000);
 	    produto6.setDiametro_pro(20.000);
-	    // Histórico
-	    produto6.setCreated_at(cal.getTime());
-		produto6.setUpdated_at(cal.getTime());
-	    produto6.setDeleted_at(null);
-	    produto6.setDeleted(false);
+	    produto6.criarHistorico();
 		
 		
 		Produto produto7 = new Produto();
@@ -442,11 +367,7 @@ public class EncherBanco {
 	    produto7.setLargura_pro(20.000);
 	    produto7.setComprimento_pro(20.000);
 	    produto7.setDiametro_pro(20.000);
-	    // Histórico
-	    produto7.setCreated_at(cal.getTime());
-		produto7.setUpdated_at(cal.getTime());
-	    produto7.setDeleted_at(null);
-	    produto7.setDeleted(false);
+	    produto7.criarHistorico();
 		
 		
 		Produto produto8 = new Produto();
@@ -464,11 +385,7 @@ public class EncherBanco {
 	    produto8.setLargura_pro(20.000);
 	    produto8.setComprimento_pro(20.000);
 	    produto8.setDiametro_pro(20.000);
-	    // Histórico
-	    produto8.setCreated_at(cal.getTime());
-		produto8.setUpdated_at(cal.getTime());
-	    produto8.setDeleted_at(null);
-	    produto8.setDeleted(false);
+	    produto8.criarHistorico();
 		
 		
 		Produto produto9 = new Produto();
@@ -486,11 +403,7 @@ public class EncherBanco {
 	    produto9.setLargura_pro(20.000);
 	    produto9.setComprimento_pro(20.000);
 	    produto9.setDiametro_pro(20.000);
-	    // Histórico
-	    produto9.setCreated_at(cal.getTime());
-		produto9.setUpdated_at(cal.getTime());
-	    produto9.setDeleted_at(null);
-	    produto9.setDeleted(false);
+	    produto9.criarHistorico();
 		
 		
 		Produto produto10 = new Produto();
@@ -508,11 +421,7 @@ public class EncherBanco {
 	    produto10.setLargura_pro(20.000);
 	    produto10.setComprimento_pro(20.000);
 	    produto10.setDiametro_pro(20.000);
-	    // Histórico
-	    produto10.setCreated_at(cal.getTime());
-		produto10.setUpdated_at(cal.getTime());
-	    produto10.setDeleted_at(null);
-	    produto10.setDeleted(false);
+	    produto10.criarHistorico();
 		
 		
 		Produto produto11 = new Produto();
@@ -530,11 +439,7 @@ public class EncherBanco {
 	    produto11.setLargura_pro(20.000);
 	    produto11.setComprimento_pro(20.000);
 	    produto11.setDiametro_pro(20.000);
-	    // Histórico
-	    produto11.setCreated_at(cal.getTime());
-		produto11.setUpdated_at(cal.getTime());
-	    produto11.setDeleted_at(null);
-	    produto11.setDeleted(false);
+	    produto11.criarHistorico();
 		
 		
 		Produto produto12 = new Produto();
@@ -552,11 +457,7 @@ public class EncherBanco {
 	    produto12.setLargura_pro(20.000);
 	    produto12.setComprimento_pro(20.000);
 	    produto12.setDiametro_pro(20.000);
-	    // Histórico
-	    produto12.setCreated_at(cal.getTime());
-		produto12.setUpdated_at(cal.getTime());
-	    produto12.setDeleted_at(null);
-	    produto12.setDeleted(false);
+	    produto12.criarHistorico();
 		
 		
 		Produto produto13 = new Produto();
@@ -574,11 +475,7 @@ public class EncherBanco {
 	    produto13.setLargura_pro(20.000);
 	    produto13.setComprimento_pro(20.000);
 	    produto13.setDiametro_pro(20.000);
-	    // Histórico
-	    produto13.setCreated_at(cal.getTime());
-		produto13.setUpdated_at(cal.getTime());
-	    produto13.setDeleted_at(null);
-	    produto13.setDeleted(true);
+	    produto13.criarHistorico();
 		
 		
 		Produto produto14 = new Produto();
@@ -596,11 +493,7 @@ public class EncherBanco {
 	    produto14.setLargura_pro(20.000);
 	    produto14.setComprimento_pro(20.000);
 	    produto14.setDiametro_pro(20.000);
-	    // Histórico
-	    produto14.setCreated_at(cal.getTime());
-		produto14.setUpdated_at(cal.getTime());
-	    produto14.setDeleted_at(null);
-	    produto14.setDeleted(false);
+	    produto14.criarHistorico();
 		
 		
 		Produto produto15 = new Produto();
@@ -618,11 +511,7 @@ public class EncherBanco {
 	    produto15.setLargura_pro(20.000);
 	    produto15.setComprimento_pro(20.000);
 	    produto15.setDiametro_pro(20.000);
-	    // Histórico
-	    produto15.setCreated_at(cal.getTime());
-		produto15.setUpdated_at(cal.getTime());
-	    produto15.setDeleted_at(null);
-	    produto15.setDeleted(false);
+	    produto15.criarHistorico();
 		
 		
 		Produto produto16 = new Produto();
@@ -640,11 +529,7 @@ public class EncherBanco {
 	    produto16.setLargura_pro(20.000);
 	    produto16.setComprimento_pro(20.000);
 	    produto16.setDiametro_pro(20.000);
-	    // Histórico
-	    produto16.setCreated_at(cal.getTime());
-		produto16.setUpdated_at(cal.getTime());
-	    produto16.setDeleted_at(null);
-	    produto16.setDeleted(false);
+	    produto16.criarHistorico();
 		
 		
 		
@@ -810,54 +695,29 @@ public class EncherBanco {
 		 */
 	    
 	    Banner banner = new Banner();
-	    
-	    banner.setArquivo_ban("banner7.jpg");
-	    banner.setAtivo_ban(true);
-	    // Histórico
-	    banner.setCreated_at(cal.getTime());
-		banner.setUpdated_at(cal.getTime());
-	    banner.setDeleted_at(null);
-	    banner.setDeleted(false);
+	    banner.setArquivo("banner7.jpg");
+	    banner.setAtivo(true);
+	    banner.criarHistorico();
 		
 	    Banner banner1 = new Banner();
-	    
-	    banner1.setArquivo_ban("banner5.jpg");
-	    banner1.setAtivo_ban(true);
-	    // Histórico
-	    banner1.setCreated_at(cal.getTime());
-		banner1.setUpdated_at(cal.getTime());
-	    banner1.setDeleted_at(null);
-	    banner1.setDeleted(false);
+	    banner1.setArquivo("banner5.jpg");
+	    banner1.setAtivo(true);
+	    banner1.criarHistorico();
 		
 		Banner banner2 = new Banner();
-	    
-	    banner2.setArquivo_ban("banner1.jpg");
-	    banner2.setAtivo_ban(true);
-	    // Histórico
-	    banner2.setCreated_at(cal.getTime());
-		banner2.setUpdated_at(cal.getTime());
-	    banner2.setDeleted_at(null);
-	    banner2.setDeleted(false);
+	    banner2.setArquivo("banner1.jpg");
+	    banner2.setAtivo(true);
+	    banner2.criarHistorico();
 		
 		Banner banner3 = new Banner();
-	    
-	    banner3.setArquivo_ban("banner2.jpg");
-	    banner3.setAtivo_ban(true);
-	    // Histó
-	    banner3.setCreated_at(cal.getTime());
-		banner3.setUpdated_at(cal.getTime());
-	    banner3.setDeleted_at(null);
-	    banner3.setDeleted(false);
+	    banner3.setArquivo("banner2.jpg");
+	    banner3.setAtivo(true);
+	    banner3.criarHistorico();
 		
 		Banner banner4 = new Banner();
-	    
-	    banner4.setArquivo_ban("banner3.jpg");
-	    banner4.setAtivo_ban(true);
-	    // Histórico
-	    banner4.setCreated_at(cal.getTime());
-		banner4.setUpdated_at(cal.getTime());
-	    banner4.setDeleted_at(null);
-	    banner4.setDeleted(false);
+	    banner4.setArquivo("banner3.jpg");
+	    banner4.setAtivo(true);
+	    banner4.criarHistorico();
 		
 		
 		
@@ -947,35 +807,12 @@ public class EncherBanco {
 		
 		
 	    // Histórico
-	    fornecedor.setCreated_at(cal.getTime());
-		fornecedor.setUpdated_at(cal.getTime());
-	    fornecedor.setDeleted_at(null);
-	    fornecedor.setDeleted(false);
-	    // Histórico
-	    fornecedor1.setCreated_at(cal.getTime());
-		fornecedor1.setUpdated_at(cal.getTime());
-	    fornecedor1.setDeleted_at(null);
-	    fornecedor1.setDeleted(false);
-	    // Histórico
-	    fornecedor2.setCreated_at(cal.getTime());
-		fornecedor2.setUpdated_at(cal.getTime());
-	    fornecedor2.setDeleted_at(null);
-	    fornecedor2.setDeleted(false);
-	    // Histórico
-	    fornecedor3.setCreated_at(cal.getTime());
-		fornecedor3.setUpdated_at(cal.getTime());
-	    fornecedor3.setDeleted_at(null);
-	    fornecedor3.setDeleted(false);
-	    // Histórico
-	    fornecedor4.setCreated_at(cal.getTime());
-		fornecedor4.setUpdated_at(cal.getTime());
-	    fornecedor4.setDeleted_at(null);
-	    fornecedor4.setDeleted(false);
-	    // Histórico
-	    fornecedor5.setCreated_at(cal.getTime());
-		fornecedor5.setUpdated_at(cal.getTime());
-	    fornecedor5.setDeleted_at(null);
-	    fornecedor5.setDeleted(false);
+	    fornecedor.criarHistorico();
+	    fornecedor1.criarHistorico();
+	    fornecedor2.criarHistorico();
+	    fornecedor3.criarHistorico();
+	    fornecedor4.criarHistorico();
+	    fornecedor5.criarHistorico();
 	    
 	    /*
 	     * 

@@ -1,8 +1,6 @@
 package br.com.monster.portal.jpaModelDao;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -15,63 +13,38 @@ import br.com.monster.portal.model.Cargo;
 import br.com.monster.portal.model.Permissao;
 import br.com.monster.portal.modelDao.CargoDao;
 
-// Container do Spring
 @Repository
 public class JpaCargoDao implements CargoDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-	//Pegar a hora
-	Calendar cal = new GregorianCalendar();
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Read				
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de pesquisa
-	    * 
-	    */
-		public List<Cargo> read() {
-			
+
+		public List<Object> read() {
 	    	Query query = manager
-			        .createQuery("SELECT pro "//16
+			        .createQuery("SELECT pro "
 			        		+ "FROM Cargo pro "
 			        		+ "ORDER BY pro.id_cargo");
 
 			@SuppressWarnings("unchecked")
-			List<Cargo> cargos = query.getResultList();
-
+			List<Object> cargos = query.getResultList();
 			return cargos;
 		}
 	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Find_One			
-	    * ----------------------------------
-	    * 
-	    */
-	   
 	   public Cargo findOne(Long id){
-			
 	    	Query query = manager
-			        .createQuery("SELECT cargo "//16
+			        .createQuery("SELECT cargo "
 			        		+ "FROM Cargo cargo "
 			        		+ "WHERE cargo.id_cargo = :Id");
-	    	
 			query.setParameter("Id", id);
 
 			Cargo cargo = (Cargo) query.getSingleResult();
-			
-		   return cargo;
+			return cargo;
 	   }
 	   
 	   public Permissao findOnePermissao(Long id){
 			
 	    	Query query = manager
-			        .createQuery("SELECT permissao "//16
+			        .createQuery("SELECT permissao "
 			        		+ "FROM Permissao permissao "
 			        		+ "WHERE permissao.cargo.id_cargo = :Id");
 	    	
@@ -82,72 +55,35 @@ public class JpaCargoDao implements CargoDao {
 		   return permissao;
 	   }
 	   
-	   
-	   
-	   
-	
-	   /*
-	    * ----------------------------------
-	    *			M�todo Create			
-	    * ----------------------------------
-	    * 
-	    * A seguir m�todos de altera��o
-	    * 
-	    */
 		public void create(Cargo cargo, Permissao permissao) {
-			cargo.setCreated_at(cal.getTime());
-			cargo.setUpdated_at(cal.getTime());
-			cargo.setDeleted(false);
+			cargo.criarHistorico();
 			manager.persist(cargo);
 			permissao.setCargo(cargo);
 			manager.persist(permissao);
 	    }
 
-	   /*
-	    * ----------------------------------
-	    *			M�todo Update			
-	    * ----------------------------------
-	    * 
-	    */
-		public void update(Cargo cargo) {
-			cargo.setUpdated_at(cal.getTime());
+		public void update(Object object) {
+			Cargo cargo = (Cargo) object;
+			cargo.atualizarHistorico();;
 			manager.merge(cargo);
 		}
 		
 		public void updatePermissao(Permissao permissao) {
 			manager.persist(permissao);
 		}
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Delete			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void delete(Long id) {
-		   
-		   Date datetime = cal.getTime();
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Cargo pro "
 				   				+ "SET pro.deleted = true, "
 				   				+ "pro.deleted_at = :Deleted_at "
    								+ "WHERE pro.id_cargo = :id");
-			query.setParameter("Deleted_at", datetime);
+			query.setParameter("Deleted_at", Calendar.getInstance());
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
-	   /*
-	    * ----------------------------------
-	    *			M�todo Restore			
-	    * ----------------------------------
-	    * 
-	    */
 
 	   public void restore(Long id) {
-		   
 		   Query query = manager
 				   .createQuery("UPDATE Cargo pro "
 				   				+ "SET pro.deleted = false "
@@ -155,5 +91,8 @@ public class JpaCargoDao implements CargoDao {
 			query.setParameter("id", id);
 			query.executeUpdate();
 	   }
-	   
+
+	public void create(Object object) {
+		// TODO Auto-generated method stub
+	}
 }

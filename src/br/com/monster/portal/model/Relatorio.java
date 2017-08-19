@@ -1,6 +1,6 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
+import java.util.Calendar;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,7 +25,7 @@ public class Relatorio {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_at")
-	private Date created_at;
+	private Calendar created_at;
 
 	/*
 	 |--------------------------------------
@@ -56,12 +56,12 @@ public class Relatorio {
 		this.id_relatorio = id_relatorios;
 	}
 
-	public Date getCreated_at() {
+	public Calendar getCreated_at() {
 		return created_at;
 	}
 
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
+	public void setCreated_at(Calendar calendar) {
+		this.created_at = calendar;
 	}
 
 	public Funcionario getFuncionario() {

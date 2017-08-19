@@ -12,17 +12,11 @@ import br.com.monster.portal.model.Cliente;
 import br.com.monster.portal.model.Pedido;
 import br.com.monster.portal.modelDao.DashboardDao;
 
-
-
-// Container do Spring
 @Repository
 public class JpaDashboardDao implements DashboardDao {
-
 	
 	@PersistenceContext
 	EntityManager manager;
-	
-
 
 	/*
 	 * ---------------------

@@ -1,6 +1,5 @@
 package br.com.monster.portal.model;
 
-import java.util.Date;
 import java.util.Set;
 import java.util.regex.Pattern;
 
@@ -10,8 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,7 +16,7 @@ import br.com.monster.portal.security.Crypt;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente {
+public class Cliente extends Historico {
 
 	@Id
 	@GeneratedValue
@@ -27,85 +24,70 @@ public class Cliente {
 	
 	@NotNull(message="{cli.nome.NotEmpty}")
 	@Size(min=3, max=200, message = "{cli.nome.Size}")
-	@Column(name = "cli_nome")				//Nome real dentro do banco
-	private String nome_cli;				//Nome do campo no sistema
+	@Column(name = "cli_nome")
+	private String nome_cli;
 	
 	
-	@Column(name = "cli_cpf")				//Nome real dentro do banco
-	private String cpf_cli;					//Nome do campo no sistema
+	@Column(name = "cli_cpf")
+	private String cpf_cli;
 
 	
-	@Column(name = "cli_cnpj")				//Nome real dentro do banco
-	private String cnpj_cli;				//Nome do campo no sistema
+	@Column(name = "cli_cnpj")
+	private String cnpj_cli;
 
 
-	@Column(name = "cli_sexo")				//Nome real dentro do banco
-	private String sexo_cli;				//Nome do campo no sistema
+	@Column(name = "cli_sexo")
+	private String sexo_cli;
 
 	
-	@Column(name = "cli_ativo")				//Nome real dentro do banco
-	private Boolean ativo_cli;				//Nome do campo no sistema
+	@Column(name = "cli_ativo")
+	private Boolean ativo_cli;
 
 	@NotNull(message="{cli.senha.NotEmpty}")
 	@Size(min=6, max=255, message = "{cli.senha.Size}")
-	@Column(name = "cli_senha")				//Nome real dentro do banco
-	private String senha_cli;				//Nome do campo no sistema
+	@Column(name = "cli_senha")
+	private String senha_cli;
 
 
-	@Column(name = "cli_news_letter")		//Nome real dentro do banco
-	private Boolean news_letter_cli;		//Nome do campo no sistema
-
-	
-	@Column(name = "cli_cep")				//Nome real dentro do banco
-	private String cep_cli;					//Nome do campo no sistema
+	@Column(name = "cli_news_letter")
+	private Boolean news_letter_cli;
 
 	
-	@Column(name = "cli_estado")			//Nome real dentro do banco
-	private String estado_cli;				//Nome do campo no sistema
+	@Column(name = "cli_cep")
+	private String cep_cli;
 
 	
-	@Column(name = "cli_cidade")			//Nome real dentro do banco
-	private String cidade_cli;				//Nome do campo no sistema
+	@Column(name = "cli_estado")
+	private String estado_cli;
 
 	
-	@Column(name = "cli_endereco")			//Nome real dentro do banco
-	private String endereco_cli;			//Nome do campo no sistema
+	@Column(name = "cli_cidade")
+	private String cidade_cli;
 
 	
-	@Column(name = "cli_numero")			//Nome real dentro do banco
-	private String numero_cli;				//Nome do campo no sistema
+	@Column(name = "cli_endereco")
+	private String endereco_cli;
 
 	
-	@Column(name = "cli_complemento")		//Nome real dentro do banco
-	private String complemento_cli;			//Nome do campo no sistema
+	@Column(name = "cli_numero")
+	private String numero_cli;
 
 	
-	@Column(name = "cli_residencial")		//Nome real dentro do banco
-	private String residencial_cli;			//Nome do campo no sistema
+	@Column(name = "cli_complemento")
+	private String complemento_cli;
 
 	
-	@Column(name = "cli_celular")			//Nome real dentro do banco
-	private String celular_cli;				//Nome do campo no sistema
+	@Column(name = "cli_residencial")
+	private String residencial_cli;
+
+	
+	@Column(name = "cli_celular")
+	private String celular_cli;
 
 	@NotNull(message="{cli.email.NotEmpty}")
 	@Size(min=10, max=255, message = "{cli.email.Size}")
-	@Column(name = "cli_email", unique=true)//Nome real dentro do banco
-	private String email_cli;				//Nome do campo no sistema
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "created_at")
-	private Date created_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "updated_at")
-	private Date updated_at;
-
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "deleted_at")
-	private Date deleted_at;
-	
-	@Column(name = "deleted")
-	private Boolean deleted;
+	@Column(name = "cli_email", unique=true)
+	private String email_cli;
 
 	/*
 	 |--------------------------------------
@@ -269,38 +251,6 @@ public class Cliente {
 
 	public void setEmail_cli(String email_cli) {
 		this.email_cli = email_cli;
-	}
-
-	public Date getCreated_at() {
-		return created_at;
-	}
-
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
-	}
-
-	public Date getUpdated_at() {
-		return updated_at;
-	}
-
-	public void setUpdated_at(Date updated_at) {
-		this.updated_at = updated_at;
-	}
-
-	public Date getDeleted_at() {
-		return deleted_at;
-	}
-
-	public void setDeleted_at(Date deleted_at) {
-		this.deleted_at = deleted_at;
-	}
-
-	public Boolean getDeleted() {
-		return deleted;
-	}
-
-	public void setDeleted(Boolean deleted) {
-		this.deleted = deleted;
 	}
 
 	public Set<Pedido> getPedido() {
