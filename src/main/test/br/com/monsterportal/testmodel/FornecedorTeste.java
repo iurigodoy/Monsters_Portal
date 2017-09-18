@@ -1,8 +1,5 @@
 package br.com.monsterportal.testmodel;
 
-import java.util.Date;
-import java.util.GregorianCalendar;
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -21,8 +18,6 @@ public class FornecedorTeste {
 
 	@Test
 	public void test() {
-		// Pega a hora
-		Date hoje = new GregorianCalendar().getTime();
 		
 		Fornecedor obj = new Fornecedor();
 		
@@ -37,10 +32,7 @@ public class FornecedorTeste {
 				obj.setComplemento_for("Bloco 8 Apartamento 95" );
 				obj.setEmail_for("valentinaferragensgmail.com" );
 				obj.setComercial_for("(11) 4453-8914" );
-				obj.setCreated_at(hoje);
-				obj.setUpdated_at(hoje);
-				obj.setDeleted_at(null);
-				obj.setDeleted(false);
+				obj.criarHistorico();
 				
 				Assert.assertEquals("Valentina Ferragens",obj.getNome_for());
 				Assert.assertEquals("170258936457891234598",obj.getCnpj_for());
@@ -53,13 +45,5 @@ public class FornecedorTeste {
 				Assert.assertEquals("Bloco 8 Apartamento 95",obj.getComplemento_for());
 				Assert.assertEquals("valentinaferragensgmail.com",obj.getEmail_for());
 				Assert.assertEquals("(11) 4453-8914",obj.getComercial_for());
-				
-				
-		
-			    //	Padrão
-	    Assert.assertEquals(hoje, obj.getCreated_at());
-	    Assert.assertEquals(hoje, obj.getUpdated_at());
-	    Assert.assertEquals(null, obj.getDeleted_at());
-	    Assert.assertEquals(false, obj.getDeleted());
-			}
+	}
 }
