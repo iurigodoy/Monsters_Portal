@@ -1,9 +1,9 @@
 package br.com.monsterportal.testmodel;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import br.com.monster.portal.model.Cargo;
+import junit.framework.Assert;
 
 /*
  *
