@@ -1,5 +1,5 @@
 <project name="Projecto Monster Portal para a faculdade Pentágono">
-	<path id="JUnit 4.libraryclasspath">
+	<!--<path id="JUnit 4.libraryclasspath">
 	    <pathelement location="${JUNIT_HOME}/junit.jar"/>
 	    <pathelement location="${JUNIT_HOME}/hamcrest-core.jar"/>
 	</path>
@@ -8,7 +8,7 @@
 	    <path refid="JUnit 4.libraryclasspath"/>
 	</path>
 
-	<!--in your javac task include the classpath -->
+	<!--in your javac task include the classpath
 	<javac debug="true" debuglevel="${debuglevel}" destdir="your_bin_folder" source="${source}" target="${target}">
 	    <src path="src"/>
 	    <classpath refid="projectname.classpath"/>
@@ -19,7 +19,7 @@
 			<include name="*.jar" />
 		</fileset>
 		<pathelement path="target/classes/" />
-	</path>
+	</path> -->
 	
 	<target name="compile">
 		<mkdir dir="target/classes/"/>
