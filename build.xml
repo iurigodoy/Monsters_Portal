@@ -8,46 +8,24 @@
 	    <path refid="JUnit 4.libraryclasspath"/>
 	</path>
 
-	<!--in your javac task include the classpath
+	 in your javac task include the classpath
 	<javac debug="true" debuglevel="${debuglevel}" destdir="your_bin_folder" source="${source}" target="${target}">
 	    <src path="src"/>
 	    <classpath refid="projectname.classpath"/>
-	</javac>
+	</javac> -->
 	
 	<path id="tests.classpath" path=".">
 		<fileset dir="lib/">
 			<include name="*.jar" />
 		</fileset>
 		<pathelement path="target/classes/" />
-	</path> -->
+	</path>
 	
 	<target name="compile">
 		<mkdir dir="target/classes/"/>
 		<mkdir dir="target/classes-test/"/>
 		<javac destdir="target/classes/" srcdir="src" debug="true" encoding="UTF-8" />
 		<javac destdir="target/classes-test/" srcdir="src/test/java/" classpathref="tests.classpath" debug="true" encoding="UTF-8" />
-	</target>
-	
-	<target name="junit" depends="compile">
-	  <junit printsummary="yes" haltonfailure="no">
-
-		<!--
-			<classpath location="lib/junit-4.11.jar" />
-			<classpath location="lib/hamcrest-core-1.3.jar" />
-		-->
-		<classpath refid="test.path" />
-		<classpath location="${test.classes.dir}" />
-
-		<formatter type="xml" />
-		<formatter type="plain" />
-
-		<batchtest fork="yes" todir="${report.dir}">
-			<fileset dir="${test.dir}">
-				<include name="**/*Test*.java" />
-			</fileset>
-		</batchtest>
-
-	  </junit>
 	</target>
 	
 	<target name="test" depends="compile">
