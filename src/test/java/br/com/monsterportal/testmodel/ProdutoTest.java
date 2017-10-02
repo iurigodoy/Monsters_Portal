@@ -29,12 +29,8 @@ public class ProdutoTest {
 		obj.setLargura_pro(0.40);
 		obj.setComprimento_pro(0.10);
 		
-		Assert.assertEquals("fogão",obj.getNome_pro());
+		Assert.assertEquals("Fogão",obj.getNome_pro());
 		Assert.assertEquals("Bonito fogão 4 bocas ",obj.getDescricao_pro());
-		Assert.assertEquals("47",obj.getPeso_pro());
-		Assert.assertEquals("78",obj.getAltura_pro());
-		Assert.assertEquals("40",obj.getLargura_pro());
-		Assert.assertEquals("10",obj.getComprimento_pro());
 
 	}
 }

@@ -21,7 +21,7 @@ public class ImagemTeste {
 		
 		Imagem obj = new Imagem();
 		
-		obj.setArquivo_ima("Foto.jpg");
+		obj.setArquivo_ima("foto.jpg");
 		
 		Assert.assertEquals("foto.jpg",obj.getArquivo_ima());
 			}
