@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
+<<<<<<< HEAD
 	<classpathentry kind="src" path="src/test/java"/>
+=======
+>>>>>>> b3491090473cf41bd1ce7730d1b3dc0d0be2bd13
 	<classpathentry kind="src" path="src/main/resource">
 		<attributes>
 			<attribute name="ignore_optional_problems" value="true"/>
 		</attributes>
 	</classpathentry>
+<<<<<<< HEAD
+=======
+	<classpathentry kind="src" path="src/test/java"/>
+>>>>>>> b3491090473cf41bd1ce7730d1b3dc0d0be2bd13
 	<classpathentry exported="true" kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
