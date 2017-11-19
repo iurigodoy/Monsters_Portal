@@ -2,10 +2,9 @@
     <wb-module deploy-name="Monsters_Portal-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resource"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/test"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/loja"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
         <property name="context-root" value="Monsters_Portal"/>
         <property name="java-output-path" value="/Monsters_Portal/build/classes"/>
     </wb-module>
